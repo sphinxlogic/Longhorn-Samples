@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restartanimation_markup_using_id_csharp", "restartanimation_markup_using_id_csharp.csproj", "{D52178CA-1304-42CD-9CD7-03632D75F524}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D52178CA-1304-42CD-9CD7-03632D75F524}.Debug|.NET.ActiveCfg = Debug|.NET
+		{D52178CA-1304-42CD-9CD7-03632D75F524}.Debug|.NET.Build.0 = Debug|.NET
+		{D52178CA-1304-42CD-9CD7-03632D75F524}.Release|.NET.ActiveCfg = Release|.NET
+		{D52178CA-1304-42CD-9CD7-03632D75F524}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

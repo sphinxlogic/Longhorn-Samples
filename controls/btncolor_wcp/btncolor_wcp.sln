@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BtnColor_wcp", "BtnColor_wcp.csproj", "{7DF810FB-8BE4-4B62-8E7C-B74BA2914E68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DF810FB-8BE4-4B62-8E7C-B74BA2914E68}.Debug|.NET.ActiveCfg = Debug|.NET
+		{7DF810FB-8BE4-4B62-8E7C-B74BA2914E68}.Debug|.NET.Build.0 = Debug|.NET
+		{7DF810FB-8BE4-4B62-8E7C-B74BA2914E68}.Release|.NET.ActiveCfg = Release|.NET
+		{7DF810FB-8BE4-4B62-8E7C-B74BA2914E68}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,64 @@
+<Border ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  BorderBrush="#0055EA" 
+  BorderThickness="1,1,1,1"
+  Background="#FFF" 
+  Width="100%" 
+  Height="100%">
+
+<DockPanel>
+    <DockPanel DockPanel.Dock="Top" Background="#0055EA" Width="100%" Height="22">
+        <Image Source="Data\iemini.gif" DockPanel.Dock="left" VerticalAlignment="Center" />
+        <Text FontSize="12" Foreground="#FFF" VerticalAlignment="Top">"Longhorn" Platform Internet Explorer Layout Demo - Microsoft Internet Explorer</Text>
+        <Image Source="Data\windowctrl.gif" DockPanel.Dock="right" />
+    </DockPanel>
+
+
+    <DockPanel Dock="Top" Width="100%" Height="20" Background="#f5f5f5">
+	<GridPanel Columns="6" Width="300">
+		<Text FontSize="12">File</Text>
+		<Text FontSize="12">Edit</Text>     
+		<Text FontSize="12">View</Text>     
+		<Text FontSize="12">Favorites</Text>     
+		<Text FontSize="12">Tools</Text>     
+		<Text FontSize="12">Help</Text>
+    	</GridPanel>
+    </DockPanel>
+
+    <FlowPanel DockPanel.Dock="Top" Height="38" Background="#f5f5f5" Width="100%">
+        <Image Source="Data\backbutton.gif" />
+        <Image Source="Data\forwardbutton.gif" />
+        <Image Source="Data\stopbutton.gif" />
+        <Image Source="Data\refreshbutton.gif" />
+        <Image Source="Data\homebutton.gif" />
+        <Image Source="Data\searchbutton.gif" />
+        <Image Source="Data\favoritesbutton.gif" />
+        <Image Source="Data\mediabutton.gif" />
+        <Image Source="Data\historybutton.gif" />
+        <Image Source="Data\mailbutton.gif" />
+        <Image Source="Data\printbutton.gif" />
+        <Image Source="Data\composebutton.gif" />
+        <Image Source="Data\discussbutton.gif" />
+        <Image Source="Data\imbutton.gif" />
+    </FlowPanel>
+
+    <FlowPanel DockPanel.Dock="Top" Background="#f5f5f5" Height="29" Width="100%">
+        <Text FontSize="12" Foreground="#000" VerticalAlignment="Center">Address</Text>
+        <TextBox Width="90%" Height="80%" ID="tb">
+        <Image Source="Data\ieminiwhite.gif" />
+        </TextBox>
+    </FlowPanel>
+
+    <DockPanel DockPanel.Dock="Bottom" Background="#DFDFDF" Height="18" Width="100%">
+        <Image Source="Data\ieminigrey.gif" DockPanel.Dock="left"/>
+        <Image Source="Data\localintranet.gif" DockPanel.Dock="right"/>
+    </DockPanel>
+
+    <FlowPanel DockPanel.Dock="Fill">
+
+
+    </FlowPanel>
+
+</DockPanel>
+</Border>

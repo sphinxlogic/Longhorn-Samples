@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Thumb_wcp_vb", "Thumb_wcp_vb.vbproj", "{1AC5984A-1842-49FB-89DC-DD199D764570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AC5984A-1842-49FB-89DC-DD199D764570}.Debug|.NET.ActiveCfg = Debug|.NET
+		{1AC5984A-1842-49FB-89DC-DD199D764570}.Debug|.NET.Build.0 = Debug|.NET
+		{1AC5984A-1842-49FB-89DC-DD199D764570}.Release|.NET.ActiveCfg = Release|.NET
+		{1AC5984A-1842-49FB-89DC-DD199D764570}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,69 @@
+<FlowPanel ID="myFP"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Background="LightSkyBlue"
+	   Width="500"
+	   Height="500">
+
+    <FlowPanel Width="100%" Height="10" />
+    
+    <Text FontSize="18" FontWeight="Bold">TextWrap Property Sample</Text>
+
+    <FlowPanel Width="100%" Height="10" />
+
+    <Text FontSize="12" TextWrap="Wrap">Click any of the buttons below to see the different effects of the TextWrap Property.</Text>
+
+    <FlowPanel Width="100%" Height="10" />
+
+    <FlowPanel Width="100%">
+    	<Button ID="btn1" Background="Silver" Width="100" Height="35" Click="Wrap">Wrap</Button>
+    	<Button ID="btn2" Background="Silver" Width="100" Height="35" Click="NoWrap">NoWrap</Button>
+    	<Button ID="btn3" Background="Silver" Width="100" Height="35" Click="HardWrap">HardWrap</Button>
+    	<Button ID="btn4" Background="Silver" Width="100" Height="35" Click="Emergency">Emergency</Button>
+    </FlowPanel>
+
+    <FlowPanel Width="100%" Height="20" />
+
+    <Text ID="txt2" TextWrap="Wrap" Foreground="Black">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Lorem ipsum dolor sit aet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Text>
+
+    <FlowPanel Width="100%" Height="20" />
+
+
+    <Text FontSize="12" ID="txt1" DockPanel.Dock="Bottom">The TextWrap property is currently set to Wrap.</Text>
+
+
+  <def:Code>
+  <![CDATA[
+
+
+Sub Wrap(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.TextWrap = System.Windows.TextWrap.Wrap	
+	txt1.TextRange.Text = "The TextWrap property is currently set to Wrap."
+
+End Sub
+
+Sub NoWrap(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.TextWrap = System.Windows.TextWrap.NoWrap	
+	txt1.TextRange.Text = "The TextWrap property is currently set to NoWrap."
+
+End Sub
+
+Sub HardWrap(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.TextWrap = System.Windows.TextWrap.HardWrap	
+	txt1.TextRange.Text = "The TextWrap property is currently set to HardWrap."
+
+End Sub
+
+Sub Emergency(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.TextWrap = System.Windows.TextWrap.Emergency	
+	txt1.TextRange.Text = "The TextWrap property is currently set to Emergency."
+
+End Sub
+  ]]>
+  </def:Code>
+
+</FlowPanel>
+
+
+
+

@@ -1,0 +1,14 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property TargetName="ImageNotification" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="code" Include="ImageNotification.cs"/>
+    <Item Type="Components" Include="$(wcp)\System.Windows.Explorer.dll"/>
+  </ItemGroup>
+</Project>

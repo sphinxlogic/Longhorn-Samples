@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDocViewer", "MyDocViewer.csproj", "{1BA2F7C0-15C4-41CA-ACC7-03A6F8A4075B}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1BA2F7C0-15C4-41CA-ACC7-03A6F8A4075B}.Debug.ActiveCfg = Debug|.NET
+		{1BA2F7C0-15C4-41CA-ACC7-03A6F8A4075B}.Debug.Build.0 = Debug|.NET
+		{1BA2F7C0-15C4-41CA-ACC7-03A6F8A4075B}.Release.ActiveCfg = Release|.NET
+		{1BA2F7C0-15C4-41CA-ACC7-03A6F8A4075B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

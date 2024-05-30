@@ -1,0 +1,47 @@
+<Canvas xmlns="http://schemas.microsoft.com/2003/xaml"
+  Background="White">
+
+
+<!-- Line with flat ends -->
+  <Line Stroke="#000000" 
+  X1="50" 
+  Y1="50" 
+  X2="50" 
+  Y2="300"
+  StrokeThickness="20"
+  StrokeStartLineCap="Flat"
+  StrokeEndLineCap="Flat"
+  />
+<!-- Line with round ends -->
+  <Line Stroke="#000000" 
+  X1="100" 
+  Y1="50" 
+  X2="100" 
+  Y2="300"
+  StrokeThickness="20"
+  StrokeStartLineCap="Round"
+  StrokeEndLineCap="Round"
+  />
+<!-- Line with square ends -->
+  <Line Stroke="#000000" 
+  X1="150" 
+  Y1="50" 
+  X2="150" 
+  Y2="300"
+  StrokeThickness="20"
+  StrokeStartLineCap="Square"
+  StrokeEndLineCap="Square"
+  />
+<!-- Line with triangular ends -->
+  <Line Stroke="#000000" 
+  X1="200" 
+  Y1="50" 
+  X2="200" 
+  Y2="300"
+  StrokeThickness="20"
+  StrokeStartLineCap="Triangle"
+  StrokeEndLineCap="Triangle"
+  />
+  
+
+</Canvas>

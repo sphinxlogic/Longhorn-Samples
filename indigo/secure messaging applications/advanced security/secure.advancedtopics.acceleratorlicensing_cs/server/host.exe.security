@@ -1,0 +1,26 @@
+<securityData>
+    <credentials>
+        <userName id="mainUsers" nonceLength="24">
+            <memoryPasswordResolver>
+                <add user="joe" password="eoj" />
+            </memoryPasswordResolver>
+        </userName>
+    </credentials>
+    <tokens>
+        <tokenCache id="mainTokenCache">
+            <x509Token>
+                <certificate>
+                    <store location="currentUser" name="My" />
+                    <criteria type="subjectString">soap.tcp://localhost:46000/HelloService/</criteria>
+                </certificate>
+            </x509Token>
+        </tokenCache>
+    </tokens>
+    <authorizationData>
+        <memoryMapping id="mainAuthorizationData">
+            <globalEntries>
+                <userNameRoleAssignment user="joe" roles="MBClient" />
+            </globalEntries>
+        </memoryMapping>
+    </authorizationData>
+</securityData>

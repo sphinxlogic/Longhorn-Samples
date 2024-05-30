@@ -1,0 +1,28 @@
+<Border	ID="root"
+        xmlns="http://schemas.microsoft.com/2003/xaml/"
+        xmlns:def="Definition"
+	BorderThickness="2"
+	BorderBrush="black"
+	Background="LightGray"
+	Width="350"
+	Height="350">
+
+    <Canvas>
+
+      <Button ID="btn" Canvas.Top="40" Canvas.Left="40" Background="LightSkyBlue" Width="100" Height="35" Click="ChangeBG">Click Me to change the Background Color</Button>
+      <Text Canvas.Top="130" Canvas.Left="40" ID="Text1">Waiting for Click!</Text>
+  
+      <def:Code>
+      <![CDATA[
+    Sub ChangeBG(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	root.Background = System.Windows.Media.Brushes.LightSteelBlue	
+	btn.Content = "Clicked!"
+	Text1.TextRange.Text = "The background is now LightSteelBlue"
+
+    End Sub
+      ]]>
+      </def:Code>
+
+    </Canvas> 
+
+</Border>

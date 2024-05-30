@@ -1,0 +1,122 @@
+<Canvas ID="root"
+	xmlns="http://schemas.microsoft.com/2003/xaml"
+	xmlns:def="Definition">
+
+    <Button ID="openButton" Canvas.Top="50" Canvas.Left="50" Click="OpenButtonClick">Open</Button>
+    <Button ID="saveButton" Canvas.Top="50" Canvas.Left="150" Click="SaveButtonClick">Save</Button>
+    <Button ID="saveAsButton" Canvas.Top="50" Canvas.Left="250" Click="SaveAsButtonClick">Save As</Button>
+    <Button ID="clearButton" Canvas.Top="415" Canvas.Left="150" Click="ClearButtonClick">Clear</Button>
+    <TextBox ID="textBox"
+        Canvas.Top="100"
+        Canvas.Left="50"
+        Width="260"
+        Height="300"
+        Wrap="true"
+        AcceptsReturn="true"
+        AcceptsTab="true"
+        ScrollerVisibilityY="Auto" />
+    <def:Code>
+    <![CDATA[
+    
+    Private item As System.Windows.Explorer.Item
+    
+    Private Sub OpenButtonClick( ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs )
+        
+        Dim openFileDialog As System.Windows.Explorer.Dialogs.OpenFileDialog
+        openFileDialog = new System.Windows.Explorer.Dialogs.OpenFileDialog
+        
+        'Add some common Places to the dialog
+		openFileDialog.AddPlace( System.Windows.Explorer.SpecialFolder.CommonDocuments )
+		openFileDialog.AddPlace( new System.Windows.Explorer.Item( "library:document\allcategories" ) )
+        
+        
+        'Determine which file types to display in the dialog
+        Dim fileTypes() As System.Windows.Explorer.Dialogs.FileType = { _
+            New System.Windows.Explorer.Dialogs.FileType("XYZ files", "*.xyz"), _
+            New System.Windows.Explorer.Dialogs.FileType("HTML files", "*.htm"), _
+            New System.Windows.Explorer.Dialogs.FileType("All files", "*.*")}
+        openFileDialog.FileTypes = fileTypes
+        
+        'Display OpenFileDialog
+        If ( openFileDialog.ShowDialog( CType ( sender, UIElement ) ) = System.Windows.DialogResult.OK ) Then
+            item = openFileDialog.Result
+
+            Dim streamReader As System.IO.StreamReader = New System.IO.StreamReader ( item.FileSysPath )
+            textBox.Text = streamReader.ReadToEnd()
+        End If
+        
+    End Sub
+    
+    Private Sub ClearButtonClick( ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs )
+        
+        textBox.Clear()
+        item = Nothing
+        
+    End Sub
+    
+    Private Sub SaveButtonClick( ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs )
+		
+		If Not item Is Nothing Then
+			SaveFile( item.FileSysPath )
+		Else
+			'Create SaveFileDialog object
+			Dim saveFileDialog As System.Windows.Explorer.Dialogs.SaveFileDialog  = New System.Windows.Explorer.Dialogs.SaveFileDialog
+
+			'Define a default file name and extension
+			saveFileDialog.SuggestedSaveName = "Untitled"
+			saveFileDialog.DefaultExtension = "xyz"
+
+			'Display SaveFileDialog and check result
+			If( saveFileDialog.ShowDialog( CType ( sender, UIElement ) ) = System.Windows.DialogResult.OK )
+				SaveFile( saveFileDialog.Result.FileSysPath )
+			End If
+		End If
+		
+	End Sub
+	
+	Public Sub SaveAsButtonClick( ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs )
+		
+		If Not item Is Nothing Then
+			'Create SaveFileDialog object
+			Dim saveAsFileDialog As System.Windows.Explorer.Dialogs.SaveAsFileDialog  = New System.Windows.Explorer.Dialogs.SaveAsFileDialog
+			
+			'Display SaveFileDialog and check result
+			If( saveAsFileDialog.ShowDialog( CType ( sender, UIElement ) ) = System.Windows.DialogResult.OK )
+				SaveFile( saveAsFileDialog.Result.FileSysPath )
+				item = saveAsFileDialog.Result
+			End If
+		Else
+			'Create SaveFileDialog object
+			Dim saveFileDialog As System.Windows.Explorer.Dialogs.SaveFileDialog  = New System.Windows.Explorer.Dialogs.SaveFileDialog
+
+			'Define a default file name and extension
+			saveFileDialog.SuggestedSaveName = "Untitled"
+			saveFileDialog.DefaultExtension = "xyz"
+
+			'Display SaveFileDialog and check result
+			If( saveFileDialog.ShowDialog( CType ( sender, UIElement ) ) = System.Windows.DialogResult.OK )
+				SaveFile( saveFileDialog.Result.FileSysPath )
+            End If
+		End If
+		
+	End Sub
+		
+	
+	Private Sub SaveFile( ByVal filePath As String )
+	
+		'Write contents of TextBox to the selected file
+		Dim fileStream As System.IO.FileStream = New System.IO.FileStream( filePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write )
+		Dim streamWriter As System.IO.StreamWriter = New System.IO.StreamWriter( fileStream )
+
+		Try
+			streamWriter.Write( textBox.Text )
+		Finally
+			streamWriter.Close()
+			fileStream.Close()
+        End Try
+        
+	End Sub
+    
+    ]]>
+    </def:Code>
+</Canvas>

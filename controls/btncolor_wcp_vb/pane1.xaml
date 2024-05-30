@@ -1,0 +1,16 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="BtnColor_wcp_vb.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+  <Button ID="btn1" Background="Pink" Width="100" Height="50" Click="OnClick1">ClickMe1</Button>
+  <Button ID="btn2" Background="LightBlue" Width="100" Height="50" Click="OnClick2">ClickMe2</Button>
+  <Button ID="btn3" Width="150" Height="50" Click="OnClick3">Reset Colors</Button>
+
+
+
+</FlowPanel>

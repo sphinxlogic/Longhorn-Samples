@@ -1,0 +1,49 @@
+<DockPanel ID="root"
+   xmlns="http://schemas.microsoft.com/2003/xaml"
+   xmlns:def="Definition"
+   def:Class="MyDocViewerApplication.ListBoxUi"
+   def:CodeBehind="ListBoxUI.xaml.cs"
+   Loaded="Init"
+   DockPanel.Dock="Fill"
+   >
+
+        <DockPanel.Resources>
+          <Style def:Name="ScrollingListBox">
+            <ListBox/>
+              <Style.VisualTree>
+                <Border
+                   BorderThickness ="*Alias(Target=BorderThickness)"
+		   BorderBrush     ="*Alias(Target=BorderBrush)">
+		   <ScrollViewer Height="*Alias(Target=Height)" Width="*Alias(Target=Width)">
+		     <FlowPanel ID="ListBoxFlowPanel" ItemsControl.IsItemsHost="true"/>
+	           </ScrollViewer>
+		</Border>
+	      </Style.VisualTree>
+	  </Style>
+	  <Style def:Name="MyDataStyle">
+	    <ListItem/>
+              <Style.VisualTree>
+                <DockPanel Width="200px" Height="200px">
+                  <Text Text.FontSize="12" DockPanel.Dock="Top">
+		    <Text.TextContent>
+                      <Bind Path="Name"/>
+                    </Text.TextContent>
+                  </Text>
+                  <TransformDecorator Transform="scale 0.5 0.5" DockPanel.Dock="Fill" ClipToBounds="True">
+                    <Frame>
+                      <Frame.Source>
+                        <Bind Path="Name"/>
+                      </Frame.Source>
+                    </Frame>
+                  </TransformDecorator>
+		</DockPanel>
+              </Style.VisualTree>
+	  </Style>
+        </DockPanel.Resources>
+
+        <ListBox ID="TOC" ItemStyle="{MyDataStyle}" Style="{ScrollingListBox}" >
+          <ListBox.Items>
+            <CollectionContainer Collection="*Bind()"/>
+          </ListBox.Items>
+        </ListBox>
+</DockPanel>

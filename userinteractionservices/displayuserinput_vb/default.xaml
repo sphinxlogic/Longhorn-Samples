@@ -1,0 +1,23 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition">
+
+<Text FontSize="14" FontFamily="Arial"> Enter your name and then click Submit. Your name is displayed for you.</Text>
+<Text Canvas.Top="50" Canvas.Height="50" FontFamily="Arial">Your name:</Text>
+
+<TextBox ID="tb1" Canvas.Top="50" Canvas.Left="100" Canvas.Height="30" Canvas.Width="200"/>
+<Button Canvas.Top="150" Canvas.Width="100" Canvas.Height="50" Click="OnClick">Submit</Button>
+
+<Text ID="text1" Canvas.Top="200" Canvas.Left="200" FontSize="20" Foreground="Red" />
+
+  <def:Code>
+  <![CDATA[
+    Private Sub OnClick(ByVal sender as object, ByVal args as System.Windows.Controls.ClickEventArgs)
+      	text1.TextRange.Text= tb1.Text
+    End Sub
+
+  ]]>
+  </def:Code>
+
+</Canvas>
+

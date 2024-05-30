@@ -1,0 +1,11 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml">    
+    <Button DockPanel.Dock="Top"
+            Width="100"
+			Margin="10,10,10,10">Button 1</Button>         
+    <Button DockPanel.Dock="Top"
+            Width="100"
+			Margin="10,10,10,10">Button 2</Button>
+    <Button DockPanel.Dock="Top"
+            Width="100"
+			Margin="10,10,10,10">Button 3</Button>    
+</DockPanel>

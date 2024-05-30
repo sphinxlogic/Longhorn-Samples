@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloServiceMessageSessionClientCs", "VSProj\HelloServiceMessageSessionClientCs.csproj", "{248EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5} = {148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloServiceMessageSessionHostCs", "VSProj\HelloServiceMessageSessionHostCs.csproj", "{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5} = {348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloServiceMessageSessionServerCs", "VSProj\HelloServiceMessageSessionServerCs.csproj", "{348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{248EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Debug.ActiveCfg = Debug|.NET
+		{248EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Debug.Build.0 = Debug|.NET
+		{248EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Release.ActiveCfg = Release|.NET
+		{248EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Release.Build.0 = Release|.NET
+		{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Debug.ActiveCfg = Debug|.NET
+		{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Debug.Build.0 = Debug|.NET
+		{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Release.ActiveCfg = Release|.NET
+		{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Release.Build.0 = Release|.NET
+		{348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Debug.ActiveCfg = Debug|.NET
+		{348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Debug.Build.0 = Debug|.NET
+		{348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Release.ActiveCfg = Release|.NET
+		{348EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

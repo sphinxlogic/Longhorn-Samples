@@ -1,0 +1,6 @@
+      <Security>
+         <ApplicationRequestMinimum>
+            <PermissionSet class="System.Security.PermissionSet" ID="FullTrust" version="1" Unrestricted="true" />
+	    <AssemblyRequest name="MyDocViewer" PermissionSetReference="FullTrust" />
+         </ApplicationRequestMinimum>
+      </Security>

@@ -1,0 +1,59 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+
+
+  <!-- Animate the size of the rectangle using a LengthAnimation. -->
+  <Text Canvas.Top="5" Canvas.Left="20">Resized by animating the RectangleWidth property.</Text>
+  <Rectangle   
+      RectangleTop="20"
+      RectangleLeft="20"
+      RectangleWidth="200"
+      RectangleHeight="150"
+      Stroke="Red"
+      StrokeThickness="5">
+      
+      <Rectangle.Fill>
+        <ImageBrush 
+          ViewPort="0,0 100,100" ViewPortUnits="Absolute" ImageSource="help.gif" TileMode="Tile"/>
+      </Rectangle.Fill>
+
+      <Rectangle.RectangleWidth>
+		<LengthAnimation  To="600" Duration="10" AutoReverse="true" RepeatCount="50" />
+      </Rectangle.RectangleWidth>
+
+   </Rectangle>
+
+
+<!-- Animate the size of the rectangle using a ScaleTransform animated with a DoubleAnimation. -->
+  <Text Canvas.Top="180" Canvas.Left="20">Resized by animating a scale transformation.</Text>
+  <TransformDecorator AffectsLayout="False">
+    <TransformDecorator.Transform>
+      
+      <ScaleTransform ScaleX="1" ScaleY="1">
+        <ScaleTransform.ScaleXAnimations> 
+           <DoubleAnimation  From="1" To="3" RepeatCount="30" AutoReverse="True" Begin="0" Duration="10" />
+		</ScaleTransform.ScaleXAnimations> 
+      </ScaleTransform>
+
+    </TransformDecorator.Transform>
+
+ <Rectangle   
+      RectangleLeft="20"
+      RectangleTop="200"
+      RectangleWidth="200"
+      RectangleHeight="150"
+      Stroke="Black"
+      StrokeThickness="3">
+      
+       <Rectangle.Fill>
+        <ImageBrush 
+          ViewPort="0,0 100,100" ViewPortUnits="Absolute" ImageSource="help.gif" TileMode="Tile"/>
+      </Rectangle.Fill>
+ 
+     </Rectangle>
+
+</TransformDecorator>
+
+
+</Canvas>

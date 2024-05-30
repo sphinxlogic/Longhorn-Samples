@@ -1,0 +1,9 @@
+<securityData>
+  <authorizationData>
+    <memoryMapping id="mainAuthorizationData">
+      <globalEntries>
+        <windowsRoleAssignment domain="MyDomain" group="Domain Users" roles = "StandardUserRole"/>
+      </globalEntries>
+    </memoryMapping>
+  </authorizationData>
+</securityData>

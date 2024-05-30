@@ -1,0 +1,20 @@
+<Canvas 
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+    
+  <Polygon ID="hexagon"
+    Stroke="blue"
+    StrokeThickness="2.0"
+    Fill="RadialGradient Yellow Gold"
+    Points="176,30 302.44,103 302.44,249 176,322 49.5603,249 49.5603,103">
+  </Polygon>
+   
+  <Polygon ID="star" 
+    Stroke="Blue" 
+    Fill="DarkOrange" 
+    StrokeThickness="2.0" 
+    Points="176.5,50 189.2,155.003 286.485,113.5 201.9,177 286.485,240.5 
+    189.2,198.997 176.5,304 163.8,198.997 66.5148,240.5 151.1,177 
+    66.5148,113.5 163.8,155.003">
+  </Polygon>
+
+</Canvas>

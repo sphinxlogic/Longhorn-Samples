@@ -1,0 +1,39 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox DockPanel.Dock="Fill" FontFamily="Courier New" Height="Auto" Width="Auto"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+	</DockPanel.Resources>
+	<Table DockPanel.Dock="Top" Height="50%">
+		<Column Width="30%" />
+		<Column Width="70%" />
+		<Body>
+			<Row>
+				<Cell RowSpan="2" Background="#EEEEAA">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+				</Cell>
+				<Cell Background="#EEAAEE">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+				</Cell>
+			</Row>
+			<Row>
+				<Cell Background="#AAEEEE">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+				</Cell>
+			</Row>
+			<Row>
+				<Cell Background="#AAAAEE" ColumnSpan="2">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam non ymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+				</Cell>
+			</Row>
+		</Body>
+	</Table>
+	<TextBox DockPanel.Dock="Fill">
+	</TextBox>
+</DockPanel>

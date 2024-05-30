@@ -1,0 +1,17 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="RepeatButton_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <RepeatButton Delay="500" Interval="100" Width="100" Height="30"  Click="Increase" DockPanel.Dock="Top">
+      <Text>Increase</Text></RepeatButton>
+   <RepeatButton Delay="500" Interval="100" Width="100" Height="30"  Click="Decrease" DockPanel.Dock="Top">
+      <Text>Decrease</Text></RepeatButton>
+   <Text ID="txt" DockPanel.Dock="Top" FontSize="16pt">0</Text>
+
+
+</DockPanel>

@@ -1,0 +1,11 @@
+<FixedPanel xmlns="http:////schemas.microsoft.com//2005//xaml//">
+	<FixedPage Height="128" Background="White">
+	    <Text Foreground="Red">text text text text text text text text text text text text text text text text</Text>
+	</FixedPage>
+	<FixedPage Height="128" Background="Gray">
+	    <Text Foreground="Blue">text text text text text text text text text text text text text text text text</Text>
+	</FixedPage>
+	<FixedPage Height="128" Background="White">
+	    <Text Foreground="Green">text text text text text text text text text text text text text text text text</Text>
+	</FixedPage>
+</FixedPanel>

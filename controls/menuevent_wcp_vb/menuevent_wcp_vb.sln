@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MenuEvent_wcp_vb", "MenuEvent_wcp_vb.vbproj", "{E3FD8D58-DE84-49EC-AB73-78434BF2C958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3FD8D58-DE84-49EC-AB73-78434BF2C958}.Debug|.NET.ActiveCfg = Debug|.NET
+		{E3FD8D58-DE84-49EC-AB73-78434BF2C958}.Debug|.NET.Build.0 = Debug|.NET
+		{E3FD8D58-DE84-49EC-AB73-78434BF2C958}.Release|.NET.ActiveCfg = Release|.NET
+		{E3FD8D58-DE84-49EC-AB73-78434BF2C958}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,103 @@
+<!-- Temporary:  Width="100%" should not need to be specified in the root element; Window needs to change  -->
+<!--             from implicitly containing a DockPanel to explicitly containing one child for its content -->
+<DockPanel 
+        xmlns="http://schemas.microsoft.com/2003/xaml"
+        xmlns:def="Definition"
+        Width="100%"
+        def:Class="ExpenseItApp.Page1"
+        def:CodeBehind="Page1.xaml.cs"
+        Loaded = "Init"
+        Style="{PageBackground}"
+        DataContext="{ExpenseData}"
+        ID = "root"
+        >
+
+    <DockPanel.Resources>
+        <XmlDataSource def:Name="CostCenters" XPath="/CostCenters/*">
+            <CostCenters xmlns="">
+                <CostCenter Number="4032" Name="Avalon" />
+                <CostCenter Number="4034" Name="Shell" />
+                <CostCenter Number="5061" Name="Base" />
+            </CostCenters>
+        </XmlDataSource>
+
+        <XmlDataSource def:Name="Employees" XPath="/Employees/*">
+            <Employees xmlns="">
+                <Employee Name="Jay Adams" Type="FTE" EmployeeNumber="1" />
+                <Employee Name="Clair Hector" Type="FTE" EmployeeNumber="12345" />
+                <Employee Name="Palle Peterson" Type="FTE" EmployeeNumber="5678" />
+                <Employee Name="Amy E. Alberts" Type="CSG" EmployeeNumber="99222" />
+                <Employee Name="Stefan Hesse" Type="Vendor" EmployeeNumber="-" />
+            </Employees>
+        </XmlDataSource>
+
+    </DockPanel.Resources>
+        
+    <FlowPanel DockPanel.Dock="Top" Style="{TitleBarFlow}">
+        <HyperLink ID="NAV_BACK" Click="Navigate" Cursor="Hand"><Image Source="images\back_button.png"    /></HyperLink>
+        <HyperLink ID="NAV_FWD"  Click="Navigate" Cursor="Hand"><Image Source="images\forward_button.png" /></HyperLink>
+        <Text Style="{AppTitle}">ExpenseIt!</Text>
+    </FlowPanel>
+    <DockPanel DockPanel.Dock="Top">
+        <Canvas DockPanel.Dock="Left" Style="{WatermarkCanvas}">
+            <Image Style="{BackgroundImage}" />
+            <Image Style="{WatermarkImage}" />
+        </Canvas>
+        <Text DockPanel.Dock="Fill" Style="{TitleText}">Create an expense report</Text>
+    </DockPanel>
+    <GridPanel Columns="2" DockPanel.Dock="Top" Style="{Page1Grid}">
+        <Text Style="{Label}">Email Alias:</Text>
+        <TextBox Style="{InputText}" Text="*Bind(Path=Alias)" />
+        <Text Style="{Label}">Employee Number:</Text>
+        <TextBox Style="{InputText}" Text="*Bind(Path=EmployeeNumber)" />
+        <Text Style="{Label}">Cost Center:</Text>
+        
+        <ComboBox ID="costCenter" ItemStyle="{CostCenterStyle}">
+            <!-- Temporary: this is way too verbose, with bug 878084 fixed, this could be as simple as:
+            <ComboBox.Items>
+                <CollectionContainer Collection="*Bind(DataSource={CostCenters})" />
+            </ComboBox.Items>
+            -->
+            <ComboBox.Items>
+                <CollectionContainer>
+                    <CollectionContainer.Collection>
+                        <Bind DataSource="{CostCenters}" />
+                    </CollectionContainer.Collection>
+                </CollectionContainer>
+            </ComboBox.Items>
+        </ComboBox>
+
+        <Text Style="{Label}">Employees:</Text>
+        <!-- Temporary: due to bug 882502 this has to be a hard-coded list of RadioButton, cannot be data driven yet -->
+        <RadioButtonList ID="employeeTypeOptions" Style="{HorizontalRadioList}" SelectionChanged="OnEmployeeTypeChanged" >
+            <RadioButton ID="FTE"    Style="{HorizontalRadio}">FTE</RadioButton>
+            <RadioButton ID="CSG"    Style="{HorizontalRadio}">CSG</RadioButton>
+            <RadioButton ID="Vendor" Style="{HorizontalRadio}">Vendor</RadioButton>
+        </RadioButtonList>
+        <Border /> <!-- Empty Cell #1 -->
+        <ListBox Style="{EmployeeList}" ItemStyle="{EmployeeItemStyle}" >
+            <!-- Temporary: bug 878084, see above -->
+            <ListBox.Items>
+                <CollectionContainer>
+                    <CollectionContainer.Collection>
+                        <Bind DataSource="{Employees}" />
+                    </CollectionContainer.Collection>
+                </CollectionContainer>
+            </ListBox.Items>
+        </ListBox>
+        <Border /> <!-- Empty Cell #2 -->
+        <FlowPanel Style="{ButtonFlow}">
+            <Button Click="CreateReport">Create Report</Button>
+        </FlowPanel>
+        <Border /> <!-- Empty Cell #3 -->
+        <FlowPanel HorizontalAlignment="Right">
+            <Canvas>
+                <Rectangle Width="100%" Height="100%" Style="{TotalRectangle}" />
+                <FlowPanel Width="100%" Height="100%" Style="{TotalExpensesFlow}">
+                    <Text Style="{TotalExpensesLabel}">Total Expenses:</Text>
+                    <Text Style="{TotalExpenses}" TextContent="*Bind(Path=TotalExpenses)"/>
+                </FlowPanel>
+            </Canvas>
+        </FlowPanel>
+    </GridPanel>
+</DockPanel>

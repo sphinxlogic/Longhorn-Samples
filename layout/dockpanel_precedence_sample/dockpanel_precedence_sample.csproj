@@ -1,0 +1,27 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Language="C#" />
+		
+    <Property DefaultClrNameSpace="SDKSample" />
+
+    <Property TargetName="DockPanel_Precedence_Sample" />
+		
+    <Property HostInBrowser="False" />
+		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml"/>
+  </ItemGroup>
+
+</Project>

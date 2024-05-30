@@ -1,0 +1,28 @@
+<DockPanel ID="RootElement" xmlns="http://schemas.microsoft.com/2003/xaml" 
+xmlns:def="Definition" def:Language="C#">
+
+
+
+<def:Code>
+<![CDATA[
+  void InsertElement(object sender, ClickEventArgs args)	
+  {
+    // Insert a Text element with the index number of "1" underneath the "oParent"
+    // DockPanel. In other words, insert this element as the second child of the "oParent"
+    // DockPanel.
+    System.Windows.Controls.Text text = new System.Windows.Controls.Text();
+    oParent.Children.Insert(1, text);
+    text.TextRange.Text = "Mind if I cut in?";
+  }
+]]>
+</def:Code>
+
+<Button  Width="20%" Height="10%" Click="InsertElement">Insert New Text</Button>
+
+<DockPanel ID="oParent" Height="100%" Width="100%">
+  <Text>Child 1</Text>        
+  <Text>Child 2</Text>
+  <Text>Child 3</Text>    
+</DockPanel>
+
+</DockPanel>

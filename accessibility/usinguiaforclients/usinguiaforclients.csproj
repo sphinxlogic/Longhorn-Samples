@@ -1,0 +1,30 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="SDKSample" />
+    <Property TargetName="UsingUIAForClients" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property Optimization="Download" />
+    <Property SecurityManifest="Security.xml" />
+    <Property Version="1.0.0.0" />
+    <Property ProductVersion="8.0.31010" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{007669A1-F1B7-466D-9E60-9C56EE96D917}" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="Compile" Include="UsingUIAForClients.cs" SubType="Code" />
+    <Item Type="Compile" Include="frmButtonHolder.cs" SubType="Form" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,13 @@
+<Canvas 
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+  <Ellipse
+    CenterX="300"
+    CenterY="300"
+    RadiusX="150"
+    RadiusY="250"
+    Fill="Blue"
+    Stroke="Black"
+    StrokeThickness="5" />
+  
+</Canvas>

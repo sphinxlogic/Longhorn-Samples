@@ -1,0 +1,444 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft FrontPage 5.0">
+<title>X509AuthRequestReply</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The X.509AuthRequestReply Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem (code-named "Indigo") can be used to help secure applications. The
+X.509AuthRequestReply sample is an application consisting of
+a client, a service, a service host, and client and host configuration and data
+files and using X.509 client certificates for authentication and authorization.
+It is designed to demonstrate the development time and deployment time
+considerations of a service and client using X.509 certificates for security.
+The client is a console application that sends a message secured using an X.509 token to the server. The message body is a simple
+string. The server is a console application that validates the client's X.509
+token (certificate) and formulates a response using the string from the
+message. </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Client:</span></b><span
+style='font-family:Arial'><br>
+The client is a simple console application that uses a configuration file to
+store settings for the objects that it uses.</span></p>
+
+<pre><span style='color:#202080'>    </span></pre><pre><span style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>            &lt;identityRole&gt;soap.tcp://localhost:46001/HelloClient/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;!-- WARNING: This sample does not secure the server policy for demonstration purposes. --&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;!-- Permits untrusted policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre>
+
+<p><span style='font-family:Arial'>The client loads this configuration
+information, uses the service manager to create a proxy that represents a
+service, and invokes the method on the proxy. Because this service method is an
+RPC-style or request-reply style method, the execution of the client stops
+until the call returns. </span></p>
+
+<p><span style='font-family:Arial'>It is important to realize that although
+this client sends SOAP 1.2 messages to communicate with the service, you
+interact with this service in your client as though it were a local call and
+used no custom parameter types. Note that there is no explicit setting to
+indicate that you are using X.509 credentials for security. That information is
+stored in Client.exe.security (the client data file).</span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+style='color:#202080'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;tokens&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;tokenCache id=&quot;mainTokenCache&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;store location=&quot;currentUser&quot; name=&quot;My&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;criteria type=&quot;subjectString&quot;&gt;MBTestCert&lt;/criteria&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/tokenCache&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/tokens&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/securityData&gt;</span></span><span style='font-family:
+Arial;color:#202080'>&nbsp; </span></p>
+
+<p><span style='font-family:Arial;color:black'>As this configuration example
+shows, the certificate is obtained from the currentUser store where the subject
+string of the certificate is MBTestCert. </span></p>
+
+<p><span style='font-family:Arial;color:black'>The client code is the same as
+that for an unsecured application. The client follows the security directions
+of the server's security policy to formulate a secure message using the X.509 certificate
+specified in the client's data file. </span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>string name = &quot;Client&quot;;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>if (args.Length &gt; 0)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>name = args[0];</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Load the default service environment, called &quot;main&quot;.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>ServiceEnvironment se = ServiceEnvironment.Load();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Retrieve the ServiceManager from the default environment.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>ServiceManager manager = se[typeof(ServiceManager)] as ServiceManager;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>if (manager == null)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  throw new ApplicationException(</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  &quot;The ServiceManager is not available in the service se.&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Start the service environment.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>se.Open();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Create a proxy channel that points to the service to call.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>Uri uri = new Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>IHelloChannel channel = (IHelloChannel)manager.CreateChannel(typeof(IHelloChannel), uri);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>try </span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(channel.Greeting(name));</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>catch(Exception Ex)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(Ex);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>finally</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  se.Close();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>Securing the service:</span></b></p>
+
+<p><strong><span style='font-family:Arial;color:black'>1. Service:</span></strong></p>
+
+<p><span style='font-family:Arial'>The service itself is marked with the <strong><span
+style='font-family:Arial'>DatagramPortTypeAttribute</span></strong> and the
+methods are marked with the <strong><span style='font-family:Arial'>ServiceMethodAttribute</span></strong>
+as before. In addition, the service has a new  attribute, named <b>ServiceSecurity()</b>,
+that indicates that the method is to be secured. This establishes a security
+scope such that all messages matching the scope will require the constraints
+established by the binding in configuration. </span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;</span></pre><pre><b><span
+style='font-size:12.0pt;color:#202080'>            </span></b></pre><pre><b><span
+style='font-size:12.0pt;color:#202080'>            </span></b></pre><pre><span
+style='color:#202080'>    [DatagramPortType(Name=&quot;Hello&quot;,Namespace=&quot;http://www.tempuri.org/quickstarts&quot;)] </span></pre><pre><span
+style='color:#202080'>    public class Hello </span></pre><pre><span
+style='color:#202080'>    { </span></pre><pre><b><span style='font-size:12.0pt;
+color:blue'>      </span></b><b><span style='color:navy'>[ServiceSecurity(Name = &quot;StandardScope &quot;, Role = &quot;StandardUserRole&quot;)]</span></b></pre><pre><span
+style='color:#202080'>        [ServiceMethod] </span></pre><pre><span
+style='color:#202080'>        public string Greeting(string name) </span></pre><pre><span
+style='color:#202080'>        { </span></pre><pre><span style='color:#202080'>            Console.WriteLine(&quot;Called by a client with the name {0}&quot;, name); </span></pre><pre><span
+style='color:#202080'>            return String.Format(&quot;Hello, {0}!&quot;, name); </span></pre><pre><span
+style='color:#202080'>        } </span></pre><pre><span style='color:#202080'>    }</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>2. Host:</span></b><span
+style='font-family:Arial'><br>
+The host application configures "Indigo" to listen for incoming messages for
+the services listed in the <b>&lt;activatableServices&gt;</b> element. In
+addition, the host application specifies that the <i>X.509</i>&nbsp; profile<b>
+</b>be used for binding<b> </b>to the scope.  The </span><span
+style='font-family:Courier'>HelloService</span><span style='font-family:Arial'>
+method code defines the <i>standardscope</i> scope using the <b>ServiceSecurityAttribute</b>.</span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;identityRole&gt;soap.tcp://localhost:46000/HelloService/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/port&gt;</span></pre><pre><b><span
+style='color:#202080'>        &lt;!-- Bind the scope defined using ServiceSecurityAttribute to a profile that uses Windows authentication. --&gt;</span></b></pre><pre><b><span
+style='color:#202080'>        &lt;securityManager&gt;</span></b></pre><pre><b><span
+style='color:#202080'>               &lt;applicationSecurity&gt;</span></b></pre><pre><b><span
+style='color:#202080'>                       &lt;binding scope=&quot;StandardScope &quot; profile=&quot;X509&quot; /&gt;</span></b></pre><pre><b><span
+style='color:#202080'>                &lt;/applicationSecurity&gt;</span></b></pre><pre><b><span
+style='color:#202080'>        &lt;/securityManager&gt;</span></b></pre><pre><span
+style='color:#202080'>        &lt;!-- WARNING: Policy is not secured to clarify demonstration. --&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;!-- Permits unsigned policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>            &lt;add type=&quot;Hello, HelloService&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;/activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>3. Data file:</span></b><span
+style='font-family:Arial'><br>
+Although the code specifies the role requirements and the usage of <i>X509</i>
+profile for meeting these requirements, it does not specify the exact list of
+authenticated users. This is done instead in the security data file, as shown
+in the following example.  The token cache contains the list of authenticated
+users. These authenticated users are then mapped to the relevant roles in the
+&lt;authorizationData&gt; section.  Note that the <i>X509</i> profile does not
+accept certificates generated using the makecert.exe utility by default.  To
+allow the <i>X509</i> profile to accept makecert.exe generated certificates,
+this sample sets the &lt;trustedTestRoot&gt; element to true.</span></p>
+
+<p style='margin-top:5.0pt;margin-right:.5in;margin-bottom:5.0pt;margin-left:
+.5in'><span style='font-size:10.0pt;font-family:"Courier New";color:#202080'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;tokens&gt;<br>
+      &lt;credentials&gt;<br>
+         &lt;trustTestRoot
+id=&quot;mainX509TrustTestRoot&quot;&gt;true&lt;/trustTestRoot&gt;<br>
+      &lt;/credentials&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;tokenCache id=&quot;mainTokenCache&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;store location=&quot;currentUser&quot; name=&quot;My&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;criteria type=&quot;subjectString&quot;&gt;MBTestCert&lt;/criteria&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tokenCache&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/tokens&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;authorizationData&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;memoryMapping
+id=&quot;mainAuthorizationData&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;x509RoleAssignment subject=&quot;CN=MBTestCert&quot; roles =
+&quot;StandardUserRole&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/memoryMapping&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/authorizationData&gt;<br>
+&lt;/securityData&gt;<br>
+&nbsp;</span></p>
+
+<h3><span style='font-family:Arial'>&nbsp;</span></h3>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><a name="#Building"></a><span style='font-family:Arial'>Open
+     the <b>Longhorn Build Environment</b> console window (click <b>Start</b>,
+     click <b>All Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click
+     <b>Open Build Environment Window</b>, and click <b>Longhorn Build
+     Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Setup/deployment</span></b></p>
+
+<p><span style='font-family:Arial'>Run Makeclientcert.bat on the machines where
+the client and server applications will be deployed. This sets up the test
+certificate. </span></p>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><span style='font-family:Arial'>To run the sample, both the certmgr.exe and
+makecert.exe utilities must be installed.  To install the utilities, download
+and run the following file:  </span><span style='font-size:10.0pt;font-family:
+"Bookman Old Style";color:#333399'><a
+href="http://download.microsoft.com/download/b/e/f/bef2551b-401d-4311-ab8f-13d3892b8154/codesigningx86.exe"><span
+style='color:#003399'>http://download.microsoft.com/download/b/e/f/bef2551b-401d-4311-ab8f-13d3892b8154/codesigningx86.exe</span></a>&nbsp;</span><span
+style='font-family:Arial'>  </span></p>
+
+<p><a name="#Running"></a><b><span style='font-family:Arial'>Running on a
+single machine:</span></b><span style='font-family:Arial'><br>
+To run the sample on a single machine, open a command prompt window in the
+Server directory and another one in the Client directory. At the server command
+prompt, type <strong><span style='font-family:Arial'>host </span></strong><strong><span
+style='font-family:Arial;font-weight:normal'>to start the server application,
+Then</span></strong>, at the client directory console prompt, type <strong><span
+style='font-family:Arial'>client</span></strong><strong><span style='font-family:
+Arial;font-weight:normal'> </span></strong><b>&lt;<em><span style='font-family:
+Arial'>name</span></em>&gt; </b>to start the client application.</span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.config file in the Server directory. Replace
+     &quot;localhost&quot; with the server machine name. Then run the server
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit the Client.cs file in the Client directory. In the URI that
+     represents the server location, replace &quot;localhost&quot; with the
+     server machine name. Recompile the client and rerun the client
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit Client.exe.config.  Replace &quot;localhost&quot; in the <b>&lt;identityRole&gt;
+     </b>element with the client machine name.</span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Note:</span></b></p>
+
+<p><span style='font-family:Arial'>If your computer is attached to a workgroup
+but is not attached to a Microsoft Windows domain, this sample will fail unless
+you modify your Machine.config file.&nbsp; For instructions, see</span> <span
+style='font-family:Arial'>&quot;Enabling 'Indigo' Security&nbsp;within a
+Workgroup&quot; in the Longhorn SDK readme</span>.</p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

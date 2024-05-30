@@ -1,0 +1,14 @@
+<!-- To show this window, do this: Window* w = new (); w->Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="animateproperty_mcpp.MainWindowBase"
+    def:SubClass="animateproperty_mcpp.MainWindow"
+    def:CodeBehind="MainWindow.xaml.h"
+    Text="animateproperty_mcpp"    
+    >
+    <!-- Typically, the following element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+     <Canvas ID="myCanvas" DockPanel.Dock="Fill" Loaded="WindowLoaded">
+        
+    </Canvas>
+</Window>

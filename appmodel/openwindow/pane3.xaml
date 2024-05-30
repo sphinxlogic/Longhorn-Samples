@@ -1,0 +1,9 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="OpenWindow.Pane3"
+    def:CodeBehind="Pane3.xaml.cs" 
+    >
+<Text>This is a Test!</Text>
+</DockPanel>

@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="client">
+   <Target Name="client">
+      <Task Name="Vbc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="client.exe"
+                 References="system.messagebus.dll;system.dll;remotableobject.dll"
+                 Sources="client.vb"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

@@ -1,0 +1,34 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition">
+
+<Button ID="streamData" Click="OpenContainer" Width="100" Height="50">Click</Button>
+
+   <def:Code>
+   <![CDATA[
+
+   void OpenContainer(object sender, System.Windows.Controls.ClickEventArgs e)
+   {
+     // Create a Container
+     System.IO.CompoundFile.StorageRoot myFile = System.IO.CompoundFile.StorageRoot.Open(
+                                     "My Container.container",
+                                     System.IO.FileMode.OpenOrCreate, 
+                                     System.IO.FileAccess.ReadWrite);
+     //////// Code Under Here is Used to Create a Storage and Create a Stream Under that Storage ///
+	 
+     // Create the root storage
+     System.IO.CompoundFile.StorageInfo rootStorage = (System.IO.CompoundFile.StorageInfo)myFile;
+     // Creates a StreamInfo object referring to a data stream in the given parent (rootStorage).
+     System.IO.CompoundFile.StreamInfo myData = new
+	 System.IO.CompoundFile.StreamInfo( rootStorage, "My Stream" );
+     // Create a data stream and write to it using the Stream and StreamWriter classes of the 
+     // Frameworks library. 
+     System.IO.Stream writeStream = myData.Create( System.IO.FileMode.Create );
+     System.IO.StreamWriter writer = new System.IO.StreamWriter(writeStream); 
+     writer.Write("Here is some Text Content for the Stream!");
+     writer.Close();
+
+   }
+   ]]>
+   </def:Code>
+</DockPanel>

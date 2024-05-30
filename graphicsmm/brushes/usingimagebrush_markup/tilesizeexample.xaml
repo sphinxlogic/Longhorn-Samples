@@ -1,0 +1,214 @@
+<!-- This example demonstrates how to control the size of an ImageBrush's tiles. -->
+<GridPanel
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.TileSize"
+    def:CodeBehind="TileSizeExample.xaml.cs"
+    Columns="3">
+    
+	<!-- Sets the styles for this example. -->
+	<GridPanel.Resources>
+		<Style>
+			<Text FontFamily="Courier" Margin="0,10,0,0"></Text>
+		</Style>
+		<Style>
+			<Image Height="50" Width="50"/>
+		</Style>
+    </GridPanel.Resources>
+
+	<DockPanel GridPanel.ColumnSpan="3"
+		Background="HorizontalGradient LimeGreen Yellow" MinHeight="50">
+		
+		<!-- Enables you to change the image displayed. -->
+		<Button DockPanel.Dock="Right" 
+			Style="{navButton}" Click="loadImage" >
+			<Image Source="data\triangle.jpg" />
+		</Button>
+		<Button DockPanel.Dock="Right"
+			Style="{navButton}" IsEnabled="False"  Click="loadImage"
+			ID="firstImageButton">
+			<Image Source="data\cherries_larger.jpg" />
+		</Button>
+		
+		<TextPanel DockPanel.Dock="Fill" Width="300">
+				The ViewPort and ViewPortUnits properties enable
+				you to control the size of the ImageBrushe's tiles.
+		</TextPanel>
+	</DockPanel>
+	
+	
+	
+	<GridPanel>
+		<Text>Without Tiling</Text>
+		
+		<!-- The ImageBrush's content is not tiled in this example. -->
+		<Rectangle
+			ID="noTileRectangle"
+			Width="200"
+			Height="150"
+			Stroke="Black"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\cherries_larger.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	
+	
+	</GridPanel>
+	
+	
+	<GridPanel>
+		<Text>ViewPort="0,0,0.1,0.1"</Text>
+		
+		<!-- The ImageBrush's tiles are set to 10% by 10% of the output area. -->
+		<Rectangle
+			ID="firstRelativeSizeRectangle"
+			Width="200"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					ViewPort="0,0,0.1,0.1"
+					TileMode="Tile"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"	
+					ImageSource="data\cherries_larger.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>ViewPort="0,0,0.1,0.3"</Text>
+		
+		<!-- The ImageBrush's tiles are set to 10% by 30% of the output area. -->
+		<Rectangle
+			ID="secondRelativeSizeRectangle"
+			Width="200"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					ViewPort="0,0,0.1,0.3"
+					TileMode="Tile"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\cherries_larger.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>ViewPort="0,0,0.5,0.5" <LineBreak /></Text>
+		<!-- The ImageBrush's tiles are set to 50% by 50% of the output area. -->
+		<Rectangle
+			ID="thirdRelativeSizeRectangle"
+			Width="200"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					ViewPort="0,0,0.5,0.5"
+					TileMode="Tile"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\cherries_larger.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	
+	
+	<GridPanel>
+		<Text>ViewPort="0,0,0.25,0.25" <LineBreak /> ViewPortUnits="Absolute"</Text>
+		<!-- The ImageBrush's tiles are set to 25 by 25 pixels. -->
+		<Rectangle
+			ID="firstAbsoluteSizeRectangle"
+			Width="200"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					ViewPort="0,0,25,25"
+					ViewPortUnits="Absolute"
+					TileMode="Tile"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\cherries_larger.jpg" 
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>   
+	
+	<GridPanel>
+		<Text>ViewPort="0,0,0.25,0.50" <LineBreak /> ViewPortUnits="Absolute"</Text>
+		<!-- The ImageBrush's tiles are set to 25 by 50 pixels. -->
+		<Rectangle
+			ID="secondAbsoluteSizeRectangle"
+			Width="200"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					ViewPort="0,0,25,50"
+					ViewPortUnits="Absolute"
+					TileMode="Tile"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\cherries_larger.jpg" 
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel> 
+	
+	<def:Code>
+			<![CDATA[
+				
+				// Tracks the last button clicked so that it can be enabled.
+				private Button lastButtonClicked;
+				
+				// Switches the displayed image.
+				private void loadImage(object sender, ClickEventArgs args){
+					// Retrieve the Image from the button's content.
+					Button b = ((Button)sender);
+					
+					Image selectedImage = (Image) b.Content;
+					
+					// Change the ImageSource of the ImageBrushes used to fill the shapes.
+					((ImageBrush)noTileRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)firstRelativeSizeRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)secondRelativeSizeRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)thirdRelativeSizeRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)firstAbsoluteSizeRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)secondAbsoluteSizeRectangle.Fill).ImageSource = selectedImage.Source;
+					
+					// Disable the button that contains the selected image
+					// and enable the previously selected image button.
+					b.IsEnabled = false;
+					if (lastButtonClicked == null)
+						firstImageButton.IsEnabled = true;
+					else
+						lastButtonClicked.IsEnabled = true;
+					lastButtonClicked = b;
+					
+				}
+	
+			]]>
+		
+		</def:Code>
+
+
+
+</GridPanel>

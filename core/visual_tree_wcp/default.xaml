@@ -1,0 +1,44 @@
+<?Mapping XmlNamespace="media" ClrNamespace="System.Windows.Media" Assembly="PresentationCore"?>
+<Border Background="white" ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition" xmlns:media="media"   >
+<DockPanel>
+
+	<DockPanel.Resources>
+		
+
+		
+		<Style def:Name="MyStyle">
+		<Button	/>			
+
+			<Style.VisualTree>
+				<Canvas>		
+					<Rectangle def:StyleID="ss1"
+								Width="100%" Height="100%"	
+								RadiusX="10" RadiusY="10" 
+								Fill="LightBlue" 
+								Stroke="CadetBlue" StrokeThickness="2"
+								/>
+					<Rectangle def:StyleID="ss2"
+								Width="50%" Height="50%"	
+								RadiusX="10" RadiusY="10" 
+								Fill="LightBlue" 
+								
+								/>
+					
+					<ContentPresenter 
+								ContentControl.Content="*Alias(Target=Content)" 
+								Margin="15,13,15,15"/>			
+				</Canvas>
+			</Style.VisualTree>
+			<Style.VisualTriggers>
+				<PropertyTrigger Property="IsMouseOver" Value="true">
+					<Set PropertyPath="Rectangle.Fill" Value="limegreen" Target="ss1"/>
+					<Set PropertyPath="Rectangle.Fill" Value="red" Target="ss2"/>				
+				</PropertyTrigger>
+			</Style.VisualTriggers>	
+		</Style>		
+	</DockPanel.Resources>  
+	<Button Style="{MyStyle}" Opacity="0.5" Width="200" Height="30">Test</Button>	
+	<Button Style="{MyStyle}" Opacity="0.1" Width="100" Height="200">Test</Button>	
+	<Button Style="{MyStyle}" Opacity="0.9" DockPanel.Dock="fill">Test</Button>	  	  	  
+</DockPanel>
+</Border>

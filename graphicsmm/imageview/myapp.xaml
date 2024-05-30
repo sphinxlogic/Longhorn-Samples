@@ -1,0 +1,46 @@
+<!-- If you change the root element of this file, be sure to change the class that is subclassed in Application.xaml.cs -->
+<NavigationApplication 
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ImageView.MyApp"
+    def:CodeBehind="MyApp.xaml.cs"
+    StartupUri="Window1.xaml"
+    StartingUp="OnStartingUp"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+    <NavigationApplication.Resources>
+        <Style def:Name="VerGrad">
+		     <DockPanel Background="VerticalGradient #E5E5E5 #000000"/>
+	    </Style>
+	    <Style def:Name="ReverseHorGrad">
+		      <DockPanel Background="HorizontalGradient #E5E5E5 #000000"/>
+	    </Style>
+	    <Style def:Name="MyTextBox">
+		       <TextBox Background="#FFFFCC" DockPanel.Dock="Left"  Width="600" Height="25" FontSize="12" />
+	    </Style>
+	    <Style def:Name="MyButton" >
+		       <Button Background="#C0C0C0" Margin="5" DockPanel.Dock="Right" />
+	    </Style>
+	    <Style def:Name="DirForm">
+		       <Text FontSize="24" FontWeight="Bold" Foreground="#FFFFFF" Margin="10,0,0,13" />
+	    </Style>
+	    <Style def:Name="Dir">
+		       <Text FontSize="12" Foreground="#FFFFFF" FontWeight="Bold" />
+	    </Style>
+	    <Style def:Name="PanelButton" >
+		       <Button Foreground="#000000" FontSize="15" Height="50" Width="150" DockPanel.Dock="Top">
+		          <Button.Background>
+		            <RadialGradientBrush>
+		               <RadialGradientBrush.GradientStops>
+		                  <GradientStopCollection>
+		                     <GradientStop Color="#E5E5E5" Offset="0.5" />
+		                     <GradientStop Color="#000000" Offset="1" />
+		                  </GradientStopCollection>
+		               </RadialGradientBrush.GradientStops>
+		            </RadialGradientBrush>
+		          </Button.Background>
+		       </Button>
+		       
+	    </Style>
+    </NavigationApplication.Resources>
+</NavigationApplication>

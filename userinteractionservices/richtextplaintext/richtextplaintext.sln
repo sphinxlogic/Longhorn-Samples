@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichTextPlainText", "RichTextPlainText.csproj", "{F2E0FA0F-2DF6-4BC4-8D39-D0B204028F40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2E0FA0F-2DF6-4BC4-8D39-D0B204028F40}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F2E0FA0F-2DF6-4BC4-8D39-D0B204028F40}.Debug|.NET.Build.0 = Debug|.NET
+		{F2E0FA0F-2DF6-4BC4-8D39-D0B204028F40}.Release|.NET.ActiveCfg = Release|.NET
+		{F2E0FA0F-2DF6-4BC4-8D39-D0B204028F40}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

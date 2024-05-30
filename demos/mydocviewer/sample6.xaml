@@ -1,0 +1,73 @@
+<?Mapping XmlNamespace="xaml" ClrNamespace="System.Windows.Controls" Assembly="PresentationFramework" ?>
+<?Mapping XmlNamespace="shapes" ClrNamespace="System.Windows.Shapes" Assembly="PresentationFramework" ?>
+<Border xmlns="xaml"
+  Background="SkyBlue" BorderThickness="4" BorderBrush="MediumSlateBlue" DockPanel.Dock="Fill" >
+  <DockPanel>
+    <FlowPanel ID="pnlButtons" 
+      DockPanel.Dock="Bottom" 
+      HorizontalAlignment="Right"
+      Margin="8px"
+      >
+      <Button ID="btnAbort" Visibility="Collapsed">Abort</Button>
+      <Button ID="btnRetry" Visibility="Collapsed">Retry</Button>
+      <Button ID="btnIgnore" Visibility="Collapsed">Ignore</Button>
+      <Button ID="btnOK" Visibility="Collapsed">OK</Button>
+      <Button ID="btnYes" Visibility="Collapsed">Yes</Button>
+      <Button ID="btnNo" Visibility="Collapsed">No</Button>
+      <Button ID="btnCancel" Visibility="Collapsed">Cancel</Button>
+    </FlowPanel>
+    <Canvas ID="pnlError" 
+      DockPanel.Dock="Left" 
+      Visibility="Collapsed"
+      Height="100px" 
+      Width="100px">
+      <Ellipse xmlns="shapes" ID="ball1" 
+        Fill="RadialGradient #990000 #882323" 
+        RadiusX="40" RadiusY="40" CenterX="50px" CenterY="50px">
+      </Ellipse>
+      <Line xmlns="shapes" ID="tlbr" 
+        Stroke="white" StrokeThickness="4"
+        X1="40" Y1="40" X2="60" Y2="60">
+      </Line>  
+      <Line xmlns="shapes" ID="bltr" 
+        Stroke="white" StrokeThickness="4"
+        X1="40" Y1="60" X2="60" Y2="40">
+      </Line>  
+    </Canvas>
+    <Canvas ID="pnlInformation" 
+      DockPanel.Dock="Left" 
+      Visibility="Collapsed"
+      Height="100px" 
+      Width="100px">
+      <Ellipse xmlns="shapes" ID="ball1" 
+        Fill="RadialGradient #0000FF #000099" 
+        RadiusX="40" RadiusY="40" CenterX="50px" CenterY="50px">
+      </Ellipse>
+      <Text 
+        Canvas.Left="44" Canvas.Top="27"
+        FontFamily="Times New Roman" FontSize="40" Foreground="White">i</Text>
+    </Canvas>
+    <Canvas ID="pnlQuestion" 
+      DockPanel.Dock="Left" 
+      Visibility="Collapsed"
+      Height="100px" 
+      Width="100px">
+      <Ellipse xmlns="shapes" ID="ball1" 
+        Fill="RadialGradient #00FF00 #009900" 
+        RadiusX="40" RadiusY="40" CenterX="50px" CenterY="50px">
+      </Ellipse>
+      <Text 
+        Canvas.Left="41" Canvas.Top="26"
+        FontFamily="Times New Roman" FontWeight="Bold" FontSize="42" 
+        Foreground="Black">?</Text>
+    </Canvas>
+    <!--
+    TODO: pnlWarning
+    An exclamation point in a triangle with a yellow background.
+    -->
+    <TextBox ID="textbox" 
+      DockPanel.Dock="Fill"
+      Wrap="True"
+      Margin="8px" />
+  </DockPanel>
+</Border>

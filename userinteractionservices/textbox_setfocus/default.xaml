@@ -1,0 +1,25 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition">
+
+
+<TextBox ID="tb1" Canvas.Top="50" Canvas.Height="30" Canvas.Width="200"></TextBox>
+
+<TextBox ID="tb2" Canvas.Top="100" Canvas.Height="30" Canvas.Width="200"></TextBox>
+
+<TextBox ID="tb3" Canvas.Top="150" Canvas.Height="30" Canvas.Width="200"></TextBox>
+
+<Button Canvas.Top="250" Canvas.Width="200" Canvas.Height="50" Click="OnClick">Set Focus in Text Box 3</Button>
+
+  <def:Code>
+  <![CDATA[
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+       	tb3.Focus();   
+    }
+
+  ]]>
+  </def:Code>
+
+</Canvas>
+

@@ -1,0 +1,115 @@
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+	Dim myTimeline As System.Windows.Media.Animation.Timeline
+	Dim WithEvents myButton As System.Windows.Controls.Button
+	Dim WithEvents myOtherButton As System.Windows.Controls.Button
+	
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+	myTimeline = new Timeline()
+	myTimeline.Duration = Time.Indefinite
+
+	' Important: Set the StatusOfNextUse of the Timeline to ChangeableReference
+	' so that a reference to the original Timeline is maintained.
+	myTimeline.StatusOfNextUse = UseStatus.ChangeableReference
+	
+	Dim myLine As New Line()
+	myLine.X1 = new Length(20)
+	myLine.Y1 = new Length(50)
+	myLine.X2 = new Length(30)
+	myLine.Y2 = new Length(50)
+	myLine.Stroke = Brushes.Blue
+	myLine.StrokeThickness = new Length(10)
+
+	Dim myOtherLine As New Line()
+	myOtherLine.X1 = new Length(20)
+	myOtherLine.Y1 = new Length(80)
+	myOtherLine.X2 = new Length(30)
+	myOtherLine.Y2 = new Length(80)
+	myOtherLine.Stroke = Brushes.Blue
+	myOtherLine.StrokeThickness = new Length(10)
+
+
+	' Create an animation that runs for five seconds.
+	Dim myLengthAnimation1 As New LengthAnimation()
+	myLengthAnimation1.Duration = new Time(5000)
+	myLengthAnimation1.From = new Length(30)
+	myLengthAnimation1.To = new Length(300)
+	myLengthAnimation1.RepeatDuration = Time.Indefinite
+
+	' Create a setter to contain the animation.
+	Dim myAnimationSetter1 As New Setter(myLine, Line.X2Property)
+	myAnimationSetter1.Children.Add(myLengthAnimation1)
+
+	' Connect the setter to the timeline.
+	myTimeline.Children.Add(myAnimationSetter1)
+
+	' Change the duration of the LengthAnimation for the other line.
+	' All other values are identical.
+	Dim myLengthAnimation2 As New LengthAnimation()
+	myLengthAnimation2.Duration = new Time(3000)
+	myLengthAnimation2.From = new Length(30)
+	myLengthAnimation2.To = new Length(300)
+	myLengthAnimation2.RepeatDuration = Time.Indefinite
+
+	' Create a setter to contain the animation.
+	Dim myAnimationSetter2 As New Setter(myOtherLine, Line.X2Property)
+	myAnimationSetter2.Children.Add(myLengthAnimation2)
+
+	' Connect the Setter to the timeline.
+	myTimeline.Children.Add(myAnimationSetter2)
+
+	myButton = new Button()
+	myButton.Width = new Length(100)
+	myButton.Height = new Length(25)
+	Canvas.SetLeft(myButton, new Length(20))
+	Canvas.SetTop(myButton, new Length(150))
+	myButton.Content = "Restart"
+
+	myOtherButton = new Button()
+	myOtherButton.Width = new Length(100)
+	myOtherButton.Height = new Length(25)
+	Canvas.SetLeft(myOtherButton, new Length(140))
+	Canvas.SetTop(myOtherButton, new Length(150))
+	myOtherButton.Content = "Stop"
+	
+	myCanvas.Children.Add(myLine)
+	myCanvas.Children.Add(myOtherLine)
+	myCanvas.Children.Add(myButton)
+	myCanvas.Children.Add(myOtherButton)
+
+	' Hook up the timeline to the timing tree.
+	Timeline.Root.Children.Add(myTimeline)
+	
+End Sub
+
+
+Public Sub RestartTimelines(ByVal sender As object, ByVal args As System.Windows.Controls.ClickEventArgs) Handles myButton.Click
+	
+	myTimeline.BeginIn(0)
+			
+End Sub
+
+
+Public Sub StopTimelines(ByVal sender As object, ByVal args As System.Windows.Controls.ClickEventArgs) Handles myOtherButton.Click
+
+	myTimeline.EndIn(0)
+
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

@@ -1,0 +1,25 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="MenuEvent_wcp_vb.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <Menu DockPanel.Dock="Top">
+   <MenuItem Header="File">
+          <MenuItem Header="New"/>
+          <MenuItem Header="New2" Click="OnClick"/>
+          <MenuItem Header="submenu">
+                <MenuItem Header="submenuitem1"/>
+                <MenuItem Header="submenuitem2">          
+                     <MenuItem Header="submenuitem21"/>
+                </MenuItem>
+                <MenuItem Header="submenuitem3"/>
+          </MenuItem>
+   </MenuItem>
+</Menu>
+
+
+</FlowPanel>

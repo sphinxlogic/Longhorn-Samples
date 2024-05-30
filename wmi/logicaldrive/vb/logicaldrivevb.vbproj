@@ -1,0 +1,52 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{81ABD134-54A5-4222-B007-7CEFEE1FBEE8}" />
+    <Property OutputType="Library" />
+    <Property StartupObject="" />
+    <Property RootNamespace="LogicalDriveVB" />
+    <Property AssemblyName="LogicalDriveVB" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="LogicalDriveVB.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="LogicalDriveVB.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="LogicalDrive.vb" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="MSINSTRU" HintPath="$(windir)\Microsoft.net\Windows\v6.0.4030\MSINSTRU.dll" Name="MSINSTRU" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

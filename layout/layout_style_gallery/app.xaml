@@ -1,0 +1,32 @@
+
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml" 
+    xmlns:def="Definition">
+
+    <def:Code>
+       <![CDATA[
+            protected override void OnStartingUp(System.Windows.StartingUpCancelEventArgs e)
+            {
+                // Setup the application window.
+                System.Windows.Navigation.NavigationWindow window = new System.Windows.Navigation.NavigationWindow();
+
+                // window.CanResize = false;                
+
+                window.Text = "WCP";
+
+                window.Width  = new System.Windows.Length(_width);
+                window.Height = new System.Windows.Length(_height);
+
+                // Show!
+                window.Show();
+
+                // Navigate to the startup page 
+                ((System.Windows.Navigation.INavigator)window).Navigate(new Uri("chrome.xaml", false, true));
+
+            }
+
+            private readonly int _width  = 800;
+            private readonly int _height = 800;
+        ]]>
+    </def:Code>
+
+</NavigationApplication>

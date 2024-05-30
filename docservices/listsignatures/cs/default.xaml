@@ -1,0 +1,41 @@
+<?Mapping XmlNamespace="docs" ClrNamespace="System.IO.CompoundFile" Assembly="PresentationFramework" ?>
+<DockPanel
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition">
+
+    <ListBox 
+      ID="sigList" 
+      Width="300px" 
+      Height="100px" 
+      DockPanel.Dock="Top"/>
+    
+    <Button 
+      Click="Enumerate" 
+      Width="300px" 
+      DockPanel.Dock="Top">Click</Button>
+    
+    <TextPanel Width="300px">Click the button to enumerate 
+    the digital signatures applied to components of this 
+    container.</TextPanel>
+
+    <def:Code>
+	<![CDATA[
+	DigitalSignatureManager	Manager;
+
+	void Enumerate(Object sender, ClickEventArgs e)
+	{
+          // Open the application container file
+          StorageRoot CompoundFile = ContainerHelper.ApplicationStorageRoot;
+          Manager = new DigitalSignatureManager(CompoundFile);
+
+          // List the signatures in this compound file.
+          foreach (DigitalSignature Signature in Manager.Signatures)
+          {
+              ListItem SignatureItem = new ListItem();
+              SignatureItem.Content = Signature.GetX509Certificate().GetName();
+              sigList.Items.Add(SignatureItem);
+          }
+	}]]>
+    </def:Code>
+
+</DockPanel>

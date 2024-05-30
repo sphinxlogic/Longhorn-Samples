@@ -1,0 +1,29 @@
+<!-- If you change the root element of this file, be sure to change the class that is subclassed in MyApp.xaml.cs -->
+<Application
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="TextDecorationExample.MyApp"
+    def:CodeBehind="MyApp.xaml.cs"
+    StartingUp="AppStartingUp"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+    <Application.Resources>
+       
+		<LinearGradientBrush def:Name="headerBackground"
+			StartPoint="0,0.5"  EndPoint="1,0.5">
+			<LinearGradientBrush.GradientStops>
+				<GradientStop Color="Black" Offset="0" />
+				<GradientStop Color="Gray" Offset="0.25" />
+				<GradientStop Color="WhiteSmoke" Offset="1" />
+			</LinearGradientBrush.GradientStops>
+		</LinearGradientBrush>
+       
+        <Style>
+           <Text FontFamily="Palatino" FontSize="14pt" Foreground="Black" />
+        </Style>
+        <Style>
+			<FlowPanel Background="{headerBackground}"  />
+        </Style>
+   
+    </Application.Resources>
+</Application>

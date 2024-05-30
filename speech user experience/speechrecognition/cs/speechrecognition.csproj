@@ -1,0 +1,53 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{A8050DDC-D7EE-4D8D-A537-8ABBA26756D1}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="SpeechRecognition" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="SpeechRecognition" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Windows.Forms" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Drawing" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Speech" Name="System.Speech" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="SpeechRecognition.cs" SubType="Form" />
+  </ItemGroup>
+</Project>

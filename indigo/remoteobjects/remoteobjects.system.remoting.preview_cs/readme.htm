@@ -1,0 +1,264 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta name=Generator content="Microsoft FrontPage 5.0">
+<meta name=Originator content="Microsoft Word 10">
+<title>The System.Remoting.Preview Sample</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-alt:"?l?r ???";
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman"; margin-left:0in; margin-right:0in; margin-top:0in}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.msoacetate, li.msoacetate, div.msoacetate
+	{mso-style-name:msoacetate;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+span.msoins0
+	{mso-style-name:msoins;
+	text-decoration:underline;
+	text-underline:single;}
+span.msodel0
+	{mso-style-name:msodel;
+	color:red;
+	text-decoration:line-through;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman"}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">  </w:LatentStyles>
+</xml><![endif]-->
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The <span class=SpellE>System.Remoting.Preview</span>
+Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003<o:p></o:p></span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem (code-named "Indigo") can be used to create remoting applications. The <span
+class=SpellE>System.Remoting.Preview</span> sample offers a sneak peak into "Indigo"
+functionality currently under development.<span style='mso-spacerun:yes'> 
+</span>This sample provides an API wrapper over the PDC drop of "Indigo" that
+simulates the most current design of <span class=SpellE>System.Remoting</span>.<span
+style='mso-spacerun:yes'>  </span>The sample includes two simple “Hello World”
+scenarios that preview the use of this wrapper API.<span
+style='mso-spacerun:yes'>  </span>Please note<span class=GramE>,</span> the
+design of <span class=SpellE>System.Remoting</span> is still on going and will
+likely change considerably before the final release. </span></p>
+
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-family:Arial'>Building</span></h3>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l0 level1 lfo2;
+mso-list-change:"%1\:1\:0\:\." "Peggy Upton" 20030521T1421;tab-stops:list .5in'><![if !supportLists]>
+<![endif]>
+    <a name="#Building"></a><![if !supportLists]>
+<span style='mso-list:
+Ignore; font-family:Arial; mso-fareast-font-family:Arial'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>
+    <span style="font-family: Arial">Open the <b>Longhorn Build Environment</b> console window (click <b>Start</b>, click <b>All 
+    Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click <b>Open Build 
+    Environment Window</b>, and click <b>Longhorn Build Environment</b>).</span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l0 level1 lfo2;
+mso-list-change:"%1\:2\:0\:\." "Peggy Upton" 20030521T1421;tab-stops:list .5in'><![if !supportLists]>
+<span style='mso-list:
+Ignore; font-family:Arial; mso-fareast-font-family:Arial'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>
+    <span style="font-family: Arial">Navigate to the directory where this readme is located.</span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l0 level1 lfo2;
+mso-list-change:"%1\:3\:0\:\." "Peggy Upton" 20030521T1421;tab-stops:list .5in'><![if !supportLists]>
+<span style='mso-list:
+Ignore; font-family:Arial; mso-fareast-font-family:Arial'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>
+    <span style="font-family: Arial">Type <b>MSBuild</b>&nbsp;and press ENTER.</span></p>
+
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-family:Arial'>Running</span></h3>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="#Running"></a><b><span style='font-family:Arial'>Running on a single
+machine<span class=GramE>:</span></span></b><span style='font-family:Arial'><br>
+To run the sample on a single machine, open two command prompt windows
+in the <span class=SpellE>System.Remoting.Preview</span> directory.<span style='mso-spacerun:yes'>  </span>Within the first
+command prompt, type <span class=SpellE><b>remserver</b></span> <strong><span
+style='font-family:Arial;font-weight:normal'>to start the server application. Within
+the second command prompt, </span></strong>type <span class=SpellE><strong><span
+style='font-family:Arial'>remclient</span></strong></span><b> </b>to start the
+client application.</span></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='font-family:Arial'>Running on multiple machines<span class=GramE>:</span></span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-family:Arial'>1.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the server machine, edit the <span
+class=SpellE>Server.cs</span> file in the <span class=SpellE>RemServer</span> directory.<span
+style='mso-spacerun:yes'>  </span>Replace &quot;<span class=SpellE>localhost</span>&quot;
+throughout the file with the server machine name.<span
+style='mso-spacerun:yes'>  </span>Then run the server application. </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the client machine, edit the <span
+class=SpellE>Client.cs</span> file in the <span class=SpellE>RemClient</span>
+directory.<span style='mso-spacerun:yes'>  </span>In the <span class=SpellE>URIs</span>
+that <span class=GramE>represent</span> the server location, replace &quot;<span
+class=SpellE>localhost</span>&quot; with the server machine name. <span
+style='mso-spacerun:yes'> </span>Recompile the client and run the client
+application. </span></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

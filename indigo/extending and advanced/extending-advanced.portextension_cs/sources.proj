@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="CustomPortExtensionSample">
+   <Target Name="CustomPortExtensionSample">
+      <Task Name="Csc"            
+                 OutputAssembly="CustomPortExtensionSample.exe"   
+                 EmitDebugInformation="true"
+                 References="system.dll;system.messagebus.dll"
+                 Sources="CustomPortExtensionSample.cs;LoggingFormatter.cs;LoggingManager.cs;LoggingProperty.cs;LoggingStream.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

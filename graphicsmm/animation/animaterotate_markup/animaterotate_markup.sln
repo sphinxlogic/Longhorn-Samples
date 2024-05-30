@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animaterotate_markup", "animaterotate_markup.csproj", "{D8A28984-77A0-4BB0-816B-4FA0379AD74A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8A28984-77A0-4BB0-816B-4FA0379AD74A}.Debug|.NET.ActiveCfg = Debug|.NET
+		{D8A28984-77A0-4BB0-816B-4FA0379AD74A}.Debug|.NET.Build.0 = Debug|.NET
+		{D8A28984-77A0-4BB0-816B-4FA0379AD74A}.Release|.NET.ActiveCfg = Release|.NET
+		{D8A28984-77A0-4BB0-816B-4FA0379AD74A}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

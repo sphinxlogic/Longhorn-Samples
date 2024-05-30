@@ -1,0 +1,24 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml">
+
+
+<TransformDecorator>
+<TransformDecorator.Transform>
+			<RotateTransform Center="100,100">
+			<RotateTransform.AngleAnimations>
+				<DoubleAnimation From="0" To="360" RepeatCount="30" Begin="1" Duration="4" />
+			</RotateTransform.AngleAnimations>
+			</RotateTransform>
+		
+</TransformDecorator.Transform>
+<Rectangle 
+RectangleTop="100"
+RectangleLeft="100"
+Fill="blue"  
+RectangleWidth="50" 
+RectangleHeight="50" 
+Stroke="black"
+StrokeThickness="5"/>
+
+</TransformDecorator>
+
+</DockPanel>

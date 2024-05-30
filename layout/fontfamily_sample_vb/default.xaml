@@ -1,0 +1,145 @@
+<FlowPanel xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Background="Honeydew"
+	   Width="100%"
+	   Height="100%">
+
+	<Text FontSize="24" FontWeight="Bold">Font Properties Sample</Text>
+
+	<FlowPanel Width="100%" DockPanel.Dock="Top" Height="5" />
+
+	<Text FontSize="12" TextWrap="Wrap">Click any of the buttons below to change the font or color used to display the text. 
+	You can also change the value of the FontSize by clicking one of the RadioButtons below.</Text>
+
+	<FlowPanel Width="100%" Height="10" />
+
+	<Text FontWeight="Bold" FontSize="14">FontFamly:</Text>	
+	<FlowPanel Width="100%">
+		<Button Click="OnClick1" Width="120" Height="20" Background="Silver">Arial</Button>
+		<Button Click="OnClick2" Width="120" Height="20" Background="Silver">Courier</Button>
+		<Button Click="OnClick3" Width="120" Height="20" Background="Silver">Tahoma</Button>
+		<Button Click="OnClick4" Width="120" Height="20" Background="Silver">Times New Roman</Button>
+		<Button Click="OnClick5" Width="120" Height="20" Background="Silver">Verdana</Button>
+	</FlowPanel>
+
+	<FlowPanel Width="100%" Height="10" />
+
+	<Text FontWeight="Bold" FontSize="14">Foreground Color:</Text>
+	<FlowPanel Width="100%">
+		<Button Click="OnClick11" Width="50" Height="20" Background="Black">Black</Button>
+		<Button Click="OnClick12" Width="50" Height="20" Background="Blue">Blue</Button>
+		<Button Click="OnClick13" Width="50" Height="20" Background="Green">Green</Button>
+		<Button Click="OnClick14" Width="50" Height="20" Background="Red">Red</Button>
+		<Button Click="OnClick15" Width="50" Height="20" Background="Yellow">Yellow</Button>
+	</FlowPanel>
+
+	<FlowPanel Width="100%" Height="10" />
+
+	<Text FontWeight="Bold" FontSize="14" VerticalAlignment="Center">FontSize:</Text>	
+	<FlowPanel Width="100%">
+		<RadioButtonList>
+			<RadioButton Click="OnClick6">8 point</RadioButton>
+			<RadioButton Click="OnClick7">10 point</RadioButton>
+			<RadioButton Click="OnClick8">12 point</RadioButton>
+			<RadioButton Click="OnClick9">14 point</RadioButton>
+			<RadioButton Click="OnClick10">16 point</RadioButton>
+		</RadioButtonList>
+
+	</FlowPanel>
+
+	<FlowPanel Width="100%" Height="10" />
+	<Text FontSize="12" ID="txt1">The FontFamily is set to Arial........</Text>
+	<Text FontSize="12" ID="txt3">The FontSize is set to 12 point........</Text>
+	<Text FontSize="12" ID="txt4">The Foreground color is set to Black........</Text>
+	<FlowPanel Width="100%" Height="15" />
+
+	<Text ID="txt2" FontFamily="Arial" FontSize="12" TextWrap="Wrap" Foreground="Black">Epsum factorial non deposit quid pro quo hic escorol. 
+Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto 
+lingo est igpay atinlay. Marquee selectus non provisio incongruous feline nolo contendre. Gratuitous octopus 
+niacin, sodium glutimate. Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium 
+sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto lingo est igpay atinlay. Marquee selectus non
+ provisio incongruous feline nolo contendre. Gratuitous octopus niacin, sodium glutimate.</Text>
+
+
+  <def:Code>
+  <![CDATA[
+
+    Sub OnClick1(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt1.TextRange.Text = "The FontFamily is set to Arial........"
+	txt2.FontFamily = "Arial"
+    End Sub
+
+    Sub OnClick2(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt1.TextRange.Text = "The FontFamily is set to Courier........"
+	txt2.FontFamily = "Courier"
+    End Sub
+	
+    Sub OnClick3(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt1.TextRange.Text = "The FontFamily is set to Tahoma........"
+	txt2.FontFamily = "Tahoma"
+    End Sub
+
+    Sub OnClick4(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt1.TextRange.Text = "The FontFamily is set to Times New Roman........"
+	txt2.FontFamily = "Times New Roman"
+    End Sub
+
+    Sub OnClick5(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt1.TextRange.Text = "The FontFamily is set to Verdana........"
+	txt2.FontFamily = "Verdana"
+    End Sub
+
+    Sub OnClick6(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt3.TextRange.Text = "The FontSize is set to 8 point........"
+	txt2.FontSize = new System.Windows.FontSize(8)
+    End Sub
+
+    Sub OnClick7(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt3.TextRange.Text = "The FontSize is set to 10 point........"
+	txt2.FontSize = new System.Windows.FontSize(10)
+    End Sub
+	
+    Sub OnClick8(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt3.TextRange.Text = "The FontSize is set to 12 point........"
+	txt2.FontSize = new System.Windows.FontSize(12)
+    End Sub
+
+    Sub OnClick9(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt3.TextRange.Text = "The FontSize is set to 14 point........"
+	txt2.FontSize = new System.Windows.FontSize(14)
+    End Sub
+
+    Sub OnClick10(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt3.TextRange.Text = "The FontSize is set to 16 point........"
+	txt2.FontSize = new System.Windows.FontSize(16)
+    End Sub
+
+    Sub OnClick11(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt4.TextRange.Text = "The Foreground color is set to Black........"
+	txt2.Foreground = System.Windows.Media.Brushes.Black
+    End Sub
+
+    Sub OnClick12(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt4.TextRange.Text = "The Foreground color is set to Blue........"
+	txt2.Foreground = System.Windows.Media.Brushes.Blue
+    End Sub
+	
+    Sub OnClick13(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt4.TextRange.Text = "The Foreground color is set to Green........"
+	txt2.Foreground = System.Windows.Media.Brushes.Green
+    End Sub
+
+    Sub OnClick14(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt4.TextRange.Text = "The Foreground color is set to Red........"
+	txt2.Foreground = System.Windows.Media.Brushes.Red
+    End Sub
+
+    Sub OnClick15(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt4.TextRange.Text = "The Foreground color is set to Yellow........"
+	txt2.Foreground = System.Windows.Media.Brushes.Yellow
+    End Sub
+
+ ]]>
+  </def:Code>
+
+</FlowPanel>

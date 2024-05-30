@@ -1,0 +1,57 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{DAE93251-945F-4083-8869-39FAF290F65A}" />
+    <Property OutputType="Library" />
+    <Property StartupObject="" />
+    <Property RootNamespace="FrenchFlashcardTile" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="FrenchFlashcardTile" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath="bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Reference" Include="PresentationCore" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\PresentationCore.dll" Name="PresentationCore" FusionName="PresentationCore, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="PresentationFramework" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\PresentationFramework.dll" Name="PresentationFramework" FusionName="PresentationFramework, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.dll" Name="System" FusionName="System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Data" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Data.dll" Name="System.Data" FusionName="System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=x86" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Windows.Explorer" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Avalon\System.Windows.Explorer.dll" Name="System.Windows.Explorer" FusionName="System.Windows.Explorer, Version=6.0.3708.0, Culture=neutral, PublicKeyToken=a29c01bbd4e39ac5, ProcessorArchitecture=x86" SpecificVersion="False" />
+    <Item Type="Reference" Include="System.XML" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.XML.dll" Name="System.XML" FusionName="System.Xml, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\WindowsBase.dll" Name="WindowsBase" FusionName="WindowsBase, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="FlashCard.cs" SubType="Code" />
+  </ItemGroup>
+</Project>

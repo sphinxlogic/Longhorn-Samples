@@ -1,0 +1,41 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Get the current value of the property
+      System.Windows.Media.SolidColorBrush foreBrush = btn1.Foreground
+	  as System.Windows.Media.SolidColorBrush;
+      // If the current value of the property is set to the color black 
+      // then change it to a new value.
+      // Otherwise change the ForeGround color back to Black.
+      if(foreBrush.Color.ToString() == "#FF000000")
+      {
+        // Create a Color Structure and set its properties such that a semi-transparent
+        // purple is made.
+        System.Windows.Media.Color c = new System.Windows.Media.Color();
+        // Set the alpha to half transparent;
+        c.ScA = (float)0.5;
+        // Set blue
+        c.ScB = (float)0.8;
+        // Set the green
+        c.ScG = (float)0.0;
+        // Set the Red
+        c.ScR = (float)1.0;
+        btn1.Foreground = new System.Windows.Media.SolidColorBrush(c);
+      }
+      else
+      {
+        btn1.Foreground = System.Windows.Media.Brushes.Black;
+      }
+    }
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" FontSize="16" ID="btn1">
+Click To See Change!!</Button>
+</FlowPanel>

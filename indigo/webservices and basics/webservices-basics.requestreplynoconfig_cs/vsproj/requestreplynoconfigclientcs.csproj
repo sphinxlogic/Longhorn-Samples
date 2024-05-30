@@ -1,0 +1,54 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{248EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="client" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath="..\Client\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="..\Client\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.MessageBus" Name="System.MessageBus" />
+    <Item Type="Reference" Include="System.Serialization" HintPath="..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Serialization.dll" Name="System.Serialization" />
+    <Item Type="Reference" Include="System.XML" HintPath="..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.XML.dll" Name="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="..\Client\Client.cs" Link="Client.cs" SubType="Code" />
+    <Item Type="Compile" Include="..\Client\www_tempuri_org.quickstarts.cs" Link="www_tempuri_org.quickstarts.cs" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="&quot;%SDKTOOLPATH%\wsdlgen.exe&quot;  /nologo ..\server\www_tempuri_org.quickstarts.wsdl ..\server\schemas_microsoft_com.serialization.2003.02.DefaultDocumentElement.xsd ..\server\www_tempuri_org.quickstarts.xsd" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

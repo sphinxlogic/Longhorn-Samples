@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesHowTo", "RulesHowTo\RulesHowTo.csproj", "{69EAE978-5664-409B-A9BA-308CD3A92270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69EAE978-5664-409B-A9BA-308CD3A92270}.Debug|.NET.ActiveCfg = Debug|.NET
+		{69EAE978-5664-409B-A9BA-308CD3A92270}.Debug|.NET.Build.0 = Debug|.NET
+		{69EAE978-5664-409B-A9BA-308CD3A92270}.Release|.NET.ActiveCfg = Release|.NET
+		{69EAE978-5664-409B-A9BA-308CD3A92270}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

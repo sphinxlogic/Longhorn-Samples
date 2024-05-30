@@ -1,0 +1,66 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{02D8096D-BFD9-4680-9BD3-3AF37BDFCEEB}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="PnrpRegister.FormMain" />
+    <Property RootNamespace="PnrpRegister" />
+    <Property AssemblyName="PnrpRegister" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\Debug\" />
+    <Property DefineConstants="_MyType=&quot;WinForms&quot;" />
+    <Property DocumentationFile="PnrpRegister.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\Release\" />
+    <Property DefineConstants="_MyType=&quot;WinForms&quot;" />
+    <Property DocumentationFile="PnrpRegister.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" />
+    <Item Type="Reference" Include="System.Drawing" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Forms" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Net.PeerToPeer" Name="System.Net.PeerToPeer" />
+    <Item Type="Reference" Include="System.Xml" Name="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Drawing" />
+    <Item Type="Import" Include="System.Diagnostics" />
+    <Item Type="Import" Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.vb" SubType="Code" />
+    <Item Type="Compile" Include="PnrpRegister.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="PnrpRegister.resx" DependentUpon="PnrpRegister.vb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

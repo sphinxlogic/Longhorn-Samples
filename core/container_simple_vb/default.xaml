@@ -1,0 +1,24 @@
+<DockPanel ID="RootElement"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition">
+
+<Button Click="OpenContainer">Create a Container Please!</Button>
+   <def:Code>
+   <![CDATA[
+
+   Public Sub OpenContainer(sender As object, args As System.Windows.Controls.ClickEventArgs)
+   	Try
+     ' Using the Open method, you can either create a new container or open an
+     ' existing one. The first parameter specifies the path to the container file on  
+     ' the local file system, the second specifies the file mode, and the third specifies
+     ' what level of access you will have to the container using this reference (myFile). 
+     Dim myFile As System.IO.CompoundFile.StorageRoot
+     myFile.Open("My Container.container", System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite)
+	Catch ex as System.Exception
+		System.Windows.MessageBox.Show(ex.Message)
+	End Try	   
+End Sub
+   ]]>
+   </def:Code>
+   
+   </DockPanel>

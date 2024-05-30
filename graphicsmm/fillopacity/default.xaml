@@ -1,0 +1,87 @@
+<Canvas xmlns="http://schemas.microsoft.com/2003/xaml" 
+  Width="100%" Height="100%">
+
+
+<!-- This line is drawn behind the ellipses. -->
+  <Line
+    X1="0"
+    Y1="150"
+    X2="400"
+    Y2="150"
+    Stroke="Blue"
+    StrokeThickness="20"/>
+
+
+<!-- The first ellipse. No opacity is specified,
+     so it appears fully opaque. -->
+  
+  <Ellipse 
+    ID="ReferenceEllipse"
+    Fill="Red"
+    Stroke="Black"
+    StrokeThickness="10"
+    CenterX="70"
+    CenterY="150"
+    RadiusX="25"
+    RadiusY="100"/>
+
+
+<!-- The UIElement.Opacity property of the next ellipse
+     is set to 0.5, making the entire ellipse appear
+     50% opaque. -->
+
+  <Ellipse 
+    ID="A"
+    Fill="Red"
+    Stroke="Black"
+    StrokeThickness="10"
+    CenterX="140"
+    CenterY="150"
+    RadiusX="25"
+    RadiusY="100"
+    UIElement.Opacity="0.5"/>
+
+  <Text Canvas.Left="125" Canvas.Top="270" FontSize="20">A</Text>
+
+
+<!-- The Opacity property of the next ellipse's fill
+     is set, making its fill but not its outline
+     appear 50% opaque. -->
+
+  <Ellipse 
+    ID="B"
+    Stroke="Black"
+    StrokeThickness="10"
+    CenterX="210"
+    CenterY="150"
+    RadiusX="25"
+    RadiusY="100">
+    <Shape.Fill>
+      <SolidColorBrush Color="Red" Opacity="0.5"/>
+    </Shape.Fill>
+  </Ellipse>
+
+  <Text Canvas.Left="185" Canvas.Top="270" FontSize="20">B</Text>
+
+
+  <!-- Both the ellipse's UIElement.Opacity property and the opacity of its fill are set,
+       resulting in an ellipse with a 25% opaque fill (0.5 * 0.5) and an outline
+       that is 50% opaque. -->
+  
+  <Ellipse 
+    ID="C"
+    Stroke="Black"
+    StrokeThickness="10"
+    CenterX="280"
+    CenterY="150"
+    RadiusX="25"
+    RadiusY="100"
+    UIElement.Opacity="0.5">
+    <Shape.Fill>
+      <SolidColorBrush Color="Red" Opacity="0.5"/>
+    </Shape.Fill>
+  </Ellipse>
+
+  <Text Canvas.Left="255" Canvas.Top="270" FontSize="20">C</Text>
+ 
+</Canvas>

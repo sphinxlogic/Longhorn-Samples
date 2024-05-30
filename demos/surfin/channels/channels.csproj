@@ -1,0 +1,43 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property IsDependentProject="true" />
+    <Property Language="C#" />
+    <Property AssemblyName="Channels" />
+    <Property TargetName="Channels" />
+    <Property TargetType="Library" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property RootNamespace="Surfin" />
+    <Property DefaultClrNameSpace="Surfin" />
+    <Property ProjectGuid="{2593D186-1E07-45A2-B8CE-9589E83D4939}" />
+    <Property StrongNameKeyFile="Surfin.snk" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <!-- The rest of the References are currently in one of the .target files. Eventually, post-PDC we'll put them all here -->
+  <!-- Figure out real settings and then uncomment this:
+    <Item Type="Reference" Include="$(systemroot)\winfs\api\System.Storage.dll" />
+    <Item Type="Reference" Include="$(systemroot)\winfs\api\System.Storage.Schemas.dll" />
+	-->
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Compile" Include="Channels.cs" SubType="Code" />
+  </ItemGroup>
+</Project>
+<!-- 
+    This project gets built by MSBuild on the commmand line.
+    Visual Studio "Whidbey" can also compile a project using only this data.
+
+    The build steps of a project are defined in the .target file referenced in the <Import>.
+    You can modify the steps involved in build.
+
+    You can also "execute" other targets besides the defaulttarget of build.
+    From a command prompt: msbuild myproj.csproj /t:TARGETNAME
+    Examples of TARGETNAME include: Build, Clean, CleanBuild, Run
+-->

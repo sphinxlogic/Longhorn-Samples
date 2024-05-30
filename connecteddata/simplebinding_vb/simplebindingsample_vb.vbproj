@@ -1,0 +1,29 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+
+  <PropertyGroup>
+
+    <Property Language="VB" />
+
+    <Property DefaultClrNameSpace="WCPSample" />
+
+    <Property TargetName="SimpleBindingSample_VB" />
+
+    <Property HostInBrowser="False" />
+
+  </PropertyGroup>
+
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml"/>
+    <!-- Compiled Code Files -->
+    <Item Type="Compile" Include="default.xaml.vb"/>
+  </ItemGroup>
+
+</Project>

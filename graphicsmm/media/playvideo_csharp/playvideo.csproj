@@ -1,0 +1,53 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Language="C#" />
+      <!--
+        Description: This property defines the language used for coding
+        Possible Values: {C#, cpp, vb}
+        Default Value:
+        Required: YES
+      -->
+		
+    <Property DefaultClrNameSpace="Microsoft.Samples.Communications" />
+      <!--
+        Description: This property defines the name of the target
+        Possible Values:
+        Default Value:
+        Required: YES
+      -->
+
+    <Property TargetName="PlayVideo" />
+      <!--
+        Description: Defines the full path of file that contains security information
+        Possible Values:
+        Default Value:
+        Required:YES
+      -->
+
+    <Property BuildSystem="MSBuild" />
+		
+    <Property HostInBrowser="False" />
+		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml"/>
+   
+    <!-- Code behind -->
+    <Item Type="Compile" Include="default.xaml.cs"/>
+    
+    <!-- Media files -->
+    <Item Type="Resources" Include="*.wmv" FileStorage="loose"/>
+  </ItemGroup>
+
+</Project>

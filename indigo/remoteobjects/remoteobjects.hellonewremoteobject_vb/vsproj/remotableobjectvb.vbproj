@@ -1,0 +1,58 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{7E9C88E1-341A-47EB-A0FE-45435AF95E80}" />
+    <Property OutputType="Library" />
+    <Property StartupObject="" />
+    <Property RootNamespace="" />
+    <Property AssemblyName="RemotableObject" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="..\Server\" />
+    <Property DocumentationFile="RemotableObject.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="ConsoleApplication1.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" />
+    <Item Type="Reference" Include="System.MessageBus" HintPath="..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.MessageBus.dll" Name="System.MessageBus" />
+    <Item Type="Reference" Include="System.XML" Name="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="..\Server\RemotableObject.vb" Link="RemotableObject.vb" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

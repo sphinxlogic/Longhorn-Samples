@@ -1,0 +1,128 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="xamlprint_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Print Example" Visible="True"
+    Loaded="WindowLoaded">
+    
+    <Window.Resources>
+      
+        <SolidColorBrush def:Name="glowingHighlight" Color="Yellow" >
+            <SolidColorBrush.ColorAnimations>
+                <ColorAnimation From="Yellow" To="WhiteSmoke" Duration="1" RepeatDuration="Indefinite" AutoReverse="True" />
+            </SolidColorBrush.ColorAnimations>
+        </SolidColorBrush>
+        
+       
+        <Style def:Name="printButtonStyle">
+            <Button   />
+            <Style.VisualTree>
+               
+                <Canvas
+                    Width="*Alias(Target=Width)"
+                    Height="*Alias(Target=Height)">
+                    
+                    <TransformDecorator def:StyleID="sBackgroundTransform" 
+                        Width="100%" Height="100%"
+                        AffectsLayout="True">
+                        <Canvas>
+                            <Rectangle def:StyleID="sBackingRect"
+                                Width="100%"
+                                Height="100%"                       
+                                Stroke="#CCCCFF"
+                                StrokeThickness="3"
+                                RadiusX="10"
+                                RadiusY="10" />    
+                            <Rectangle def:StyleID="sBackgroundRect"
+                                Width="100%"
+                                Height="100%"               
+                                Stroke="Transparent"
+                                StrokeThickness="15"
+                                RadiusX="10"
+                                RadiusY="10"
+                                Opacity="1"
+                                Fill="#CCCCFF">                   
+                            </Rectangle>
+                        </Canvas>
+                    </TransformDecorator>
+                    
+                    <Text
+                        def:StyleID="sContentText"
+                        Width="80%"
+                        Margin="15,15,15,15"
+                        Opacity="1">
+                        <ContentPresenter 
+                            ContentControl.Content="*Alias(Target=Content)" />
+                    </Text>
+                </Canvas>
+            </Style.VisualTree>
+            <Style.VisualTriggers>
+                <PropertyTrigger Property="IsMouseOver" Value="true">
+                    <Set PropertyPath="Rectangle.Stroke" 
+                        Value="Orange"
+                        Target="sBackingRect" />
+                    <Set PropertyPath="Rectangle.Fill" 
+                        Value="Orange"
+                        Target="sBackgroundRect" />
+                     
+                </PropertyTrigger>
+                <PropertyTrigger Property="IsEnabled" Value="false">
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="0.25"
+                        Target="sBackgroundRect" />
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="0.25"
+                        Target="sBackingRect" />       
+                    <Set PropertyPath="Text.Foreground" 
+                        Value="Gray"
+                        Target="sContentText" />
+                               
+                </PropertyTrigger>
+                <PropertyTrigger Property="IsPressed" Value="true">
+                    <Set PropertyPath="TransformDecorator.Transform" 
+                        Value="scale 0.5,0.5"
+                        Target="sBackgroundTransform" />                      
+                </PropertyTrigger>
+            </Style.VisualTriggers>
+       
+        </Style>
+        
+        </Window.Resources>
+    
+    <DockPanel DockPanel.Dock="Fill">
+        <GridPanel DockPanel.Dock="Left" ID="buttonPanel"  Height="100%" Columns="1" CellSpacing="10">
+            <Button ID="PrintToDefaultPrinterButton"   
+                Style="{printButtonStyle}"
+                Click="printToDefaultPrinterButton_click">Print Visual to Default Printer</Button>
+             
+            <Button ID="PrintToSelectedPrinterButton"
+                Style="{printButtonStyle}"
+                Click="printToSelectedPrinterButton_click">Print Visual to Selected Printer</Button>
+               
+            <Button ID="MatchVisualToPaperSizeAndPrintButton"
+                Style="{printButtonStyle}"
+                Click="matchVisualToPaperSizeAndPrintButton_click">Size Visual to Selected Paper Size</Button>
+               
+            <Button ID="MixedPageOrientationVisualPrintButton"
+                Style="{printButtonStyle}"
+                Click="mixedPageOrientationVisualPrintButton_click">Print Visuals with Different Page Orientations</Button>
+                
+            <Button ID="EventDrivenVisualPrintButton"
+                Style="{printButtonStyle}"
+                Click="eventDrivenVisualPrintButton_click">Event-Driven Printing Example</Button>
+                 
+            <Button ID="PrintToFileButton"
+                Style="{printButtonStyle}"
+                Click="printToFileButton_click">Print Visual to a File</Button>
+                
+            <Button ID="PrintElementButton"
+                IsEnabled="True"
+                Style="{printButtonStyle}"
+                Click="printElementButton_click">Print a Rendered XAML File</Button>
+                 
+        </GridPanel>
+       
+    </DockPanel>
+</Window>

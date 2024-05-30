@@ -1,0 +1,31 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property TargetName="MyApp" />
+    <Property TargetType="Application" />
+    <Property DefaultClrNameSpace="Application1" />
+    <Property Optimization="Download" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{BEF7366D-A69C-4DBE-8C20-D2E29C8BE227}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+    <Item Type="Code" Include="MyApp.xaml.cs" />
+    <Item Type="Pages" Include="Page1.xaml" />
+    <Item Type="Code" Include="Page1.xaml.cs" />
+    <Item Type="DependentProjects" Include="..\Library\Library.csproj" />
+    <!--
+		<Item Type="COmponents" Include="MyLib.dll"/>
+-->
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

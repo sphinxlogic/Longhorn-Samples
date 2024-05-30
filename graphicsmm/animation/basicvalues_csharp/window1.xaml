@@ -1,0 +1,97 @@
+<!-- This markup file is used to layout the sample. For the
+	 animation, see the WindowLoaded method in Window1.xaml.cs" -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="basicvalues_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="basicvalues_csharp" Visible="True"
+    Loaded="WindowLoaded"
+    >
+    <Window.Resources>
+		<ImageBrush def:Name="gridBackground"
+			ImageSource="data\grid.png"
+			ViewPort="0,0,10,10" ViewPortUnits="Absolute"
+			TileMode="Tile" 
+			Opacity="0.5"/>
+	
+		<Style>
+			<Canvas
+				Width="400" 
+				Height="50"
+				Background="{gridBackground}" 
+				Margin="10" /> 
+		</Style>
+		<Style>
+			<TextPanel
+				HorizontalAlignment="Right"
+				Width="250"
+				FontSize="10pt" 
+				FontFamily="Times New Roman"
+				Margin="10"></TextPanel>
+		</Style>
+		<Style>
+			<Heading FontSize="12pt" FontFamily="Verdana" Foreground="Green"/>
+		</Style>
+	
+	</Window.Resources>
+	
+    <GridPanel Columns="2">
+  
+		<TextPanel>
+			<Heading FontSize="12pt">"From/To" Animation</Heading>
+			Animates the line's X2 property from 50 to 300 over 10 seconds.
+		</TextPanel>
+		<Canvas ID="fromToExampleCanvas">
+			
+			<!-- See Window1.xaml.cs for the code that creates the animation.-->
+			
+		</Canvas>
+
+	<TextPanel>
+		<Heading FontSize="12pt">"To" Animation</Heading>
+		Animates the line's X2 property from its base value of 100 to 300 over 10 seconds.</TextPanel>
+	<Canvas ID="toExampleCanvas">
+  
+			<!-- See Window1.xaml.cs for the code that creates the animation.-->
+  
+	</Canvas>
+
+	<TextPanel>
+		<Heading FontSize="12pt">"By" Animation</Heading>
+		Animates the line's X2 property by offsetting its base value by 300 over 10 seconds.
+		As a result, the endpoint animates from 100 to 400.</TextPanel>
+	<Canvas ID="byExampleCanvas">
+  
+		<!-- See Window1.xaml.cs for the code that creates the animation.-->
+  
+	</Canvas>
+
+	<TextPanel>
+		<Heading FontSize="12pt">"From/By" Animation</Heading>
+		Animates the line's X2 property by offsetting the animation's start value of 50 by 300 over 10 seconds.
+		As a result, the endpoint animates from 50 to 350.
+	</TextPanel>
+	<Canvas ID="fromByExampleCanvas">
+  
+		<!-- See Window1.xaml.cs for the code that creates the animation.-->
+  
+	</Canvas>
+
+  <TextPanel>
+	<Heading FontSize="12pt">"From" Animation</Heading>
+	
+	Animates the line's X2 property from 50 to its base value of 100 over 10 seconds.</TextPanel>
+  <Canvas ID="fromExampleCanvas">
+  
+		<!-- See Window1.xaml.cs for the code that creates the animation.-->
+  
+  </Canvas>
+  
+  
+
+</GridPanel>
+
+
+
+</Window>

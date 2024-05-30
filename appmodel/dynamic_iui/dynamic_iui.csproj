@@ -1,0 +1,59 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property AssemblyName="Dynamic_IUI" />
+    <Property TargetName="$(AssemblyName)" />
+    <Property ApplicationIcon="App.ico" />
+    <Property ProductVersion="8.0.31010" />
+    <Property SchemaVersion="2.0" />
+    <Property RootNamespace="Dynamic_IUI" />
+    <Property ProjectGuid="{ABCB870B-E614-400D-9BC8-8B2A75D38880}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <!-- The rest of the References are currently in one of the .target files. Eventually, post-PDC we'll put them all here -->
+  <Item Type="Resources" Include="App.ico" />
+  <Item Type="Resources" Include="Images\*.*" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="Blue.xaml.cs" DependentUpon="Blue.xaml" SubType="Code" />
+    <Item Type="Compile" Include="Green.xaml.cs" DependentUpon="Green.xaml" SubType="Code" />
+    <Item Type="Compile" Include="NavHub.cs" SubType="Code" />
+    <Item Type="Compile" Include="StartPage.xaml.cs" DependentUpon="StartPage.xaml" SubType="Code" />
+    <Item Type="Compile" Include="Yellow.xaml.cs" DependentUpon="Yellow.xaml" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Pages" Include="Blue.xaml" />
+    <Item Type="Pages" Include="Green.xaml" />
+    <Item Type="Pages" Include="StartPage.xaml" />
+    <Item Type="Pages" Include="Yellow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Blue.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Dynamic_IUI.Main.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Green.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\MyApp.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\StartPage.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Yellow.g.cs" />
+  </ItemGroup>
+</Project>
+<!-- 
+    This project gets built by MSBuild on the commmand line.
+    Visual Studio "Whidbey" can also compile a project using only this data.
+
+    The build steps of a project are defined in the .target file referenced in the <Import>.
+    You can modify the steps involved in build.
+
+    You can also "execute" other targets besides the defaulttarget of build.
+    From a command prompt: msbuild myproj.csproj /t:TARGETNAME
+    Examples of TARGETNAME include: Build, Clean, CleanBuild, Run
+-->

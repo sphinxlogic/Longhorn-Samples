@@ -1,0 +1,10 @@
+<securityData>
+    <tokens>
+        <tokenCache id="mainTokenCache">
+            <userNameToken user="joe" password="eoj"/>
+        </tokenCache>
+    </tokens>
+    <credentials>
+        <trustTestRoot id="mainX509TrustTestRoot">true</trustTestRoot>
+    </credentials>
+</securityData>

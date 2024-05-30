@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchByType", "SearchByType\SearchByType.csproj", "{42F5A099-C006-4D24-8219-20AC6B0BF514}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42F5A099-C006-4D24-8219-20AC6B0BF514}.Debug|.NET.ActiveCfg = Debug|.NET
+		{42F5A099-C006-4D24-8219-20AC6B0BF514}.Debug|.NET.Build.0 = Debug|.NET
+		{42F5A099-C006-4D24-8219-20AC6B0BF514}.Release|.NET.ActiveCfg = Release|.NET
+		{42F5A099-C006-4D24-8219-20AC6B0BF514}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

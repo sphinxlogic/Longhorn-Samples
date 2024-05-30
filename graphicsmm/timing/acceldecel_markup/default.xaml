@@ -1,0 +1,86 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition" 
+  Background="White">
+  
+  
+  <GridPanel CellSpacing="10">
+  
+		<GridPanel.Resources>
+			<Style def:Name="gridBackgroundCanvas">
+				<Canvas Width="400" Height="100">
+					<Canvas.Background>
+						<ImageBrush 
+							ImageSource="data\grid.png" 
+							ViewPort="0,0,10,10" 
+							ViewPortUnits="Absolute"
+							TileMode="Tile" /> 
+					</Canvas.Background>
+				</Canvas>
+			</Style>
+			<Style>
+				<Text FontFamily="Verdana" FontSize="12pt"></Text>
+			</Style>
+		</GridPanel.Resources>
+		
+		<Text>Acceleration="0.4" Deceleration="0.6"</Text>
+		<Canvas Style="{gridBackgroundCanvas}">
+			<Line X1="20" Y1="50" X2="30" Y2="50"
+				Stroke="Blue" StrokeThickness="10">
+
+				<Line.X2>
+					<LengthAnimation Acceleration="0.4" Deceleration="0.6" Duration="10" AutoReverse="True" RepeatDuration="Indefinite" From="10" To="400"/>
+				</Line.X2>
+			</Line>
+
+			<Line X1="20" Y1="80" X2="30" Y2="80"
+				Stroke="Red" StrokeThickness="10">
+
+				<Line.X2>
+					<LengthAnimation Duration="10" AutoReverse="True" RepeatDuration="Indefinite" From="10" To="400"/>
+				</Line.X2>
+			</Line>
+		</Canvas>
+		
+		<Text>Acceleration="0.4"</Text>
+		<Canvas Style="{gridBackgroundCanvas}">
+			<Line X1="20" Y1="50" X2="30" Y2="50"
+				Stroke="Blue" StrokeThickness="10">
+
+				<Line.X2>
+					<LengthAnimation Acceleration="0.4" Duration="10" AutoReverse="True" RepeatDuration="Indefinite" From="10" To="400"/>
+				</Line.X2>
+			</Line>
+
+			<Line X1="20" Y1="80" X2="30" Y2="80"
+				Stroke="Red" StrokeThickness="10">
+
+				<Line.X2>
+					<LengthAnimation Duration="10" AutoReverse="True" RepeatDuration="Indefinite" From="10" To="400"/>
+				</Line.X2>
+			</Line>
+		
+		</Canvas>
+		
+		<Text>Deceleration="0.6"</Text>
+		<Canvas Style="{gridBackgroundCanvas}">
+			<Line X1="20" Y1="50" X2="30" Y2="50"
+				Stroke="Blue" StrokeThickness="10">
+
+				<Line.X2>
+					<LengthAnimation Deceleration="0.6" Duration="10" AutoReverse="True" RepeatDuration="Indefinite" From="10" To="400"/>
+				</Line.X2>
+			</Line>
+
+			<Line X1="20" Y1="80" X2="30" Y2="80"
+				Stroke="Red" StrokeThickness="10">
+
+				<Line.X2>
+					<LengthAnimation Duration="10" AutoReverse="True" RepeatDuration="Indefinite" From="10" To="400"/>
+				</Line.X2>
+			</Line>
+		</Canvas>
+		
+  </GridPanel>
+ 
+</Canvas>

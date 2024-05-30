@@ -1,0 +1,27 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Get the current value of the property
+      System.Windows.FontWeight fontWeight = btn1.FontWeight;
+      // If the current value of the property is set to Normal then change it to a new value.
+      // Otherwise change it back to Normal FontWeight.
+      if(fontWeight == System.Windows.FontWeight.Normal)
+      {
+        btn1.FontWeight = System.Windows.FontWeight.Bold;
+      }
+      else
+      {
+        btn1.FontWeight = System.Windows.FontWeight.Normal;
+      }
+    }
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" FontSize="16" ID="btn1">
+Click To See Change!!</Button>
+</FlowPanel>

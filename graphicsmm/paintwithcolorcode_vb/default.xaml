@@ -1,0 +1,69 @@
+<?Mapping XmlNamespace="MIL" ClrNamespace="System.Windows.Shapes" Assembly="PresentationFramework"?>
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	' Create the ellipses.	
+	Dim e1 As New System.Windows.Shapes.Ellipse()
+	Dim e2 As New System.Windows.Shapes.Ellipse()
+	Dim e3 As New System.Windows.Shapes.Ellipse()
+
+	' Set the fill value for the interior of each ellipse in 
+	' different ways that have identical results.
+	e1.Fill = System.Windows.Media.Brushes.Blue
+	e2.Fill = new System.Windows.Media.SolidColorBrush(Colors.Blue)
+	e3.Fill = new System.Windows.Media.SolidColorBrush( _
+		Color.FromScRGB(1,0,0,1))
+
+	' Set the stroke value for the exterior of each ellipse in 
+	' different ways that have identical results.
+	e1.Stroke = Brushes.Black
+	e2.Stroke = new System.Windows.Media.SolidColorBrush(Colors.Black)
+	e3.Stroke = new System.Windows.Media.SolidColorBrush( _
+		Color.FromScRGB(1,0,0,0))
+
+	' Set the thickness of the stroke.
+	e1.StrokeThickness = new System.Windows.Length(10)
+	e2.StrokeThickness = new System.Windows.Length(10)
+	e3.StrokeThickness = new System.Windows.Length(10)
+
+	' Set the size and position of the ellipses.
+	e1.CenterX = new System.Windows.Length(100)
+	e1.CenterY = new System.Windows.Length(75)
+	e1.RadiusX = new System.Windows.Length(50)
+	e1.RadiusY = new System.Windows.Length(50)
+
+	e2.CenterX = new System.Windows.Length(220)
+	e2.CenterY = new System.Windows.Length(75)
+	e2.RadiusX = new System.Windows.Length(50)
+	e2.RadiusY = new System.Windows.Length(50)
+
+	e3.CenterX = new System.Windows.Length(340)
+	e3.CenterY = new System.Windows.Length(75)
+	e3.RadiusX = new System.Windows.Length(50)
+	e3.RadiusY = new System.Windows.Length(50)
+
+	' Add the ellipses to the main Canavs.
+	myCanvas.Children.Add(e1)
+	myCanvas.Children.Add(e2)
+	myCanvas.Children.Add(e3)
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

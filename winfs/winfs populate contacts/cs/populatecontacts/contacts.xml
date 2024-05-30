@@ -1,0 +1,670 @@
+﻿<SampleData>
+  <Contacts>
+    <Contact
+      Title="Mr"
+      FirstName="Zainal"
+      MiddleName="T"
+      LastName="Arifin"
+      Suffix=""
+      NickName="ZainalArifin"
+      DisplayName="Zainal"
+      IMAddress="Zainal@hotmail.com">
+      <PostalAddress
+        Street="342 San Simieon"
+        City="Issaquah"
+        State="Washington"
+        PostalCode="33545"
+        Country="USA" />
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Zainal@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Zainal@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="204"
+          Number="555-0115"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="204"
+          Number="555-0115" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="204"
+          Number="555-0115" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Shared>
+          <Document Name="Status Report.doc" PathLocation="\\Shared\Status\Zainal"/>
+          <Document Name="How to win.doc" PathLocation="\\Shared\General"/>
+          <Document Name="Version Control Basics.doc" PathLocation="\\GroupsDocuments\VSS"/>
+        </Shared>
+        <Private>
+          <Document Name="My Resume.doc" PathLocation="\\MyComputer\MyDocuments"/>
+          <Document Name="Secret Product Features.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+      <Bookmarks>
+        <Shared>
+          <Bookmark Name="Microsoft" PathLocation="http://www.microsoft.com"/>
+          <Bookmark Name="ZDNet" PathLocation="http://www.zdnet.com"/>
+        </Shared>
+      </Bookmarks>
+
+    </Contact>
+
+    <Contact
+      Title="Mr"
+      FirstName="Sean"
+      MiddleName="N"
+      LastName="Chai"
+      Suffix=""
+      NickName="Sean"
+      DisplayName="Sean Chai"
+      IMAddress="Sean1@hotmail.com">
+
+      <PostalAddress
+        Street="9314 Indianhead Way"
+        City="Issaquah"
+        State="Washington"
+        PostalCode="41204"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Sean1@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Sean1@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="205"
+          Number="555-0132"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="205"
+          Number="555-0132" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="205"
+          Number="555-0132" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Shared>
+          <Document Name="List of inventions.doc" PathLocation="\\Shared\General"/>
+          <Document Name="Change Control Guidelines.doc" PathLocation="\\GroupsDocuments\VSS"/>
+        </Shared>
+        <Private>
+          <Document Name="Product Easter Eggs.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+      <Bookmarks>
+        <Shared>
+          <Bookmark Name="Google" PathLocation="http://www.google.com"/>
+        </Shared>
+      </Bookmarks>
+
+    </Contact>
+
+    <Contact
+      Title="Ms"
+      FirstName="Karen"
+      MiddleName="R"
+      LastName="Berge"
+      Suffix=""
+      NickName="Karen"
+      DisplayName="Karen Berge"
+      IMAddress="Karen2@hotmail.com">
+
+      <PostalAddress
+        Street="7772 Golden Meadow"
+        City="Issaquah"
+        State="Washington"
+        PostalCode="45504"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Karen2@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Karen2@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="746"
+          Number="555-0164"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="746"
+          Number="555-0164" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="746"
+          Number="555-0164" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Shared>
+          <Document Name="New Coding Guidelines.doc" PathLocation="\\Shared\General"/>
+        </Shared>
+        <Private>
+          <Document Name="Draft Product Specification.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+      <Bookmarks>
+        <Shared>
+          <Bookmark Name="NASA" PathLocation="http://www.nasa.gov"/>
+        </Shared>
+      </Bookmarks>
+
+    </Contact>
+
+    <Contact
+      Title="Ms"
+      FirstName="Terri"
+      MiddleName="Lee"
+      LastName="Duffy"
+      Suffix=""
+      NickName="Terri"
+      DisplayName="Terri Lee Duffy"
+      IMAddress="Terri@hotmail.com">
+
+      <PostalAddress
+        Street="1970 Napa Ct."
+        City="Bothell"
+        State="Washington"
+        PostalCode="36903"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Terri@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Terri@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="819"
+          Number="555-0175"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="819"
+          Number="555-0175" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="819"
+          Number="555-0175" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Private>
+          <Document Name="Performance Review.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+      <Bookmarks>
+        <Shared>
+          <Bookmark Name="SETI" PathLocation="http://www.seti.org"/>
+        </Shared>
+      </Bookmarks>
+
+    </Contact>
+
+    <Contact
+      Title="Mr"
+      FirstName="Jian"
+      MiddleName="Shuo"
+      LastName="Wang"
+      Suffix=""
+      NickName="Jian"
+      DisplayName="Jian Wang"
+      IMAddress="Jian@hotmail.com">
+
+      <PostalAddress
+        Street="9833 Mt. Dias Blv."
+        City="Bothell"
+        State="Washington"
+        PostalCode="48042"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Jian@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Jian@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="212"
+          Number="555-0187"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="212"
+          Number="555-0187" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="212"
+          Number="555-0187" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Shared>
+          <Document Name="Zen and the Art of Motercycle Maintenence.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Shared>
+      </Documents>
+
+    </Contact>
+
+    <Contact
+      Title="Mr"
+      FirstName="Michael"
+      MiddleName="I"
+      LastName="Sullivan"
+      Suffix=""
+      NickName="Michael"
+      DisplayName="Michael Sullivan"
+      IMAddress="Michael@hotmail.com">
+
+      <PostalAddress
+        Street="7484 Roundtree Drive"
+        City="Bothell"
+        State="Washington"
+        PostalCode="68791"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Michael6@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Michael6@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="465"
+          Number="555-0156"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="465"
+          Number="555-0156" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="465"
+          Number="555-0156" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Private>
+          <Document Name="My Family Photos.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+    </Contact>
+
+    <Contact
+      Title="Ms"
+      FirstName="Sharon"
+      MiddleName="B"
+      LastName="Salavaria"
+      Suffix=""
+      NickName="Sharon"
+      DisplayName="Sharon Salavaria"
+      IMAddress="Sharon@hotmail.com">
+
+      <PostalAddress
+        Street="9539 Glenside Dr"
+        City="Bothell"
+        State="Washington"
+        PostalCode="43412"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Sharon1@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Sharon1@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="970"
+          Number="555-0138"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="970"
+          Number="555-0138" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="970"
+          Number="555-0138" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Shared>
+          <Document Name="Product Release schedule.doc" PathLocation="\\Shared\General"/>
+        </Shared>
+        <Private>
+          <Document Name="Swiss bank account numbers.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+      <Bookmarks>
+        <Shared>
+          <Bookmark Name="Ottawa, Canada" PathLocation="http://www.ottawainfo.com"/>
+        </Shared>
+      </Bookmarks>
+
+    </Contact>
+
+    <Contact
+      Title="Mr"
+      FirstName="Shai"
+      MiddleName="K"
+      LastName="Bassli"
+      Suffix=""
+      NickName="Shai"
+      DisplayName="Shai Bassli"
+      IMAddress="Shai@hotmail.com">
+
+      <PostalAddress
+        Street="5670 Bel Air Dr."
+        City="Renton"
+        State="Washington"
+        PostalCode="74083"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Shai@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Shai@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="110"
+          Number="555-0112"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="110"
+          Number="555-0112" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="110"
+          Number="555-0112" />
+      </PhoneNumbers>
+
+    </Contact>
+
+    <Contact
+      Title="Mr"
+      FirstName="Magnus"
+      MiddleName="E"
+      LastName="Hedlund"
+      Suffix=""
+      NickName="Magnus"
+      DisplayName="Magnus Hedlund"
+      IMAddress="Magnus@hotmail.com">
+
+      <PostalAddress
+        Street="7165 Brock Lane"
+        City="Renton"
+        State="Washington"
+        PostalCode="61795"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Magnus@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Magnus@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="583"
+          Number="555-0182"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="583"
+          Number="555-0182" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="583"
+          Number="555-0182" />
+      </PhoneNumbers>
+
+    </Contact>
+
+    <Contact
+      Title="Mr"
+      FirstName="Stuart"
+      MiddleName="J"
+      LastName="Macrae"
+      Suffix=""
+      NickName="Stuart"
+      DisplayName="Stuart Macrae"
+      IMAddress="Stuart@hotmail.com">
+
+      <PostalAddress
+        Street="2736 Scottsdale Rd"
+        City="Renton"
+        State="Washington"
+        PostalCode="11914"
+        Country="USA" />
+
+      <EmailAddresses>
+        <EmailAddress
+          Type="Primary"
+          Address="Stuart2@adventure-works.com" />
+        <EmailAddress
+          Type="Work"
+          Address="Stuart2@adventure-works.com" />
+      </EmailAddresses>
+
+      <PhoneNumbers>
+        <PhoneNumber
+          Type="Work"
+          AreaCode="539"
+          Number="555-0149"
+          Extension="12345" />
+        <PhoneNumber
+          Type="Home"
+          AreaCode="539"
+          Number="555-0149" />
+        <PhoneNumber
+          Type="Cell"
+          AreaCode="539"
+          Number="555-0149" />
+      </PhoneNumbers>
+
+      <Documents>
+        <Shared>
+          <Document Name="My Status Report.doc" PathLocation="\\Shared\Status\Stuart"/>
+          <Document Name="Facilities Management 101.doc" PathLocation="\\Shared\General"/>
+          <Document Name="How to do more with less.doc" PathLocation="\\Shared\General"/>
+        </Shared>
+        <Private>
+          <Document Name="Family Medical History.doc" PathLocation="\\MyComputer\MyDocuments"/>
+          <Document Name="Life Insurance Details.doc" PathLocation="\\MyComputer\MyDocuments"/>
+        </Private>
+      </Documents>
+
+      <Bookmarks>
+        <Shared>
+          <Bookmark Name="Windows Update" PathLocation="http://windowsupdate.com"/>
+          <Bookmark Name="Company Intranet" PathLocation="http://Intranet"/>
+        </Shared>
+      </Bookmarks>
+
+    </Contact>
+
+  </Contacts>
+
+
+  <!--                                                                  -->
+  <!-- Household: a Contact may belong to one or more households        -->
+  <!--                                                                  -->
+  <Households>
+
+    <Household Name="Zainal's Family">
+      <Member DisplayName="Zainal" />
+      <Member DisplayName="Terri Lee Duffy" />
+      <Member DisplayName="Shai Bassli" />
+    </Household>
+
+    <Household Name="Terri's Family">
+      <Member DisplayName="Terri Lee Duffy" />
+      <Member DisplayName="Michael Sullivan" />
+      <Member DisplayName="Karen Berge" />
+    </Household>
+
+    <Household Name="Michael's Friends">
+      <Member DisplayName="Michael Sullivan" />
+      <Member DisplayName="Sharon Salavaria" />
+      <Member DisplayName="Stuart Macrae" />
+      <Member DisplayName="Sean Chai" />
+      <Member DisplayName="Jian Wang" />
+    </Household>
+
+  </Households>
+
+
+<!-- Containment (Embedding):                                           -->
+<!-- * Organization embeds one or more Groups                           -->
+<!-- * Group embeds Shared Documents for that group                     -->
+<!-- * Contact embeds one or more Private Documents                     -->
+<!--                                                                    -->
+<!-- Reference:                                                         -->
+<!-- * Contact refers to one or more Shared Documents                   -->
+<!-- * Contact refers to one or more Internet bookmarks                 -->
+
+  <Organizations>
+
+    <Organization Name="Microsoft">
+
+      <Groups>
+        <Group Name="WinFS UE">
+          <Member DisplayName="Zainal" />
+          <Member DisplayName="Terri Lee Duffy" />
+          <Member DisplayName="Magnus Hedlund" />
+          <Member DisplayName="Karen Berge" />
+         
+          <Documents>
+            <Document Name="New Employee.doc" PathLocation="\\GroupsDocuments\UE"/>
+            <Document Name="Employee Benefits.doc" PathLocation="\\GroupsDocuments\UE"/>
+          </Documents>
+        </Group>
+
+        <Group Name="Windows OS">
+          <Member DisplayName="Magnus Hedlund" />
+          <Member DisplayName="Terri Lee Duffy" />
+          <Member DisplayName="Karen Berge" />
+
+          <Documents>
+            <Document Name="Coding Guidelines.doc" PathLocation="\\GroupsDocuments\OS"/>
+            <Document Name="Design Guidelines.doc" PathLocation="\\GroupsDocuments\OS"/>
+          </Documents>
+        </Group>
+
+        <Group Name="Windows Shell">
+          <Member DisplayName="Zainal" />
+          <Member DisplayName="Magnus Hedlund" />
+          <Member DisplayName="Sean Chai" />
+          <Member DisplayName="Michael Sullivan" />
+        </Group>
+      </Groups>
+
+    </Organization>
+    
+    <Organization Name="Adventure Works Bicycle Company">
+    
+      <Groups>
+        <Group Name="Document Control">
+          <Member DisplayName="Zainal" />
+          <Member DisplayName="Sean Chai" />
+          <Member DisplayName="Karen Berge" />
+
+          <Documents>
+            <Document Name="Version Control Basics.doc" PathLocation="\\GroupsDocuments\VSS"/>
+            <Document Name="Change Control Guidelines.doc" PathLocation="\\GroupsDocuments\VSS"/>
+          </Documents>
+        </Group>
+
+        <Group Name="Engineering">
+          <Member DisplayName="Terri Lee Duffy" />
+          <Member DisplayName="Jian Wang" />
+          <Member DisplayName="Michael Sullivan" />
+          <Member DisplayName="Sharon Salavaria" />
+
+          <Documents>
+            <Document Name="Code Complete.doc" PathLocation="\\GroupsDocuments\Engineering"/>
+            <Document Name="Engineering 101.doc" PathLocation="\\GroupsDocuments\Engineering"/>
+            <Document Name="The Zen of Zen.doc" PathLocation="\\GroupsDocuments\Engineering"/>
+          </Documents>
+        </Group>
+
+        <Group Name="Facilities and Maintenance">
+          <Member DisplayName="Sean Chai" />
+          <Member DisplayName="Shai Bassli" />
+          <Member DisplayName="Magnus Hedlund" />
+          <Member DisplayName="Stuart Macrae" />
+
+          <Documents>
+            <Document Name="Facilities Requisition Procedures.doc" PathLocation="\\GroupsDocuments\Facilities"/>
+          </Documents>
+        </Group>
+      </Groups>
+      
+    </Organization>
+
+  </Organizations>
+
+</SampleData>

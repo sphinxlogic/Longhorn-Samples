@@ -1,0 +1,26 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition">
+
+
+<Button ID="btn" MouseEnter="Enter" MouseLeave="Leave" Width="250" Height="100">Move the Pointer Over Me</Button>
+
+  
+  <def:Code>
+  <![CDATA[
+  Sub Enter(ByVal sender As object, ByVal args As System.Windows.Input.MouseEventArgs)
+  
+    
+    btn.Background = Brushes.Purple
+  End Sub
+  
+  Sub Leave(ByVal sender As object, ByVal args As System.Windows.Input.MouseEventArgs)
+  
+    
+    btn.Background = Brushes.CadetBlue
+  End Sub   
+  ]]>
+  </def:Code>
+
+
+</DockPanel>

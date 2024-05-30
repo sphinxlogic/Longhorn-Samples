@@ -1,0 +1,15 @@
+Note: Please do not edit the vCards outside of this application’s user interface, as this sample synchronization adapter may not behave correctly if you edit the vCards directly in certain ways. This example assumes a flat hierarchy (single directory), where the LocalEndpoint.WinfsSharePath is the root item for the ReplicaItemId given. 
+
+This sample application consists of a WinForm client that demonstrates synchronizing information between “WinFS” and a set of vCards stored in a NTFS folder. A vCard is a standards-based electronic way to store the type of common personal information you might put on a paper business card. The client form uses a custom “WinFS” synchronization adapter to synchronize the information.
+
+The application user interface separates into two portions, the Setup group box and the Synchronize group box. The Setup group box enables you to provide the path to the personal contacts folder in “WinFS” and to the NTFS folder where you will store vCards for this sample. The second portion, the Synchronize group box, enables you to synchronize the information between the vCard folder and the “WinFS” folder you specified in the text boxes found in the Setup group box. The controls in the Synchronize group box are disabled until you create a replica object.
+
+Once you fill in the paths specified in the text boxes found in the Setup group box, click the Create New Replica button.  This creates a replica. 
+The replica item serves to indicate the root of the set of items being synchronized, defines the community name and, is the parent WinFS item for sync metadata 
+Once you create the replica all of the controls in the Synchronize group box portion of the user interface are enabled. Click the Create WinFS Contact button to create a new contact in “WinFS”.  Fill in the basic contact information in the text boxes of the pop-up form and click the OK button. This creates a new contact in “WinFS”.  You can view the new contact you created in your Longhorn Contacts library. Clicking the Show Contacts button will open the Contacts library. Minimize or close the My Contacts folder once you have verified that the new contact exists. Now, click the Synchronize button, which will synchronize the contact from “WinFS” to the vCard format using the custom synchronization adapter. The new contact will appear in the VCard list box.
+
+You can edit or delete the “WinFS” contact by double clicking on the contact in the WinFS list box and edit or delete the vCard contact by double clicking on the contact in the VCard list box. After you edit or delete the contact or contacts, you can synchronize again and see the changes updated in the other list box.
+
+You can experiment with options in the user interface, such as the combo box that controls the direction of the synchronization.
+
+For more information about and examples demonstrating replicas, synchronization, synchronization adapters, and programming “WinFS” see the “WinFS” documentation.

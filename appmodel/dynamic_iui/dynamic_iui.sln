@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic_IUI", "Dynamic_IUI.csproj", "{ABCB870B-E614-400D-9BC8-8B2A75D38880}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{ABCB870B-E614-400D-9BC8-8B2A75D38880}.Debug.ActiveCfg = Debug|.NET
+		{ABCB870B-E614-400D-9BC8-8B2A75D38880}.Debug.Build.0 = Debug|.NET
+		{ABCB870B-E614-400D-9BC8-8B2A75D38880}.Release.ActiveCfg = Release|.NET
+		{ABCB870B-E614-400D-9BC8-8B2A75D38880}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

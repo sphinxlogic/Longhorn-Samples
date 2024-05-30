@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ListBoxCode_wcp_vb", "ListBoxCode_wcp_vb.vbproj", "{CF8A7F98-0AD6-42F2-B2A7-46C040DE15AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF8A7F98-0AD6-42F2-B2A7-46C040DE15AA}.Debug|.NET.ActiveCfg = Debug|.NET
+		{CF8A7F98-0AD6-42F2-B2A7-46C040DE15AA}.Debug|.NET.Build.0 = Debug|.NET
+		{CF8A7F98-0AD6-42F2-B2A7-46C040DE15AA}.Release|.NET.ActiveCfg = Release|.NET
+		{CF8A7F98-0AD6-42F2-B2A7-46C040DE15AA}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

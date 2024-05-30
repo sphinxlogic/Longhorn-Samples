@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PrintServerOPerations", "PrintServerOPerations.vbproj", "{9E1AE85C-C326-4154-94C7-A3B09F473A80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E1AE85C-C326-4154-94C7-A3B09F473A80}.Debug|.NET.ActiveCfg = Debug|.NET
+		{9E1AE85C-C326-4154-94C7-A3B09F473A80}.Debug|.NET.Build.0 = Debug|.NET
+		{9E1AE85C-C326-4154-94C7-A3B09F473A80}.Release|.NET.ActiveCfg = Release|.NET
+		{9E1AE85C-C326-4154-94C7-A3B09F473A80}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+<!-- No translation -->
+    <Polyline ID="angle1"
+    Stroke="red" 
+    StrokeThickness="10" 
+    Points="10,160 10,10 160,10">
+    </Polyline>
+
+<!-- Translation in x- and y- axes.  Note that you must 
+set the AffectsLayout property to "false". -->
+<TransformDecorator AffectsLayout="false">
+	<TransformDecorator.Transform>
+		<TransformCollection >
+			<TranslateTransform X="50" Y="50" />
+		</TransformCollection>
+	</TransformDecorator.Transform>
+	
+    <Polyline ID="angle2"
+    Stroke="blue" 
+    StrokeThickness="10" 
+    Points="10,160 10,10 160,10">
+    </Polyline>
+   
+</TransformDecorator>
+
+</Canvas>
+

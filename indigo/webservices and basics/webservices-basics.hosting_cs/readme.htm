@@ -1,0 +1,388 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Hosting Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+p.msocommentsubject0, li.msocommentsubject0, div.msocommentsubject0
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.msoacetate0, li.msoacetate0, div.msoacetate0
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>Hosted Server Sample</span></h2>
+
+<h3><span style='font-family:Arial'>“Indigo” - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>This
+document contains the following sections:</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#_Building_the_sample">Building the Sample</a></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;&nbsp;&nbsp;<a
+href="#_Installing_and_Configuring_IIS">Installing and Configuring IIS</a></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;&nbsp;&nbsp;<a
+href="#_Configuring_and_Running_the_Sample_">Configuring and Running the Sample
+for HTTP</a></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;&nbsp;&nbsp;<a
+href="#_Configuring_and_Running_1">Configuring and Running the Sample for
+SOAP.TCP</a></span></p>
+
+<h3><a name="#Overview"></a><span style='font-family:Arial'>Overview</span></h3>
+
+<p><span style='font-family:Arial'>This sample demonstrates how a
+&quot;Longhorn&quot; communications subsystem (code-named &quot;Indigo&quot;)
+process can be hosted and activated on demand by the first incoming request
+using the http transport. The code for the receiver is compiled per demand
+before the first request is forwarded to it.&nbsp; The sample has two
+components: the client that sends a message to the hosted server, and the
+server code. The server code is located in a file named with the .msgx
+extension, a new extension supported by “Indigo” . The .msgx file format is
+very similar to the Web handler file format (.ashx).</span></p>
+
+<h3><a name="#KeyConcepts"></a><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><span style='font-family:Arial'>The client code is similar to other
+QuickStarts and needs no other elaboration. The client first reads the server’s
+endpoint from the command line and also reads a string that will be sent to the
+server along with the message. The client then constructs a message and sends
+it to the server using a <b>RequestReply</b> manager. After receiving the
+reply, the client prints the reply string from the server and quits. </span></p>
+
+<p><span style='font-family:Arial'>The server is&nbsp;a simple message handler
+that does the following:</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Receives a message.</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>2.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Extracts the string contained in the message body.</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>3.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Creates a string that derives from the client’s
+received string.</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>4.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Replies back to the client. </span></p>
+
+<p><span style='font-family:Arial'>The server’s lifetime is controlled by
+ASP.NET inside the worker process. Note that the server code is compiled by
+ASP.NET and&nbsp; executed in a worker application domain inside the worker
+process. </span></p>
+
+<p><span style='font-family:Arial'>The .msgx file format is identical to the
+.ashx file format in terms of supported directives and compilation rules, but
+has one additional requirement: the class that is going to be produced from the
+compilation (specified in the class attribute of the default directive) must
+implement the <b>IHostedMessageHandler</b> interface. This interface is
+necessary to convey the <b>MessageSite</b> object, which contains the service's
+configuration, to the auto-compiled code.&nbsp; </span></p>
+
+<h3><a name="_Building_the_sample"></a><span style='font-family:Arial'>Building
+the Sample</span></h3>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Open the <b>Longhorn Build Environment</b> console
+window (click <b>Start</b>, click <b>All Programs</b>, click&nbsp;<b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>2.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Navigate to the directory where this readme is
+located.</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'>3.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and press ENTER.</span></p>
+
+<h3><a name="_Configuring_and_Running"></a><a name=Configuring></a><a
+name="_Installing_and_Configuring_IIS"></a><span style='font-family:Arial'>Installing
+and Configuring IIS</span></h3>
+
+<p><b><span style='font-family:Arial'>(Note: .MSGX files do not work with
+‘Cassini’ in the PDC build)</span></b></p>
+
+<p><span style='font-family:Arial'>To enable execution of .MSGX files the file
+must be served by IIS. If IIS is not already installed on your machine, follow these
+steps to install it and configure ASP.NET.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>From the <b>Start</b> menu click on <b>Control Panel</b>,
+then <b>Add or Remove Programs</b>.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>2.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Click on <b>Add/Remove Windows Components</b>.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>3.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Scroll down the list of Windows Components and choose
+<b>Internet Information Services (IIS)</b>.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>4.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Follow the prompts and complete the installation of
+IIS.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>5.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Once IIS is installed, you’ll need to configure it to
+run ASP.NET. Start by opening the <b>Longhorn Build Environment</b> console
+window (click <b>Start</b>, click <b>All Programs</b>, click <b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>6.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Type <b>%windir%\Microsoft.NET\Framework\v1.2.30703\aspnet_regiis.exe -i</b> and press ENTER.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>7.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Open IIS Manager and click on Web Service Extensions.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>8.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Select ASP.NET v1.2.30703 and click on Allow to allow
+ASP.NET application execution.</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'><img border=0 width=806 height=516
+src="readme_files/image007.jpg"></span></p>
+
+<h3><a name="_Configuring_and_Running_the_Sample_"></a><span style='font-family:
+Arial'>Configuring and Running the Sample for HTTP</span></h3>
+
+<p><a name="_Running_the_sample"></a><span style='font-family:Arial'>These
+instructions assume that you installed the sample under %SomeDir%. To configure
+the server to run the sample under the HTTP protocol:</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Use IIS Manager to create a virtual directory under
+the default Web site (such as mb) and point it to the directory
+%SomeDir%\pages. (To run IIS Manager, click <b>Start</b>, click <b>Control
+Panel</b>, and double-click <b>Administrative Tools</b>. Then double-click <b>IIS
+Manager</b>.) When you create the virtual root, be sure you allow the ISAPI
+extensions to be executed.</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'><a
+href="README_FILES/image001.png"><span style='color:windowtext;text-decoration:
+none'><img border=0 width=482 height=374 src="readme_files/image001.png"></span></a></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>2.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Right-click&nbsp;the newly created virtual directory
+and choose <b>Properties</b>.</span></p>
+
+<p style='margin-left:.25in'><span style='font-family:Arial'><img border=0
+width=461 height=458 src="readme_files/image003.png"></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>3.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>At the command prompt, type the following:</span></p>
+
+<p style='margin-left:.5in'><b><span lang=FR style='font-family:Arial'>HostingClient.exe
+-server http://localhost/mb/hello.msgx MicrosoftUser</span></b></p>
+
+<p style='margin-left:.5in'><span style='font-family:Arial'>The server will
+reply and you should see the following text in the command window:</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>Sending request-reply.
+Client says MicrosoftUser</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>Request-reply
+completed. Server said Server says: hello MicrosoftUser</span></b><span
+style='font-family:Arial'>&nbsp;</span></p>
+
+<h3><a name="_Configuring_and_Running_1"></a><span style='font-family:Arial'>Configuring
+and Running the Sample for SOAP.TCP</span></h3>
+
+<p><span style='font-family:Arial'>These instructions assume that you installed
+the sample under %SomeDir%. To configure the server to run the sample under the
+SOAP.TCP protocol:</span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>At the command prompt, type the following commands:</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>net stop w3svc<br>
+net stop tcptransportlistener</span></b></p>
+
+<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Arial'>2.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Configure the IIS metabase by running the following
+commands:</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript %windir%\..\Inetpub\AdminScripts\adsutil.vbs
+set w3svc/1/Root/EnabledProtocols &quot;soap.tcp:http&quot;</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript
+%windir%\..\Inetpub\AdminScripts\adsutil.vbs set w3svc/1/Bindings
+&quot;soap.tcp:*:808:&quot;</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript
+%windir%\..\Inetpub\AdminScripts\adsutil.vbs create_vdir w3svc/1/Root/mb</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript
+%windir%\..\Inetpub\AdminScripts\adsutil.vbs set w3svc/1/Root/mb/AppPoolId
+&quot;DefaultAppPool&quot;</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript
+%windir%\..\Inetpub\AdminScripts\adsutil.vbs set w3svc/1/Root/mb/AppRoot
+&quot;/LM/W3SVC/1/ROOT/mb&quot;</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript
+%windir%\..\Inetpub\AdminScripts\adsutil.vbs set w3svc/1/Root/mb/AppIsolated 0</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>cscript
+%windir%\..\Inetpub\AdminScripts\adsutil.vbs set w3svc/1/Root/mb/Path
+%SomeDir%\pages </span></b></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='font-family:Arial'>Instead %SomeDir% put
+the actual directory name.</span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+.5in;text-indent:-.25in'><span style='font-family:Arial'>3.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Change the TCP Transport Listener service to run with
+“Network Service” by typing the following command:<br>
+<br>
+<b>sc config tcptransportlistener obj= &quot;NT AUTHORITY\NetworkService&quot;
+password= &quot;&quot;</b></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+.5in;text-indent:-.25in'><span style='font-family:Arial'>4.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Then type the following commands:</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>net start w3svc<br>
+net start tcptransportlistener<br>
+HostingClient.exe -server soap.tcp://localhost/mb/hello.msgx MicrosoftUser</span></b></p>
+
+<p style='margin-left:.5in'><span style='font-family:Arial'>The server will
+reply and you should see the following text in the command window:</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>Sending
+request-reply. Client says MicrosoftUser</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>Request-reply
+completed. Server said Server says: hello MicrosoftUser</span></b></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

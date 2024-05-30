@@ -1,0 +1,48 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition">
+
+<Button Click="OpenContainer" Width="100" Height="50">Click</Button>
+
+<Text ID="Text1">Waiting for Click!</Text>
+
+   <def:Code>
+   <![CDATA[
+
+   void OpenContainer(object sender, System.Windows.Controls.ClickEventArgs e)
+   {
+     // Create a Container
+     System.IO.CompoundFile.StorageRoot myFile = System.IO.CompoundFile.StorageRoot.Open(
+                                     "My Container.container",
+                                     System.IO.FileMode.OpenOrCreate, 
+                                     System.IO.FileAccess.ReadWrite);
+     //////// Code Under Here is Used to Create a Storage and Create a Stream Under that Storage ///
+	 
+     // Create the root storage
+     System.IO.CompoundFile.StorageInfo rootStorage = (System.IO.CompoundFile.StorageInfo)myFile;
+     // Creates a StreamInfo object referring to a data stream in the given parent (rootStorage).
+     System.IO.CompoundFile.StreamInfo myData = new
+	 System.IO.CompoundFile.StreamInfo( rootStorage, "My Stream" );
+     // Create a data stream and write to it using the Stream and StreamWriter classes of the 
+     // Frameworks library. 
+     System.IO.Stream writeStream = myData.Create( System.IO.FileMode.Create );
+     System.IO.StreamWriter writer = new System.IO.StreamWriter(writeStream); 
+     writer.Write("Here is some Text Content for the Stream!");
+     writer.Close();
+
+     //////// Code Under Here is Used to Read the Contents of the Stream Just Created ///	 
+	 
+     // Using the StreamReader and reader classes of the frameworks library, read from the 
+     // string that was just created.
+     System.IO.Stream readStream;
+     System.IO.StreamReader reader;
+     readStream = myData.Open( System.IO.FileMode.Open );
+     reader = new System.IO.StreamReader(readStream); // good
+     Text1.TextRange.Text = reader.ReadToEnd();
+     readStream.Close();
+     reader.Close();
+
+   }
+   ]]>
+   </def:Code>
+</DockPanel>

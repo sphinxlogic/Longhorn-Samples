@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuplicatePrinterSample", "DuplicatePrinterSample.csproj", "{D4DBF92A-94DD-4286-94C8-6C29EA22238C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4DBF92A-94DD-4286-94C8-6C29EA22238C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{D4DBF92A-94DD-4286-94C8-6C29EA22238C}.Debug|.NET.Build.0 = Debug|.NET
+		{D4DBF92A-94DD-4286-94C8-6C29EA22238C}.Release|.NET.ActiveCfg = Release|.NET
+		{D4DBF92A-94DD-4286-94C8-6C29EA22238C}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

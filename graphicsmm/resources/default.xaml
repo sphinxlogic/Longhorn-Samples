@@ -1,0 +1,39 @@
+<Border
+       xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+       Background="BlanchedAlmond" 
+   >
+  <Border.Resources>
+        <LinearGradientBrush def:Name="lineargradient" StartPoint="0,0" EndPoint="1,1"  >
+          <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="Blue" Offset="0"/>
+              <GradientStop Color="white" Offset="1"/>
+            </GradientStopCollection>
+          </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <RadialGradientBrush def:Name="radialgradient" Focus="0.3,0.3">
+          <RadialGradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1"/>
+            </GradientStopCollection>
+          </RadialGradientBrush.GradientStops>
+        </RadialGradientBrush>
+
+        <ImageBrush def:Name="image" ImageSource="Tulip.jpg" TileMode="Tile"/>
+
+        <SolidColorBrush def:Name="solid" Color="gray"/>
+  </Border.Resources>
+
+  <Canvas Height="400" Width="400">
+        <Ellipse CenterX="100" CenterY="75" 
+         RadiusX="90" RadiusY="50" 
+         Fill="{lineargradient}" Stroke="{image}" StrokeThickness="15"/>
+
+        <Ellipse CenterX="300" CenterY="170" 
+         RadiusX="50" RadiusY="150" 
+         Fill="{radialgradient}" Stroke="{solid}" StrokeThickness="15"/>
+  </Canvas>
+</Border>

@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="customtransportsample">
+   <Target Name="customtransportsample">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="customtransportsample.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll"
+                 Sources="customtransportsample.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

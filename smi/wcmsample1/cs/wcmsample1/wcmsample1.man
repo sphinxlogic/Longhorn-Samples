@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+
+<assembly xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:schemas-microsoft-com:asm.v2">
+    <!--
+        assemblyIdentity -
+            Used to specify the name and version info for the assembly
+    -->
+
+    <assemblyIdentity
+        name = "http://www.microsoft.com/state/WcmSample1"
+        version = "1.0.0.0"
+        language = "en-us"/>
+
+    <!--
+        configuration -
+            Contains schema and metadata sections used by the Windows Configuration
+            Management engine.
+    -->
+    <configuration xmlns:xs ="http://www.w3.org/2001/XMLSchema" 
+                   xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State"
+                   xmlns:app="http://www.microsoft.com/state/WcmSample1" >
+
+        <!--
+
+              S c h e m a -
+                Valid XSD schema for this manifest
+
+        -->
+    
+        <configurationSchema>
+
+            <xs:schema  targetNamespace="http://www.microsoft.com/state/WcmSample1" 
+                        attributeFormDefault="qualified" 
+                        elementFormDefault="qualified" 
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:wcmt="http://schemas.microsoft.com/WMIConfig/2002/State">
+
+                <!-- Define types -->
+
+                <xs:simpleType name="screenCoordination">
+                    <xs:restriction base="xs:integer" />
+                </xs:simpleType>
+
+                <xs:simpleType name="stringList">
+                    <xs:list itemType="xs:string" />
+                </xs:simpleType>
+
+                <xs:complexType name="point">
+                    <xs:sequence>
+                            <xs:element name="xCoord" type="app:screenCoordination" />
+                            <xs:element name="yCoord" type="app:screenCoordination" />
+                    </xs:sequence>
+                </xs:complexType>
+
+                <xs:complexType name="window">
+                    <xs:sequence>
+                        <xs:element name="topLeft"     type="app:point"      />
+                        <xs:element name="bottomRight" type="app:point"      />
+                        <xs:element name="title"       type="xs:string"  />
+                        <xs:element name="maximized"   type="xs:boolean" />
+                    </xs:sequence>
+                </xs:complexType>
+
+                <!-- Define setting instances -->
+
+                <xs:element name="myAppWindow" type="app:window" />
+
+                <xs:element name="myPropertyWindow" type="app:window" />
+
+                <xs:element name="players" type="xs:integer" />
+
+		<xs:element name="playerNames" type="app:stringList" />
+              
+            </xs:schema>
+
+        </configurationSchema>
+
+
+        <!--
+
+              M e t a d a t a
+              Additional data not contained within the schema to be used by the
+              Configuration management engine.
+
+        -->
+
+        <metadata>
+
+            <!-- Type defaults -->
+	    <simpleTypes>
+		<screenCoordination wcm:displayName="Screen Coordinate" wcm:description="Representation of a screen coordinate." wcm:default="0" />
+
+                <stringList wcm:displayName="String List" wcm:description="Representation of a list of strings." wcm:default="" />
+	    </simpleTypes>
+
+            <complexTypes>
+                <point wcm:displayName="Point" wcm:description="Representation of the (x, y) location on the screen.">
+                    <xCoord wcm:default="0" />
+                    <yCoord wcm:default="0" />
+                </point>
+
+		<window wcm:displayName="Window" wcm:description="Describes the appearance of a window object.">
+		    <title wcm:default="$(build.empty)" />
+		    <maximized wcm:default="false" />
+		</window>
+            </complexTypes>
+
+            <!-- Instance defaults -->
+
+            <elements>
+                <myAppWindow wcm:displayName="Application Window Properties" wcm:description="Appearance of the main application window." wcm:subScope="machineIndependent" wcm:stateCategory="configData">
+                    <topLeft>
+                        <xCoord wcm:default="200" />
+                        <yCoord wcm:default="300" />
+                    </topLeft>
+                    <bottomRight>
+                        <xCoord wcm:default="850" />
+                        <yCoord wcm:default="400" />
+                    </bottomRight>
+                    <title wcm:default="Default Title" />
+                    <maximized wcm:default="false" />
+                </myAppWindow>
+
+		<myPropertyWindow wcm:displayName="Property Window Properties" wcm:description="Appearance of the application's property window." wcm:subScope="machineIndependent" wcm:stateCategory="configData" />
+
+                <players wcm:displayName="Player Count" wcm:description="Number of players currently involved in the game." wcm:default="0" wcm:subScope="machineIndependent" wcm:stateCategory="tempData" />
+
+		<playerNames wcm:displayName="Player Names" wcm:description="Names of the players currently playing." wcm:default="Jim Mary" wcm:subScope="machineIndependent" wcm:stateCategory="tempData" />
+            </elements>
+
+        </metadata>
+    </configuration>
+</assembly>
+

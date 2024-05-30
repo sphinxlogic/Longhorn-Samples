@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxImage_wcp", "CheckBoxImage_wcp.csproj", "{7D6AA297-62EF-435D-9F2F-578043C195F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D6AA297-62EF-435D-9F2F-578043C195F0}.Debug|.NET.ActiveCfg = Debug|.NET
+		{7D6AA297-62EF-435D-9F2F-578043C195F0}.Debug|.NET.Build.0 = Debug|.NET
+		{7D6AA297-62EF-435D-9F2F-578043C195F0}.Release|.NET.ActiveCfg = Release|.NET
+		{7D6AA297-62EF-435D-9F2F-578043C195F0}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

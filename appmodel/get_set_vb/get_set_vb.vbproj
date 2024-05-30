@@ -1,0 +1,57 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="VB" />
+    <Property AssemblyName="Get_Set_VB" />
+    <Property TargetName="$(AssemblyName)" />
+    <Property ApplicationIcon="App.ico" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property RootNamespace="Get_Set_VB" />
+    <Property ProjectGuid="{145D035B-A4F6-4975-92B3-326D31F3AA1C}" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DocumentationFile="Get_Set_VB.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DocumentationFile="Get_Set_VB.xml" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <!-- The rest of the References are currently in one of the .target files. Eventually, post-PDC we'll put them all here -->
+  <Item Type="Reference" Include="$(windir)\system32\winfs\api\System.Storage" Name="System.Storage" HintPath="$(windir)\system32\winfs\api\System.Storage.dll" />
+  <Item Type="Reference" Include="$(windir)\system32\winfs\api\System.Storage.Schemas" Name="System.Storage.Schemas" HintPath="$(windir)\system32\winfs\api\System.Storage.Schemas.dll" />
+  <Item Type="Reference" Include="$(windir)\microsoft.net\avalon\System.Windows.Explorer" Name="System.Windows.Explorer" HintPath="$(windir)\microsoft.net\avalon\System.Windows.Explorer.dll" />
+  <Item Type="Reference" Include="$(windir)\microsoft.net\avalon\System.Windows.Contacts" Name="System.Windows.Contacts" HintPath="$(windir)\microsoft.net\avalon\System.Windows.Contacts.dll" />
+  <Item Type="Reference" Include="$(lapi)\WindowsFormsIntegration" Name="WindowsFormsIntegration" HintPath="$(lapi)\WindowsFormsIntegration.dll" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+    <Item Type="Pages" Include="Pane1.xaml" SubType="Code" />
+    <Item Type="Pages" Include="Pane2.xaml" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="MyApp.xaml.vb" DependentUpon="MyApp.xaml" SubType="Code" />
+    <Item Type="Compile" Include="Pane1.xaml.vb" DependentUpon="Pane1.xaml" SubType="Code" />
+    <Item Type="Compile" Include="Pane2.xaml.vb" DependentUpon="Pane2.xaml" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Resources" Include="app.ico" />
+  </ItemGroup>
+</Project>
+<!-- 
+    This project gets built by MSBuild on the commmand line.
+    Visual Studio "Whidbey" can also compile a project using only this data.
+
+    The build steps of a project are defined in the .target file referenced in the <Import>.
+    You can modify the steps involved in build.
+
+    You can also "execute" other targets besides the defaulttarget of build.
+    From a command prompt: msbuild myproj.vbproj /t:TARGETNAME
+    Examples of TARGETNAME include: Build, Clean, CleanBuild, Run
+-->

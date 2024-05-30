@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WordGame1_vb", "WordGame1_vb.vbproj", "{42F20E7B-F444-4BE2-82E8-E4D9C6219783}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42F20E7B-F444-4BE2-82E8-E4D9C6219783}.Debug|.NET.ActiveCfg = Debug|.NET
+		{42F20E7B-F444-4BE2-82E8-E4D9C6219783}.Debug|.NET.Build.0 = Debug|.NET
+		{42F20E7B-F444-4BE2-82E8-E4D9C6219783}.Release|.NET.ActiveCfg = Release|.NET
+		{42F20E7B-F444-4BE2-82E8-E4D9C6219783}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

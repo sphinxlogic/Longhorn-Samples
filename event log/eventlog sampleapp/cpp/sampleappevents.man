@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<assembly xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" manifestVersion="1.0" description="SampleApp" displayName="SampleApp" company="Microsoft" copyright="" supportInformation="" creationTimeStamp="2003-08-04T13:57:43.5495832-07:00" lastUpdateTimeStamp="2003-08-04T13:57:43.5495832-07:00" authors="tsingh" owners="tsingh" testers="" buildFilter="" xmlns="urn:schemas-microsoft-com:asm.v2">
+	<assemblyIdentity name="Microsoft.SampleApp" version="1.0.0.0"/>
+
+	<file name="SampleApp.exe" sourceName="SampleApp.exe" sourcePath=".\"/>
+	<memberships>
+		<categoryMembership name="Microsoft.Windows.Events">
+			<eventData resourceFileName="SampleApp.exe" componentType="Application">
+					<globalChannel name="Application"/>
+		        		<applicationChannel name="Operational"/>
+		        		<applicationChannel name="Diagnostic"/>
+			</eventData>
+    		</categoryMembership>
+  	</memberships>
+
+  	<configuration xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns="urn:schemas-microsoft-com:asm.v2">
+   		<configurationSchema>
+      			<xs:schema targetNamespace="Microsoft.Windows.Eventing" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:evt="urn:schemas-microsoft-com:wevtcfg.v1" xmlns="SampleApp">
+                        	<xs:import namespace="urn:schemas-microsoft-com:wevtcfg.v1" schemaLocation="wevtcfg.v1.xsd"/>
+		        	<xs:element name="ApplicationChannels" type="evt:ApplicationChannelsType"/>
+			</xs:schema>
+    		</configurationSchema>
+	        
+	    	<metadata>
+	      		<elements>
+	        		<ApplicationChannels wcm:context="shared">
+	          			<Operational>
+	            				<Publisher>
+	              				<Enabled wcm:default="true"/>
+	            				</Publisher>
+	            				<Log>
+	              				<Enabled wcm:default="true"/>
+	      						<Filter>
+                 						<Select>
+		   							<Path>*</Path>
+		 						</Select>
+              					</Filter>	
+	            				</Log>
+	            				<Downlink>
+	              				<Enabled wcm:default="false"/>
+	            				</Downlink>
+	            				<Uplink>
+	              				<Enabled wcm:default="false"/>
+	              				<Target>
+	                					<Enabled wcm:default="false"/>
+	                					<Address wcm:default="MACHINENAME"/>
+	                					<TargetChannel wcm:default="Applications/SampleApp/Uplink"/>
+	                					<Insert wcm:default="&lt;A&gt;My Repeated Relay&lt;/A&gt;"/>
+	              				</Target>
+	            				</Uplink>
+	          			</Operational>
+	          			<Diagnostic>
+	            				<Log>
+	              				<Enabled wcm:default="true"/>
+	            				</Log>
+	            				<Publisher>
+	              				<Enabled wcm:default="true"/>
+	              				<TraceFlags wcm:default="15"/>
+	              				<DebugTraceLevel wcm:default="5"/>
+	              				<TraceControlGuid wcm:default="886E2A29-F537-4e04-A57B-A28EA6F2EEAD"/>        
+	            				</Publisher>
+	          			</Diagnostic>
+	        		</ApplicationChannels>
+	      		</elements>
+	    	</metadata>
+	</configuration>
+
+  	<localization>
+    		<resources culture='en-US'>
+	      		<stringTable>
+	        		<string identifier="Event.PrinterConnectionFailure" value="Print Spooler has failed to connect to %1 printer. All further print jobs to this printer will fail. Please ping the printer to check if it is online."/>
+				<string identifier="Event.PrinterAdded" value="The %1 printer was added."/>
+				<string identifier="Event.PrinterRemoved" value="The %1 printer was removed."/>
+	      		</stringTable>
+    		</resources>
+ 	</localization>
+
+  	<instrumentation>
+    		<events componentType="Application">
+	      		<eventCategories>
+				<category name="InfoEvent" value="1"/>
+				<category name="ErrorEvent" value="2"/>
+	      		</eventCategories>
+	          	<!-- Declare one Admin Event and two Operational events.-->
+	      		<event eventID="991" message="$(string.Event.PrinterConnectionFailure)" legacy="true">
+				<adminInstance category="ErrorEvent" level="Error"/>
+			    	  	<template>
+						<PrinterConnectionFailure>
+							<Tags>
+								<Tag>Connectivity</Tag>
+								<Tag>Availability</Tag>
+							</Tags>
+							<PrinterName>%String;</PrinterName>
+						</PrinterConnectionFailure>
+					</template>
+
+			</event>
+	            
+		      	<event eventID="1000" message="$(string.Event.PrinterAdded)" channel="Operational">
+				<operationalInstance category="InfoEvent"/>
+					<template>
+						<PrinterAdded>
+							<PrinterName>%String;</PrinterName>
+						</PrinterAdded>
+					</template>
+		      	</event>
+
+			<event eventID="1002" message="$(string.Event.PrinterRemoved)" channel="Operational">
+				<operationalInstance category="InfoEvent"/>
+					<template>
+						<PrinterRemoved>
+							<PrinterName>%String;</PrinterName>
+						</PrinterRemoved>
+					</template>
+			</event>
+			
+		</events>
+		
+  	</instrumentation>
+  	
+</assembly>

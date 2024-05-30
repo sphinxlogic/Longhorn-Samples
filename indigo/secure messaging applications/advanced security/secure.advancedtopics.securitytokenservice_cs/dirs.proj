@@ -1,0 +1,15 @@
+<Project DefaultTargets="Server;CommonClient;SecurityTokenService"> 
+
+    <Target Name="Server"> 
+        <Task Name="MSBuild" Projects="Server\sources.proj" /> 
+    </Target> 
+
+    <Target Name="CommonClient"> 
+        <Task Name="MSBuild" Projects="CommonClient\sources.proj" /> 
+    </Target> 
+
+    <Target Name="SecurityTokenService"> 
+        <Task Name="MSBuild" Projects="SecurityTokenService\sources.proj" /> 
+    </Target> 
+
+</Project> 

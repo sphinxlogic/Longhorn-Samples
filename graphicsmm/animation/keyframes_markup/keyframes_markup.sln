@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "keyframes_markup", "keyframes_markup.csproj", "{87591A45-52BE-4F4D-B77E-9B777DC7846C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87591A45-52BE-4F4D-B77E-9B777DC7846C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{87591A45-52BE-4F4D-B77E-9B777DC7846C}.Debug|.NET.Build.0 = Debug|.NET
+		{87591A45-52BE-4F4D-B77E-9B777DC7846C}.Release|.NET.ActiveCfg = Release|.NET
+		{87591A45-52BE-4F4D-B77E-9B777DC7846C}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

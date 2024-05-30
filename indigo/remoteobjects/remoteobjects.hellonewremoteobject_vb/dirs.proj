@@ -1,0 +1,11 @@
+<Project DefaultTargets="Server;Client"> 
+
+    <Target Name="Server"> 
+        <Task Name="MSBuild" Projects="Server\sources.proj" /> 
+    </Target> 
+
+    <Target Name="Client"> 
+        <Task Name="MSBuild" Projects="Client\sources.proj" /> 
+    </Target> 
+
+</Project> 

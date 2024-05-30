@@ -1,0 +1,15 @@
+#include <windows.h>
+#include <ntverp.h>
+
+#define VER_FILETYPE                    VFT_DLL
+#define VER_FILESUBTYPE                 VFT2_UNKNOWN
+#define VER_FILEDESCRIPTION_STR         "SampleApp test application"
+#define VER_INTERNALNAME_STR            "sampleapp.exe"
+#define VER_ORIGINALFILENAME_STR        "sampleapp.exe"
+#define MANIFEST_RESOURCE_ID 1 
+
+#include "common.ver"
+#include "SampleAppevents.rc"
+
+
+

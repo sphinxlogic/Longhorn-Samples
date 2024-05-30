@@ -1,0 +1,14 @@
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="QuickStart_4_VB.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" >
+    
+    <Button DockPanel.Dock="Top"
+            Height="30px"
+            Width="100px"
+            Margin="10,10,10,10"
+            Click="HandleClick"
+            ID="Button1">Click Me</Button>
+
+</DockPanel>

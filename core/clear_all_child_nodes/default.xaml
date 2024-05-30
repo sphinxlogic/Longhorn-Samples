@@ -1,0 +1,18 @@
+<DockPanel ID="ParentElement"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <Button DockPanel.Dock="Top" Click="OnClick">3</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">1</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">4</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">2</Button>
+
+  <def:Code>
+  <![CDATA[
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      ParentElement.Children.Clear();
+    }
+  ]]>
+  </def:Code>
+</DockPanel>

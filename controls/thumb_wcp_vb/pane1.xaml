@@ -1,0 +1,16 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<Canvas
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Thumb_wcp_vb.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <TextBox Width="300" Height="50" Wrap="true">Click on the green thumb, hold down the left mouse button, and move the cursor around the screen. The coordinates of the thumb's position are displayed.</TextBox>
+    
+    <Thumb Canvas.Left="0" Canvas.Top="60" Background="Green" Width="20" Height="20" DragDelta="ShowDelta"></Thumb>
+    <TextBox Canvas.Left="25"  Canvas.Top="60"  ID="changes" Width="100" Height="50" DockPanel.Dock="Left">0</TextBox>
+
+
+</Canvas>

@@ -1,0 +1,60 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30506" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{580D3DCD-A19F-4AD8-9284-F485FF4571C3}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="ConsoleApplication1" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="ConsoleApplication1" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30506\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.Data" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30506\System.Data.dll" Name="System.Data" />
+    <Item Type="Reference" Include="System.Xml" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30506\System.XML.dll" Name="System.XML" />
+    <Item Type="Reference" Include="WindowsUIAutomation" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\WindowsUIAutomation.dll" Name="WindowsUIAutomation" />
+    <Item Type="Reference" Include="PresentationCore" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\PresentationCore.dll" Name="PresentationCore" />
+    <Item Type="Reference" Include="PresentationFramework" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\PresentationFramework.dll" Name="PresentationFramework" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\WindowsBase.dll" Name="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Content" Include="App.ico" />
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="Utilities.cs" SubType="Code" />
+    <Item Type="None" Include="minlib.proj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="App.ico" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerateSharedPrintersOnLocalPrintServer", "EnumerateSharedPrintersOnLocalPrintServer.csproj", "{FD69633F-31F7-42E1-9A01-55C588FF39DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD69633F-31F7-42E1-9A01-55C588FF39DC}.Debug|.NET.ActiveCfg = Debug|.NET
+		{FD69633F-31F7-42E1-9A01-55C588FF39DC}.Debug|.NET.Build.0 = Debug|.NET
+		{FD69633F-31F7-42E1-9A01-55C588FF39DC}.Release|.NET.ActiveCfg = Release|.NET
+		{FD69633F-31F7-42E1-9A01-55C588FF39DC}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

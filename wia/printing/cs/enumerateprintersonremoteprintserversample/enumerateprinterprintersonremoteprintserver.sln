@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumeratePrintersOnRemotePrintServerSample", "EnumeratePrintersOnRemotePrintServerSample.csproj", "{86307D08-6B16-4691-9E23-D2FBE80365D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86307D08-6B16-4691-9E23-D2FBE80365D6}.Debug|.NET.ActiveCfg = Debug|.NET
+		{86307D08-6B16-4691-9E23-D2FBE80365D6}.Debug|.NET.Build.0 = Debug|.NET
+		{86307D08-6B16-4691-9E23-D2FBE80365D6}.Release|.NET.ActiveCfg = Release|.NET
+		{86307D08-6B16-4691-9E23-D2FBE80365D6}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

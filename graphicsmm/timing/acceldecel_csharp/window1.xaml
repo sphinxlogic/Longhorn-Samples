@@ -1,0 +1,50 @@
+<!-- This markup is used to set up the layout of the sample. See Window1.xaml.cs for the
+	 code showing how to create animations with acceleration and deceleration. -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="AccelDecel_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Acceleration and Deceleration Example" Visible="True"
+    Loaded="WindowLoaded">
+    <Window.Resources>
+			<Style def:Name="gridBackgroundCanvas">
+				<Canvas Width="400" Height="100">
+					<Canvas.Background>
+						<ImageBrush 
+							ImageSource="data\grid.png" 
+							ViewPort="0,0,10,10" 
+							ViewPortUnits="Absolute"
+							TileMode="Tile" /> 
+					</Canvas.Background>
+				</Canvas>
+			</Style>
+			<Style>
+				<Text FontFamily="Verdana" FontSize="12pt"></Text>
+			</Style>
+		</Window.Resources>
+    
+    <GridPanel CellSpacing="10">
+  
+		<Text>Acceleration = 0.4 Deceleration = 0.6</Text>
+		<Canvas Style="{gridBackgroundCanvas}" ID="accelerationAndDecelerationExampleCanvas">
+		
+			<!-- See the createAccelerationAndDecelerationExample method in
+				 Window1.xaml.cs for the code that creates and animates the line. -->
+		</Canvas>
+		
+		<Text>Acceleration = 0.4</Text>
+		<Canvas Style="{gridBackgroundCanvas}" ID="accelerationExampleCanvas">
+			<!-- See the createAccelerationExample method in
+				 Window1.xaml.cs for the code that creates and animates the line. -->
+		
+		</Canvas>
+		
+		<Text>Deceleration = 0.6</Text>
+		<Canvas Style="{gridBackgroundCanvas}" ID="decelerationExampleCanvas">
+			<!-- See the createDecelerationExample method in
+				 Window1.xaml.cs for the code that creates and animates the line. -->
+		</Canvas>
+		
+  </GridPanel>
+</Window>

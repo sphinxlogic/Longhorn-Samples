@@ -1,0 +1,99 @@
+<!-- When the root is a Window, it will act like a DockPanel in the way it arranges the child Elements of the root. -->
+<NavigationWindow  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition" 
+    def:Class="ImageView.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Loaded="OnLoaded"
+    Navigated="OnNavigated"
+    Text="ImageView" Visible="True">
+   <!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+        
+    <NavigationWindow.Resources>
+        <TransformerSource def:Name="StringToImageDataThumbRes" TypeName="ImageView.StringToImageDataThumb" />
+    </NavigationWindow.Resources>
+
+<DockPanel>
+    <Border ID="root" 
+		    BorderThickness="2"
+		    BorderBrush="black">
+		        <DockPanel  DockPanel.Dock="Left"
+	                Style="{VerGrad}"
+	                Width="150"
+                    >
+                    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+
+	                <Button Style="{PanelButton}" ID="btnChgDir" Click="OnClicked">Change Dir</Button>
+	                <!-- 
+	                <Button Style="{PanelButton}" ID="btnMainPage" Click="OnClicked">Main Page</Button>
+	                -->
+		        </DockPanel>
+    </Border>   
+
+    <GridPanel Style="{VerGrad}" Columns="2" DockPanel.Dock="Top" Margin="0,0,0,5" CellSpacing="10">
+        <GridPanel.ColumnStyles>
+            <ColumnStyle Width="10%" />
+            <ColumnStyle Width="90%" />
+        </GridPanel.ColumnStyles>
+        <Text HorizontalAlignment="Right" Style="{Dir}">Directory:</Text>
+        <Text Style="{Dir}" ID="DirName">C:\Foo</Text>
+    </GridPanel>"  
+          
+	<DockPanel ID="DP1">
+   
+        <DockPanel.Resources>
+          <Style def:Name="ScrollingListBox">
+            <ListBox/>
+              <Style.VisualTree>
+                <Border                  
+                   BorderThickness ="*Alias(Target=BorderThickness)"
+		           BorderBrush     ="*Alias(Target=BorderBrush)">
+		           <ScrollViewer Height="*Alias(Target=Height)" Width="*Alias(Target=Width)">
+		             <FlowPanel ID="ListBoxFlowPanel" ItemsControl.IsItemsHost="true" Margin="50"/>
+	               </ScrollViewer>
+		        </Border>
+	           </Style.VisualTree>    
+	       </Style>
+	  
+	  
+	  <Style def:Name="MyDataStyle">
+	    <ListItem/>
+	                <Style.VisualTree>
+                <DockPanel Width="120px" Height="120px" Margin="10">
+                    <Text FontSize="12" DockPanel.Dock="Top">
+		                <Text.TextContent>
+                        <Bind Path="Name"/>
+                        </Text.TextContent>
+                    </Text>
+                    <TransformDecorator DockPanel.Dock="Fill">
+                        <Image Source="*Bind(Path=FullName)">
+                            <Image.ID>
+  	                            <Bind Path="Name">                        
+  	                            </Bind>
+                            </Image.ID>
+                        </Image> 
+                    </TransformDecorator>
+		        </DockPanel>
+              </Style.VisualTree>
+	  </Style>
+        </DockPanel.Resources>
+        
+        <ListBox 
+            ID="TOC" 
+            ItemStyle="{MyDataStyle}" 
+            Style="{ScrollingListBox}"
+            SelectionChanged="OnSelect"
+            >
+          <ListBox.Items>
+            <CollectionContainer Collection="*Bind()"/>
+          </ListBox.Items>
+        </ListBox>
+     </DockPanel>
+
+
+
+
+</DockPanel>
+ 
+    
+</NavigationWindow>

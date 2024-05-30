@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingDP", "main\UsingDP.csproj", "{9F165477-98D5-4479-9ABB-123AC7FB96A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4DF3DCE4-286B-4080-BC96-B309E1FEE2D6} = {4DF3DCE4-286B-4080-BC96-B309E1FEE2D6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyPropertyDemo", "customprops\DependencyPropertyDemo.csproj", "{4DF3DCE4-286B-4080-BC96-B309E1FEE2D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F165477-98D5-4479-9ABB-123AC7FB96A7}.Debug|.NET.ActiveCfg = Debug|.NET
+		{9F165477-98D5-4479-9ABB-123AC7FB96A7}.Debug|.NET.Build.0 = Debug|.NET
+		{9F165477-98D5-4479-9ABB-123AC7FB96A7}.Release|.NET.ActiveCfg = Release|.NET
+		{9F165477-98D5-4479-9ABB-123AC7FB96A7}.Release|.NET.Build.0 = Release|.NET
+		{4DF3DCE4-286B-4080-BC96-B309E1FEE2D6}.Debug|.NET.ActiveCfg = Debug|.NET
+		{4DF3DCE4-286B-4080-BC96-B309E1FEE2D6}.Debug|.NET.Build.0 = Debug|.NET
+		{4DF3DCE4-286B-4080-BC96-B309E1FEE2D6}.Release|.NET.ActiveCfg = Debug|.NET
+		{4DF3DCE4-286B-4080-BC96-B309E1FEE2D6}.Release|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

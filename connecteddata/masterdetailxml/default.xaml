@@ -1,0 +1,55 @@
+
+<Border xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition" 
+  Background="cornsilk">
+
+  <Border.Resources>
+    <XmlDataSource def:Name="LeaguesDSO" Source="Data\Leagues.xml" XPath="Leagues/League"/>
+
+    <Style def:Name="LeagueDataStyle">
+      <Style.VisualTree>
+        <Text TextContent="*Bind(Path=@name)"/>
+      </Style.VisualTree>
+    </Style>
+  </Border.Resources>
+
+  <DockPanel ID="dpMain" DataContext="*Bind(DataSource={LeaguesDSO})">
+    <DockPanel Dock="Left" Margin="10,0,10,0">
+      <Text DockPanel.Dock="Top">Major League Baseball</Text>
+      <ListBox ID="leagueLB" ItemStyle="{LeagueDataStyle}" DockPanel.Dock="Top"
+        IsSelectionRequired="true" SelectionChanged="LeagueChanged">
+        <CollectionContainer Collection="*Bind()"/>
+      </ListBox>
+    </DockPanel>
+
+    <DockPanel ID="dpDivision" Dock="Left" Margin="10,0,10,0" >
+      <Text ID="divisionCaption" TextContent="*Bind(Path=@name)" DockPanel.Dock="Top"/>
+      <ListBox ID="divisionLB" ItemStyle="{LeagueDataStyle}" DockPanel.Dock="Top"
+        IsSelectionRequired="true" SelectionChanged="DivisionChanged">
+        <CollectionContainer Collection="*Bind(Path=Division)"/>
+      </ListBox>
+    </DockPanel>
+
+    <DockPanel ID="dpTeam" Dock="Left" Margin="10,0,10,0">
+      <Text ID="teamCaption" TextContent="*Bind(Path=@name)" DockPanel.Dock="Top"/>
+      <ListBox ID="teamLB" ItemStyle="{LeagueDataStyle}" DockPanel.Dock="Top"
+        IsSelectionRequired="true">
+        <CollectionContainer Collection="*Bind(Path=Team)"/>
+      </ListBox>
+    </DockPanel>
+  </DockPanel>
+
+  <def:Code><![CDATA[
+    void LeagueChanged(object sender, SelectionChangedEventArgs args)
+    {
+      ListBox lb = (ListBox) sender;
+      if (lb.SelectedItem!=null) {dpDivision.DataContext = lb.SelectedItem;}
+    }
+
+    void DivisionChanged(object sender, SelectionChangedEventArgs args)
+    {
+      ListBox lb = (ListBox) sender;
+      if (lb.SelectedItem!=null) {dpTeam.DataContext = lb.SelectedItem;}
+    }  
+  ]]></def:Code>
+
+</Border>

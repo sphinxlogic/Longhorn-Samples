@@ -1,0 +1,59 @@
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="PathElementAndGeometries_vb.Window1"
+    def:CodeBehind="Window1.xaml.vb" 
+    Text="PathElementAndGeometries_vb" Visible="True"
+    Loaded="WindowLoaded"
+    >
+<Window.Resources>
+		<Style>
+			<Canvas Background="White"></Canvas>
+		</Style>
+		<Style>
+            <Text Foreground="Black" FontFamily="Verdana" FontSize="18"
+                HorizontalAlignment="Right" />
+        </Style>
+    </Window.Resources>
+   
+   <FlowPanel DockPanel.Dock="Fill">
+      <ScrollViewer Background="Blue" DockPanel.Dock="Fill" >
+        <GridPanel DockPanel.Dock="Fill" Background="LightGray" CellSpacing="10" Columns="2">
+            <Text>Line</Text>
+            <Canvas ID="myLineExampleCanvas">
+               
+            </Canvas>
+        
+            <Text>Horizontal Line</Text>
+            <Canvas ID="myHorizontalLineExampleCanvas">
+              
+            </Canvas>
+        
+            <Text>Vertical Line</Text>
+            <Canvas ID="myVerticalLineExampleCanvas">
+               
+            </Canvas>
+        
+            <Text>Cubic Bezier Curve</Text>
+            <Canvas ID="myBezierExampleCanvas">
+               
+            </Canvas>
+        
+            <Text>Quadratic Bezier Curve</Text>
+            <Canvas ID="myQuadraticBezierExampleCanvas">
+                
+            </Canvas>
+        
+            <Text>Elliptical Arc</Text>
+            <Canvas ID="myEllipticalArcExampleCanvas">
+                
+            </Canvas>
+        
+            <Text>Close Path Command</Text>
+            <Canvas ID="myClosedPathExampleCanvas">
+                
+            </Canvas> 
+        </GridPanel>
+    </ScrollViewer>
+    </FlowPanel>
+</Window>

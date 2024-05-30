@@ -1,0 +1,65 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+	'Use the Geometry objects to create some simple shapes.
+	Dim myLineGeometry As new System.Windows.Media.LineGeometry(new System.Windows.Point(50, 50), new System.Windows.Point(300, 50))
+	Dim myEllipseGeometry As new System.Windows.Media.EllipseGeometry(new System.Windows.Point(440, 100), 40, 75)
+	Dim myRectangleGeometry As new System.Windows.Media.RectangleGeometry(new System.Windows.Rect(new System.Windows.Point(400,225), new System.Windows.Size(100,50)))
+
+	'Use a PathGeometry to create a complex shape.
+	Dim myPathGeometry As new System.Windows.Media.PathGeometry()
+	
+	'Each PathGeometry is comprised of one or more PathFigure
+	'objects.
+	Dim myPathFigure As new System.Windows.Media.PathFigure()
+
+	'Each PathFigure is comprised of one or more path segments.
+	myPathFigure.StartAt(new System.Windows.Point(200,50))
+	myPathFigure.BezierTo(new System.Windows.Point(400, 100), new System.Windows.Point(400, 200), new System.Windows.Point(200, 300))
+	myPathFigure.BezierTo(new System.Windows.Point(400, 300), new System.Windows.Point(400, 100), new System.Windows.Point(200, 50))
+	myPathFigure.BezierTo(new System.Windows.Point(0, 100), new System.Windows.Point(0, 200), new System.Windows.Point(200,300))
+			
+	Dim myBezierSegment As new BezierSegment(new System.Windows.Point(0, 300), new System.Windows.Point(0, 100), new System.Windows.Point(200, 50), true)
+	myPathFigure.AddSegment(myBezierSegment)
+			
+	'Add the PathFigure to the PathGeometry
+	myPathGeometry.Figures.Add(myPathFigure)
+			
+	'Add the geometries to a GeometryCollection and then use a 
+	'Path shape to display it.
+	Dim myGeometryCollection As new System.Windows.Media.GeometryCollection()
+	myGeometryCollection.Add(myLineGeometry)
+	myGeometryCollection.Add(myEllipseGeometry)
+	myGeometryCollection.Add(myRectangleGeometry)
+	myGeometryCollection.Add(myPathGeometry)
+
+	Dim myPath As new Path()
+	myPath.Data = myGeometryCollection
+
+	myPath.Stroke = System.Windows.Media.Brushes.Blue
+	myPath.StrokeThickness = new System.Windows.Length(5)
+	Dim solidFill As new System.Windows.Media.SolidColorBrush()
+	myPath.Fill = new RadialGradientBrush(System.Windows.Media.Colors.Orange, System.Windows.Media.Colors.Red)
+
+	root.Children.Add(myPath)
+
+	
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

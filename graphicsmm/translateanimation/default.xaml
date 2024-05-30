@@ -1,0 +1,32 @@
+
+
+<DockPanel ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition">
+<DockPanel.Resources>
+<Style def:Name="rotateRect">
+<Button Width="100" Height="100" Margin="20" />
+<Style.VisualTree>
+<TransformDecorator  >
+	<TransformDecorator.Transform>
+		<TranslateTransform   >
+			<TranslateTransform.XAnimations> 
+				<DoubleAnimation  From="0" To="100" RepeatCount="30" Begin="0" Duration="4" />
+			</TranslateTransform.XAnimations> 
+			<TranslateTransform.YAnimations> 
+				<DoubleAnimation  From="0" To="100" RepeatCount="30" Begin="0" Duration="4" />
+			</TranslateTransform.YAnimations> 
+		</TranslateTransform>
+	</TransformDecorator.Transform>	
+	<Rectangle def:StyleID="ss1" Width="100" Height="100" Fill="blue" RadiusX="10" RadiusY="10"/>
+</TransformDecorator>
+</Style.VisualTree>	
+			<Style.VisualTriggers>
+				<PropertyTrigger Property="IsMouseOver" Value="true">
+					<Set PropertyPath="Rectangle.Fill" Value="limegreen" Target="ss1"/>
+				</PropertyTrigger>
+			</Style.VisualTriggers>	
+</Style>
+</DockPanel.Resources>
+<Button Style="{rotateRect}"/>
+<Button Style="{rotateRect}"/>
+<Button Style="{rotateRect}"/>
+</DockPanel>

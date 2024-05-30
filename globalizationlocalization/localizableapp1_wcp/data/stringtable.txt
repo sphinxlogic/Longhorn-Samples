@@ -1,0 +1,2 @@
+Title=A Simple Localizable Avalon Navigation Application
+String1=Simple string 1

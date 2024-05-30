@@ -1,0 +1,9 @@
+<NavigationWindow  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    Width = "1024"
+    Height = "768"
+    Text = "Channel Surfin' Demo"
+    Uri="ChannelBrowser.xaml" 
+    Visibility="Visible"
+    >
+</NavigationWindow>

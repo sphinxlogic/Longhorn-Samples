@@ -1,0 +1,28 @@
+
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition">
+
+<TransformDecorator ID="td1" AffectsLayout="false">	
+    <Button ID="Button1" MouseEnter="Enter" MouseLeave="Leave">Button</Button>
+</TransformDecorator> 
+
+
+
+<def:Code>
+  <![CDATA[
+    Private Sub Enter(ByVal sender as object, ByVal args as System.Windows.Input.MouseEventArgs)
+      	Dim scaler As new ScaleTransform(2,2)
+	td1.Transform = scaler
+    End Sub
+
+    Private Sub Leave(ByVal sender as object, ByVal e as System.Windows.Input.MouseEventArgs)
+	Dim scaler As new ScaleTransform(1,1)
+	td1.Transform = scaler
+    End Sub
+
+  ]]>
+  </def:Code>
+
+</Canvas>
+

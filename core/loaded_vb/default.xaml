@@ -1,0 +1,17 @@
+<DockPanel Loaded="OnLoad" ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    Public Sub OnLoad(sender As object, args as System.EventArgs)
+    
+      Dim b1 As new System.Windows.Controls.Button
+      b1.Content = "New Button"
+      root.Children.Add(b1)
+    End Sub
+
+  ]]>
+  </def:Code>
+
+</DockPanel>

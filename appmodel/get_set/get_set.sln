@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Get_Set", "Get_Set.csproj", "{006940D9-17E0-4628-9087-8C01B03D2153}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{006940D9-17E0-4628-9087-8C01B03D2153}.Debug|.NET.ActiveCfg = Debug|.NET
+		{006940D9-17E0-4628-9087-8C01B03D2153}.Debug|.NET.Build.0 = Debug|.NET
+		{006940D9-17E0-4628-9087-8C01B03D2153}.Release|.NET.ActiveCfg = Release|.NET
+		{006940D9-17E0-4628-9087-8C01B03D2153}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityViewer", "IdentityViewer.csproj", "{A8961F7B-2F21-4BD7-8000-085C9B26B489}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A8961F7B-2F21-4BD7-8000-085C9B26B489}.Debug.ActiveCfg = Debug|.NET
+		{A8961F7B-2F21-4BD7-8000-085C9B26B489}.Debug.Build.0 = Debug|.NET
+		{A8961F7B-2F21-4BD7-8000-085C9B26B489}.Release.ActiveCfg = Release|.NET
+		{A8961F7B-2F21-4BD7-8000-085C9B26B489}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surfin", "Surfin.csproj", "{B10509F0-AB36-4D33-BE98-372EB2F6073A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2593D186-1E07-45A2-B8CE-9589E83D4939} = {2593D186-1E07-45A2-B8CE-9589E83D4939}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Channels", "channels\Channels.csproj", "{2593D186-1E07-45A2-B8CE-9589E83D4939}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B10509F0-AB36-4D33-BE98-372EB2F6073A}.Debug|.NET.ActiveCfg = Debug|.NET
+		{B10509F0-AB36-4D33-BE98-372EB2F6073A}.Debug|.NET.Build.0 = Debug|.NET
+		{B10509F0-AB36-4D33-BE98-372EB2F6073A}.Release|.NET.ActiveCfg = Release|.NET
+		{B10509F0-AB36-4D33-BE98-372EB2F6073A}.Release|.NET.Build.0 = Release|.NET
+		{2593D186-1E07-45A2-B8CE-9589E83D4939}.Debug|.NET.ActiveCfg = Debug|.NET
+		{2593D186-1E07-45A2-B8CE-9589E83D4939}.Debug|.NET.Build.0 = Debug|.NET
+		{2593D186-1E07-45A2-B8CE-9589E83D4939}.Release|.NET.ActiveCfg = Release|.NET
+		{2593D186-1E07-45A2-B8CE-9589E83D4939}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

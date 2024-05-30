@@ -1,0 +1,357 @@
+
+<!-- This sample demonstrates the use of TextDecorations. -->
+
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="TextDecorationExample.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="TextDecorationExample" Visible="True"
+    >
+   
+    <GridPanel DockPanel.Dock="Fill" Columns="4" Margin="10">
+		
+		
+		<FlowPanel Width="100%" Background="{headerBackground}" 
+			GridPanel.ColumnSpan="4"
+			Margin="0,15,0,0">
+			<Text Margin="2" Foreground="White">
+				Basic Text Decorations
+			</Text>
+		</FlowPanel>
+		
+		<FlowPanel Background="LightGray">
+			<Text Foreground="Black">Underline</Text>
+		</FlowPanel>
+		
+		<FlowPanel Background="LightGray">
+			<Text Foreground="Black">StrikeThrough</Text>
+		</FlowPanel>
+		
+		<FlowPanel Background="LightGray">
+			<Text Foreground="Black">Overline</Text>
+		</FlowPanel>
+		
+		<FlowPanel Background="LightGray">
+			<Text Foreground="Black">Baseline</Text>
+		</FlowPanel>
+		
+		<!-- Creates some basic text decorations. -->
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Underline" />
+				</TextDecorations>
+			</Text.TextDecorations>
+		
+		</Text>
+		
+		<Text>Some Text	
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="StrikeThrough" />
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Overline" />
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Baseline" />
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<FlowPanel Width="100%" Background="{headerBackground}" 
+			GridPanel.ColumnSpan="4"
+			Margin="0,15,0,0">
+			<Text Margin="2" Foreground="White">
+				Changing the Color of a Text Decoration
+			</Text>
+		</FlowPanel>
+		
+		<!-- Sets the text decorations to different colors. -->
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Underline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Brush="Red" Thickness="1" />
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		
+		</Text>
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="StrikeThrough" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Brush="Blue" Thickness="1" />
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Overline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Thickness="3">
+								<Pen.Brush>
+									<LinearGradientBrush 
+										StartPoint="0,0.5"  EndPoint="1,0.5">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="LimeGreen" Offset="0" />
+											<GradientStop Color="Yellow" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Pen.Brush>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Baseline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Thickness="3">
+								<Pen.Brush>
+									<LinearGradientBrush Opacity="0.5"
+										StartPoint="0,0.5"  EndPoint="1,0.5">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="Orange" Offset="0" />
+											<GradientStop Color="Red" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Pen.Brush>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		<FlowPanel Width="100%" Background="{headerBackground}" 
+			GridPanel.ColumnSpan="4"
+			Margin="0,15,0,0">
+			<Text Margin="2" Foreground="White">
+				Creating Dash Patterns
+			</Text>
+		</FlowPanel>
+		
+		<!-- Creates dashed patterns in the decoration. -->
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Underline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Brush="Red" Thickness="1"
+								DashArray="1 1" />
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		
+		</Text>
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="StrikeThrough" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Brush="Blue" Thickness="1" 
+								DashArray="1 2" />
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Overline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Thickness="3" DashArray="0.5 3 1 2">
+								<Pen.Brush>
+									<LinearGradientBrush 
+										StartPoint="0,0.5"  EndPoint="1,0.5">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="LimeGreen" Offset="0" />
+											<GradientStop Color="Yellow" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Pen.Brush>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Baseline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Thickness="3" DashArray="0.5 3 1 2">
+								<Pen.Brush>
+									<LinearGradientBrush Opacity="0.5"
+										StartPoint="0,0.5"  EndPoint="1,0.5">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="Orange" Offset="0" />
+											<GradientStop Color="Red" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Pen.Brush>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<FlowPanel Width="100%" 
+			Background="{headerBackground}" 
+			GridPanel.ColumnSpan="4"
+			Margin="0,15,0,0">
+			<Text Margin="2" Foreground="White">
+				Creating Animated Dash Patterns 
+			</Text>
+		</FlowPanel>
+		
+		<!-- Creates animated dashed patterns in the decoration. -->
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Underline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Brush="Red" Thickness="3"
+								DashArray="1 1" DashOffset="0">
+								<Pen.DashOffsetAnimations>
+									<DoubleAnimation To="2" Duration="1" RepeatDuration="Indefinite"/>
+								</Pen.DashOffsetAnimations>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="StrikeThrough" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Brush="Blue" Thickness="3" 
+								DashArray="1 2" >
+								<Pen.DashOffsetAnimations>
+									<DoubleAnimation To="3" Duration="1" RepeatDuration="Indefinite"/>
+								</Pen.DashOffsetAnimations>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Overline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Thickness="3" DashArray="0.5 3 1 2">
+							
+								<Pen.DashOffsetAnimations>
+									<DoubleAnimation To="6.5" Duration="1" RepeatDuration="Indefinite"/>
+								</Pen.DashOffsetAnimations>
+								
+								<Pen.Brush>
+									<LinearGradientBrush 
+										StartPoint="0,0.5"  EndPoint="1,0.5">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="LimeGreen" Offset="0" />
+											<GradientStop Color="Yellow" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Pen.Brush>
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+		
+		
+		<Text>Some Text
+			<Text.TextDecorations>
+				<TextDecorations>
+					<TextDecoration Location="Baseline" 
+						PenThicknessUnit="FontRecommended">
+						<TextDecoration.Pen>
+							<Pen Thickness="3" DashArray="0.5 3 1 2">
+							
+								<Pen.DashOffsetAnimations>
+									<DoubleAnimation To="6.5" Duration="1" RepeatDuration="Indefinite"/>
+								</Pen.DashOffsetAnimations>
+								
+								<Pen.Brush>
+									<LinearGradientBrush Opacity="0.5"
+										StartPoint="0,0.5"  EndPoint="1,0.5">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="Orange" Offset="0" />
+											<GradientStop Color="Red" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Pen.Brush>
+								
+							</Pen>
+						</TextDecoration.Pen>
+					</TextDecoration>
+				</TextDecorations>
+			</Text.TextDecorations>
+		</Text>
+    
+    </GridPanel>
+</Window>

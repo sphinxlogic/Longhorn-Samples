@@ -1,0 +1,27 @@
+
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+
+  <Path ID="myPath"
+    Fill="Blue"
+    Stroke="Black"
+    StrokeThickness="5">
+  
+    <Path.Data>
+    <!-- Draw an Ellipse. -->
+      <EllipseGeometry Center="200,200" RadiusX="25" RadiusY="50">
+      
+
+        <EllipseGeometry.CenterAnimations>
+      
+        <!--Animate the center of this ellipse: -->
+          <PointAnimation From="200,200" To="50,50" 
+            Duration="5" Begin="0" AutoReverse="true" RepeatCount="20"/>
+        </EllipseGeometry.CenterAnimations>
+      </EllipseGeometry>
+    </Path.Data>
+  </Path>
+
+
+</Canvas>

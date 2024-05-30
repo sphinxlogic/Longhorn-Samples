@@ -1,0 +1,26 @@
+<Project DefaultTargets="Build">
+  <!--Imports the target which contains all the common targets-->
+  <PropertyGroup>
+    <Property Language="VB" />
+    <Property DefaultClrNameSpace="SDKSample" />
+    <Property TargetName="Freeze_vb" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{5ED43EAE-16EC-45F7-9AA7-2F7C78696D81}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication markup -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <!-- Compiled Xaml Files list -->
+    <Item Type="Pages" Include="default.xaml" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

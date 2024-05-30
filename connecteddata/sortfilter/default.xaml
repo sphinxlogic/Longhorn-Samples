@@ -1,0 +1,53 @@
+<DockPanel
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition" def:Language="C#"
+  def:Class="WCPSample.SortFilter"
+  def:CodeBehind="default.xaml.cs"
+  ID="rootElem"
+  DataContextChanged="StartHere"
+  >
+    <DockPanel.Resources>
+      <ObjectDataSource def:Name="myDataSource" TypeName="WCPSample.Orders,SortFilterSample" />
+
+     <Style def:Name="orderCells">
+       	<ContentPresenter/>
+        <Style.VisualTree>
+          <Canvas>
+            <Text Canvas.Left="5" TextContent="*Bind(Path=order)"/>
+            <Text Canvas.Left="100" TextContent="*Bind(Path=customer)"/>
+            <Text Canvas.Left="200" TextContent="*Bind(Path=name)"/>
+            <Text Canvas.Left="400" TextContent="*Bind(Path=id)"/>
+            <Text Canvas.Left="500" TextContent="*Bind(Path=filled)"/>
+          </Canvas>
+        </Style.VisualTree>
+      </Style>
+    </DockPanel.Resources>
+    <DockPanel.DataContext>
+      <Bind DataSource="{myDataSource}"/>
+    </DockPanel.DataContext>
+
+    <Canvas DockPanel.Dock="Top">
+      <Button ID="hdrOrder" Canvas.Left="15" Content="Order" Click="ColClicked"/>
+      <Button ID="hdrCustomer" Canvas.Left="110" Content="Customer" Click="ColClicked"/>
+      <Button ID="hdrName" Canvas.Left="210" Content="Name" Click="ColClicked"/>
+      <Button ID="hdrID" Canvas.Left="410" Content="ID" Click="ColClicked"/>
+      <Button ID="hdrOF" Canvas.Left="510" Content="Order Filled?" Click="ColClicked"/>
+    </Canvas>
+    <ListBox ID="myListBox" ItemStyle="{orderCells}" Width="800" DockPanel.Dock="Top" IsSelectionRequired="True">
+      <CollectionContainer Collection="*Bind()"/>
+    </ListBox>
+
+    <Canvas DockPanel.Dock="Top">
+      <Text Canvas.Top="65px" Canvas.Left="10px" ID="FeedbackText"></Text>
+      <Button Canvas.Top="100px" Canvas.Left="0px" ID="Previous" Click="OnButton">Previous</Button><Button Canvas.Top="100px" Canvas.Left="80px" ID="Next" Click="OnButton">Next</Button>
+      <Button Canvas.Top="130px" Canvas.Left="0px" ID="Filter" Click="OnFilter">Show only Unfilled</Button><Button Canvas.Top="130px" Canvas.Left="140px" ID="Unfilter" Click="OnFilter">Show all</Button>
+      <Text Canvas.Left="10px" Canvas.Top="160px">Order Details:</Text>
+        <Text Canvas.Left="120px" Canvas.Top="160px" ID="ViewOrder" TextContent="*Bind(Path=order)"/>
+      <Text Canvas.Left="10px" Canvas.Top="190px">Customer ID:</Text>
+        <Text Canvas.Left="120px" Canvas.Top="190px" ID="ViewCustomer" TextContent="*Bind(Path=customer)"/>
+      <Text Canvas.Left="10px" Canvas.Top="220px">Order Date:</Text>
+        <Text Canvas.Left="120px" Canvas.Top="220px" ID="ViewOrderDate" TextContent="*Bind(Path=orderdate)"/>
+      <Text Canvas.Left="10px" Canvas.Top="250px">Filled Date:</Text>
+        <Text Canvas.Left="120px" Canvas.Top="250px" ID="ViewDateFilled" TextContent="*Bind(Path=datefilled)"/>
+    </Canvas>
+</DockPanel>

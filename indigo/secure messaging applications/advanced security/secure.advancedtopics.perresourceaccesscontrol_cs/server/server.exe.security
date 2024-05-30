@@ -1,0 +1,28 @@
+<securityData>
+    <credentials>
+        <userName id="mainUsers">
+            <memoryPasswordResolver>
+                <add user="Administrator" password="Sup3rS3cur3P4ssw0rd" />
+                <add user="BobSmith" password="Sm1thyRulz" />
+                <add user="BillJones" password="ILoveP4sta" />
+                <add user="SamWinters" password="SummerTim3" />
+            </memoryPasswordResolver>
+        </userName>
+    </credentials>
+    <authorizationData>
+        <memoryMapping id="mainAuthorizationData" xmlns:tu="http://tempuri.org/schemas">
+            <globalEntries>
+                <userNameRoleAssignment user="Administrator" roles="tu:MailboxOwner" />
+            </globalEntries>
+            <resourceEntries name="BobSmith_Mailbox">
+                <userNameRoleAssignment user="BobSmith" roles="tu:MailboxOwner" />
+            </resourceEntries>
+            <resourceEntries name="BillJones_Mailbox">
+                <userNameRoleAssignment user="BillJones" roles="tu:MailboxOwner" />
+            </resourceEntries>
+            <resourceEntries name="SamWinters_Mailbox">
+                <userNameRoleAssignment user="SamWinters" roles="tu:MailboxOwner" />
+            </resourceEntries>
+        </memoryMapping>
+    </authorizationData>
+</securityData>

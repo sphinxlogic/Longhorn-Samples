@@ -1,0 +1,30 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="WCSample" />
+    <Property TargetName="QuickStart4" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{1FF0BD36-CB46-4017-A661-20F101C6EEFA}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <Item Type="Pages" Include="default.xaml" />
+    <Item Type="Compile" Include="default.xaml.cs" SubType="Code" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\app.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\default.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\QuickStart4.Main.g.cs" />
+  </ItemGroup>
+</Project>

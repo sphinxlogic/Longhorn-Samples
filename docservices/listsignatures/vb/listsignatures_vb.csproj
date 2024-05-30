@@ -1,0 +1,33 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Version="1.0.0.0" />
+
+    <Property Language="VB" />
+		
+    <Property DefaultClrNameSpace="SDKSample" />
+
+    <Property TargetName="ListSignatures_vb" />
+			
+    <Property HostInBrowser="True" />
+
+    <Property SignByDefault="True" />
+
+    <Property TargetType="Document" />
+		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsDocument.target" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="Default.xaml"/>
+  </ItemGroup>
+
+</Project>

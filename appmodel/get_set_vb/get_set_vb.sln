@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Get_Set_VB", "Get_Set_VB.vbproj", "{145D035B-A4F6-4975-92B3-326D31F3AA1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{145D035B-A4F6-4975-92B3-326D31F3AA1C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{145D035B-A4F6-4975-92B3-326D31F3AA1C}.Debug|.NET.Build.0 = Debug|.NET
+		{145D035B-A4F6-4975-92B3-326D31F3AA1C}.Release|.NET.ActiveCfg = Release|.NET
+		{145D035B-A4F6-4975-92B3-326D31F3AA1C}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

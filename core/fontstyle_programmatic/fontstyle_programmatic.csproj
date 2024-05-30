@@ -1,0 +1,29 @@
+<Project DefaultTargets="Build">
+	<!--Imports the target which contains all the common targets-->
+	
+	<PropertyGroup>
+	
+
+    <Property Language="C#" />
+		
+		<Property DefaultClrNameSpace="SDKSample" />
+
+		<Property TargetName="fontstyle_programmatic" />
+
+    <Property BuildSystem="MSBuild" />
+		
+	</PropertyGroup>
+	
+
+	<Import Project="$(LAPI)\WindowsApplication.target" />
+		
+	<ItemGroup>
+		<!-- Aplication markup -->
+		<Item Type="ApplicationDefinition" Include="App.xaml" />
+
+		<!-- Compiled Xaml Files list -->
+		<Item Type="Pages" Include="default.xaml"/>
+	
+	</ItemGroup>
+
+</Project>

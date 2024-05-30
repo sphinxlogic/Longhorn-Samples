@@ -1,0 +1,65 @@
+<!-- Description
+*
+*	This sample demonstrates the difference between layout and domain size attributes.
+*
+-->
+ 
+<Canvas ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" 
+  xmlns:def="Definition"
+  Background="White">
+<DockPanel Background="RadialGradient AliceBlue LightGray">
+
+ <!-- Rectangle 1: Layout Attributes -->
+        <Rectangle
+            Width="200"
+            Height="150"
+            Fill="Blue"
+            Stroke="Orange"
+            StrokeThickness="5" 
+            DockPanel.Dock ="Left"/>
+ 
+        <!-- Rectangle 2: Layout and Domain Attributes -->
+        <Rectangle
+            Width="200"
+            RectangleWidth="50"
+            Height="150"
+            RectangleHeight="50"
+            Fill="Blue"
+            Stroke="Black"
+            StrokeThickness="5"
+            DockPanel.Dock="Left" />
+
+        <!-- Rectangle 3: Domain Attributes -->
+        <Rectangle
+            RectangleWidth="200"
+            RectangleHeight="150"
+            Fill="Blue"
+            Stroke="Orange"
+            StrokeThickness="5"
+            DockPanel.Dock="Left" />
+
+  
+</DockPanel>
+
+	<!-- Rectangle 1 Label -->
+    <Text Canvas.Top="70" Canvas.Left="10" 
+        FontSize="12" Foreground="White" 
+        Width="190" xml:space="preserve">Rectangle 1
+Width=200 Height=150</Text>
+  
+    <!-- Rectangle 2 Label -->
+    <Text Canvas.Top="95" Canvas.Left="210" 
+        FontSize="12" Foreground="Black" 
+        Width="190" xml:space="preserve">Rectangle 2 
+Width=200 Height=150
+RectangleWidth=50 
+RectangleHeight=50</Text>
+  
+    <!-- Rectangle 3 Label -->
+    <Text Canvas.Top="70" Canvas.Left="420" 
+      FontSize="12" Foreground="White" 
+      Width="190" xml:space="preserve">Rectangle 3
+RectangleWidth=200
+RectangleHeight=150</Text>
+	
+</Canvas>

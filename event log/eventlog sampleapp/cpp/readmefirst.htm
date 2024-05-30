@@ -1,0 +1,787 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="ReadMeFirst_files/filelist.xml">
+<title>SampleApp:</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="stockticker"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ahmedels</o:Author>
+  <o:LastAuthor>Ahmed El-shimi</o:LastAuthor>
+  <o:Revision>47</o:Revision>
+  <o:TotalTime>377</o:TotalTime>
+  <o:Created>2003-04-24T21:09:00Z</o:Created>
+  <o:LastSaved>2003-09-05T00:24:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>603</o:Words>
+  <o:Characters>3438</o:Characters>
+  <o:Company>Microsoft Corporation</o:Company>
+  <o:Lines>28</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4033</o:CharactersWithSpaces>
+  <o:Version>11.5329</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-alt:"Arial Black";
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:906961307;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-984834986 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:63.0pt;
+	mso-level-number-position:left;
+	margin-left:63.0pt;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:1569145520;
+	mso-list-type:hybrid;
+	mso-list-template-ids:724725796 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:63.0pt;
+	mso-level-number-position:left;
+	margin-left:63.0pt;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:1691563145;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1979493430 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:63.0pt;
+	mso-level-number-position:left;
+	margin-left:63.0pt;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1>Sample App</h1>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:
+"Times New Roman"'>Last update:<span style='mso-tab-count:1'>      </span>9/4/2003<span
+style='mso-tab-count:1'>           </span><span class=SpellE>AhmedEls</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Tahoma'>Note: This
+sample will only run on Longhorn<o:p></o:p></span></p>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><a
+href="#_About_Sample_App">About Sample App</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><a
+href="#_How_to_build_it">How to build it</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><a
+href="#_How_to_install_it">How to register it</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><a
+href="#_How_to_run_it">How to run it</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><a
+href="#_How_to_view_the_events">How to view the events</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><o:p>&nbsp;</o:p></span></p>
+
+<h2><o:p>&nbsp;</o:p></h2>
+
+<h2><a name="_About_Sample_App"></a>About Sample App</h2>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Tahoma'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:
+"Times New Roman"'>This sample shows a single Application reporting Admin, Operational
+and Debug trace events.<span style='mso-spacerun:yes'>  </span>The events are
+reported via the existing <span class=SpellE>Eventlog</span> APIs, the Crimson
+APIs and via Software Tracing macros in that order.<o:p></o:p></span></p>
+
+<h3 style='margin-left:27.0pt'>1. Admin Event</h3>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp</span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>
+uses <span class=SpellE>ReportEvent</span> (existing <span class=SpellE>Eventlog</span>
+<st1:stockticker w:st="on">API</st1:stockticker>) to write one event to the
+Application log.<span style='mso-spacerun:yes'>  </span>The event is declared
+in <span class=SpellE>SampleApp.Manifest</span>.<span
+style='mso-spacerun:yes'>  </span></span><span style='font-size:10.0pt;
+font-family:Tahoma'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0;mso-layout-grid-align:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-45.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;event <span style='mso-tab-count:1'> </span><span
+class=SpellE>eventID</span>=&quot;991&quot; Legacy=&quot;true&quot; base=&quot;<span
+class=SpellE>AdminEvent</span>&quot;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span class=GramE><span style='font-size:
+10.0pt;font-family:"Courier New"'>message</span></span><span style='font-size:
+10.0pt;font-family:"Courier New"'>=&quot;$(<span class=SpellE>string.Event.PrinterConnectionFailure</span>)&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;<span class=SpellE>adminInstance</span>
+level=&quot;Error&quot;/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;<span class=GramE>template</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:81.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;<span class=SpellE>PrinterConnectionFailure</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:117.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;Tags&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:153.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;Tag&gt;Connectivity&lt;/Tag&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:153.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;Tag&gt;Availability&lt;/Tag&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:117.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;/Tags&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:117.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;<span class=SpellE>PrinterName</span>&gt;%<span class=GramE>String;</span>&lt;/<span
+class=SpellE>PrinterName</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:81.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;/<span class=SpellE>PrinterConnectionFailure</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0;mso-layout-grid-align:none'><span style='font-size:10.0pt;font-family:
+"Courier New"'>&lt;/template&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0;mso-layout-grid-align:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;/event&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma'><o:p>&nbsp;</o:p></span></p>
+
+<h3 style='margin-left:27.0pt'>2. Operational events</h3>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp</span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>
+used <span class=SpellE>EvtReport</span> (new <span class=SpellE>Eventlog</span>/Crimson
+<st1:stockticker w:st="on">API</st1:stockticker>) to write two events to an
+Operational channel.<span style='mso-spacerun:yes'>  </span>The Operational
+channel and the events are declared in <span class=SpellE>SampleApp.Manifest</span>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;event <span style='mso-tab-count:
+1'> </span><span class=SpellE>eventID</span>=&quot;1000&quot; message=&quot;$(<span
+class=SpellE>string.Event.PrinterAdded</span>)&quot;
+channel=&quot;Operational&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>operationalInstance</span>/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=GramE>template</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:81.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>PrinterAdded</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:117.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>PrinterName</span>&gt;%<span class=GramE>String;</span>&lt;/<span
+class=SpellE>PrinterName</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:81.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;/<span
+class=SpellE>PrinterAdded</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;/template&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;/event&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;event <span style='mso-tab-count:
+1'> </span><span class=SpellE>eventID</span>=&quot;1001&quot; message=&quot;$(<span
+class=SpellE>string.Event.PrinterRemoved</span>)&quot;
+channel=&quot;Operational&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>operationalInstance</span>/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=GramE>template</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:81.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>PrinterRemoved</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:117.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>PrinterName</span>&gt;%<span class=GramE>String;</span>&lt;/<span
+class=SpellE>PrinterName</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:81.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;/<span
+class=SpellE>PrinterRemoved</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;/template&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;/event&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<h3 style='margin-left:27.0pt'>3. Debug traces</h3>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp</span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>
+also uses Software tracing macros to report several debug trace events.<span
+style='mso-spacerun:yes'>  </span>It declares <span class=GramE>the a</span> Diagnostic
+channel in <span class=SpellE>SampleApp.manifest</span> which captures:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>Its Trace control
+GUID<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>Its default logging
+settings: Logging is “Enabled” in this case.<span style='mso-spacerun:yes'> 
+</span>Level is set to 5 (which means TRACE_LEVEL_VERBOSE) and flags are set to
+15 (0xF in hex).<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;Diagnostic&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:9.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;Log&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;Enabled <span
+class=SpellE>wcm<span class=GramE>:default</span></span>=&quot;true&quot;/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:9.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;/Log&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:9.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;Publisher&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;Enabled <span
+class=SpellE>wcm<span class=GramE>:default</span></span>=&quot;true&quot;/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:45.0pt;background:
+#E0E0E0'><span style='font-size:10.0pt;font-family:Courier'>&lt;<span
+class=SpellE>TraceFlags</span> <span class=SpellE>wcm<span class=GramE>:default</span></span>=&quot;15&quot;/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:.5in;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;<span class=SpellE>DebugTraceLevel</span>
+<span class=SpellE>wcm<span class=GramE>:default</span></span>=&quot;5&quot;/&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:.5in;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;<span class=SpellE>TraceControlGuid</span>
+<span class=SpellE>wcm<span class=GramE>:default</span></span>=&quot;886E2A29-F537-4e04-A57B-A28EA6F2EEAD&quot;/&gt;<span
+style='mso-spacerun:yes'>        </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:9.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;/Publisher&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'>&lt;/Diagnostic&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;background:#E0E0E0'><span
+style='font-size:10.0pt;font-family:Courier'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<h2><a name="_How_to_build_it"></a>How to build it</h2>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp</span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>
+is built using the standard NT build environment.<span
+style='mso-spacerun:yes'>  </span>The following files need to be present on the
+machine where <span class=SpellE>SampleApp</span> will run:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp.exe<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp.man</span></span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp.pdb</span></span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>
+(full symbols – needed for decoding the trace messages)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp.exe.manifest</span></span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>SampleApp.exe.mui</span></span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>register.cmd</span></span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span class=SpellE><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>unregister.cmd</span></span></span><span
+style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>Also, traceprt.dll
+should be copied to %windir%\system32 directory.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Traceprt</span> is
+available in the IDW directory on any of the release shares.<o:p></o:p></span></p>
+
+<h2><a name="_How_to_install_it"></a>How to register it</h2>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>1. First copy the
+files mentioned above to a local directory <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>2. Run: <span
+class=SpellE>register.cmd</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt'><span style='font-size:10.0pt;
+font-family:Tahoma;mso-bidi-font-family:"Times New Roman"'>To unregister, run: <span
+class=SpellE>unregister.cmd</span><o:p></o:p></span></p>
+
+<h2><a name="_How_to_run_it"></a>How to run it</h2>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>First, copy the necessary files mentioned above and run <span
+class=SpellE>register.cmd</span><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>run: SampleApp.exe<a name="_Reference"></a><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Tahoma'><o:p>&nbsp;</o:p></span></p>
+
+<h2><a name="_How_to_view_the_events"></a>How to view the events</h2>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>Open the New Windows Event Viewer (Right click “My
+Computer”, click “manage”, Expand “Services and Applications”, Expand “Windows
+Event Viewer”)<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>Select the “Global\Application” channel in the left
+pane.<span style='mso-spacerun:yes'>  </span>In the right pane you will see the
+list of events in the Application log.<span style='mso-spacerun:yes'> 
+</span>These will contain Event ID 991 from <span class=SpellE>SampleApp</span><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>Select the “Applications\<span class=SpellE>Microsoft.SampleApp</span>\Operational”
+channel in the left pane.<span style='mso-spacerun:yes'>  </span>In the right
+pane you will see the list of events in the <span class=SpellE>SampleApp</span>
+Operational log.<span style='mso-spacerun:yes'>  </span>These will contain
+Event IDs 1000 and 1001 from <span class=SpellE>SampleApp</span><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>Disable Diagnostic logging for <span class=SpellE>SampleApp</span>
+(In the Viewer, right click on “Application/<span class=SpellE>Microsoft.SampleApp</span>/Diagnostic”
+channel in the left pane and choose “properties”, in the properties dialog box uncheck
+“Enable Logging” and Click “OK”)<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list 63.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='font-size:10.0pt;
+font-family:Tahoma'>Select the “Applications\<span class=SpellE>Microsoft.SampleApp</span>\Diagnostic”
+channel in the left pane.<span style='mso-spacerun:yes'>  </span>In the right
+pane you will see the list of events in the <span class=SpellE>SampleApp</span>
+Diagnostic log.<o:p></o:p></span></span></p>
+
+</div>
+
+</body>
+
+</html>

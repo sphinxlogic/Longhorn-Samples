@@ -1,0 +1,11 @@
+<Project DefaultTargets="mycontrollibrary;avalonhost"> 
+
+    <Target Name="mycontrollibrary"> 
+        <Task Name="MSBuild" Projects="mycontrollibrary\mycontrollibrary.csproj" /> 
+    </Target> 
+
+    <Target Name="avalonhost"> 
+        <Task Name="MSBuild" Projects="avalonhost\avalonhost.csproj" /> 
+    </Target> 
+
+</Project> 

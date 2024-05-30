@@ -1,0 +1,56 @@
+<?Mapping XmlNamespace="primitives" ClrNamespace="System.Windows.Controls.Primitives" Assembly="PresentationFramework" ?>
+
+<FlowPanel ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  Loaded="onInit"
+  xmlns:def="Definition">
+
+	<Button ID="btn1" Click="Paginate1" Content="Click to Switch Pages between Frames"/>
+	
+	<FlowPanel Height="15" Width="100%" />
+	
+	<Border BorderBrush="Gray" BorderThickness="2" Margin="3">
+		<PageElement ID="pe1" PageNumber="0" xmlns="primitives" />
+	</Border>
+	<Border BorderBrush="Gray" BorderThickness="2" Margin="3">
+		<PageElement ID="pe2" PageNumber="1" xmlns="primitives" />
+	</Border>
+
+<def:Code><![CDATA[
+
+        void onInit(object sender, System.EventArgs e)   
+
+{
+          // Open file
+          System.IO.Stream s = System.IO.File.OpenRead("News.xaml");
+
+          // Download and Parse in the content
+          IDocumentFormatter idf = (IDocumentFormatter)System.Windows.Serialization.Parser.LoadXml(s);
+
+          // Create the PageSource and point it to the content
+          PageSource ps = new System.Windows.Controls.Primitives.PageSource();
+          ps.Content = idf;
+	      ps.PageHeight = 600;
+	      ps.PageWidth = 400;
+
+          // Finally point the PageElements to the PageSource.
+          pe1.PageSource = pe2.PageSource = ps;
+
+}
+
+        void Paginate1(object sender, System.Windows.Controls.ClickEventArgs e)   
+        {
+        pe1.PageNumber = 1;
+	    pe2.PageNumber = 0;
+	    btn1.Content = "Pages Have been Switched!";
+        }
+
+
+]]></def:Code>
+
+
+
+</FlowPanel>
+
+
+

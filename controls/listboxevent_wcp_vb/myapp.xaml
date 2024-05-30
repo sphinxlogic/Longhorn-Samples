@@ -1,0 +1,13 @@
+<!-- If you change the root element of this file, be sure to change the class that is subclassed in MyApp.xaml.vb -->
+<NavigationApplication
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ListBoxEvent_wcp_vb.MyApp"
+    def:CodeBehind="MyApp.xaml.vb"
+    StartupUri="Pane1.xaml"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+    <NavigationApplication.Resources>
+
+    </NavigationApplication.Resources>
+</NavigationApplication>

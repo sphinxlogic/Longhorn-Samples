@@ -1,0 +1,7 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           >
+    <Text DockPanel.Dock="Top">You can place a PageViewer among other elements.</Text>
+    <PageViewer DockPanel.Dock="Top" Source="DocToView.xaml" Height="50%" Width="50%"/>
+    <Button DockPanel.Dock="Top" Width="10%">OK</Button>
+</DockPanel>

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HelloWorld", "HelloWorld\HelloWorld.vbproj", "{6921DA41-F571-4144-8D11-91412AB2908B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6921DA41-F571-4144-8D11-91412AB2908B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{6921DA41-F571-4144-8D11-91412AB2908B}.Debug|.NET.Build.0 = Debug|.NET
+		{6921DA41-F571-4144-8D11-91412AB2908B}.Release|.NET.ActiveCfg = Release|.NET
+		{6921DA41-F571-4144-8D11-91412AB2908B}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

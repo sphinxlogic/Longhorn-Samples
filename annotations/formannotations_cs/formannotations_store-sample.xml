@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<anc:Annotations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://schemas.microsoft.com/windows/annotations/2003/11/core"
+    xmlns:anc="http://schemas.microsoft.com/windows/annotations/2003/11/core"
+    xmlns:anb="http://schemas.microsoft.com/windows/annotations/2003/11/base">
+
+  <anc:Annotation Id="17d31343-5035-4120-8035-7c70a151acc4"
+      Created="2004-03-17T16:47:57.8769136-08:00"
+      Updated="2004-03-17T16:47:57.8769136-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>0104</anb:UniqueId>
+        <anb:UniqueId>Email</anb:UniqueId>
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Annotation on 0104 Email.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="b0939b92-77c0-4af5-a5bd-a8319581bc77"
+      Created="2004-03-17T16:40:02.1614706-08:00"
+      Updated="2004-03-17T16:40:02.1614706-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>0301</anb:UniqueId>
+        <anb:UniqueId>Email</anb:UniqueId>
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Annotation on 0301 Email.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="94e4f83f-954e-4ad3-9d87-03fc1e16b3a6"
+      Created="2004-03-17T17:04:34.6916160-08:00"
+      Updated="2004-03-17T17:04:34.6916160-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>0205</anb:UniqueId>
+        <anb:UniqueId>Office</anb:UniqueId>
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Annotation on 0205 Office.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="b3d3de78-dd51-457c-9f2a-be736cad32d7"
+      Created="2004-03-17T17:04:51.6566928-08:00"
+      Updated="2004-03-17T17:04:51.6566928-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>0101</anb:UniqueId>
+        <anb:UniqueId>LastName</anb:UniqueId>
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Annotation on 0101 Lname.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="a5f6bd01-9933-4634-9df7-4a7808054070"
+      Created="2004-03-17T16:40:07.1417586-08:00"
+      Updated="2004-03-17T16:40:07.1417586-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>0201</anb:UniqueId>
+        <anb:UniqueId>FirstName</anb:UniqueId>
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Annotation on 0201 Fname.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="05cb08fb-440f-4973-87a7-f24de96b80f3"
+      Created="2004-03-17T17:05:58.1610552-08:00"
+      Updated="2004-03-17T17:05:58.1610552-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>0101</anb:UniqueId>
+        <anb:UniqueId>Phone</anb:UniqueId>
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Annotation on 0101 Phone.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+</anc:Annotations>

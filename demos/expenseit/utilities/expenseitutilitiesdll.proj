@@ -1,0 +1,18 @@
+<Project DefaultTargets="Build">
+	
+	<PropertyGroup>
+		<Property IsDependentProject="true"/>
+        	<Property Language="C#" />		
+		<Property DefaultClrNameSpace="ExpenseIt.Utilities" />
+        	<Property TargetType="Library" />
+		<Property TargetName="ExpenseItUtilitiesDLL" />
+		<Property StrongNameKeyFile="target.snk" />
+	</PropertyGroup>
+	
+	<Import Project="$(LAPI)\WindowsApplication.target" />
+		
+	<ItemGroup>
+		<Item Type="Code"  Include="Utilities.cs" />
+	</ItemGroup>
+
+</Project>

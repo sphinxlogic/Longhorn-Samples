@@ -1,0 +1,51 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender As object, ByVal args As System.EventArgs)
+	Try
+
+	Dim myPath As new System.Windows.Shapes.Path
+	myPath.Fill = System.Windows.Media.Brushes.Blue
+	myPath.Stroke = System.Windows.Media.Brushes.Black
+	myPath.StrokeThickness = new System.Windows.Length(5)
+	
+		
+	Dim myEllipseGeometry As new System.Windows.Media.EllipseGeometry
+	myEllipseGeometry.Center = new System.Windows.Point(200,200)
+	myEllipseGeometry.RadiusX = 25
+	myEllipseGeometry.RadiusY = 50
+
+	Dim myPointAnimation As new System.Windows.Media.Animation.PointAnimation
+	myPointAnimation.From = new System.Windows.Point(200,200)
+	myPointAnimation.To = new System.Windows.Point(50,50)
+	myPointAnimation.Duration = new Time(5000)
+	myPointAnimation.Begin = new TimeSyncValue(new Time(0))
+	myPointAnimation.AutoReverse = true
+	myPointAnimation.RepeatCount = 20
+
+	myEllipseGeometry.CenterAnimations.Add(myPointAnimation)
+	myPath.Data = myEllipseGeometry
+	root.Children.Add(myPath)
+
+
+	Catch e As System.Exception
+		System.Windows.MessageBox.Show(e.Message + e.Source)
+	End Try
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

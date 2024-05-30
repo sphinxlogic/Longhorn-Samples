@@ -1,0 +1,20 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "animateproperty_mcpp", "animateproperty_mcpp.vcproj", "{A320E991-5018-42AE-9A87-F67CF9A52AD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A320E991-5018-42AE-9A87-F67CF9A52AD9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A320E991-5018-42AE-9A87-F67CF9A52AD9}.Debug|Win32.Build.0 = Debug|Win32
+		{A320E991-5018-42AE-9A87-F67CF9A52AD9}.Debug|Win32.Deploy.0 = Debug|Win32
+		{A320E991-5018-42AE-9A87-F67CF9A52AD9}.Release|Win32.ActiveCfg = Release|Win32
+		{A320E991-5018-42AE-9A87-F67CF9A52AD9}.Release|Win32.Build.0 = Release|Win32
+		{A320E991-5018-42AE-9A87-F67CF9A52AD9}.Release|Win32.Deploy.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

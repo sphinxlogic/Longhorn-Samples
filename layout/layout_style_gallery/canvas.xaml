@@ -1,0 +1,85 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox FontFamily="Courier New" ScrollerVisibilityX="Visible" ScrollerVisibilityY="Visible" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+	</DockPanel.Resources>
+	<Canvas DockPanel.Dock="Top" Height="50%">
+		<Text Canvas.Top="30" Canvas.Left="30" Width="200" TextWrap="Wrap">
+			Canvas exposes four properties that can be attached to its child elements: <Inline FontFamily="Courier New">Canvas.Top, Canvas.Left, Canvas.Right, Canvas.Bottom</Inline>
+		</Text>
+		<Border Background="#EEEEAA" Canvas.Top="300" Canvas.Left="60">
+			<Text Style="{Code}">
+				Canvas.Top="300"<LineBreak />
+				Canvas.Left="50"
+			</Text>
+		</Border>
+		<Border Background="#EEAAEE" Canvas.Right="10%" Canvas.Bottom="10%">
+			<Text Style="{Code}">
+				Canvas.Right="10%"<LineBreak />
+				Canvas.Bottom="10%"
+			</Text>
+		</Border>
+		<Border Background="#AAEEEE" Canvas.Right="10" Canvas.Top="33%">
+			<Text Style="{Code}">
+				Canvas.Right="10"<LineBreak />
+				Canvas.Top="33%"
+			</Text>
+		</Border>
+		<Border Background="#AAAAEE" Canvas.Left="500" Canvas.Top="44%">
+			<Text Style="{Code}">
+				Canvas.Left="500"<LineBreak />
+				Canvas.Top="44%"
+			</Text>
+		</Border>
+		<Border Background="#AAEEAA" Canvas.Right="35%" Width="30%">
+			<Text Style="{Code}">
+				Canvas.Right="35%"<LineBreak />
+				Width="30%"
+			</Text>
+		</Border>
+	</Canvas>
+	<TextBox DockPanel.Dock="Fill">
+&lt;Canvas&gt;<LineBreak />
+	&lt;Text Canvas.Top="30" Canvas.Left="30" Width="200" TextWrap="Wrap"&gt;<LineBreak />
+		Canvas exposes four properties that can be attached to its child elements: &lt;Inline FontFamily="Courier New"&gt;Canvas.Top, Canvas.Left, Canvas.Right, Canvas.Bottom&lt;/Inline&gt;<LineBreak />
+	&lt;/Text&gt;<LineBreak />
+	&lt;Border Background="#EEEEAA" Canvas.Top="300" Canvas.Left="60"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Canvas.Top="300"&lt;LineBreak /&gt;<LineBreak />
+			Canvas.Left="50"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#EEAAEE" Canvas.Right="10%" Canvas.Bottom="10%"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Canvas.Right="10%"&lt;LineBreak /&gt;<LineBreak />
+			Canvas.Bottom="10%"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAEEEE" Canvas.Right="10" Canvas.Top="33%"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Canvas.Right="10"&lt;LineBreak /&gt;<LineBreak />
+			Canvas.Top="33%"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAAAEE" Canvas.Left="500" Canvas.Top="44%"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Canvas.Left="500"&lt;LineBreak /&gt;<LineBreak />
+			Canvas.Top="44%"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAEEAA" Canvas.Right="35%" Width="30%"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Canvas.Right="35%"&lt;LineBreak /&gt;<LineBreak />
+			Width="30%"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+&lt;/Canvas&gt;<LineBreak />
+	</TextBox>
+</DockPanel>

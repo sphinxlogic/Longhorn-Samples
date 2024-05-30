@@ -1,0 +1,37 @@
+<Project DefaultTargets="Build">
+	<!--Imports the target which contains all the common targets-->
+	
+	<PropertyGroup>
+	
+        	<Property Language="C#" />
+		<Property DefaultClrNameSpace="ExpenseItApp" />
+		<Property TargetName="Expenseit" />
+		<Property StrongNameKeyFile="target.snk" />
+		<Property HostInBrowser="True" />
+		
+	</PropertyGroup>
+	
+
+	<Import Project="$(LAPI)\WindowsApplication.target" />
+		
+	<ItemGroup>
+		<!-- Dependent Projects -->
+		<Item Type="DependentProjects" Include="Utilities\ExpenseItUtilitiesDLL.proj"/> 
+
+		<!-- Aplication markup -->
+		<Item Type="ApplicationDefinition" Include="app.xaml" />
+
+		<!-- Compiled Xaml Files list -->
+		<Item Type="Pages" Include="page1.xaml"/>
+		<Item Type="Pages" Include="page2.xaml"/>
+		<Item Type="Pages" Include="page3.xaml"/>
+		<Item Type="Pages" Include="Submit_EDialog.xaml"/>
+		<Item Type="Compile"  Include="app.xaml.cs" />
+		<Item Type="Compile"  Include="Page1.xaml.cs" />
+		<Item Type="Compile"  Include="Page2.xaml.cs" />
+		<Item Type="Compile"  Include="Page3.xaml.cs" />
+		<Item Type="Resources" Include="images\*.png" FileStorage="embedded" Localizable="False"/>
+		
+	</ItemGroup>
+
+</Project>

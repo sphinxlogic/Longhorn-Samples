@@ -1,0 +1,45 @@
+<StringPageFunction xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+           def:CodeBehind="Default.xaml.cs"
+           def:Class="WCSample.Default">
+  <DockPanel>
+      <Border DockPanel.Dock="Left"
+			      Background="LightGray">
+	      <Text FontSize="14"
+			      FontWeight="Bold"
+			      Margin="10,20,10,10">Some Explanatory Text</Text>
+      </Border>
+
+      <DockPanel DockPanel.Dock="Fill">
+      <Text DockPanel.Dock="Top"
+		      ID="SomeText"
+		      FontSize="14"
+		      FontWeight="Bold"
+		      Margin="10,20,10,10">Starting Page</Text>
+      	
+      <Button DockPanel.Dock="Top"
+                    Margin="10,20,10,10"
+                    ID="task1"
+                    Click="NextTask"
+                    Height="25"
+                    Width="150">Go to Task 1</Button>
+
+      <Button DockPanel.Dock="Top"
+                    Margin="10,20,10,10"
+                    ID="done"
+                    Click="NextTask"
+                    Height="25"
+                    Width="150">Done</Button>
+
+      <Text DockPanel.Dock="Top"
+		      Margin="10,20,10,10"
+		      FontSize="14"
+		      FontWeight="Bold">Integer from Task1: 
+		      <Text ID="task1Return" 
+		            FontSize="12" 
+		            FontWeight="Normal"/>
+		  </Text>
+      		      
+      </DockPanel>
+  </DockPanel>
+</StringPageFunction>

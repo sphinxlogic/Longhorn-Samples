@@ -1,0 +1,19 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<Canvas  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="RadioButtonList_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+<RadioButtonList SelectionChanged="WriteText">
+  <RadioButton ID="rb1">Radio Button 1</RadioButton>
+  <RadioButton ID="rb2">Radio Button 2</RadioButton>
+  <RadioButton ID="rb3">Radio Button 3</RadioButton>
+</RadioButtonList>
+
+<Button ID="btn" Canvas.Top="50" Width="250">Click the radio buttons</Button>
+
+
+</Canvas>

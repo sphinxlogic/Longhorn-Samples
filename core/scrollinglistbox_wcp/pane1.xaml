@@ -1,0 +1,52 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ScrollingListBox_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <DockPanel.Resources>
+   	<Style def:Name="ScrollingListBox">
+      	   <ListBox/>
+		
+	      <Style.VisualTree>
+			<Border
+				Height		="*Alias(Target=Height)"
+				Width		="*Alias(Target=Width)"
+				BorderThickness	="*Alias(Target=BorderThickness)"
+				BorderBrush	="*Alias(Target=BorderBrush)"
+			>
+			<Canvas>
+			<TextBox Height="*Alias(Target=Height)" Width="*Alias(Target=Width)" />
+				<ScrollViewer Canvas.Top="5" Height="94%" Width="98%">
+				       <DockPanel 
+						ItemsControl.IsItemsHost="true"
+						Height="100%"
+					/>
+				</ScrollViewer>
+			</Canvas>
+			</Border>
+	      </Style.VisualTree>    
+	</Style>
+
+  </DockPanel.Resources>
+
+
+  <ListBox Margin="50" Height="100px" Width="300px" DockPanel.Dock="Top" Style="{ScrollingListBox}">
+	<ListItem>ListItem1</ListItem>
+	<ListItem>ListItem2</ListItem>
+	<ListItem>ListItem3</ListItem>
+	<ListItem>ListItem4</ListItem>
+	<ListItem>ListItem5</ListItem>
+	<ListItem>ListItem6</ListItem>
+	<ListItem>ListItem7</ListItem>
+	<ListItem>ListItem8</ListItem>
+	<ListItem>ListItem9</ListItem>
+  </ListBox>
+
+</DockPanel>
+
+
+

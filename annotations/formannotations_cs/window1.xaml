@@ -1,0 +1,104 @@
+<?Mapping XmlNamespace="annotations" ClrNamespace="System.Windows.Annotations" Assembly="PresentationFramework" ?>
+<?Mapping XmlNamespace="annotationsStore" ClrNamespace="System.Windows.Annotations.Storage" Assembly="PresentationFramework" ?>
+
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window
+    xmlns="http://schemas.microsoft.com/2005/xaml"
+    xmlns:def="Definition"
+    xmlns:annotations="annotations"
+    xmlns:annotationsStore="annotationsStore"
+    def:Class="FormAnnotations.Window1"
+    def:CodeBehind="Window1.xaml.cs"
+    Text="Annotations Employee Form Sample"
+    CanResize="False"
+    Visible="True"
+    ID="topLevel"
+    Loaded="Init" >
+    <!-- The namespace + class name in the codebehind file and the def:Class
+         attribute in the root of this document, must stay identical.
+         You can change them, but you must keep them in sync. -->
+    
+  <Window.Resources>
+    <XmlDataSource def:Name="EmployeeData"
+      Source="Employees.xml"
+      XPath ="/Employees/Employee" />
+  </Window.Resources>
+
+  <!-- Store annotations in an XmlFileStore
+       (since no path is specified, the annotations XML text
+        file is created in the same folder as the executable). -->
+  <annotations:AnnotationService.Store>
+    <annotationsStore:XmlFileStore
+      annotationsStore:Path="FormAnnotations_store.xml"/>
+  </annotations:AnnotationService.Store>
+
+  <Canvas ID="topCanvas" Width="100%" Height="100%" MinWidth="200" MinHeight="200" >
+  
+    <Border Canvas.Top="0" Canvas.Left="0" Width="100%" Height="100%"
+        BorderThickness="20" Background="SkyBlue" BorderBrush="SkyBlue">
+        
+      <DockPanel DockPanel.Dock="Top" ID="topDockPanel">
+      
+        <DockPanel.DataContext>        
+          <Bind DataSource="{EmployeeData}" />
+        </DockPanel.DataContext>
+        
+        <Button DockPanel.Dock="Top" Click="OnClickClearAllAnnotations">
+          Clear All Annotations
+        </Button>
+        
+        <GridPanel Columns="2" DockPanel.Dock="Top" ID="mainGridPanel"
+            annotations:AnnotationService.UniqueId="*Bind(Path=ID)" >
+
+          <Text HorizontalAlignment="Center"> </Text>
+          <Text HorizontalAlignment="Center">
+            Right-Click on a Data Field to Annotate</Text>
+
+          <Text>Employee Number:</Text>
+          <TextBox IsReadOnly="true" Text="*Bind(Path=ID)"
+            ID="textboxEmployeeNumber"
+            annotations:AnnotationService.UniqueId="EmployeeNumber"
+            MouseRightButtonDown="OnMouseRightButton" />
+
+          <Text>First Name:</Text>
+          <TextBox Text="*Bind(Path=FirstName;UpdateType=OnLostFocus)"
+            ID="textboxFirstName"
+            annotations:AnnotationService.UniqueId="FirstName"
+            MouseRightButtonDown="OnMouseRightButton" />
+
+          <Text>Last Name:</Text>
+          <TextBox Text="*Bind(Path=LastName)"
+            ID="textboxLastName"
+            annotations:AnnotationService.UniqueId="LastName"
+            MouseRightButtonDown="OnMouseRightButton" />
+
+          <Text>Email Alias:</Text>
+          <TextBox Text="*Bind(Path=Email)"
+            ID="textboxEmail"
+            annotations:AnnotationService.UniqueId="Email"
+            MouseRightButtonDown="OnMouseRightButton" />
+
+          <Text>Phone:</Text>
+          <TextBox Text="*Bind(Path=Phone)"
+            ID="textboxPhone"
+            annotations:AnnotationService.UniqueId="Phone"
+            MouseRightButtonDown="OnMouseRightButton" />
+
+          <Text>Office:</Text>
+          <TextBox Text="*Bind(Path=Office)"
+            ID="textboxOffice"
+            annotations:AnnotationService.UniqueId="Office"
+            MouseRightButtonDown="OnMouseRightButton" />
+          
+          <Button Click="OnClickPrevious">Previous Record</Button>
+          <Button Click="OnClickNext">Next Record</Button>
+          
+        </GridPanel>
+        
+      </DockPanel>
+      
+    </Border>
+    
+  </Canvas>
+
+</Window>

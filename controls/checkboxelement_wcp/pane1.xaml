@@ -1,0 +1,15 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="CheckBoxElement_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+  <Button ID="btn" Width="200" Height="30">Select a check box</Button>
+  <CheckBox ID="cb1" IsCheckedChanged="HandleChange">Change background</CheckBox>
+  <CheckBox ID="cb2" IsCheckedChanged="HandleChange2">Change text</CheckBox>
+
+
+</FlowPanel>

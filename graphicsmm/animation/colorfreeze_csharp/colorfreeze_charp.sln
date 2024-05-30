@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "colorfreeze_charp", "colorfreeze_charp.csproj", "{A74A69B2-A73F-47E5-96C0-468E6415EB89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A74A69B2-A73F-47E5-96C0-468E6415EB89}.Debug|.NET.ActiveCfg = Debug|.NET
+		{A74A69B2-A73F-47E5-96C0-468E6415EB89}.Debug|.NET.Build.0 = Debug|.NET
+		{A74A69B2-A73F-47E5-96C0-468E6415EB89}.Release|.NET.ActiveCfg = Release|.NET
+		{A74A69B2-A73F-47E5-96C0-468E6415EB89}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

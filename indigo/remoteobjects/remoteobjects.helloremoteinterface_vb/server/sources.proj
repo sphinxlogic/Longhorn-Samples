@@ -1,0 +1,31 @@
+<Project DefaultTargets="remoteinterface;remotableobject;host">
+   <Target Name="remoteinterface">
+      <Task Name="Vbc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="remoteinterface.dll"
+                 References="system.dll;system.messagebus.dll"
+                 Sources="remoteinterface.vb"
+                 TargetType="library" />
+
+      <Task Name="Exec"
+                 Command="copy RemoteInterface.dll ..\client" />
+   </Target>
+   <Target Name="remotableobject">
+      <Task Name="Vbc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="remotableobject.dll"
+                 References="system.dll;system.messagebus.dll;remoteinterface.dll"
+                 Sources="remotableobject.vb"
+                 TargetType="library" />
+
+   </Target>
+   <Target Name="host">
+      <Task Name="Vbc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="host.exe"
+                 References="system.messagebus.dll;system.dll;remotableobject.dll;remoteinterface.dll"
+                 Sources="host.vb"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

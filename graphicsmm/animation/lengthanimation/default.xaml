@@ -1,0 +1,24 @@
+
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+
+  <Rectangle RectangleTop="10" RectangleLeft="10" ID="myRect" Fill="LimeGreen" 
+     RectangleHeight="10" RectangleWidth="10"
+     Stroke="HorizontalGradient Purple Blue" StrokeThickness="10">
+
+   <Rectangle.RectangleWidth>
+   
+	<LengthAnimation  From="10" To="250" Begin="Immediately" Duration="10" 
+           RepeatCount="500" AutoReverse="True" />
+  
+   </Rectangle.RectangleWidth>
+   <Rectangle.RectangleHeight>
+    
+       <LengthAnimation From="10" To="250" Begin="Immediately" Duration="10" RepeatCount="500" 
+         AutoReverse="True" />
+   
+   </Rectangle.RectangleHeight>
+   </Rectangle>
+
+</Canvas>

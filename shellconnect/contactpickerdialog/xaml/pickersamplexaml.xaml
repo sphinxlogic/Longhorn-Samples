@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  This file is part of the Microsoft .NET Framework SDK Code Samples.
+ 
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+ 
+This source code is intended only as a supplement to Microsoft
+Development Tools and/or on-line documentation.  See these other
+materials for detailed information regarding Microsoft code samples.
+ 
+THIS CODE AND INFORMATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+-->
+
+<?Mapping XmlNamespace="ContactControls" ClrNamespace="System.Windows.Controls" Assembly="System.Windows.Contacts,Version=6.0.3708.0,Culture=neutral,PublicKeyToken=a29c01bbd4e39ac5" ?>
+
+<DockPanel
+  xmlns="http://schemas.microsoft.com/2005/xaml"
+  xmlns:MyControls="ContactControls"
+  xmlns:def="Definition"
+  def:Language="C#"
+  def:Class="Microsoft.Samples.Communications.PickerSample">
+
+  <Button
+    DockPanel.Dock="Top"
+    Content="Show Picker"
+    Click="OnButtonClicked" />
+
+  <def:Code>
+  <![CDATA[
+
+    //When the button is clicked, launch a Contact Picker
+    private void OnButtonClicked (object sender, ClickEventArgs args)
+    {
+      ContactPickerDialog picker = new ContactPickerDialog();
+      picker.ShowDialog((NavigationWindow)(this.Parent));
+    }
+
+  ]]>
+  </def:Code>
+
+</DockPanel>
+

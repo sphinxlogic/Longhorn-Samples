@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="customcontentsample">
+   <Target Name="customcontentsample">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="customcontentsample.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll"
+                 Sources="customcontentsample.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

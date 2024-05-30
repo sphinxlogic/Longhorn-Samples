@@ -1,0 +1,27 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+
+	<Rectangle RectangleTop="50" RectangleLeft="50" RectangleHeight="50" RectangleWidth="50" Fill="Red" />
+	
+<TransformDecorator AffectsLayout="false">
+<TransformDecorator.Transform>
+            <TransformCollection>
+				<ScaleTransform Center="0,0" ScaleY="2.0" />
+			</TransformCollection>
+</TransformDecorator.Transform>	
+	<Rectangle RectangleTop="50" RectangleLeft="150" RectangleHeight="50" RectangleWidth="50" Fill="Yellow"/>
+</TransformDecorator>
+		
+		
+<TransformDecorator AffectsLayout="false">
+<TransformDecorator.Transform>
+            <TransformCollection>
+				<ScaleTransform Center="0,25" ScaleY="2.0" />
+			</TransformCollection>
+</TransformDecorator.Transform>	
+	<Rectangle RectangleTop="50" RectangleLeft="250" RectangleHeight="50" RectangleWidth="50" Fill="Blue"/>
+</TransformDecorator>
+
+
+</Canvas>

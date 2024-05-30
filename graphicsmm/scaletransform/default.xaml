@@ -1,0 +1,45 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+    <!-- No transform specified -->
+    <Polygon ID="star1" 
+    Stroke="black" 
+    StrokeThickness="2.0" 
+    Points="176.5,50 189.2,155.003 286.485,113.5 201.9,177 286.485,240.5 
+    189.2,198.997 176.5,304 163.8,198.997 66.5148,240.5 151.1,177 66.5148,113.5 
+    163.8,155.003">
+    </Polygon>
+
+    <!-- Scaled in Y -->
+    <TransformDecorator AffectsLayout="false">
+	<TransformDecorator.Transform>
+            <TransformCollection>
+				<ScaleTransform ScaleX="1" ScaleY="0.5" />
+				<TranslateTransform X="100" Y="0" />
+			</TransformCollection>
+		</TransformDecorator.Transform>
+    <Polygon ID="star2" 
+    Stroke="blue" 
+    StrokeThickness="2.0" 
+    Points="176.5,50 189.2,155.003 286.485,113.5 201.9,177 286.485,240.5 
+    189.2,198.997 176.5,304 163.8,198.997 66.5148,240.5 151.1,177 66.5148,113.5 
+    163.8,155.003" />
+    </TransformDecorator>
+
+    <!-- Scaled in X -->
+    <TransformDecorator AffectsLayout="false">
+	<TransformDecorator.Transform>
+            <TransformCollection>
+				<ScaleTransform ScaleX="0.5" ScaleY="1" />
+				<TranslateTransform X="0" Y="100" />
+			</TransformCollection>
+	</TransformDecorator.Transform>
+    <Polygon ID="star3" 
+    Stroke="red" 
+    StrokeThickness="2.0" 
+    Points="176.5,50 189.2,155.003 286.485,113.5 201.9,177 286.485,240.5 
+    189.2,198.997 176.5,304 163.8,198.997 66.5148,240.5 151.1,177 66.5148,113.5 
+    163.8,155.003" />
+    </TransformDecorator>
+    
+</Canvas>

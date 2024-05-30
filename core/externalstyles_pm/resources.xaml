@@ -1,0 +1,16 @@
+<?Mapping XmlNamespace="anim" ClrNamespace="System.Windows.Media.Animation" Assembly="PresentationCore" ?>
+<?Mapping XmlNamespace="media" ClrNamespace="System.Windows.Media" Assembly="PresentationCore" ?>
+<?Mapping XmlNamespace="shapes" ClrNamespace="System.Windows.Shapes" Assembly="PresentationFramework" ?>
+
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition" xmlns:media="media" Width="100%" Height="100%" >
+	
+<DockPanel.Resources>
+	
+<Style def:Name="MyCustomButton">
+<Button Background="gold" Width="300" Height="200" />
+</Style>
+		
+
+</DockPanel.Resources>
+
+</DockPanel>

@@ -1,0 +1,33 @@
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Background="LightSteelBlue"
+	   Loaded="onInit"
+	   Width="100%"
+	   Height="100%">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+	Dim txt1 As new System.Windows.Controls.Text
+	txt1.FontSize =	new System.Windows.FontSize(14)
+	txt1.TextContent = "Hello World!"
+	SetLeft(txt1, new System.Windows.Length(10))
+	SetTop(txt1, new System.Windows.Length(100))
+	myCanvas.Children.Add(txt1)
+
+	'Add a second text element to show how absolute positioning works in a Canvas
+	Dim txt2 As new System.Windows.Controls.Text
+	txt2.FontSize =	new System.Windows.FontSize(22)
+	txt2.TextContent = "Isn't absolute positioning handy?"
+	SetLeft(txt2, new System.Windows.Length(75))
+	SetTop(txt2, new System.Windows.Length(200))
+	myCanvas.Children.Add(txt2)
+
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+

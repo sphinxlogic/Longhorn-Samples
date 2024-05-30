@@ -1,0 +1,35 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   >
+
+ 
+<FlowPanel MouseLeftButtonDown="HandleButtonDown" MouseLeftButtonUp="HandleButtonUp"   
+  Margin="10,10,0,0" Width="100px" Height="100px">
+  <Border ID="CustomButton" BorderThickness="4" Width="50px" Height="50px"
+  BorderBrush="black" Background="#eeeeee">
+  <Text Margin="10,5,0,0">Click</Text>
+  </Border>
+</FlowPanel>
+
+
+  <def:Code>
+  <![CDATA[
+    Public Sub HandleButtonDown(sender As object, args As System.Windows.Input.MouseButtonEventArgs)
+    
+	Dim length As new System.Windows.Length(5.0)
+	CustomButton.BorderThickness = new System.Windows.Thickness(length, length, length, length)
+	
+   End Sub
+    Public Sub HandleButtonUp(sender As object, args As System.Windows.Input.MouseButtonEventArgs)
+    
+	Dim length As new System.Windows.Length(1.0)
+	CustomButton.BorderThickness = new System.Windows.Thickness(length, length, length, length)
+	
+   End Sub
+
+  ]]>
+  </def:Code>
+
+</DockPanel>
+

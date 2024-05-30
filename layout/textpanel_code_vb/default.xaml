@@ -1,0 +1,40 @@
+<FlowPanel ID="myFPanel"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	' Instantiate a new TextPanel object
+	Dim tPanel1 As new System.Windows.Documents.TextPanel
+	tPanel1.Width= new System.Windows.Length(410)
+	tPanel1.TextIndent = new System.Windows.Length(15)
+	tPanel1.ColumnCount = 2
+	tPanel1.ColumnGap = new System.Windows.Length(5)
+	tPanel1.ColumnWidth = new System.Windows.Length(195)
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	tPanel1.TextContent += ("Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+	
+	myFPanel.Children.Add(tPanel1)
+
+
+
+End Sub
+  ]]>
+  </def:Code>
+
+</FlowPanel>

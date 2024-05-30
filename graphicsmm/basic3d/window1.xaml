@@ -1,0 +1,16 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Basic3D_SDK.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Basic3D_SDK" Visible="True" Loaded="WindowLoaded" ID="mainWindow"
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <!-- Typically, the following element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<Canvas DockPanel.Dock="Fill">
+
+
+    </Canvas>
+</Window>

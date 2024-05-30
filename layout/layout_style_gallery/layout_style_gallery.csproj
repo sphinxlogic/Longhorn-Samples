@@ -1,0 +1,36 @@
+<Project DefaultTargets="Build">
+  <!--Imports the target which contains all the common targets-->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="SDKSample" />
+    <Property TargetName="Layout_style_gallery" />
+    <Property StrongNameKeyFile="target.snk" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{6B4A47C6-386E-4552-8B69-764E38A51618}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication markup -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <!-- Compiled Xaml Files list -->
+    <Item Type="Pages" Include="chrome.xaml" />
+    <Item Type="Pages" Include="intro.xaml" />
+    <Item Type="Pages" Include="DockPanel.xaml" />
+    <Item Type="Pages" Include="GridPanel.xaml" />
+    <Item Type="Pages" Include="FlowPanel.xaml" />
+    <Item Type="Pages" Include="Canvas.xaml" />
+    <Item Type="Pages" Include="TextPanel.xaml" />
+    <Item Type="Pages" Include="Table.xaml" />
+    <Item Type="Pages" Include="TransformDecorator.xaml" />
+    <Item Type="Pages" Include="Border.xaml" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,98 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Background="Yellow"
+	   Width="100%"
+	   Height="100%">
+
+	<Text FontSize="18" FontWeight="Bold" DockPanel.Dock="Top">Dock Property Sample</Text>
+	<Text FontSize="12" DockPanel.Dock="Top" ID="Txt1">The Dock property of the Green Rectangle is set to Left</Text>
+	<FlowPanel Width="100%" DockPanel.Dock="Top">
+<Button Click="OnClick1" Width="100" Height="20" Background="Green" DockPanel.Dock="Top">Dock = Left</Button>
+<Button Click="OnClick2" Width="100" Height="20" Background="Green" DockPanel.Dock="Top">Dock = Right</Button>
+<Button Click="OnClick3" Width="100" Height="20" Background="Green" DockPanel.Dock="Top">Dock = Top</Button>
+<Button Click="OnClick4" Width="100" Height="20" Background="Green" DockPanel.Dock="Top">Dock = Bottom</Button>
+<Button Click="OnClick5" Width="100" Height="20" Background="Green" DockPanel.Dock="Top">Dock = Fill</Button>
+	</FlowPanel>
+
+	<FlowPanel Width="100%" DockPanel.Dock="Top" Height="10" />
+
+	<Text FontSize="12" DockPanel.Dock="Top" ID="Txt2">The Dock property of the Purple Rectangle is set to Right</Text>
+	<FlowPanel Width="100%" DockPanel.Dock="Top">
+<Button Click="OnClick6" Width="100" Height="20" Background="Purple" DockPanel.Dock="Top">Dock = Left</Button>
+<Button Click="OnClick7" Width="100" Height="20" Background="Purple" DockPanel.Dock="Top">Dock = Right</Button>
+<Button Click="OnClick8" Width="100" Height="20" Background="Purple" DockPanel.Dock="Top">Dock = Top</Button>
+<Button Click="OnClick9" Width="100" Height="20" Background="Purple" DockPanel.Dock="Top">Dock = Bottom</Button>
+<Button Click="OnClick10" Width="100" Height="20" Background="Purple" DockPanel.Dock="Top">Dock = Fill</Button>
+	</FlowPanel>
+
+	<Rectangle ID="rect1" MinWidth="40%" MinHeight="40%" Stroke="Black" Fill="Green" DockPanel.Dock="Left" />
+	<Rectangle ID="rect2" MinWidth="40%" MinHeight="40%" Stroke="Black" Fill="Purple" DockPanel.Dock="Right" />
+
+  <def:Code>
+  <![CDATA[
+
+    Sub OnClick1(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect1, System.Windows.Controls.Dock.Left)
+	Txt1.TextRange.Text = "The Dock property of the Green Rectangle is set to Left"
+
+    End Sub
+
+    Sub OnClick2(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect1, System.Windows.Controls.Dock.Right)
+	Txt1.TextRange.Text = "The Dock property of the Green Rectangle is set to Right"
+
+    End Sub
+	
+    Sub OnClick3(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect1, System.Windows.Controls.Dock.Top)
+	Txt1.TextRange.Text = "The Dock property of the Green Rectangle set to Top"
+
+    End Sub
+
+    Sub OnClick4(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect1, System.Windows.Controls.Dock.Bottom)
+	Txt1.TextRange.Text = "The Dock property of the Green Rectangle is set to Bottom"
+
+    End Sub
+
+    Sub OnClick5(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect1, System.Windows.Controls.Dock.Fill)
+	Txt1.TextRange.Text = "The Dock property of the Green Rectangle is set to Fill"
+
+    End Sub
+
+    Sub OnClick6(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect2, System.Windows.Controls.Dock.Left)
+	Txt2.TextRange.Text = "The Dock property of the Purple Rectangle is set to Left"
+
+    End Sub
+
+    Sub OnClick7(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect2, System.Windows.Controls.Dock.Right)
+	Txt2.TextRange.Text = "The Dock property of the Purple Rectangle is set to Right"
+
+    End Sub
+	
+    Sub OnClick8(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect2, System.Windows.Controls.Dock.Top)
+	Txt2.TextRange.Text = "The Dock property of the Purple Rectangle set to Top"
+
+    End Sub
+
+    Sub OnClick9(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect2, System.Windows.Controls.Dock.Bottom)
+	Txt2.TextRange.Text = "The Dock property of the Purple Rectangle is set to Bottom"
+
+    End Sub
+
+    Sub OnClick10(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	SetDock(rect2, System.Windows.Controls.Dock.Fill)
+	Txt2.TextRange.Text = "The Dock property of the Purple Rectangle is set to Fill"
+
+    End Sub
+
+
+  ]]>
+  </def:Code>
+
+</DockPanel>

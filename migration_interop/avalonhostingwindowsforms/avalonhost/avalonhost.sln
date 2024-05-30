@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvalonHost", "AvalonHost.csproj", "{DB797F18-7C0E-4C35-A8B4-5C92B0F7419D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB797F18-7C0E-4C35-A8B4-5C92B0F7419D}.Debug|.NET.ActiveCfg = Debug|.NET
+		{DB797F18-7C0E-4C35-A8B4-5C92B0F7419D}.Debug|.NET.Build.0 = Debug|.NET
+		{DB797F18-7C0E-4C35-A8B4-5C92B0F7419D}.Release|.NET.ActiveCfg = Release|.NET
+		{DB797F18-7C0E-4C35-A8B4-5C92B0F7419D}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

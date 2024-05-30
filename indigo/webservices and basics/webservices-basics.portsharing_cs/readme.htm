@@ -1,0 +1,188 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The Port Sharing Sample</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+span.msoins0
+	{text-decoration:underline;}
+span.msodel0
+	{color:red;
+	text-decoration:line-through;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The TCP Port Sharing Sample</span></h2>
+
+<h3><span style='font-family:Arial'>“Indigo” - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The
+&quot;Longhorn&quot; communications subsystem is code-named &quot;Indigo&quot;.<br>
+The TCP Port Sharing sample extends the Request Reply sample by using the
+TcpTransportListener Windows service to enable sharing of a common TCP port
+between multiple services. In this case, the client and server share the same
+TCP port.</span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><span style='font-family:Arial'>The
+TcpTransportListener is a Windows service that is installed as part of the “Indigo”.
+It allows “Indigo” services to share a single TCP port, port 808.&nbsp; If a “Indigo”
+Web service is assigned an identity role with the soap:&nbsp; or soap.tcp:
+scheme and without a specified TCP port, the service automatically registers
+itself with the TcpTransportListener. </span></p>
+
+<p><span style='font-family:Arial'>The only difference between this sample and
+the Request Reply sample is that in this sample the TCP port is not specified
+in the identity role of either service.</span></p>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal><a name="#Building"></a><span style='font-family:Arial'>Open
+     the <b>Longhorn Build Environment</b> console window (click <b>Start</b>,
+     click <b>All Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click
+     <b>Open Build Environment Window</b>, and click <b>Longhorn Build
+     Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><a name="#Running"></a><span style='font-family:Arial'>Before running this
+sample, make sure the TcpTransportListener is started. This can be done using
+the Services MMC snap-in or by typing <b>net start TcpTransportListener</b> at
+the command prompt.&nbsp;&nbsp; </span></p>
+
+<p><b><span style='font-family:Arial'>Running on a single machine:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on a single machine, open a command prompt window in the
+Server directory and another one in the Client directory. At the server command
+prompt, type <strong><span style='font-family:Arial'>host </span></strong><strong><span
+style='font-family:Arial;font-weight:normal'>to start the server application.
+Then</span></strong>, at the client command prompt , type <strong><span
+style='font-family:Arial'>client</span></strong><strong><span style='font-family:
+Arial;font-weight:normal'> </span></strong><b>&lt;<em><span style='font-family:
+Arial'>name</span></em>&gt; </b>to start the client application.</span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>1.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the server machine, edit the Host.exe.config
+file in the Server directory. Replace &quot;localhost&quot; with the server
+machine name in the <b>&lt;identityRole&gt;</b> element. Then run the server
+application. </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the client machine, edit the
+Client.exe.config file in the Client directory. Replace &quot;localhost&quot;
+with the client machine name in the <b>&lt;identityRole&gt;</b> element.&nbsp; </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the client machine, edit the
+Client.cs file in the Client directory. In the URI that represents the server
+location, replace &quot;localhost&quot; with the server machine name. Recompile
+and run the client application. </span></p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

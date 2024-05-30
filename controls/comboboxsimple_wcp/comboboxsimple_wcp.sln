@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBoxSimple_wcp", "ComboBoxSimple_wcp.csproj", "{13D0D44D-D61A-4340-A4D9-364EA606A1A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13D0D44D-D61A-4340-A4D9-364EA606A1A8}.Debug|.NET.ActiveCfg = Debug|.NET
+		{13D0D44D-D61A-4340-A4D9-364EA606A1A8}.Debug|.NET.Build.0 = Debug|.NET
+		{13D0D44D-D61A-4340-A4D9-364EA606A1A8}.Release|.NET.ActiveCfg = Release|.NET
+		{13D0D44D-D61A-4340-A4D9-364EA606A1A8}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Application1.Pane1"
+    def:CodeBehind="Page1.xaml.cs" 
+    Background="LightGreen">
+    
+    <Text ID="txtVersion"
+          DockPanel.Dock="Top"
+          Margin="10,10,10,10">Hello World</Text>
+   <Button Click="OnBtnVersionClick"
+           ID="btnVersion"
+           DockPanel.Dock="Top"
+           Margin="10,10,10,10"
+           Width="100"
+           Height="30">Get Version</Button>
+	<HyperLink NavigateUri="Page2.xaml"
+             Margin="10,10,10,10"
+             DockPanel.Dock="Top">Link to page from MyLib.dll.</HyperLink> 
+</DockPanel>

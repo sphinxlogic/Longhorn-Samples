@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+    <head>
+        <title>Using Common Dialogs (VB .NET) Sample Readme</title>
+    </head>
+    
+    <body bgcolor="#FFFFFF" text="#000000" leftmargin="8">
+    <FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+    
+    <h2>Using Common Dialogs (VB .NET) Sample</h2>
+    
+    <p><h3>Summary</h3></p>
+
+    <p>Performs file open and file save operations and also adds a control to the dialog.</p> 
+    
+    <p>The major techniques covered by this sample are:</p>
+    
+    <ul>
+        <li>Using the OpenFileDialog, SaveFileDialog, and FileDialogPushButton classes.</li>
+    </ul>
+    
+    <p>This document covers the following topics.</p>
+
+    <ul>
+        <li><a href="#build">How to Build the Sample</a></li>
+        <li><a href="#usage">How to Use the Sample</a></li>
+        <li><a href="#code_tour">Code Tour</a></li>
+    </ul>
+    
+    <h3><a name="build">How to Build the Sample</a></h3>
+    
+    <p>Open the ComdlgSample.csproj file in Microsoft Visual Studio. Compilation of the comdlgsample.cs file produces a console application.</p>
+
+    <h3><a name="usage">How to Use the Sample</a></h3>
+    
+	<p>The sample displays a control which has a text box and three pushbuttons: <b>Open</b>, <b>Save</b>, and <b>Clear Text</b>. 
+	<p>Clicking <b>Open</b> displays an Open dialog. The dialog displays either text files or all files.</p>
+	<p>Clicking <b>Save</b> displays a Save As dialog. Any characters in the text box are the entry for "File name:". If the text box is empty, "mydoc" is the entry. The dialog displays either text files or all files. Also, clicking the pushbutton labeled "Number of characters" displays the number of characters in the text box.</p>
+	<p>Clicking <b>Clear Text</b> clears the text box.</p>
+
+    <h3><a name="code_tour">Code Tour</a></h3>
+
+    <p>The sample contains the following source files.</p>
+    
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>Readme.htm</td>
+            <td>A short description of the sample (the very file you are reading).</td>
+        </tr>
+        
+        <tr>
+            <td>AssemblyInfo.cs</td>
+            <td>A C# file that includes default manifest information.</td>
+        </tr>
+        
+        <tr>
+            <td>comdlgsample.cs</td>
+            <td>C# source code which uses the OpenFileDialog, SaveFileDialog, and FileDialogPushButton classes.</td>
+        </tr>
+    
+        <tr>
+            <td>ComdlgSample.csproj</td>
+            <td>C# project file for use with Visual Studio.</td>
+        </tr>
+        
+        <tr>
+            <td>comdlgsample.resx</td>
+            <td>An .resx file that contains information about resources for the sample.</td>
+        </tr>
+        
+        <tr>
+            <td>App.ico</td>
+            <td>The icon for the application.</td>
+        </tr>
+    
+        <tr>
+            <td>UsingCommonDialogs.xaml</td>
+            <td>Ignore. Not used in C# projects.</td>
+        </tr>
+    </table>
+    
+    <FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+    &#169; 2003 Microsoft Corporation</FONT>
+    
+    </FONT>
+    
+    </body>
+
+</html>

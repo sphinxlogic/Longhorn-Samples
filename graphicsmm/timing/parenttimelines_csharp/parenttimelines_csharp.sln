@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "parenttimelines_csharp", "parenttimelines_csharp.csproj", "{51FD673B-5BF4-4D10-A34F-57B7F393BCF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51FD673B-5BF4-4D10-A34F-57B7F393BCF2}.Debug|.NET.ActiveCfg = Debug|.NET
+		{51FD673B-5BF4-4D10-A34F-57B7F393BCF2}.Debug|.NET.Build.0 = Debug|.NET
+		{51FD673B-5BF4-4D10-A34F-57B7F393BCF2}.Release|.NET.ActiveCfg = Release|.NET
+		{51FD673B-5BF4-4D10-A34F-57B7F393BCF2}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

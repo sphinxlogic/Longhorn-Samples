@@ -1,0 +1,113 @@
+<!-- Provides sample navigation. -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.MyWindow"
+    def:CodeBehind="MyWindow.xaml.cs" 
+    Text="Using Image Brushes" Visible="True">
+   
+    <DockPanel DockPanel.Dock="Fill" >
+  
+		<Rectangle DockPanel.Dock="Top"  Width="100%" Height="10" Fill="{ruledLineBackground}" />
+		<FlowPanel DockPanel.Dock="Top" Background="HorizontalGradient LightGray WhiteSmoke">
+	
+			<!-- Switches between the different examples. -->
+			<Button ID="basicImageFillsButton"
+				Style="{navButton}" 
+				Click="navigateToPage">
+				Basic Image Fills
+			</Button> 
+			<Button
+				ID="stretchModesButton" 
+				Style="{navButton}"
+				Click="navigateToPage">
+				Stretch Modes
+			</Button>
+			<Button
+				ID="alignmentsButton" 
+				Style="{navButton}"
+				Click="navigateToPage">
+				Alignments
+			</Button>
+			<Button
+				ID="tileModesButton" 
+				Style="{navButton}"
+				Click="navigateToPage">
+				Tile Modes
+			</Button>
+			<Button
+				ID="tileSizeButton" 
+				Style="{navButton}"
+				Click="navigateToPage">
+				Tile Size
+			</Button>
+			<Button
+				ID="textExampleButton" 
+				Style="{navButton}"
+				Click="navigateToPage">
+				Filling Text With an Image
+			</Button>
+			
+		</FlowPanel>
+		
+		<Rectangle DockPanel.Dock="Top"  Width="100%" Height="10" Fill="{ruledLineBackground}" />
+		<ScrollViewer DockPanel.Dock="Fill">
+			<Frame ID="navigationFrame" Uri="BasicImageFills.xaml"></Frame>
+		</ScrollViewer>
+		
+		
+		<def:Code>
+			<![CDATA[
+				// Used to keep track of the last button clicked, so that
+				// it can easily be enabled.
+				private Button lastButtonClicked;
+				
+				// Loads the different examples.
+				private void navigateToPage(object sender, ClickEventArgs args){
+					Button b = (Button)sender;
+					
+					// Disable the selected button and enable
+					// the previously selected button.
+					if (lastButtonClicked == null){
+						lastButtonClicked = basicImageFillsButton;
+					
+					}
+					
+					lastButtonClicked.IsEnabled = true;
+					lastButtonClicked.FontWeight = FontWeight.Normal;
+					lastButtonClicked.Foreground = b.Foreground;
+					b.IsEnabled = false;
+					b.FontWeight = FontWeight.Bold;
+					b.Foreground = Brushes.Orange;
+					lastButtonClicked = b;
+			
+					// Load the appropriate page.
+					if (b == basicImageFillsButton){
+						navigationFrame.Navigate(new Uri("BasicImageFills.xaml", true, true));
+					}
+					else if (b == stretchModesButton){
+						navigationFrame.Navigate(new Uri("StretchModes.xaml", true, true));	
+					}
+					else if (b == alignmentsButton){
+						navigationFrame.Navigate(new Uri("AlignmentExample.xaml", true, true));	
+					}
+					else if (b == tileModesButton){
+						navigationFrame.Navigate(new Uri("TilingExample.xaml", true, true));	
+					}
+					else if (b == tileSizeButton){
+						navigationFrame.Navigate(new Uri("TileSizeExample.xaml", true, true));	
+					}
+					else if (b == textExampleButton){
+						navigationFrame.Navigate(new Uri("TextFillsExample.xaml", true, true));	
+					
+					}
+											
+				}
+	
+			]]>
+		
+		</def:Code>
+		
+		
+    </DockPanel>
+</Window>

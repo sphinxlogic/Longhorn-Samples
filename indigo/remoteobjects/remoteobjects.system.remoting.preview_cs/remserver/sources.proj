@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="remserver">
+   <Target Name="remserver">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="..\remserver.exe"
+                 References="system.dll;system.messagebus.dll;..\remlibrary.dll;..\system.remoting.dll"
+                 Sources="server.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

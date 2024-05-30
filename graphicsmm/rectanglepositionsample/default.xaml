@@ -1,0 +1,87 @@
+<!-- Description
+*
+*	This sample demonstrates the difference between layout and domain position attributes.
+*
+-->
+ 
+<DockPanel ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" 
+  Background="White"  Width="100%" Height="100%" >
+  <Canvas Width="170px" Height="300px" Background="White" DockPanel.Dock="Left">
+		
+    <!-- Reference Rectangle -->
+    <Rectangle
+    Width="100"
+    Height="100"
+    Fill="Gray" />
+	
+    <!-- Rectangle A -->	
+    <Rectangle
+      Canvas.Top="15"
+      Canvas.Left="15"
+      Width="100"
+      Height="100"
+      Opacity="0.75"
+      Fill="Blue" />
+
+    <!-- Text label for Rectangle A -->
+    <Text Canvas.Top="120" Canvas.Left="15" 
+      FontSize="12" xml:space="preserve">Rectangle A
+Top=15 Left=15
+    </Text>
+		
+  </Canvas>
+		
+  <Canvas Width="170px" Height="300px" Background="White">
+       
+    <!-- Reference Rectangle -->
+    <Rectangle
+      Width="100"
+      Height="100"
+      Fill="Gray" />
+
+    <!-- Rectangle B -->
+    <Rectangle
+      RectangleTop="15"
+      RectangleLeft="15"
+      Width="100"
+      Height="100"
+      Opacity="0.75"
+      Fill="Blue" />
+
+    <!-- Text label for Rectangle B -->
+    <Text Canvas.Top="120" Canvas.Left="15" 
+      FontSize="12" xml:space="preserve">Rectangle B
+RectangleTop=15
+RectangleLeft=15</Text>
+		
+  </Canvas>
+		
+  <Canvas Width="150px" Height="300px" Background="White">
+    <Rectangle
+      Width="100"
+      Height="100"
+      Fill="Gray"
+      StrokeThickness="5" />
+
+    <!-- Rectangle C -->
+    <Rectangle
+      Canvas.Top="15"
+      Canvas.Left="15"
+      RectangleTop="15"
+      RectangleLeft="15"
+      Width="100"
+      Height="100"
+      Opacity="0.75"
+      Fill="Blue"/>
+
+    <!-- Text label for Rectangle C -->
+    <Text Canvas.Top="120" Canvas.Left="30" 
+      FontSize="12" xml:space="preserve">Rectangle C
+Top=15 Left=15
+RectangleTop=15
+RectangleLeft=15</Text>
+  </Canvas>
+
+</DockPanel>
+
+

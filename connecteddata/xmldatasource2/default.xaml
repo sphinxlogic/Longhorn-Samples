@@ -1,0 +1,27 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition">
+
+<DockPanel.Resources>
+	<XmlDataSource def:Name="BookData" Source="data\bookdata.xml" XPath="Books"/>
+  <Style def:Name="BookDataStyle">
+  	<ContentPresenter/>
+  	<Style.VisualTree>
+  		<Text FontSize="Small" Foreground="Black">
+  			<Text.TextContent>
+  				<Bind Path="Title"/>
+  			</Text.TextContent>
+  		</Text>
+  	</Style.VisualTree>
+  </Style>
+</DockPanel.Resources>
+
+<ListBox ItemStyle="{BookDataStyle}">
+  <ListBox.Items>
+    <CollectionContainer>
+      <CollectionContainer.Collection>
+        <Bind DataSource="{BookData}" Path="Book"/>
+      </CollectionContainer.Collection>
+    </CollectionContainer>
+  </ListBox.Items>
+</ListBox>
+
+</DockPanel>

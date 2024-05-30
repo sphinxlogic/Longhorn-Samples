@@ -1,0 +1,32 @@
+<Canvas 
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  Background="White">
+
+
+  <!-- This line has rounded line vertexes -->
+  <Polyline
+    Points="50,50 75,30 100,100 130,40"
+    Stroke="Red"
+    StrokeThickness="20"
+    StrokeLineJoin="Round"/>
+
+  <Text Foreground="Red" FontSize="20" Canvas.Top="50" Canvas.Left="150">Round</Text>
+
+  <!-- This line has pointed line vertexes -->
+  <Polyline
+    Points="50,150 75,130 100,200 130,140"
+    Stroke="Blue"
+    StrokeThickness="20"
+    StrokeLineJoin="Miter"/>
+
+  <Text Foreground="Blue" FontSize="20" Canvas.Top="150" Canvas.Left="150">Miter</Text>
+
+  <!-- This line has beveled line vertexes -->
+  <Polyline
+    Points="50,250 75,230 100,300 130,240"
+    Stroke="Green"
+    StrokeThickness="20"
+    StrokeLineJoin="Bevel"/>
+
+  <Text Foreground="Green" FontSize="20" Canvas.Top="250" Canvas.Left="150">Bevel</Text>
+</Canvas>

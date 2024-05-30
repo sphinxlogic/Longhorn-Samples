@@ -1,0 +1,60 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{0A74CE93-B0D6-4400-B6CF-2F208BBC335D}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="Speller.Microsoft.Samples.NaturalLanguage.SpellerService" />
+    <Property RootNamespace="Speller" />
+    <Property AssemblyName="Speller" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="Speller.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="Speller.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" FusionName="System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=Neutral" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" FusionName="System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=Neutral" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.NaturalLanguage" HintPath="$(windir)\Microsoft.NET\Windows\v6.0.4030\System.NaturalLanguage.dll" Name="System.NaturalLanguage" Private="True" />
+    <Item Type="Reference" Include="System.XML" Name="System.XML" FusionName="System.Xml, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=Neutral" SpecificVersion="True" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.vb" SubType="Code" />
+    <Item Type="Compile" Include="cmdopts.vb" SubType="Code" />
+    <Item Type="Compile" Include="Speller.vb" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingFindResult", "BindingFindResult\BindingFindResult.csproj", "{61D59B01-E5E0-4057-90F7-B500AD7A0B0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61D59B01-E5E0-4057-90F7-B500AD7A0B0B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{61D59B01-E5E0-4057-90F7-B500AD7A0B0B}.Debug|.NET.Build.0 = Debug|.NET
+		{61D59B01-E5E0-4057-90F7-B500AD7A0B0B}.Release|.NET.ActiveCfg = Release|.NET
+		{61D59B01-E5E0-4057-90F7-B500AD7A0B0B}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

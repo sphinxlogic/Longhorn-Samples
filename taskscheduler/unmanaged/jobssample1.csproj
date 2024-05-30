@@ -1,0 +1,5 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  DefaultTargets = "Default">
+	<Target Name = "Default">
+		<Task Name="Exec" Command = "nmake /f jobssample1.mk" />
+	</Target>
+</Project>

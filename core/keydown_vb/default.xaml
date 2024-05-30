@@ -1,0 +1,26 @@
+<DockPanel ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition">
+
+
+<TextBox DockPanel.Dock="Top" Height="100px" KeyDown="keyDownHandler" 
+ID="textBox1"></TextBox>
+
+
+  <def:Code>
+    <![CDATA[
+      
+	
+      Public Sub keyDownHandler(sender As object, args As System.Windows.Input.KeyEventArgs)
+	Dim size As Integer      	
+	size = 12
+        If args.TextInputKey = System.Windows.Input.Key.Up Then
+        
+           textBox1.FontSize = new System.Windows.FontSize(size, System.Windows.FontSizeType.Pixel)
+        End If
+      End Sub
+      
+    ]]>
+  </def:Code>
+
+</DockPanel>

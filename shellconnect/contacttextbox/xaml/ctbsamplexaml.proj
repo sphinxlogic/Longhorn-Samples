@@ -1,0 +1,24 @@
+<Project DefaultTargets="Build">
+
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property TargetName="CTBSampleXAML" />
+    <Property DefaultClrNameSpace="Microsoft.Samples.Communications" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="CTBSampleXAML.xaml" />
+
+    <Item Type="References" Include="$(windir)\Microsoft.Net\Avalon\System.Windows.Contacts.dll" />
+  </ItemGroup>
+
+</Project>

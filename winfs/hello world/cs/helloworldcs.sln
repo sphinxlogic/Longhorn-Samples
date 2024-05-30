@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{0D6BFE13-3CFD-4251-A652-7F5E4A4565FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D6BFE13-3CFD-4251-A652-7F5E4A4565FC}.Debug|.NET.ActiveCfg = Debug|.NET
+		{0D6BFE13-3CFD-4251-A652-7F5E4A4565FC}.Debug|.NET.Build.0 = Debug|.NET
+		{0D6BFE13-3CFD-4251-A652-7F5E4A4565FC}.Release|.NET.ActiveCfg = Release|.NET
+		{0D6BFE13-3CFD-4251-A652-7F5E4A4565FC}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

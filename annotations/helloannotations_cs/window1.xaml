@@ -1,0 +1,104 @@
+<?Mapping XmlNamespace="annotations" ClrNamespace="System.Windows.Annotations" Assembly="PresentationFramework" ?>
+<?Mapping XmlNamespace="annotationsStore" ClrNamespace="System.Windows.Annotations.Storage" Assembly="PresentationFramework" ?>
+
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window
+    xmlns="http://schemas.microsoft.com/2005/xaml"
+    xmlns:def="Definition"
+    xmlns:annotations="annotations"
+    xmlns:annotationsStore="annotationsStore"
+    def:Class="HelloAnnotations.Window1"
+    def:CodeBehind="Window1.xaml.cs"
+    Text="HelloAnnotations"
+    CanResize="False"
+    Visible="True"
+    ID="topLevel"
+    Loaded="Init" >
+    <!-- The namespace + class name in the codebehind file and the def:Class
+         attribute in the root of this document, must stay identical.
+         You can change them, but you must keep them in sync. -->
+
+  <!-- Store annotations in an XmlFileStore
+       (since no path is specified, the annotations XML text
+        file is created in the same folder as the executable). -->
+  <annotations:AnnotationService.Store>
+    <annotationsStore:XmlFileStore
+      annotationsStore:Path="HelloAnnotations_store.xml" />
+  </annotations:AnnotationService.Store>
+
+  <!-- Typically, the following element will be one of the Panels:
+       Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+  <Canvas ID="topCanvas" Width="100%" Height="100%" MinWidth="200" MinHeight="200" >
+
+    <Border Canvas.Top="0" Canvas.Left="0" Width="100%" Height="100%"
+        BorderThickness="20" Background="SkyBlue" BorderBrush="SkyBlue">
+
+      <DockPanel>
+
+        <Button DockPanel.Dock="Top" Click="OnClickClearAllAnnotations">
+          Clear All Annotations</Button>
+
+        <Button DockPanel.Dock="Top" Click="CreateAnnotation">
+          Create Annotation On Selected Text</Button>
+
+        <TextBox ID="textBox" DockPanel.Dock="Top" Wrap="True"
+            annotations:AnnotationService.UniqueId="TextBox">
+          Next to simply reading them, the most common interaction that people
+          have with paper documents is annotating them.  Annotations are comments
+          that readers add to paper documents to note their thoughts, to remind
+          them about something the content evoked that they want to refer to
+          later, or to highlight certain interesting parts of the document.
+          While the use of annotations with paper documents is common, support
+          for user annotations in online documents is typically very limited,
+          if present at all.  This topic reviews many of the common types of
+          annotations that people use and illustrates how the Microsoft
+          Annotations Framework provides annotation capabilities for Longhorn
+          applications and documents.
+          Readers typically annotate a document to highlight items of interest
+          and to record their thoughts for future reference. There are many
+          possible types of annotations, and the Micrsoft Annotations Framework
+          supports the most popular types such as sticky notes, margin notes,
+          bookmarks, and callouts.
+          A typical sticky note contains information written on a small piece
+          of paper (usually yellow) that is then "stuck" to a document. Digital
+          sticky notes provide similar capability for online documents, but with
+          the added ability to include typed text, handwritten notes (for example,
+          TabletPC "ink" strokes), Web links to related materials, pictures, and
+          audio or video recordings. Digital sticky notes can also offer features
+          for creating note summaries and for collaborative sharing.
+          A margin note is information that is written in the white-space area
+          adjacent to a paragraph or item of interest such as a diagram or
+          picture. Like sticky notes, margin notes can contain many different
+          types of data including text, handwritten notes (TabletPC "ink"
+          strokes), hyperlinks, pictures, and audio or video recordings.
+          Bookmarks are typically used as placeholders for marking locations
+          within a book or document. Many people use colored bookmarks to flag
+          important sections of a book or document for quick referencing later.
+          A digital bookmark similarly allows users to mark locations within
+          applications and documents for quick access.  A digital bookmark
+          displays a small graphic icon and can store keyword information to
+          make locating the selected item easier. The user can choose the color
+          and graphic of the bookmark and can define keywords and comments for
+          quick searches.
+          People can be quite creative when marking up documents to draw
+          attention to items that interest them. Some common methods include
+          underlining, highlighting, circling words in a sentence, or drawing
+          marks or notations in the margin. Digital annotations can provide
+          similar capabilities for drawing attention to items of interest in
+          Longhorn applications and documents.
+          Annotations made within a document can be displayed in a separate
+          annotation summary page or in summary form with a table of contents.
+          For example, rollups can summarize the number of annotations contained
+          within each section.  As annotations are added or deleted, the summary
+          count and data within the rollup updates automatically. When expanded,
+          a rollup displays a summary line for each annotation, and by clicking
+          on a summary line the user can hyperlink to the selected note.
+        </TextBox>
+
+      </DockPanel>
+
+    </Border>
+
+  </Canvas>
+
+</Window>

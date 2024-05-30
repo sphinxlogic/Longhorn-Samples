@@ -1,0 +1,44 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender As object, ByVal args As System.EventArgs)
+	Dim myRect As new System.Windows.Shapes.Rectangle
+	myRect.RectangleHeight = new System.Windows.Length(100)
+	myRect.RectangleWidth = new System.Windows.Length(100)
+	myRect.RectangleTop = new System.Windows.Length(20)
+	myRect.RectangleLeft = new System.Windows.Length(20)
+
+	Dim mySolidColorBrush As new System.Windows.Media.SolidColorBrush
+	mySolidColorBrush.Color = System.Windows.Media.Colors.Blue
+	Dim myColorAnimation As new System.Windows.Media.Animation.ColorAnimation
+	myColorAnimation.From = System.Windows.Media.Colors.Red
+	myColorAnimation.To = System.Windows.Media.Colors.Yellow
+	myColorAnimation.InterpolationMethod = System.Windows.Media.Animation.InterpolationMethod.Linear
+	myColorAnimation.Duration = new System.Windows.Media.Animation.Time(2000)
+	myColorAnimation.AutoReverse = true
+	myColorAnimation.RepeatCount = 10
+	myColorAnimation.Begin = new System.Windows.Media.Animation.TimeSyncValue(new System.Windows.Media.Animation.Time(1000))
+	myColorAnimation.Fill = System.Windows.Media.Animation.TimeFill.Freeze
+	mySolidColorBrush.ColorAnimations.Add(myColorAnimation)
+	myRect.Fill = mySolidColorBrush
+	root.Children.Add(myRect)
+	
+
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

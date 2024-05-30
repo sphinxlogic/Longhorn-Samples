@@ -1,0 +1,14 @@
+<TextPanel ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  FontFamily="Palatino Linotype">
+
+    <Block FontSize="36" HorizontalAlignment="Center" Capitals="Titling">CHAPTER LVI</Block>
+
+    <Block HorizontalAlignment="Justify"><SmallCaps>Lorem ipsum dolor sit amet,</SmallCaps> consectetuer adipiscing elit,
+ sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ...
+    </Block>
+
+</TextPanel>
+
+

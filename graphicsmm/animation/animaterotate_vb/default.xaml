@@ -1,0 +1,60 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender As object, ByVal args As System.EventArgs)
+	Try
+
+	' Create a Rectangle.
+	Dim myRectangle As new System.Windows.Shapes.Rectangle
+	myRectangle.RectangleTop = new System.Windows.Length(100)
+	myRectangle.RectangleLeft = new System.Windows.Length(100)
+	myRectangle.RectangleWidth = new System.Windows.Length(50)
+	myRectangle.RectangleHeight = new System.Windows.Length(50)
+	myRectangle.Fill = System.Windows.Media.Brushes.Blue
+	myRectangle.Stroke = System.Windows.Media.Brushes.Black
+	myRectangle.StrokeThickness = new System.Windows.Length(5)
+
+	' Create a rotation transformation.
+	Dim myRotateTransform As new System.Windows.Media.RotateTransform
+	myRotateTransform.Center = new System.Windows.Point(100,100)
+	myRotateTransform.Angle = 0
+		
+	' Create a DoubleAnimation to animate the RotateTransform's Angle.	
+	Dim myDoubleAnimation As new System.Windows.Media.Animation.DoubleAnimation
+	myDoubleAnimation.From = 0
+	myDoubleAnimation.To = 360
+	myDoubleAnimation.Duration = new System.Windows.Media.Animation.Time(4000)
+	myDoubleAnimation.RepeatDuration = System.Windows.Media.Animation.Time.Indefinite
+	myDoubleAnimation.Begin = new System.Windows.Media.Animation.Time(1000)
+
+	myRotateTransform.AngleAnimations.Add(myDoubleAnimation)
+
+	' Create a TransformDecorator to apply the transformation to the rectangle.
+	Dim myTransformDecorator As new System.Windows.Controls.TransformDecorator
+	myTransformDecorator.Transform = myRotateTransform
+	myTransformDecorator.Child = myRectangle
+			
+	root.Children.Add(myTransformDecorator)
+
+
+	Catch e As System.Exception
+		System.Windows.MessageBox.Show(e.Message + e.Source)
+	End Try
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

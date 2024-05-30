@@ -1,0 +1,80 @@
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender As object, ByVal args As System.EventArgs)
+	Try
+
+	Dim aButton As System.Windows.Controls.Button
+	aButton = new System.Windows.Controls.Button
+	System.Windows.Controls.Canvas.SetLeft(aButton, new System.Windows.Length(20))
+	System.Windows.Controls.Canvas.SetTop(aButton, new System.Windows.Length(20))
+	aButton.Width = new System.Windows.Length(200)
+	aButton.Height = new System.Windows.Length(30)
+	aButton.Content = "A Button"
+
+
+	'Animate the Button's Width.
+	Dim myLengthAnimation As System.Windows.Media.Animation.LengthAnimation
+	myLengthAnimation = new System.Windows.Media.Animation.LengthAnimation
+	myLengthAnimation.To = new System.Windows.Length(50)
+	myLengthAnimation.Duration = new System.Windows.Media.Animation.Time(5000)
+	myLengthAnimation.AutoReverse = true
+	myLengthAnimation.RepeatDuration = _
+		System.Windows.Media.Animation.Time.Indefinite
+	
+	aButton.AddAnimation( _
+		System.Windows.Controls.Button.WidthProperty, myLengthAnimation)
+			
+	'Add the Button to the Canvas
+	myCanvas.Children.Add(aButton)  
+
+	'Create and set the second Button.
+	Dim anotherButton As System.Windows.Controls.Button
+	anotherButton = new System.Windows.Controls.Button
+	Canvas.SetLeft(anotherButton, new System.Windows.Length(20))
+	Canvas.SetTop(anotherButton, new System.Windows.Length(70))
+	anotherButton.Width = new System.Windows.Length(200)
+	anotherButton.Height = new System.Windows.Length(30)
+	anotherButton.Content = "Another Button"
+			
+	'Create and animate a Brush to set the Button's fill.
+	Dim myBrush As System.Windows.Media.SolidColorBrush
+	myBrush = new System.Windows.Media.SolidColorBrush
+	myBrush.Color = System.Windows.Media.Colors.Blue
+	Dim myColorAnimation As System.Windows.Media.Animation.ColorAnimation
+	myColorAnimation = new System.Windows.Media.Animation.ColorAnimation
+	myColorAnimation.From = System.Windows.Media.Colors.Blue
+	myColorAnimation.To = System.Windows.Media.Colors.Red
+	myColorAnimation.Duration = new System.Windows.Media.Animation.Time(7000)
+	myColorAnimation.AutoReverse = true
+	myColorAnimation.RepeatDuration = _
+		System.Windows.Media.Animation.Time.Indefinite
+	
+	' Add the animation to the brush.
+	myBrush.ColorAnimations.Add(myColorAnimation)
+	
+	' Use the animated brush to set the button's background.
+	anotherButton.Background = myBrush
+	myCanvas.Children.Add(anotherButton)
+
+	Catch e As System.Exception
+		System.Windows.MessageBox.Show(e.Message + e.Source)
+	End Try
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

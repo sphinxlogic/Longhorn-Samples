@@ -1,0 +1,43 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Release" Condition=" '$(Configuration)' == '' " />
+    <Property Language="VB" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property OutputType="Exe" />
+    <Property AssemblyName="RssImporterSample" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+  </PropertyGroup>
+
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+
+  <ItemGroup>
+    <Item Type="compile" Include="RssImporter.vb" SubType="Code" />
+    <Item Type="compile" Include="RssParser.vb" SubType="Code" />
+    <Item Type="compile" Include="RssSample.vb" SubType="Code" />
+    <Item Type="Reference" Include="System" HintPath="$(URT)\System.dll" />
+    <Item Type="Reference" Include="System.XML" HintPath="$(URT)\System.XML.dll" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="$(LAPI)\WindowsBase.dll" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="$(windir)\system32\WinFS\API\System.Storage.Contacts.dll" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="$(windir)\system32\WinFS\API\System.Storage.Core.dll" />
+    <Item Type="Reference" Include="System.Storage.Email" HintPath="$(windir)\system32\WinFS\API\System.Storage.Email.dll" />
+    <Item Type="Reference" Include="System.Storage.Messages" HintPath="$(windir)\system32\WinFS\API\System.Storage.Messages.dll" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="$(windir)\system32\WinFS\API\System.Storage.WinFS.dll" />
+  </ItemGroup>
+</Project>

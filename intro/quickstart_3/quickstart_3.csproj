@@ -1,0 +1,29 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="WCSample" />
+    <Property TargetName="QuickStart_3" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{9E82802C-3EC6-4FBB-8871-CDF029CDFA42}" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="*.xaml" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

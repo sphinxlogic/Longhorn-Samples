@@ -1,0 +1,59 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{C8CFADC4-56CC-46EC-A818-1A0878D11209}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="OPathQueries" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="OPathQueries" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.Data" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Data.dll" Name="System.Data" />
+    <Item Type="Reference" Include="System.Xml" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.XML.dll" Name="System.XML" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.WinFS.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.WinFS" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Contacts.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Contacts" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Core.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Core" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\WindowsBase.dll" AssemblyFolderKey="hklm\windowsclient" Name="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Content" Include="App.ico" />
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="OPathQueries.cs" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="App.ico" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

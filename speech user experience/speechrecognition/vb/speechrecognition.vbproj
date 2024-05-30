@@ -1,0 +1,57 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{F01B5C7E-C780-4115-847A-7E45696A757E}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="SpeechRecognition.SpeechRecognition" />
+    <Property RootNamespace="SpeechRecognition" />
+    <Property AssemblyName="SpeechRecognition" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="SpeechRecognition.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="SpeechRecognition.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Drawing" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Forms" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Speech" Name="System.Speech" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Drawing" />
+    <Item Type="Import" Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="SpeechRecognition.vb" SubType="Form" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

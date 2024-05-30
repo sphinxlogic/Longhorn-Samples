@@ -1,0 +1,21 @@
+<DockPanel ID="RootElement" xmlns="http://schemas.microsoft.com/2003/xaml" 
+xmlns:def="Definition" def:Language="C#">
+
+<DockPanel Dock="Top" Height="100%" Width="100%">
+    <Button Click="HandleClick" DockPanel.Dock="Top">Button 1</Button>         
+    <Button Click="HandleClick" DockPanel.Dock="Top">Button 2</Button>
+    <Button Click="HandleClick" DockPanel.Dock="Top">Button 3</Button>    
+</DockPanel>
+
+<def:Code>
+<![CDATA[
+    void HandleClick(object sender, System.Windows.Controls.ClickEventArgs args)
+    {
+        // You must cast the object as a Text element.
+        System.Windows.Controls.Button e = sender as System.Windows.Controls.Button;
+        e.Width = new System.Windows.Length(200);
+    }
+]]>
+</def:Code>
+
+</DockPanel>

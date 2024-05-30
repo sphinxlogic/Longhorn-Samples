@@ -1,0 +1,58 @@
+<IntWrapperPageFunction xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+           def:CodeBehind="Task1.xaml.cs"
+           def:Class="WCSample.Task1">
+  <DockPanel>
+    <Border DockPanel.Dock="Left"
+			    Background="LightGray">
+	    <Text FontSize="14"
+			    FontWeight="Bold"
+			    Margin="10,20,10,10">Some Explanatory Text</Text>
+    </Border>
+  	
+	  <DockPanel DockPanel.Dock="Left">
+		  <Text DockPanel.Dock="Top"
+				  ID="SomeText"
+				  FontSize="14"
+				  FontWeight="Bold"
+				  Margin="10,20,10,10">Task 1: Enter an Integer</Text>
+				  
+			<TextBox DockPanel.Dock="Top"
+			          Margin="10,20,10,10"
+			          ID="returnedInt"
+			          Height="30"
+			          Width="50" />
+  			
+		  <Button DockPanel.Dock="Top"
+				  Margin="10,20,10,10"
+				  ID="task2"
+				  Click="NextTask"
+				  Height="25"
+				  Width="150">Go to Task 2</Button>
+
+		  <Button DockPanel.Dock="Top"
+				  Margin="10,20,10,10"
+				  ID="back"
+				  Click="NextTask"
+				  Height="25"
+				  Width="150">Back</Button>
+      <Text DockPanel.Dock="Top"
+		      Margin="10,20,10,10"
+		      FontSize="14"
+		      FontWeight="Bold">String Passed from Previous Page: 
+		      <Text ID="task1Passed" 
+		            FontSize="12" 
+		            FontWeight="Normal"/>
+		  </Text>		
+		  
+      <Text DockPanel.Dock="Top"
+		      Margin="10,20,10,10"
+		      FontSize="14"
+		      FontWeight="Bold">String Returned from Next Page: 
+		      <Text ID="task2Return" 
+		            FontSize="12" 
+		            FontWeight="Normal"/>
+		  </Text>				  
+      </DockPanel>	
+  </DockPanel>
+</IntWrapperPageFunction>

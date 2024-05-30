@@ -1,0 +1,9 @@
+
+<DockPanel ID="root"
+	   Height="100%"
+	   Width="100%"
+           xmlns="http://schemas.microsoft.com/2003/xaml">
+     <Button DockPanel.Dock="Top" Width="20%" Height="10%">Button 1</Button>
+     <Button DockPanel.Dock="Top" Width="20%" Height="10%">Button 2</Button>
+     <Button DockPanel.Dock="Top" Width="20%" Height="10%">Button 3</Button>
+</DockPanel>

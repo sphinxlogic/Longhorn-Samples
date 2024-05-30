@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplyMultipleAnimationsToSingleProperty_markup", "ApplyMultipleAnimationsToSingleProperty_markup.csproj", "{25181C26-AA72-4A22-B034-97916C53B35A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25181C26-AA72-4A22-B034-97916C53B35A}.Debug|.NET.ActiveCfg = Debug|.NET
+		{25181C26-AA72-4A22-B034-97916C53B35A}.Debug|.NET.Build.0 = Debug|.NET
+		{25181C26-AA72-4A22-B034-97916C53B35A}.Release|.NET.ActiveCfg = Release|.NET
+		{25181C26-AA72-4A22-B034-97916C53B35A}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+<securityData>
+    <tokens>
+        <tokenCache id="mainTokenCache">
+            <userNameToken user="DeepPurple" password="rock"/>
+        </tokenCache>
+    </tokens>
+</securityData>

@@ -1,0 +1,28 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Get the current value of the property.
+      System.Windows.Thickness marginThickness = btn1.Margin;
+      // If the current leftlength value of margin is set to 10 and the 
+      // unit type of that length is of Pixels then change it to a new value.
+      // Otherwise change it back to 10.
+      if(marginThickness.Left.Value == 10 && marginThickness.Left.UnitType == System.Windows.UnitType.Pixel )
+      {
+        btn1.Margin = new System.Windows.Thickness(new System.Windows.Length(60));
+      }
+      else
+      {
+        btn1.Margin = new System.Windows.Thickness(new System.Windows.Length(10));
+      }
+    }
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" Margin="10" FontSize="16" ID="btn1">
+Click To See Change!!</Button>
+</FlowPanel>

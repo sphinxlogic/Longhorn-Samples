@@ -1,0 +1,28 @@
+<FlowPanel ID="myFP"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Background="AliceBlue"
+	   Loaded="onInit"
+	   Width="300"
+	   Height="200">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	' Add the first Text Element to the FlowPanel
+	Dim txt1 As new System.Windows.Controls.Text 
+	txt1.TextContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+	txt1.TextWrap = System.Windows.TextWrap.Wrap
+
+	Dim txt2 As new System.Windows.Controls.Text 
+	txt2.TextContent = "Notice that the preceeding text flowed within the containing element. If you remove the TextWrap it will flow beyond the container, like this."
+
+	myFP.Children.Add(txt1)
+	myFP.Children.Add(txt2)
+
+
+End Sub
+  ]]>
+  </def:Code>
+
+</FlowPanel>

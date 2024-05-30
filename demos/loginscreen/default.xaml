@@ -1,0 +1,75 @@
+﻿<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml"  xmlns:def="Definition" 
+	def:Class="LoginScreen.Default" def:CodeBehind="default.xaml.cs" 
+	ID="body"  Loaded="Init" MouseLeftButtonDown="Zoom" MouseRightButtonDown="Zoom"
+	Width="100%" Height="100%" MinWidth="800" MinHeight="600"
+	>
+
+<!-- This TransformDecorator is here to enable the zoom functionality.
+Press CTRL + Left Click to zoom in. CTRL + Right Click to zoom out. -->
+
+<TransformDecorator ID="RootDecorator" AffectsLayout="False" Width="100%" Height="100%">
+
+<Canvas Width="100%" Height="100%">
+<Border Style="{CustomBackground}" />
+	
+<Border Style="{WaterMark}" />
+
+ 
+<DockPanel Width="100%" Height="100%">
+
+	<DockPanel Style="{BottomToolBar}" > 
+		<Button Style="{ManageUsersButton}" ContentStyle="{myContentStyle}" Content="Manage User Accounts"/>
+		<Button Style="{GuestSigninButton}"  Content="Guest Sign-in" ContentStyle="{myContentStyle}"/>
+		<Button Style="{ForgotPasswordButton}"  Content="Forgot your password?" ContentStyle="{myContentStyle}"/>
+	</DockPanel>
+	
+	<DockPanel DockPanel.Dock="Fill">
+		<Border Style="{Logo}"   />
+			<DockPanel DockPanel.Dock="Fill" Margin="0,50,0,0" >
+					<FlowPanel Style="{VerticalDockStacker}">
+<ListBox ID="UserTilesListBox" Style="{LoginListBox}"  
+SelectionChanged="ChangeUser" MouseEnter="OnMouseEnter" >
+
+		<ListItem Style="{PatrickListItem}" >
+		<DockPanel>
+			<Text Style="{UserTileText}">Patrick</Text>
+			<Image Style="{UserTile}" Source="images\tile_patrick.png"/>
+		</DockPanel>
+		</ListItem>
+
+		<ListItem Style="{AbbeyListItem}" >
+		<DockPanel>
+			<Text Style="{UserTileText}">Abbey</Text>
+			<Image Style="{UserTile}" Source="images\tile_abbey.png"  />
+		</DockPanel>
+		</ListItem>
+		<ListItem Style="{TobeyListItem}" >
+		<DockPanel>
+			<Text Style="{UserTileText}">Tobey</Text>
+			<Image Style="{UserTile}" Source="images\tile_tobey.png"  />
+		</DockPanel>
+		</ListItem>
+		<ListItem Style="{JasonListItem}" >
+		<DockPanel>
+			<Text Style="{UserTileText}">Jason</Text> 
+			<Image Style="{UserTile}" Source="images\tile_halo.png"  />
+		</DockPanel>
+		</ListItem>
+</ListBox>
+					</FlowPanel>
+						<Text Style="{TypeText}"/>
+				
+					<FlowPanel Style="{VerticalDockStacker}">
+						<TextBox  Style="{PasswordTextBox}"  />
+					</FlowPanel>
+					
+					<FlowPanel Style="{VerticalDockStacker}">
+						<Button Style="{LoginButton}">Sign in</Button>
+					</FlowPanel>
+					
+				</DockPanel>
+			</DockPanel>
+		</DockPanel>
+	</Canvas>
+</TransformDecorator>
+</DockPanel>

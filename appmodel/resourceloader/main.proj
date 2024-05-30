@@ -1,0 +1,12 @@
+<Project DefaultTargets="ResourceLoaderLibrary;ResourceLoader">
+
+    <Target Name="ResourceLoaderLibrary">
+        <Task Name="MSBuild" Projects="Library\Library.csproj" />
+    </Target>
+
+
+    <Target Name="ResourceLoader">
+        <Task Name="MSBuild" Projects="MainApp\app.csproj" />
+    </Target>
+
+</Project>

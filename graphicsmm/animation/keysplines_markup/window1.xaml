@@ -1,0 +1,67 @@
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="keysplines_markup.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="keysplines_markup" Visible="True"
+    >
+    <Canvas DockPanel.Dock="Fill">
+        
+        <Rectangle
+            ID="myRectangle"
+            RectangleTop="100"
+            RectangleLeft="10"
+            RectangleWidth="50"
+            RectangleHeight="50"
+            Fill="RadialGradient Yellow Orange">
+            <Rectangle.RectangleLeft>
+                    <LengthAnimation Duration="10" RepeatDuration="Indefinite"
+                        AutoReverse="True"  Begin="2"
+                        InterpolationMethod="Spline">
+                        <LengthAnimation.KeyFrames>
+                            <LengthKeyFrameCollection>
+                                <LengthKeyFrame Value="10" KeyTime="0">
+                                    <LengthKeyFrame.KeySpline>
+                                        <KeySpline 
+                                            ControlPoint0="0.25, 0.5"
+                                            ControlPoint1="0.75, 1" />
+                                    </LengthKeyFrame.KeySpline>
+                                </LengthKeyFrame>
+                                <LengthKeyFrame Value="500" KeyTime="1" />
+                            </LengthKeyFrameCollection>
+                        </LengthAnimation.KeyFrames>
+                    </LengthAnimation>       
+            </Rectangle.RectangleLeft>
+        </Rectangle>
+        
+        <Rectangle
+            ID="otherRectangle"
+            RectangleTop="150"
+            RectangleLeft="10"
+            RectangleWidth="50"
+            RectangleHeight="50"
+            Fill="Blue"
+            Opacity="0.5">
+            <Rectangle.RectangleLeft>
+
+                    <LengthAnimation 
+                        From="10" To="500"
+                        Duration="10" RepeatDuration="Indefinite"
+                        AutoReverse="True"  Begin="2" />  
+
+            </Rectangle.RectangleLeft>
+        </Rectangle>
+        
+        <Text
+            FontSize="14"
+            FontWeight="ExtraBold"
+            Canvas.Top="100"
+            Canvas.Left="10">Splined Animation</Text>
+         <Text
+            FontSize="14"
+            FontWeight="ExtraBold"
+            Canvas.Top="150"
+            Canvas.Left="10">Animation Without Spline</Text>
+            
+    </Canvas>
+</Window>

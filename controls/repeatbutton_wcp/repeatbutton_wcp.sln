@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepeatButton_wcp", "RepeatButton_wcp.csproj", "{89A9514B-0EA4-4DF9-B719-5897F3C37C19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89A9514B-0EA4-4DF9-B719-5897F3C37C19}.Debug|.NET.ActiveCfg = Debug|.NET
+		{89A9514B-0EA4-4DF9-B719-5897F3C37C19}.Debug|.NET.Build.0 = Debug|.NET
+		{89A9514B-0EA4-4DF9-B719-5897F3C37C19}.Release|.NET.ActiveCfg = Release|.NET
+		{89A9514B-0EA4-4DF9-B719-5897F3C37C19}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

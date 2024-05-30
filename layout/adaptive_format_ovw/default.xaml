@@ -1,0 +1,26 @@
+<AdaptiveMetricsContext
+	   ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+	   FontFamily="Arial"
+	   ColumnPreference="Medium">
+
+<TextPanel Background="white">
+    <Section>
+        <Heading>Adaptive-flow Format Example</Heading>
+            <Paragraph>This
+ example shows the advanced capabilities of Adaptive Flow Layout. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+ sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+ nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure.</Paragraph>
+            <Paragraph>Notice how images and text are flowed intelligently to enhance the reading experience. Lorem ipsum dolor sit amet, consectetuer
+ dipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+ veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel 
+eum iriure.</Paragraph>
+            <Paragraph>Adaptive layout is an exciting new feature of &quot;Avalon&quot;. Lorem ipsum dolor sit amet,
+ consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+ enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+ autem vel eum iriure.</Paragraph>
+    </Section>
+</TextPanel>
+
+
+</AdaptiveMetricsContext>

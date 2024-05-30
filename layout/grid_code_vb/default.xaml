@@ -1,0 +1,95 @@
+<Grid ID="myGrid"
+       xmlns="http://schemas.microsoft.com/2003/xaml"
+       xmlns:def="Definition"
+	   Loaded="onInit"
+	   Width="250"
+	   Height="100"
+	   ShowGridLines="True">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	' Define and Add the Rows and Columns
+	Dim colDef1 As new System.Windows.Controls.ColumnDefinition
+	Dim colDef2 As new System.Windows.Controls.ColumnDefinition
+	Dim colDef3 As new System.Windows.Controls.ColumnDefinition
+	myGrid.ColumnDefinitions.Add(colDef1)
+	myGrid.ColumnDefinitions.Add(colDef2)
+	myGrid.ColumnDefinitions.Add(colDef3)		
+
+	Dim rowDef1 As new System.Windows.Controls.RowDefinition
+	Dim rowDef2 As new System.Windows.Controls.RowDefinition
+	Dim rowDef3 As new System.Windows.Controls.RowDefinition
+	myGrid.RowDefinitions.Add(rowDef1)
+	myGrid.RowDefinitions.Add(rowDef2)
+	myGrid.RowDefinitions.Add(rowDef3)
+
+	' Add the Content of the Top Row
+	Dim txt1 As new System.Windows.Controls.Text 
+	txt1.TextContent = "2004 Products Shipped"
+	txt1.FontSize = new System.Windows.FontSize(20)
+	txt1.FontWeight = System.Windows.FontWeight.Bold
+	myGrid.SetColumnSpan(txt1, 3)
+	myGrid.SetRow(txt1, 0)
+	myGrid.SetColumn(txt1, 0)
+	myGrid.Children.Add(txt1)
+
+	' Add the first Text Cell to the Grid
+	Dim txt2 As new System.Windows.Controls.Text 
+	txt2.TextContent = "Quarter 1"
+	txt2.FontSize = new System.Windows.FontSize(12)
+	txt2.FontWeight = System.Windows.FontWeight.Bold
+	myGrid.SetRow(txt2, 1)
+	myGrid.SetColumn(txt2, 0)	
+	myGrid.Children.Add(txt2)
+	
+	' Add the second Text Cell to the Grid
+	Dim txt3 As new System.Windows.Controls.Text 
+	txt3.TextContent = "Quarter 2"
+	txt3.FontSize = new System.Windows.FontSize(12)
+	txt3.FontWeight = System.Windows.FontWeight.Bold
+	myGrid.SetRow(txt3, 1)
+	myGrid.SetColumn(txt3, 1)	
+	myGrid.Children.Add(txt3)
+	
+	' Add the third Text Cell to the Grid
+	Dim txt4 As new System.Windows.Controls.Text 
+	txt4.TextContent = "Quarter 3"
+	txt4.FontSize = new System.Windows.FontSize(12)
+	txt4.FontWeight = System.Windows.FontWeight.Bold
+	myGrid.SetRow(txt4, 1)
+	myGrid.SetColumn(txt4, 2)	
+	myGrid.Children.Add(txt4)		
+
+	' Add the fourth Text Cell to the Grid
+	Dim txt5 As new System.Windows.Controls.Text 
+	txt5.TextContent = "50,000"
+	txt5.FontSize = new System.Windows.FontSize(12)
+	txt5.FontWeight = System.Windows.FontWeight.Normal
+	myGrid.SetRow(txt5, 2)
+	myGrid.SetColumn(txt5, 0)	
+	myGrid.Children.Add(txt5)	
+
+	' Add the sixth Text Cell to the Grid
+	Dim txt6 As new System.Windows.Controls.Text 
+	txt6.TextContent = "100,000"
+	txt6.FontSize = new System.Windows.FontSize(12)
+	txt6.FontWeight = System.Windows.FontWeight.Normal
+	myGrid.SetRow(txt6, 2)
+	myGrid.SetColumn(txt6, 1)	
+	myGrid.Children.Add(txt6)
+
+	' Add the final Text Cell to the Grid
+	Dim txt7 As new System.Windows.Controls.Text 
+	txt7.TextContent = "150,000"
+	txt7.FontSize = new System.Windows.FontSize(12)
+	txt7.FontWeight = System.Windows.FontWeight.Normal
+	myGrid.SetRow(txt7, 2)
+	myGrid.SetColumn(txt7, 2)	
+	myGrid.Children.Add(txt7)	
+
+End Sub
+  ]]>
+  </def:Code>
+
+</Grid>

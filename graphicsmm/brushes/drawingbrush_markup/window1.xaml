@@ -1,0 +1,319 @@
+<!-- Demonstrates the use of DrawingBrush. -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="DrawingBrush_markup.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Using a DrawingBrush" Visible="True">
+    <Window.Resources>
+		<SolidColorBrush def:Name="myStrokeColor"  Color="MediumBlue" />
+		<Style>
+			<TextPanel Width="500" Margin="0,10,0,0" />
+		</Style>
+    </Window.Resources>
+  
+	<ScrollViewer DockPanel.Dock="Fill">
+    <GridPanel Columns="1" Margin="10">
+       
+		<TextPanel>
+			A DrawingBrush is used to fill an area with a drawing. It may also be used to create
+			a pattern. The following are some examples.
+		</TextPanel>
+		<GridPanel Columns="3" Width="400" CellSpacing="5">
+			<Rectangle
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="{myStrokeColor}"
+				StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush >
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Line X1="0" Y1="0.225" X2="1" Y2="0.225"
+								Stroke="Orange"
+								StrokeThickness="0.25"></Line>
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="VerticalGradient MediumBlue Purple" />
+							<Ellipse 
+								CenterX="0.5" CenterY="0.5"
+								RadiusX="0.2" RadiusY="0.2"
+								Fill="LimeGreen"/>
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+			</Rectangle>
+			<Rectangle
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="{myStrokeColor}"
+				StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush ViewPort="0,0,0.5,0.5" TileMode="Tile">
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Line X1="0" Y1="0.225" X2="1" Y2="0.225"
+								Stroke="Orange"
+								StrokeThickness="0.25"></Line>
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="VerticalGradient MediumBlue Purple" />
+							<Ellipse 
+								CenterX="0.5" CenterY="0.5"
+								RadiusX="0.2" RadiusY="0.2"
+								Fill="LimeGreen"/>
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+			</Rectangle>
+        
+			<Rectangle
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="{myStrokeColor}"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush ViewPort="0,0,0.5,0.5" TileMode="Tile">
+					<DrawingBrush.Drawing>
+						<Drawing>
+						
+							<Rectangle
+								RectangleTop="0"
+								RectangleLeft="0"
+								RectangleWidth="1"
+								RectangleHeight="1"
+								Fill="VerticalGradient Purple Gray" />
+								
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="VerticalGradient Green LimeGreen" />
+							
+							
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="VerticalGradient Green LimeGreen" />
+								
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+			
+		</GridPanel>
+       
+        <TextPanel>
+			The following rectangles are filled with a drawing brush.
+			Notice how the pattern defined by the DrawingBrush expand to fill the area of the rectangle.
+        </TextPanel>
+        <GridPanel Columns="5" CellSpacing="5" Width="400">
+        <Rectangle
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="{myStrokeColor}"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush>
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+        
+        <Rectangle
+			RectangleWidth="200" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush>
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+       
+        
+        <Rectangle
+			RectangleWidth="100" RectangleHeight="200"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush>
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+        </GridPanel>
+        
+        
+        <TextPanel>A DrawingBrush can also tile its drawing to fill an area with a pattern. 
+					The following are some examples.</TextPanel>
+        <GridPanel Columns="3" CellSpacing="5" Width="400"> 
+		 <Rectangle
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush ViewPort="0,0,0.25,0.25" TileMode="Tile">
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush ViewPort="0,0,0.5,0.5" TileMode="Tile">
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<Rectangle.Fill>
+				<DrawingBrush ViewPort="0,0,20,10" ViewPortUnits="Absolute" TileMode="Tile">
+					<DrawingBrush.Drawing>
+						<Drawing>
+							<Rectangle
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+							<Rectangle
+								RectangleTop="0.5"
+								RectangleLeft="0.5"
+								RectangleWidth="0.5"
+								RectangleHeight="0.5"
+								Fill="Black" />
+						</Drawing>
+					</DrawingBrush.Drawing>
+				</DrawingBrush>
+			</Rectangle.Fill>
+        </Rectangle>
+        </GridPanel>
+        
+        <TextPanel>
+			A DrawingBrush may be transformed. The following example shows a DrawingBrush before and after a SkewTransform is applied.
+        </TextPanel>
+        <GridPanel Columns="2" Width="200">
+			<Rectangle
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="MediumBlue" StrokeThickness="5">
+				<Rectangle.Fill>
+					<DrawingBrush ViewPort="0,0,0.5,0.5" TileMode="Tile">
+						<DrawingBrush.Drawing>
+							<Drawing>
+								<Rectangle
+									RectangleWidth="0.5"
+									RectangleHeight="0.5"
+									Fill="Black" />
+								<Rectangle
+									RectangleTop="0.5"
+									RectangleLeft="0.5"
+									RectangleWidth="0.5"
+									RectangleHeight="0.5"
+									Fill="Black" />
+							</Drawing>
+						</DrawingBrush.Drawing>
+					</DrawingBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+			
+			<Rectangle
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="MediumBlue" StrokeThickness="5">
+				<Rectangle.Fill>
+					<DrawingBrush ViewPort="0,0,0.5,0.5" TileMode="Tile">
+						<DrawingBrush.Transform>
+							<SkewTransform AngleX="45" AngleY="0"/>
+						</DrawingBrush.Transform>
+						<DrawingBrush.Drawing>
+							<Drawing>
+								<Rectangle
+									RectangleWidth="0.5"
+									RectangleHeight="0.5"
+									Fill="Black" />
+								<Rectangle
+									RectangleTop="0.5"
+									RectangleLeft="0.5"
+									RectangleWidth="0.5"
+									RectangleHeight="0.5"
+									Fill="Black" />
+							</Drawing>
+						</DrawingBrush.Drawing>
+					</DrawingBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+        
+        </GridPanel>
+    
+    </GridPanel>
+    </ScrollViewer>
+</Window>

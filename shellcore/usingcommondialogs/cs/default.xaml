@@ -1,0 +1,21 @@
+<Canvas 
+	xmlns="http://schemas.microsoft.com/2003/xaml/"
+	xmlns:def="Definition"
+	def:CodeBehind="default.xaml.cs"
+	def:Class="SDKSample.MyPage">
+
+    <Button ID="openButton" Canvas.Top="50" Canvas.Left="50" Click="OpenButtonClick">Open</Button>
+    <Button ID="saveButton" Canvas.Top="50" Canvas.Left="150" Click="SaveButtonClick">Save</Button>
+    <Button ID="saveAsButton" Canvas.Top="50" Canvas.Left="250" Click="SaveAsButtonClick">Save As</Button>
+    <TextBox ID="textBox"
+        Canvas.Top="100"
+        Canvas.Left="50"
+        Width="260"
+        Height="300"
+        Wrap="true"
+        AcceptsReturn="true"
+        AcceptsTab="true"
+        ScrollerVisibilityY="Auto" />
+    <Button ID="clearButton" Canvas.Top="415" Canvas.Left="150" Click="ClearButtonClick">Clear</Button>
+</Canvas>
+

@@ -1,0 +1,5 @@
+<Application xmlns="http://schemas.microsoft.com/2003/xaml" 
+    xmlns:def="Definition" 
+    def:Class="LoginScreen.LoginScreenDemo"
+    def:CodeBehind="app.xaml.cs">
+</Application>

@@ -1,0 +1,40 @@
+<Project DefaultTargets="Build">
+
+  <PropertyGroup>
+    <Property Configuration="Release" Condition=" '$(Configuration)' == '' " />
+    <Property Language="C#" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property OutputType="Exe" />
+    <Property AssemblyName="RssImporterSample" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property DefineConstants="DEBUG;TRACE" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property DefineConstants="TRACE" />
+  </PropertyGroup>
+
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+
+  <ItemGroup>
+    <Item Type="compile" Include="RssImporter.cs" SubType="Code" />
+    <Item Type="compile" Include="RssParser.cs" SubType="Code" />
+    <Item Type="compile" Include="RssSample.cs" SubType="Code" />
+    <Item Type="Reference" Include="System" HintPath="$(URT)\System.dll" />
+    <Item Type="Reference" Include="System.XML" HintPath="$(URT)\System.XML.dll" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="$(LAPI)\WindowsBase.dll" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="$(windir)\system32\WinFS\API\System.Storage.Contacts.dll" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="$(windir)\system32\WinFS\API\System.Storage.Core.dll" />
+    <Item Type="Reference" Include="System.Storage.Email" HintPath="$(windir)\system32\WinFS\API\System.Storage.Email.dll" />
+    <Item Type="Reference" Include="System.Storage.Messages" HintPath="$(windir)\system32\WinFS\API\System.Storage.Messages.dll" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="$(windir)\system32\WinFS\API\System.Storage.WinFS.dll" />
+  </ItemGroup>
+</Project>

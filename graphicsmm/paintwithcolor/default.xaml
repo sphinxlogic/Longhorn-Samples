@@ -1,0 +1,59 @@
+<Canvas ID="root" xmlns="http://schemas.microsoft.com/2003/xaml"
+  Background="LightGray"> 
+
+<!-- This Ellipse uses hexadecimal ARGB notation to specify Fill and Stroke properties.
+
+The pound sign (#) signifies a hexadecimal value. The value-pairs that follow indicate 
+the two-digit alpha (optional), red, green, and blue values that make up the color. The 
+optional alpha value indicates the amount of opacity. "FF" means fully opaque, or full
+intensity for the red, green, or blue values. "00" means no opacity (fully transparent),
+or absence of the given color. -->
+
+<Ellipse
+        Fill="#FFFFFF00"
+        CenterX="100"
+        CenterY="200"
+        RadiusX="75"
+        RadiusY="75"
+        StrokeThickness="5"
+        Stroke="#FF0000FF"/>
+
+  
+<!-- This example uses shorter hexadecimal notation. It omits the alpha value, and 
+includes one digit each for red, green, and blue values. -->
+    <Ellipse
+        Fill="#FF0"
+        CenterX="200"
+        CenterY="200"
+        RadiusX="75"
+        RadiusY="75"
+        StrokeThickness="5"
+        Stroke="#00F"/>
+
+<!-- This ellipse uses pre-defined color names for the Fill and Stroke properties. -->
+
+    <Ellipse
+        Fill="Yellow"
+        CenterX="300"
+        CenterY="200"
+        RadiusX="75"
+        RadiusY="75"
+        StrokeThickness="5"
+        Stroke="Blue"/>
+
+<!-- This irregular polyline shape uses pre-defined color values for the Stroke and
+Fill properties. The FillOpacity property affects the fill color in this case by making
+it slightly transparent (opacity of 0.8) so that it blends with any underlying color. -->
+
+    <Polyline 
+        Points="300,200 400,125 400,275 300,200"
+        Stroke="Purple" 
+        StrokeThickness="2.3"  
+        >
+	<Polyline.Fill>
+		<SolidColorBrush Color="Blue" Opacity="0.4"/>
+	</Polyline.Fill>
+    </Polyline>
+
+</Canvas>
+

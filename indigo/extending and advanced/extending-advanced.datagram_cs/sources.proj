@@ -1,0 +1,22 @@
+
+<Project DefaultTargets="datagramclient;datagramservice">
+   <Target Name="datagramclient">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="datagramclient.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="datagramclient.cs"
+                 TargetType="exe" />
+
+   </Target>
+
+   <Target Name="datagramservice">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="datagramservice.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="datagramservice.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

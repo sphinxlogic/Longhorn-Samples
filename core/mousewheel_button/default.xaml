@@ -1,0 +1,36 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    void OnMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+    {
+      if(sender is System.Windows.Controls.FlowPanel)
+      {
+        System.Windows.Controls.FlowPanel fp = (System.Windows.Controls.FlowPanel)sender;
+        double count = fp.Width.Value;
+        if(e.Delta >= 120)
+        {
+          count  += 10;
+        }
+        else
+        {
+          count -= 10;
+        }
+        Length length = new Length(count);
+        fp.Width = length;
+        fp.Height = length;
+      }
+    }
+ ]]>
+  
+  </def:Code>
+
+<Border Background="#FF8080">
+<FlowPanel MouseWheel="OnMouseWheel" Margin="10"  Width="100px" Height="100px">
+  <Text Margin="10">Place the pointer over me and move the mouse wheel.</Text>
+</FlowPanel>
+</Border>
+
+</FlowPanel>

@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="remlibrary">
+   <Target Name="remlibrary">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="..\remlibrary.dll"
+                 References="system.dll;system.messagebus.dll"
+                 Sources="helloworldserver.cs;ihelloworldserver.cs"
+                 TargetType="library" />
+
+   </Target>
+</Project>

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplyMultipleAnimationsToSingleProperty_csharp", "ApplyMultipleAnimationsToSingleProperty_csharp.csproj", "{51FFEAF5-847C-4EFB-AE86-92A0017BD152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51FFEAF5-847C-4EFB-AE86-92A0017BD152}.Debug|.NET.ActiveCfg = Debug|.NET
+		{51FFEAF5-847C-4EFB-AE86-92A0017BD152}.Debug|.NET.Build.0 = Debug|.NET
+		{51FFEAF5-847C-4EFB-AE86-92A0017BD152}.Release|.NET.ActiveCfg = Release|.NET
+		{51FFEAF5-847C-4EFB-AE86-92A0017BD152}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

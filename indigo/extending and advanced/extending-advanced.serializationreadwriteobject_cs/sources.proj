@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="ReadWriteObject">
+   <Target Name="ReadWriteObject">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="ReadWriteObject.exe"
+                 References="system.dll;system.messagebus.dll;system.serialization.dll;system.xml.dll"
+                 Sources="ReadWriteObject.cs;SerializableType.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

@@ -1,0 +1,70 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="PathMarkupSyntax.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="PathMarkupSyntax" Visible="True"
+    >
+    <Window.Resources>
+        <Style>
+            <Canvas Background="White" />
+        </Style>
+        <Style>
+            <Text Foreground="Black" FontFamily="Verdana" FontSize="18"
+                HorizontalAlignment="Right" />
+        </Style>
+    </Window.Resources>
+   
+    <ScrollViewer Background="Blue" DockPanel.Dock="Fill" >
+        <GridPanel DockPanel.Dock="Fill" Background="LightGray" CellSpacing="10" Columns="2">
+            <Text>Line</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,50 L 200,70" />  
+            </Canvas>
+        
+            <Text>Horizontal Line</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,50 H 200" />  
+            </Canvas>
+        
+            <Text>Vertical Line</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,50 V 200" />  
+            </Canvas>
+        
+            <Text>Cubic Bezier Curve</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,100 C 100,0 200,200 300,100" />  
+            </Canvas>
+        
+            <Text>Quadratic Bezier Curve</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,100 Q 200,200 300,100" />  
+            </Canvas>
+        
+            <Text>Smooth Cubic Bezier Curve</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 100,100 C125,0 225,0 250,100 S375,200 400,100" />  
+            </Canvas>
+        
+            <Text>Elliptical Arc</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,100 A 100,50 45 1 0 200,100" />  
+                </Canvas>
+        
+            <Text>Close Path Command</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1"
+                    Data="M 10,100 L 100,100 100,50 Z" />  
+            </Canvas> 
+        </GridPanel>
+    </ScrollViewer>
+</Window>

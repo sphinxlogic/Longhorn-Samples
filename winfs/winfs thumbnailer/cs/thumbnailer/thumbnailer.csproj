@@ -1,0 +1,64 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{F0FD5FF7-D6B9-41F5-88AF-140DA8411C90}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="Microsoft.Samples.WinFS" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="Thumbnailer" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="App.ico" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.dll" Name="System" FusionName="System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Data" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Data.dll" Name="System.Data" FusionName="System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=x86" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Drawing" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Drawing.dll" Name="System.Drawing" FusionName="System.Drawing, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Core.dll" Name="System.Storage.Core" FusionName="System.Storage.Core, Version=6.0.4068.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Storage.Image" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Image.dll" Name="System.Storage.Image" FusionName="System.Storage.Image, Version=6.0.4068.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Storage.Media" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Media.dll" Name="System.Storage.Media" FusionName="System.Storage.Media, Version=6.0.4068.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.WinFS.dll" Name="System.Storage.WinFS" FusionName="System.Storage.WinFS, Version=6.0.4068.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Windows.Forms" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Windows.Forms.dll" Name="System.Windows.Forms" FusionName="System.Windows.Forms, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.XML" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.XML.dll" Name="System.XML" FusionName="System.Xml, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="BindablePhoto.cs" SubType="Code" />
+    <Item Type="Compile" Include="ThumbnailerForm.cs" SubType="Form" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Content" Include="App.ico" />
+  </ItemGroup>
+</Project>

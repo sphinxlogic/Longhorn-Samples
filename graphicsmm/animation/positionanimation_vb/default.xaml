@@ -1,0 +1,41 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender As object, ByVal args As System.EventArgs)
+	Dim myRectangle As new System.Windows.Shapes.Rectangle
+	myRectangle.RectangleLeft = new System.Windows.Length(10)
+	myRectangle.RectangleTop = new System.Windows.Length(10)
+	myRectangle.RectangleWidth = new System.Windows.Length(50)
+	myRectangle.RectangleHeight = new System.Windows.Length(100)
+	myRectangle.StrokeThickness = new System.Windows.Length(10)
+	myRectangle.Stroke = System.Windows.Media.Brushes.Blue
+	myRectangle.Fill = System.Windows.Media.Brushes.LimeGreen
+			
+			
+	Dim myLengthAnimation As new System.Windows.Media.Animation.LengthAnimation
+	myLengthAnimation.From = new System.Windows.Length(10)
+	myLengthAnimation.To = new System.Windows.Length(150)
+	myLengthAnimation.Begin = new System.Windows.Media.Animation.Time(10000)
+	myLengthAnimation.Duration = new System.Windows.Media.Animation.Time(10000)
+	myLengthAnimation.Fill = System.Windows.Media.Animation.TimeFill.Freeze
+			
+	myRectangle.AddAnimation(Rectangle.RectangleLeftProperty, myLengthAnimation)
+	root.Children.Add(myRectangle)
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

@@ -1,0 +1,688 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>WindowsAuthHelloSession</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The WindowsAuthHelloSession Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem (code-named "Indigo") can be used to help secure applications. The
+WindowsAuthHelloSession sample is a "Longhorn" application using the "Indigo" </span><span
+style='font-family:Arial;color:green'>service framework</span><span
+style='font-family:Arial'>. It consists of a client, a service, a
+service host, and client and host configuration and data files.. It
+demonstrates the simplicity of adding Windows (Kerberos) authentication to a
+service framework application. The client is a console application that sends a
+message secured using the current thread's Windows token to the server. The
+message body is a simple string. The server is a console application that
+validates the Kerberos token and formulates a response using the string from
+the message. There are multiple stages in the message exchange, all of which
+are secured using Windows credentials.&nbsp; </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Client:</span></b><span
+style='font-family:Arial'><br>
+The client is a simple console application that uses a configuration file to
+store settings for the objects that it uses.</span></p>
+
+<pre><span style='color:#202080'>    </span></pre><pre><span style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>            &lt;identityRole&gt;soap.tcp://localhost:46001/HelloClient/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;!-- WARNING: This sample does not secure the server policy for demonstration purposes. --&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;!-- Permits untrusted policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre>
+
+<p><span style='font-family:Arial'>The client loads this configuration
+information, uses the service manager to create a proxy that represents a
+service, and invokes the method on the proxy. Because this service method is an
+RPC-style or request-reply style method, the execution of the client stops
+until the call returns. </span></p>
+
+<p><span style='font-family:Arial'>It is important to realize that although
+this client sends SOAP 1.2 messages to communicate with the service, you
+interact with this service in your client as though it were a local call and
+used no custom parameter types. Note that there is no explicit setting to
+indicate that you are using Windows credentials. That information is stored in
+the Machine.config file, which makes it easy to develop a secure application
+that relies on default (Windows authentication) settings and on the service's
+security policy.  </span></p>
+
+<pre style='margin-right:.5in'><span style='color:#202080'>C# Client:</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>string name = &quot;Client&quot;;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>if (args.Length &gt; 0)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>name = args[0];</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>ServiceEnvironment se = ServiceEnvironment.Load();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>ServiceManager manager = se[typeof(ServiceManager)] as ServiceManager;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>if (manager == null)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  throw new ApplicationException(&quot;The ServiceManager is not available in the service se.&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>se.Open();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>Uri uri = new Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Use the ServiceManager to create a channel to the </span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Hello service. Because of the definition of IHelloChannel,</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// the "Indigo" infrastructure knows that it must create a</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// session between this client instance and the service instance</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// that is created to respond to this client's requests. </span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Unlike DatagramPortTypeAttribute services, each subsequent </span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// request from this client is handled by the same service object.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// When the client or the service is done with the conversation,</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// it can call IDialogPortTypeChannel.DoneSending().</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>IHelloChannel channel;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>channel = (IHelloChannel)manager.CreateChannel(typeof(IHelloChannel), uri);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>try </span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(channel.Salutation(name));</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(channel.Parting(&quot;Thanks for the good time.&quot;));</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(channel.Parting(&quot;No, really, I must go.&quot;));</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(&quot;Press enter to stop this client...&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.ReadLine();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  channel.DoneSending();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>catch(Exception Ex)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  Console.WriteLine(Ex);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>finally</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>  se.Close();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>VB Client:</span></pre>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Dim</span> name <span
+style='color:blue'>As</span> <span style='color:blue'>String</span> =
+&quot;Client&quot;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>If</span>
+(args.Length &gt; 0) <span style='color:blue'>Then</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           name = args(0)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>End</span> <span
+style='color:blue'>If</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>' Load the default
+service environment, called &quot;main&quot;.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Dim</span> se <span
+style='color:blue'>As</span> ServiceEnvironment = ServiceEnvironment.Load()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>' Retrieve the
+ServiceManager from the default environment</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Dim</span> manager <span
+style='color:blue'>As</span> ServiceManager = <span style='color:blue'>CType</span>(se(<span
+style='color:blue'>GetType</span>(ServiceManager)), ServiceManager)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>If</span> (manager <span
+style='color:blue'>Is</span> <span style='color:blue'>Nothing</span>) <span
+style='color:blue'>Then</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           <span style='color:blue'>Throw</span> <span
+style='color:blue'>New</span> ApplicationException(&quot;The ServiceManager is
+not available in the service se for some reason.&quot;)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>End</span> <span
+style='color:blue'>If</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>' Start the service
+environment.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       se.Open()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>' Create a proxy
+channel that points to the service to call.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Dim</span> serverUri
+<span style='color:blue'>As</span> <span style='color:blue'>New</span>
+Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  Use the
+ServiceManager to create a channel to the </span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  Hello service.
+Because of the definition of IHelloChannel,</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  the MessageBus
+infrastructure knows that it must create a</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  session between
+this client instance and the service instance</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  that is created
+to respond to this client's requests. </span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  Unlike
+DatagramPortTypeAttribute services, each subsequent </span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  request from
+this client is handled by the same service object.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  When the client
+or the service is done with the conversation,</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:green'>'  they can call
+IDialogPortTypeChannel.DoneSending().</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Dim</span> channel <span
+style='color:blue'>As</span> IHelloChannel = <span style='color:blue'>CType</span>(manager.CreateChannel(<span
+style='color:blue'>GetType</span>(IHelloChannel), serverUri), IHelloChannel)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Try</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          
+Console.WriteLine(channel.Salutation(name))</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          
+Console.WriteLine(channel.Parting(&quot;Thanks for the good time.&quot;))</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           Console.WriteLine(channel.Parting(&quot;No,
+really, I must go.&quot;))</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           Console.WriteLine(&quot;Press enter to
+stop this client...&quot;)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           Console.ReadLine()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           channel.DoneSending()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Catch</span> ex <span
+style='color:blue'>As</span> Exception</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           Console.WriteLine(Ex)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>       <span style='color:blue'>Finally</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>           se.Close()</span></p>
+
+<pre style='margin-right:.5in'>       <span style='color:blue'>End</span> <span
+style='color:blue'>Try</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>Securing the service:</span></b></p>
+
+<p><strong><span style='font-family:Arial;color:black'>1. Service:</span></strong></p>
+
+<p><span style='font-family:Arial'>The service itself is marked with the <strong><span
+style='font-family:Arial'>DialogPortTypeAttribute</span></strong> (to indicate
+that a dialog session needs to be established between the client and service),
+and the methods are marked with the <strong><span style='font-family:Arial'>ServiceMethodAttribute.</span></strong>
+In addition, the service has a new attribute, named <b>ServiceSecurity()</b>,
+that indicates that the methods on this class (<b>Salutation</b> and <b>Parting</b>)
+are to be secured. This establishes a security scope such that all messages
+matching the scope will require established security criteria to be satisfied.
+Note that both the methods are secured using the same role. Alternatively, each
+method on the service could have required a different security role. </span></p>
+
+<pre><span style='color:#202080'>C# Service:</span></pre><pre><span
+style='color:#202080'>        // Using the DialogPortTypeAttribute establishes a session between </span></pre><pre><span
+style='color:#202080'>        // an instance of this service class and the client that created it.</span></pre><pre><span
+style='color:#202080'>        // All subsequent communication from or to the client will be </span></pre><pre><span
+style='color:#202080'>        // with the same service instance.</span></pre><pre><span
+style='color:#202080'>        [DialogPortTypeAttribute(Name=&quot;Hello&quot;, Namespace=&quot;http://www.tempuri.org/quickstarts&quot;)]</span></pre><pre><span
+style='color:#202080'>        public class Hello</span></pre><pre><span
+style='color:#202080'>        {</span></pre><pre><span style='color:#202080'>               private string clientName;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>               public Hello()</span></pre><pre><span
+style='color:#202080'>               {</span></pre><pre><span style='color:
+#202080'>                       Console.WriteLine(</span></pre><pre><span
+style='color:#202080'>                       &quot;The service instance {0} has been created.&quot;, </span></pre><pre><span
+style='color:#202080'>                       this.GetHashCode()</span></pre><pre><span
+style='color:#202080'>                       );</span></pre><pre><span
+style='color:#202080'>               }</span></pre><pre><span style='color:
+#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>               ~Hello()</span></pre><pre><span
+style='color:#202080'>               {</span></pre><pre><span style='color:
+#202080'>                       Console.WriteLine(</span></pre><pre><span
+style='color:#202080'>                       &quot;Service instance number {0} is being recycled.&quot;, </span></pre><pre><span
+style='color:#202080'>                       this.GetHashCode()</span></pre><pre><span
+style='color:#202080'>                       ); </span></pre><pre><span
+style='color:#202080'>               }</span></pre><pre><span style='color:
+#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>               // Applying the ServiceSecurityAttribute to the method specifies the access control requirement</span></pre><pre><span
+style='color:#202080'>               // for this method. In this case, the StandardUserRole is the required role. The information </span></pre><pre><span
+style='color:#202080'>               // on which windows user is mapped to StandardUserRole role is stored in configuration/data files. </span></pre><pre><span
+style='color:#202080'>               [ServiceSecurityAttribute(Role = &quot;StandardUserRole&quot;, Name = &quot;StandardScope &quot;)]</span></pre><pre><span
+style='color:#202080'>               [ServiceMethodAttribute]</span></pre><pre><span
+style='color:#202080'>               public string Parting(string departureString)</span></pre><pre><span
+style='color:#202080'>               {</span></pre><pre><span style='color:
+#202080'>                       Console.WriteLine(&quot;{0} is departing. Departure comment is {1}&quot; ,</span></pre><pre><span
+style='color:#202080'>                       clientName, </span></pre><pre><span
+style='color:#202080'>                       departureString</span></pre><pre><span
+style='color:#202080'>                       );</span></pre><pre><span
+style='color:#202080'>                       return String.Format(</span></pre><pre><span
+style='color:#202080'>                       &quot;Service instance {0} wishes you goodwill.&quot;, </span></pre><pre><span
+style='color:#202080'>                       this.GetHashCode().ToString()</span></pre><pre><span
+style='color:#202080'>                       );</span></pre><pre><span
+style='color:#202080'>               }</span></pre><pre><span style='color:
+#202080'>               </span></pre><pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>               // Applying the ServiceSecurityAttribute to the method specifies the access control requirement</span></pre><pre><span
+style='color:#202080'>               // for this method. In this case, the StandardUserRole is the required role. The information </span></pre><pre><span
+style='color:#202080'>               // on which windows user is mapped to StandardUserRole role is stored in configuration/data files. </span></pre><pre><span
+style='color:#202080'>               [ServiceSecurityAttribute(Role = &quot;StandardUserRole&quot;, Name = &quot;StandardScope &quot;)]</span></pre><pre><span
+style='color:#202080'>               [ServiceMethodAttribute]</span></pre><pre><span
+style='color:#202080'>               public string Salutation(string name)</span></pre><pre><span
+style='color:#202080'>               { </span></pre><pre><span
+style='color:#202080'>                       this.clientName = name;</span></pre><pre><span
+style='color:#202080'>                       Console.WriteLine(&quot;Called by a client with the name {0}&quot;, name);</span></pre><pre><span
+style='color:#202080'>                       return String.Format(</span></pre><pre><span
+style='color:#202080'>                       &quot;Hello, {0}! This is Hello service instance {1}.&quot;, </span></pre><pre><span
+style='color:#202080'>                       name, </span></pre><pre><span
+style='color:#202080'>                       this.GetHashCode().ToString()</span></pre><pre><span
+style='color:#202080'>                       );</span></pre><pre><span
+style='color:#202080'>               }</span></pre><pre><span style='color:
+#202080'>        }</span></pre><pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>VB Service:</span></pre>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System.MessageBus</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System.MessageBus.Services</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System.MessageBus.Security</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>'DatagramPortType attribute indicates a
+sessionless service</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;DatagramPortType(Name:=&quot;Hello&quot;, <span
+style='color:blue'>Namespace</span>:=&quot;http://www.tempuri.org/quickstarts&quot;)&gt;
+_</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Public</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span> Hello</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:green'>' ServiceMethod
+attribute exposes methods for access on the service</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   
+&lt;ServiceSecurity(Name:=&quot;StandardScope&quot;,
+Role:=&quot;StandardUserRole&quot;)&gt; _</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    &lt;ServiceMethod()&gt; _</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>                        <span style='color:blue'>Public</span>
+<span style='color:blue'>Function</span> Greeting(<span style='color:blue'>ByVal</span>
+name <span style='color:blue'>As</span> <span style='color:blue'>String</span>)
+<span style='color:blue'>As</span> <span style='color:blue'>String</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        Console.WriteLine(&quot;Called by a client
+with the name {0}&quot;, name)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Return</span> <span
+style='color:blue'>String</span>.Format(&quot;Hello, {0}!&quot;, name)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Function</span></span></p>
+
+<pre><span style='color:blue'>End</span> <span style='color:blue'>Class</span></pre>
+
+<p><b><span style='font-family:Arial'>2. Host:</span></b><span
+style='font-family:Arial'><br>
+The host application configures "Indigo" to listen for incoming messages for
+the services listed in the <b>&lt;activatableServices&gt;</b> element. In
+addition, the host application specifies the Windows profile as the profile to
+be used for binding to the scopes related to methods on the </span><span
+style='font-family:Courier'>HelloService</span><span style='font-family:Arial'>.&nbsp;
+</span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";color:#202080'>&lt;configuration&gt;<br>
+&nbsp;&nbsp; &lt;system.messagebus&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceEnvironments&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceEnvironment
+name=&quot;main&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;port&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;identityRole&gt;soap.tcp://localhost:46000/HelloService/&lt;/identityRole&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/port&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Bind
+the scope defined using ServiceSecurityAttribute to a profile that uses Windows
+Authentication. --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;securityManager&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- Bind the scope to the Windows profile. --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- Data for the role mapping comes from the Hello.exe.security file.
+--&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;applicationSecurity&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;binding scope=&quot;StandardScope &quot; profile=&quot;windows&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/applicationSecurity&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/securityManager&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;policyManager&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--
+Permits unsigned policy statements. The default requires signed policy
+statements. --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/policyManager&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;serviceManager&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;activatableServices&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;add type=&quot;Microsoft.MessageBus.QuickStarts.Hello, HelloService&quot;
+/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/activatableServices&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/serviceManager&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironment&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironments&gt;<br>
+&nbsp;&nbsp; &lt;/system.messagebus&gt;<br>
+&lt;/configuration&gt;</span></p>
+
+<p><b><span style='font-family:Arial'>3. Data file:</span></b></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";color:#202080'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;authorizationData&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;memoryMapping
+id=&quot;mainAuthorizationData&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- This specifies that all members of the MyDomain\&quot;Domain
+Users&quot; group are mapped to --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- StandardUserRoles role and hence are allowed access to the methods on
+the HelloService class. --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;windowsRoleAssignment domain=&quot;MyDomain&quot; group=&quot;Domain
+Users&quot; roles = &quot;StandardUserRole&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/memoryMapping&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/authorizationData&gt;<br>
+&lt;/securityData&gt;</span></p>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><a name="#Building"></a><span style='font-family:Arial'>Open
+     the <b>Longhorn Build Environment</b> console window (click <b>Start</b>,
+     click <b>All Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click
+     <b>Open Build Environment Window</b>, and click <b>Longhorn Build
+     Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><a name="#Running"></a><span style='font-family:Arial'>To run the sample,
+you must change the &quot;MyDomain&quot; value in the Host.exe.security file to
+a valid domain name.  </span></p>
+
+<p><b><span style='font-family:Arial'>Running on a single machine:</span></b><span
+style='font-family:Arial'><br>
+Next, open a command prompt window in the Server directory and another one in
+the Client directory. At the server command  prompt, type <strong><span
+style='font-family:Arial'>host</span></strong><strong><span style='font-family:
+Arial;font-weight:normal'> to start the server application, Then</span></strong>,
+at the client directory console prompt, type <strong><span style='font-family:
+Arial'>client</span></strong><strong><span style='font-family:Arial;font-weight:
+normal'> </span></strong><b>&lt;<em><span style='font-family:Arial'>name</span></em>&gt;
+</b>to start the client application.</span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.security file in the Server directory.  Replace
+     &quot;MyDomain&quot; with a valid domain name.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.config file in the Server directory. Replace &quot;local
+     host&quot; with the server machine name. Then run the server application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit the Client.cs (or Client.vb) file in the Client directory. In the URI
+     that represents the server location, replace &quot;localhost&quot; with
+     the server machine name. Recompile the client and rerun the client
+     application.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit Client.exe.config.  Replace &quot;localhost&quot; in the <b>&lt;identityRole&gt;
+     </b>element with the client machine name. </span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Note:</span></b></p>
+
+<p><span style='font-family:Arial'>To run this sample, your computer must be
+attached to a Microsoft Windows domain.&nbsp; If your computer is attached only
+to a workgroup, this sample will fail.</span>&nbsp; </p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

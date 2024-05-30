@@ -1,0 +1,40 @@
+<DockPanel ID="root"
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    Width="100%"
+    Height="100%">
+    <Text DockPanel.Dock="Top" FontWeight="Bold" FontSize="28">Spreadsheet</Text>
+    <Grid DockPanel.Dock="Top" ShowGridLines="True" Background="Beige">
+    
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <RowDefinition Height="100" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+	
+        <Rectangle Grid.ColumnSpan="5" Fill="VerticalGradient #73B2F5 #4E87D4"></Rectangle>
+        <Text Grid.Left="20" Grid.Top="50" Grid.Column="0" Grid.Row="0" FontSize="18" FontWeight="Bold">1st Quarter</Text>
+        <Text Grid.Left="20" Grid.Top="50" Grid.Column="1" Grid.Row="0" FontSize="18" FontWeight="Bold">2nd Quarter</Text>
+        <Text Grid.Left="20" Grid.Top="50" Grid.Column="2" Grid.Row="0" FontSize="18" FontWeight="Bold">3rd Quarter</Text>
+        <Text Grid.Left="20" Grid.Top="50" Grid.Column="3" Grid.Row="0" FontSize="18" FontWeight="Bold">4th Quarter</Text>
+        <Text Grid.Left="20" Grid.Top="50" Grid.Column="4" Grid.Row="0" FontSize="18" FontWeight="Bold">Year End</Text>
+        <Text Grid.Column="0" Grid.Row="1">10,000</Text>
+        <Text Grid.Column="1" Grid.Row="1">12,000</Text>
+        <Text Grid.Column="2" Grid.Row="1">14,000</Text>
+        <Text Grid.Column="3" Grid.Row="1">15,000</Text>
+        <Text Grid.Column="4" Grid.Row="1">51,000</Text>
+        <Text Grid.Column="0" Grid.Row="2">6,000</Text>
+        <Text Grid.Column="1" Grid.Row="2">5,000</Text>
+        <Text Grid.Column="2" Grid.Row="2">8,000</Text>
+        <Text Grid.Column="3" Grid.Row="2">7,000</Text>
+        <Text Grid.Column="4" Grid.Row="2">26,000</Text>
+        <Text Grid.Column="0" Grid.Row="3">12,000</Text>
+        <Text Grid.Column="1" Grid.Row="3">15,000</Text>
+        <Text Grid.Column="2" Grid.Row="3">15,000</Text>
+        <Text Grid.Column="3" Grid.Row="3">12,000</Text>
+        <Text Grid.Column="4" Grid.Row="3">54,000</Text>
+    </Grid>
+</DockPanel>

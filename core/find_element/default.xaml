@@ -1,0 +1,31 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    void Find(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+       System.Windows.ILogicalTreeNode s =
+	   (System.Windows.ILogicalTreeNode)dockPanel;
+       System.Windows.ILogicalTreeNode wantedNode =
+	   System.Windows.LogicalTreeHelper.FindLogicalNode(s,"childTwo");
+       if(wantedNode is System.Windows.Controls.Text)
+       {
+         // This line of code is only executed if the
+         // Text element was found.
+         System.Windows.Controls.Text wantedChild = wantedNode as System.Windows.Controls.Text;
+         wantedChild.Foreground = System.Windows.Media.Brushes.Blue;
+       }
+    }
+ ]]>
+  </def:Code>
+
+<Button DockPanel.Dock="Top" Click="Find">Find and change color</Button>
+<DockPanel ID="dockPanel" DockPanel.Dock="Top">
+    <Text ID="childOne" DockPanel.Dock="Top">Child 1</Text>        
+    <Text ID="childTwo" DockPanel.Dock="Top">Child 2</Text>
+    <Text ID="childThree" DockPanel.Dock="Top">Child 3</Text>    
+</DockPanel>
+
+</FlowPanel>

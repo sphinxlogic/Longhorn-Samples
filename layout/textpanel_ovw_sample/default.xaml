@@ -1,0 +1,17 @@
+<Border ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+	   BorderThickness="1"
+	   BorderBrush="black"
+	   Background="WhiteSmoke"
+	   Width="250"
+	   Height="250">
+	<DockPanel>
+		<TextPanel DockPanel.Dock="Top">Standard Text</TextPanel>
+		<TextPanel DockPanel.Dock="Top" FontSize="36">36 Point Text</TextPanel>
+		<TextPanel DockPanel.Dock="Top" FontStyle="Italic">Italic Text</TextPanel>
+		<TextPanel DockPanel.Dock="Top" FontWeight="Bold">Bold Text</TextPanel>
+		<TextPanel DockPanel.Dock="Top" Foreground="Red">Red Text</TextPanel>
+		<TextPanel DockPanel.Dock="Top" Foreground="Green">Green Text</TextPanel>
+		<TextPanel DockPanel.Dock="Top" Foreground="Blue">Blue Text</TextPanel>
+	</DockPanel>
+</Border>

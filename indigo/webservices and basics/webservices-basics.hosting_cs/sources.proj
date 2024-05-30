@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="hostingclient">
+   <Target Name="hostingclient">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="hostingclient.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll"
+                 Sources="client.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

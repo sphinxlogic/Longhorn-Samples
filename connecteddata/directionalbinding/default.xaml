@@ -1,0 +1,43 @@
+<Canvas
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition" def:Language="C#"
+  def:Class="WCPSample.DirectionalBinding"
+  def:CodeBehind="default.xaml.cs"
+  Loaded="StartHere"
+  ID="root"
+>
+
+  <Canvas.Resources>
+    <ObjectDataSource def:Name="incomeDataSource" TypeName="WCPSample.NetIncome,DirectionalBinding" />
+  </Canvas.Resources>
+  <Canvas.DataContext>
+    <Bind DataSource="{incomeDataSource}"/>
+  </Canvas.DataContext>
+  <!-- OneTime binding example -->
+    <Text Canvas.Top="20px" Canvas.Left="5px" Width="120px" Height="20px">Total Income:</Text>
+    <Text ID="IncomeText" TextContent="*Bind(Path=TotalIncome; BindType=OneTime)"
+     Canvas.Top="20px" Canvas.Left="140px" Width="120px" Height="20px"/>
+    <Text Canvas.Top="20px" Canvas.Left="280px" Height="20px" Width="400px">OneTime Binding</Text>
+  <!-- OneWay binding example -->
+    <Text Canvas.Top="50px" Canvas.Left="5px" Width="120px" Height="20px">Rent</Text>
+    <Text ID="RentText" TextContent="*Bind(Path=Rent;BindType=OneWay;BindFlags=NotifyOnTransfer)"
+     Canvas.Top="50px" Canvas.Left="140px" Width="120px" Height="20px" />
+    <Text Canvas.Top="50px" Canvas.Left="280px" Width="400px" Height="20px">OneWay Binding, with DataTransfer event handling</Text>
+  <!-- Default (TwoWay) binding example -->
+    <Text Canvas.Top="80px" Canvas.Left="5px" Width="120px" Height="20px">Food</Text>
+    <TextBox ID="FoodText" Text="*Bind(Path=Food)"
+     Canvas.Top="80px" Canvas.Left="140px" Width="120px" Height="25px" />
+    <Text Canvas.Top="80px" Canvas.Left="280px" Width="400px" Height="20px">Default Binding (TwoWay)</Text>
+  <!-- TwoWay binding example, with explicit BindType TwoWay and the recommended UpdateType=OnLostFocus -->
+    <Text Canvas.Top="110px" Canvas.Left="5px" Width="120px" Height="20px">Miscellaneous</Text>
+    <TextBox ID="MiscText" Text="*Bind(Path=Misc;BindType=TwoWay;UpdateType=OnLostFocus)"
+     Canvas.Top="110px" Canvas.Left="140px" Width="120px" Height="25px" />
+    <Text Canvas.Top="110px" Canvas.Left="280px" Width="400px" Height="20px">TwoWay Binding, Update OnLostFocus</Text>
+  <!-- OneWay binding example, the results field -->
+    <Text Canvas.Top="140px" Canvas.Left="5px" Width="120px" Height="20px">Savings</Text>
+    <Text ID="SavingsText" TextContent="*Bind(Path=Savings;BindType=OneWay)"
+    Canvas.Top="140px" Canvas.Left="140px" Width="120px" Height="22px" />
+    <Text Canvas.Top="140px" Canvas.Left="280px" Width="300px" Height="20px">OneWay Binding</Text>
+    <Button Canvas.Top="170px" Canvas.Left="5px" Click="OnRentRaise">Raise the Rent!</Button>
+    <Text Canvas.Top="170px" Canvas.Left="140px" ID="InfoText"></Text>
+</Canvas>

@@ -1,0 +1,87 @@
+<Window xmlns="http://schemas.microsoft.com/2003/xaml"
+      xmlns:def="Definition"
+      def:Class="WordGame1_vb.Pane1"
+      def:CodeBehind="Pane1.xaml.vb"
+      Text="WordGame"
+      UIReady="UI_Ready">
+  <DockPanel>
+	<DockPanel.Resources>
+	  <Style>
+        <Text Foreground="White"
+              FontSize="12"
+              Margin="5,0,0,0"
+              DockPanel.Dock="Left"
+              FontFamily="Verdana"
+              FontWeight="Bold"
+              FontStyle="Normal"/>
+      </Style>
+      <Style def:Name="OtherText">
+        <Text Foreground="White"
+              FontSize="12"
+              FontFamily="Verdana"
+              FontWeight="Normal"/>
+      </Style>
+      <Style>
+        <Button Background="RadialGradient #000000 #A5A5A5"
+                Margin="10,10,10,0"
+                DockPanel.Dock="Top"
+                Height="25"
+                Width="100"
+                Foreground="White"/>
+      </Style>
+	</DockPanel.Resources>
+      <DockPanel ID="Controls"
+				  DockPanel.Dock="Left"
+                  Background="VerticalGradient #0000E5 #000011">
+        <Text DockPanel.Dock="Top"
+              Margin="10,10,10,10">Pick a Letter</Text>
+        <DockPanel DockPanel.Dock="Top"
+					Margin="0,0,0,20">
+          <TextBox DockPanel.Dock="Left"
+                    Width="25"
+                    Height="25"
+                    Margin="10,0,0,0"
+                    MaxLength="1"
+                    ID="guessedChar"></TextBox>
+          <Button DockPanel.Dock="Left"
+                    Margin="10,0,10,0"
+                    Click="btnGo"
+                    ID="goButton"
+                    Height="25"
+                    Width="35">Go</Button>
+        </DockPanel>
+        <Button Click="btnNewWord">New Word</Button>
+        <Button Click="btnQuit">Quit</Button>
+      </DockPanel>
+    
+ 	<DockPanel ID="wordDisplay"
+				DockPanel.Dock="Bottom"
+				Height="100"
+				Background="HorizontalGradient #000011 #0000E5">
+        <Text DockPanel.Dock="Top"
+              Margin="15,10,10,10">Guessed Word:<Text ID="currentState"/></Text>
+        <Text DockPanel.Dock="Top"
+			  Style="{OtherText}"
+              Margin="15,10,10,10">Letters Used:<Text Style="{OtherText}" ID="lettersUsed"/></Text>
+    </DockPanel>
+    
+    <FlowPanel ID="Images"
+               DockPanel.Dock="Fill"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center">
+        <FlowPanel.Background>
+          <LinearGradientBrush>
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#111111" Offset="0"/>
+              <GradientStop Color="#A5A5A5" Offset="0.5" />
+              <GradientStop Color="#111111" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </FlowPanel.Background>
+      <Image Source="Images\Start.gif"
+              Height="300"
+              Width="300"
+              ID="gameImage"/>
+    </FlowPanel>
+  </DockPanel>
+</Window>

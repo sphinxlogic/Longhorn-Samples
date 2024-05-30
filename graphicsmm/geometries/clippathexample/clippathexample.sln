@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipPathExample", "ClipPathExample.csproj", "{B299BB49-5042-49A7-903D-A1547AA69DBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B299BB49-5042-49A7-903D-A1547AA69DBE}.Debug.ActiveCfg = Debug|.NET
+		{B299BB49-5042-49A7-903D-A1547AA69DBE}.Debug.Build.0 = Debug|.NET
+		{B299BB49-5042-49A7-903D-A1547AA69DBE}.Release.ActiveCfg = Release|.NET
+		{B299BB49-5042-49A7-903D-A1547AA69DBE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

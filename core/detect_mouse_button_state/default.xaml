@@ -1,0 +1,34 @@
+<DockPanel ID="RootElement" xmlns="http://schemas.microsoft.com/2003/xaml" 
+xmlns:def="Definition" def:Language="C#">
+
+<Border Background="#FF8080" >
+<FlowPanel MouseLeftButtonDown="HandleButtonDown" MouseLeftButtonUp="HandleButtonDown"
+Margin="10,10,0,0">
+  <Text ID="msg" Margin="10,10,10,10">Click on Me</Text>
+</FlowPanel>
+</Border>
+
+<def:Code>
+<![CDATA[
+  void HandleButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs args)
+											 
+  {
+    // You must cast the object as the class type that you are getting a reference to.
+    FlowPanel sourceFlowPanel = sender as FlowPanel;
+    // If the button is pressed (MouseLeftButtonDown fired), then make dimensions larger.
+    if(args.ButtonState == System.Windows.Input.MouseButtonState.Pressed)
+    {
+      sourceFlowPanel.Width = new Length(200);
+      sourceFlowPanel.Height = new Length(200);
+    }
+    // If the button is released (MouseLeftButtonUp fired), then make dimensions smaller.
+    else if(args.ButtonState == System.Windows.Input.MouseButtonState.Released)
+    {
+      sourceFlowPanel.Width = new Length(100);
+      sourceFlowPanel.Height = new Length(100);   
+    }
+  }
+]]>
+</def:Code>
+
+</DockPanel>

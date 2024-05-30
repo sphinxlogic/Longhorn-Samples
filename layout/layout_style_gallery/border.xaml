@@ -1,0 +1,25 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox DockPanel.Dock="Fill" FontFamily="Courier New" Height="Auto" Width="Auto"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+	</DockPanel.Resources>
+	<Border DockPanel.Dock="Top" Height="50%">
+		<Border BorderThickness="40" BorderBrush="Black" Margin="10">
+			<Border Background="#EEEEEE" Margin="50" BorderBrush="#CCCCCC" BorderThickness="10" />
+		</Border>
+	</Border>
+	<TextBox DockPanel.Dock="Fill">
+&lt;Border&gt;<LineBreak />
+	&lt;Border BorderThickness="40" BorderBrush="Black" Margin="10"&gt;<LineBreak />
+		&lt;Border Background="#EEEEEE" Margin="50" BorderBrush="#CCCCCC" BorderThickness="10" /&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+&lt;/Border&gt;<LineBreak />
+	</TextBox>
+</DockPanel>

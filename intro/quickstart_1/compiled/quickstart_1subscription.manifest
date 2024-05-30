@@ -1,0 +1,11 @@
+<assembly manifestVersion="1.0" xmlns:asm_namespace_v1="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity type="subscription" name="QuickStart_1" version="1.0.0.0" publicKeyToken="" processorArchitecture="x86" language="x-ww" publicKey="0123456789abcdef" />
+  <description>QuickStart_1 Avalon CONTAINER Application</description>
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="application" name="QuickStart_1" version="1.0.0.0" publicKeyToken="" processorArchitecture="x86" language="x-ww" publicKey="0123456789abcdef" />
+      <install codebase="http://MyApp" type="required" />
+      <subscription synchronizeInterval="6" intervalUnit="hours" synchronizeEvent="onApplicationStartup" eventDemandConnection="no" />
+    </dependentAssembly>
+  </dependency>
+</assembly>

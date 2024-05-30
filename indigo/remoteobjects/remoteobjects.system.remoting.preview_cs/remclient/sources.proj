@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="remclient">
+   <Target Name="remclient">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="..\remclient.exe"
+                 References="system.dll;system.messagebus.dll;..\remlibrary.dll;..\system.remoting.dll"
+                 Sources="client.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

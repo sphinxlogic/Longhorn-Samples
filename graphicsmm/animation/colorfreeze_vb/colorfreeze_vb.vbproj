@@ -1,0 +1,25 @@
+<Project DefaultTargets="Build">
+	<!--Imports the target which contains all the common targets-->
+	
+	<PropertyGroup>
+	
+    <Property Language="VB" />
+
+		<Property DefaultClrNameSpace="SDKSample" />
+	
+		<Property TargetName="colorfreeze_vb" />
+		
+	</PropertyGroup>
+	
+	<Import Project="$(LAPI)\WindowsApplication.target" />
+		
+	<ItemGroup>
+		<!-- Aplication markup -->
+		<Item Type="ApplicationDefinition" Include="app.xaml" />
+
+		<!-- Compiled Xaml Files list -->
+		<Item Type="Pages" Include="default.xaml"/>
+	
+	</ItemGroup>
+
+</Project>

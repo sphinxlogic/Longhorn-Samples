@@ -1,0 +1,15 @@
+<Project DefaultTargets="server;router;client"> 
+
+    <Target Name="server"> 
+        <Task Name="MSBuild" Projects="server\sources.proj" /> 
+    </Target> 
+
+    <Target Name="router"> 
+        <Task Name="MSBuild" Projects="router\sources.proj" /> 
+    </Target> 
+
+    <Target Name="client"> 
+        <Task Name="MSBuild" Projects="client\sources.proj" /> 
+    </Target> 
+
+</Project> 

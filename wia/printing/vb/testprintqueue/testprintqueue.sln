@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestPrintQueue", "TestPrintQueue.vbproj", "{2C22060B-8D85-431A-8A6A-F779A698665F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C22060B-8D85-431A-8A6A-F779A698665F}.Debug|.NET.ActiveCfg = Debug|.NET
+		{2C22060B-8D85-431A-8A6A-F779A698665F}.Debug|.NET.Build.0 = Debug|.NET
+		{2C22060B-8D85-431A-8A6A-F779A698665F}.Release|.NET.ActiveCfg = Release|.NET
+		{2C22060B-8D85-431A-8A6A-F779A698665F}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

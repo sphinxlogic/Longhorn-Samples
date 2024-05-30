@@ -1,0 +1,26 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="WCSample" />
+    <Property TargetName="GeometriesExample" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.31010" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{93294243-B5BA-48A5-9E01-FE87732203EA}" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="code" Include="default.cs" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

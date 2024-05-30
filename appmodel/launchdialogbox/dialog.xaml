@@ -1,0 +1,30 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+           def:CodeBehind="Dialog.xaml.cs"
+           def:Class="WCSample.Dialog"
+           Loaded="Init">
+			
+	<Button ID="Yes_Button"
+			Height="30"
+			Width="150"
+			Margin="30,30,0,0"
+			Click="YesButton_Click"
+			DockPanel.Dock="Top"
+            Content="Return Yes"/>
+			
+	<Button ID="Cancel_Button"
+			Height="30"
+			Width="150"
+			Margin="30,30,0,0"
+			Click="CancelButton_Click"
+			DockPanel.Dock="Top"
+            Content="Return Cancel"/>
+			
+	<Text Margin="30,30,0,0"
+			DockPanel.Dock="Top">Enter Data</Text>
+	<TextBox ID="User_Data"
+				Margin="30,10,0,0"
+				Height="30"
+				Width="150"
+				DockPanel.Dock="Top"/>
+</DockPanel>

@@ -1,0 +1,41 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property AssemblyName="ExpenseIt" />
+    <Property TargetName="$(AssemblyName)" />
+    <Property ApplicationIcon="App.ico" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property RootNamespace="ExpenseIt" />
+    <Property ProjectGuid="{932DE054-A077-487D-A75B-A165919667B2}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+
+  <Item Type="Reference" Include="$(lapi)\WindowsFormsIntegration" Name="WindowsFormsIntegration" HintPath="$(lapi)\WindowsFormsIntegration.dll" />
+  <Item Type="Resources" Include="App.ico" />
+  <Item Type="Resources" Include="Images\msn_watermark.png" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+    <Item Type="Pages" Include="Pane1.xaml" />
+    <Item Type="Pages" Include="Pane2.xaml" />
+    <Item Type="Pages" Include="Window1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="Pane1.xaml.cs" DependentUpon="Pane1.xaml" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\ExpenseIt.Main.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\MyApp.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Pane1.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Pane2.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Window1.g.cs" />
+  </ItemGroup>
+</Project>

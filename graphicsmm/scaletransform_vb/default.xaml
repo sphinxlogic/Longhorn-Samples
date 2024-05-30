@@ -1,0 +1,80 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	'Create a PointCollection to contain the points of the
+	'Polygon shapes.
+	Dim myPointCollection As new System.Windows.Media.PointCollection
+	myPointCollection.Add(new System.Windows.Point(176.5, 50))
+	myPointCollection.Add(new System.Windows.Point(189, 155))
+	myPointCollection.Add(new System.Windows.Point(286, 113))
+	myPointCollection.Add(new System.Windows.Point(201, 177))
+	myPointCollection.Add(new System.Windows.Point(286, 240))
+	myPointCollection.Add(new System.Windows.Point(189, 198))
+	myPointCollection.Add(new System.Windows.Point(176, 304))
+	myPointCollection.Add(new System.Windows.Point(163, 198))
+	myPointCollection.Add(new System.Windows.Point(66, 240))
+	myPointCollection.Add(new System.Windows.Point(151, 177))
+	myPointCollection.Add(new System.Windows.Point(66, 113))
+	myPointCollection.Add(new System.Windows.Point(163, 155))
+
+	'Create the first Polygon.
+	Dim firstPolygon As new System.Windows.Shapes.Polygon
+	firstPolygon.Points = myPointCollection
+	firstPolygon.Stroke = System.Windows.Media.Brushes.Black
+	firstPolygon.StrokeThickness = new System.Windows.Length(2)
+	root.Children.Add(firstPolygon)
+	
+	'Create the second Polygon. This polygon contains the same
+	'points as the first, but is scaled and translated.
+	Dim secondPolygon As new System.Windows.Shapes.Polygon
+	secondPolygon.Points = myPointCollection
+	secondPolygon.Stroke = System.Windows.Media.Brushes.Blue
+	secondPolygon.StrokeThickness = new System.Windows.Length(2)
+			
+	'Add a semi-transparent gradient fill to make the shape stand out.
+	Dim myGradient As new System.Windows.Media.RadialGradientBrush(Colors.Blue, Colors.LimeGreen)
+	myGradient.Opacity = 0.4
+	secondPolygon.Fill = myGradient
+	
+	'Create a TransformDecorator to transform secondPolygon.
+	Dim transformer As new System.Windows.Controls.TransformDecorator
+	transformer.AffectsLayout = false
+			
+	'Create the scale and translate transformations.
+	Dim myScaleTransform As new System.Windows.Media.ScaleTransform(1, 0.5)
+	Dim myTranslateTransform As new System.Windows.Media.TranslateTransform(150, 0)
+
+	'Create a collection to contain the transformations.
+	Dim transformations As new System.Windows.Media.TransformCollection()
+
+	transformations.Add(myScaleTransform)
+	transformations.Add(myTranslateTransform)
+	transformer.Transform = transformations
+
+	'Add secondPolygon as a child of the TransformDecorator.
+	transformer.Child = secondPolygon
+
+	'Add the decorator to the Canvas.
+	root.Children.Add(transformer)  	
+
+
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

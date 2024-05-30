@@ -1,0 +1,48 @@
+<Leagues xmlns="">
+  <League name="American League">
+    <Division name="East">
+      <Team name="Baltimore"/>
+      <Team name="Boston"/>
+      <Team name="New York"/>
+      <Team name="Tampa Bay"/>
+      <Team name="Toronto"/>
+    </Division>
+    <Division name="Central">
+      <Team name="Chicago"/>
+      <Team name="Cleveland"/>
+      <Team name="Detroit"/>
+      <Team name="Kansas City"/>
+      <Team name="Minnesota"/>
+    </Division>
+    <Division name="West">
+      <Team name="Anaheim"/>
+      <Team name="Oakland"/>
+      <Team name="Seattle"/>
+      <Team name="Texas"/>
+    </Division>
+  </League>
+  <League name="National League">
+    <Division name="East">
+      <Team name="Atlanta"/>
+      <Team name="Florida"/>
+      <Team name="Montreal"/>
+      <Team name="New York"/>
+      <Team name="Philadelphia"/>
+    </Division>
+    <Division name="Central">
+      <Team name="Chicago"/>
+      <Team name="Cincinnati"/>
+      <Team name="Houston"/>
+      <Team name="Milwaukee"/>
+      <Team name="Pittsburgh"/>
+      <Team name="St. Louis"/>
+    </Division>
+    <Division name="West">
+      <Team name="Arizona"/>
+      <Team name="Colorado"/>
+      <Team name="Los Angeles"/>
+      <Team name="San Diego"/>
+      <Team name="San Francisco"/>
+    </Division>
+  </League>
+</Leagues>

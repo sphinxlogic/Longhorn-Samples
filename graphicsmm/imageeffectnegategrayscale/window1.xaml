@@ -1,0 +1,40 @@
+
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Imaging.ImageEffects.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="ImageEffects Sample" Visible="True" Loaded="WindowLoaded"
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <GridPanel Columns="2" CellSpacing="5"> 
+        <DockPanel>
+            <Text FontFamily="Verdana" FontWeight="ExtraBold" FontSize="14" DockPanel.Dock="Top">Settings:</Text>
+
+            <Text FontFamily="Verdana" FontWeight="ExtraBold" FontSize="14" DockPanel.Dock="Top">ImageEffects:</Text>
+
+            <GridPanel Columns="1" CellSpacing="3" DockPanel.Dock="Top">
+                <Button ID="applyImageEffectGrayscale" Height="50" Click="applyImageEffectGrayscale_Click">ImageEffectGrayscale</Button>
+            </GridPanel>
+            <GridPanel Columns="1" CellSpacing="3" DockPanel.Dock="Top">
+                <Button ID="applyImageEffectNegate" Height="50" Click="applyImageEffectNegate_Click">ImageEffectNegate</Button>
+            </GridPanel>
+
+            
+        </DockPanel>  
+        
+        <DockPanel>
+            <GridPanel Columns="1" CellSpacing="3"> 
+                <DockPanel >
+                    <Text FontFamily="Verdana" FontWeight="ExtraBold" FontSize="14" DockPanel.Dock="Top">Original Image:</Text>
+                    <Image ID="myOriginalImage" DockPanel.Dock="Top"></Image>
+                </DockPanel>
+                <DockPanel ID="imageModified">
+                    <Text FontFamily="Verdana" FontWeight="ExtraBold" FontSize="14" DockPanel.Dock="Top">Modified Image:</Text>
+                    <Image ID="myModifiedImage" DockPanel.Dock="Top"></Image>
+                </DockPanel> 
+             </GridPanel> 
+        </DockPanel>
+    </GridPanel>
+</Window>

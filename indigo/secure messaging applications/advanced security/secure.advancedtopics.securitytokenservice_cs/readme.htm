@@ -1,0 +1,322 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The SecurityTokenService Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The Security Token Service Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview"><span style='text-decoration:none'>Overview</span></a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts"><span style='text-decoration:none'>Key
+Concepts</span></a><br>
+&nbsp;&nbsp;&nbsp;<a href="##Building"><span style='text-decoration:none'>Building</span></a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Setup"><span style='text-decoration:none'>Setup</span></a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running"><span style='text-decoration:none'>Running</span></a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem (code-named "Indigo") can be used to help secure applications. The Security Token
+Service sample is an application consisting of two clients
+(X.509 and user name), a service, a service host, a security token service and
+client, and Security Token Service (STS and host configuration and data files.
+It demonstrates authentication of the client with the STS, XrML token issuance
+from an STS, and using the token for access control at the service. This
+license is used to automatically authorize clients, bypassing  the
+authentication process. The STS authenticates the client initially using either
+X.509 certificates or user name certificates. </span></p>
+
+<p><span style='font-family:Arial'>&nbsp;The clients are console applications
+that send a string to the server in the message body and secure the message
+using an XrML token from the STS. Note that most of the accelerator license
+issuance, usage, and consumption are handled internally by the "Indigo"
+system. The "Indigo" security system exposes some simple settings for
+controlling the behavior of accelerator licensing. </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Client:</span></b><span
+style='font-family:Arial'><br>
+<span style='color:#202080'>The client applications are similar to the security
+samples in the &quot;secure&quot; directory. </span></span></p>
+
+<p><b><span style='font-family:Arial'>STS:</span></b></p>
+
+<p><span style='font-family:Arial;color:navy'>By default, the STS supports two
+authentication modes (using the <b>securityTokenService</b> service
+environment): X.509 authentication or&nbsp; user name authentication. In
+addition, the default profile in the Machine.config file connects the <b>requestSecurityTokenProfile</b>
+to the request for a security token, which simplifies the code and configuration
+for STS. </span></p>
+
+<p><b><span style='font-family:Arial'>Securing the Service in Three Steps</span></b></p>
+
+<p><strong><span style='font-family:Arial;color:black'>1. Service</span></strong></p>
+
+<p><span style='font-family:Arial'>The service itself is marked with the <strong><span
+style='font-family:Arial'>DatagramPortTypeAttribute</span></strong> and the
+methods are marked with the <strong><span style='font-family:Arial'>ServiceMethodAttribute</span></strong>.
+In addition, a new <b>[ServiceSecurity()]</b> attribute is added to indicate that
+the method should be secured. This establishes a security scope such that all
+messages matching the scope will require the constraints established in the
+configuration file (step 2). In this case, the scope is identified by the
+&lt;namespace&gt;.&lt;class&gt;.&lt;method&gt; syntax, and only appropriately
+scoped messages that have been mapped to the MBClient role are allowed access
+to the Greeting method. (By the time the Greeting method is invoked, all
+relevant authentication, authorization, and access checking has been
+performed). Other than this, there is nothing special about the class or
+securing the method at development time.</span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>        using System; </span></pre><pre><span
+style='color:#202080'>        using System.MessageBus; </span></pre><pre><span
+style='color:#202080'>        using System.MessageBus.Services; </span></pre><pre><span
+style='color:#202080'>    </span></pre><pre><span style='color:#202080'>&nbsp;</span></pre><pre><b><span
+style='font-size:12.0pt;color:#202080'>      </span><span style='color:#202080'>[ServiceMethod]</span></b></pre><pre><b><span
+style='color:#202080'>        </span></b><span style='color:#202080'>[ServiceSecurity(Confidentiality=true, Role=&quot;MBClient&quot;)]</span></pre><pre><span
+style='color:#202080'>        public string Greeting(string name)</span></pre><pre><span
+style='color:#202080'>        {</span></pre><pre><span style='color:#202080'>               Console.WriteLine(&quot;Called by a client with the name {0}&quot;, name);</span></pre><pre><span
+style='color:#202080'>               return String.Format(&quot;Hello, {0}!&quot;, name);</span></pre><pre><span
+style='color:#202080'>        }</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>2. Host</span></b><span style='font-family:
+Arial'><br>
+The host application configures "Indigo" to listen for incoming messages for
+the services listed in the <b>&lt;activatableServices&gt;</b> element. In
+addition, the host application specifies the usage of the xrmlFromSts
+profile&nbsp; for binding to the Greeting method. The host does not change for
+this sample. </span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;identityRole&gt;soap.tcp://localhost:46000/HelloService/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;securityManager&gt;</span></pre><pre><span
+style='color:#202080'>               &lt;applicationSecurity&gt;</span></pre><pre><span
+style='color:#202080'>                        &lt;binding scope=&quot;Microsoft.MessageBus.QuickStarts.Hello.Greeting&quot; profile=&quot;</span><b><u><span
+style='font-size:12.0pt;color:#202080'>xrmlFromSts</span></u></b><span
+style='color:#202080'>&quot;/&gt;</span></pre><pre><span style='color:#202080'>               &lt;/applicationSecurity&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/securityManager&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;!-- WARNING: Policy is not secured to clarify demonstration. --&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;!-- Permits unsigned policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>            &lt;add type=&quot;Microsoft.MessageBus.QuickStarts.Hello, HelloService&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>          &lt;/activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>        &lt;/serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>      &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>    &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>  &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre>
+
+<p><b><span style='font-family:Arial'>3. Data file</span></b><span
+style='font-family:Arial'><br>
+Because the authentication decisions are performed at the STS, the service
+itself does not hold authentication information. However, it does hold information
+about the STS that it trusts. </span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";color:#202080'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;credentials&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;appliesToService
+id=&quot;mainXrmlAppliesToService&quot;&gt;soap.tcp://localhost:46000/HelloService/&lt;/appliesToService&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;uri
+id=&quot;mainXrmlIssuerUri&quot;&gt;soap.tcp://localhost:46500/HelloSecurityTokenService/&lt;/uri&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/credentials&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;tokens&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;tokenCache
+id=&quot;mainTokenCache&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;store location=&quot;currentUser&quot; name=&quot;My&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;criteria type=&quot;subjectString&quot;&gt;soap.tcp://localhost:46000/HelloService/&lt;/criteria&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/tokenCache&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/tokens&gt;<br>
+&lt;/securityData&gt;</span></p>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><a name="#Building"></a><span style='font-family:Arial'>Open
+     the <b>Longhorn Build Environment</b> console window (click <b>Start</b>,
+     click <b>All Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click
+     <b>Open Build Environment Window</b>, and click <b>Longhorn Build
+     Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<h3><a name=Setup><span style='font-family:Arial'>Setup</span></a></h3>
+
+<p><span style='font-family:Arial'>Run the Installcert.bat file on the server
+machine and the X.509 client machine. This installs the relevant license
+issuance certificates. To remove the certificates, run the command <b>installcert.bat
+remove</b>.</span></p>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><span style='font-family:Arial'>To run the sample, both the certmgr.exe and
+makecert.exe utilities must be installed.  To install the utilities, download
+and run the following file:  </span><span style='font-size:10.0pt;font-family:
+"Bookman Old Style";color:#333399'><a
+href="http://download.microsoft.com/download/b/e/f/bef2551b-401d-4311-ab8f-13d3892b8154/codesigningx86.exe"><span
+style='color:#003399'>http://download.microsoft.com/download/b/e/f/bef2551b-401d-4311-ab8f-13d3892b8154/codesigningx86.exe</span></a>&nbsp;</span><span
+style='font-family:Arial'>   When prompted for a location to unzip to, choose a location in your user’s path.</span></p>
+
+<p><a name="#Running"></a><b><span style='font-family:Arial'>Running on a
+single machine:</span></b><span style='font-family:Arial'><br>
+To run the sample on a single machine, open a command prompt window in the
+Server directory, another one in any of the Client directories, and one in the
+SecurityTokenService directory. At the SecurityTokenService command prompt,
+type <b>STS</b>. At the server command prompt, type <strong><span
+style='font-family:Arial'>host</span></strong>. Then, at the corresponding
+client directory command prompt, type <strong><span style='font-family:Arial'>usernameclient
+</span></strong>or <b>x509client</b>.</span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.config file in the Server directory. Replace
+     &quot;localhost&quot; with the server machine name. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.security file in the Server directory. Replace
+     “localhost” in the <b>&lt;appliesToService&gt;</b> element with server
+     machine name. Replace “localhost” in the <b>&lt;uri&gt;</b> element with
+     the STS machine name. Replace “localhost” in the <b>&lt;criteria&gt;</b>
+     element with the server machine name. Then run the server application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the STS machine, edit
+     the Sts.exe.config file in the SecurityTokenService directory. Replace
+     &quot;localhost&quot; with the STS machine name. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the STS machine, edit
+     the Sts.exe.security file in the SecurityTokenService directory. Replace
+     “localhost” in the <b>&lt;resourceEntries&gt;</b> element with the server
+     machine name. Then run the STS.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit the Client.cs file in the Client directory. In the URI that
+     represents the server location, replace &quot;localhost&quot; with the
+     server machine name. Recompile the client and rerun the client
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machines,
+     edit X509Client.exe.config and UserNameClient.exe.config.  Replace
+     &quot;localhost&quot; in the <b>&lt;identityRole&gt; </b>element with the
+     client machine name.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client and server
+     machines, edit installcert.bat.  Replace &quot;localhost&quot; with the
+     server name.  </span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Note:</span></b></p>
+
+<p><span style='font-family:Arial'>If your computer is attached to a workgroup
+but is not attached to a Microsoft Windows domain, this sample will fail unless
+you modify your Machine.config file.&nbsp; For instructions, see</span> <span
+style='font-family:Arial'>&quot;Enabling 'Indigo' Security&nbsp;within a
+Workgroup&quot; in the Longhorn SDK readme</span>.</p>
+
+<p>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

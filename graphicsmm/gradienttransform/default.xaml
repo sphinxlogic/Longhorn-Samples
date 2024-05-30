@@ -1,0 +1,190 @@
+
+<Border xmlns="http://schemas.microsoft.com/2003/xaml"
+  Background="#CCCCCC">
+  
+  <Canvas Height="40">
+
+<!-- Rectangle #1 is filled with a LinearGradientBrush. The gradient colors 
+flow from left to right by default. -->
+
+    <Rectangle RectangleLeft="10" RectangleTop="10" 
+      RectangleWidth="300" RectangleHeight="200">
+      
+      <Rectangle.Fill>
+        <LinearGradientBrush>
+        
+          <LinearGradientBrush.GradientStops>
+
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1" />
+              <GradientStop Color="blue" Offset="0.5"/>
+              <GradientStop Color="white" Offset="0.2"/>
+
+          </LinearGradientBrush.GradientStops>
+          
+        </LinearGradientBrush>
+      </Rectangle.Fill>
+      
+    </Rectangle>
+
+
+<!-- Rectangle #2 is identical to the first rectangle except that the Transform 
+     property rotates the LinearGradientBrush so that the gradient colors are 
+     rotated by 45 degrees. 
+     Note that, because the domain-specific size and position properties 
+     (RectangleWidth, RectangleHeight, RectangleTop, RectangleLeft) are set 
+     on this rectangle, the transformation occurs in the rectangle's parent's coordinate
+     space. To compensate, the center of the transform is set to
+     RectangleLeft + RectangleWidth/2, RectangleTop + RectangleHeight/2.-->
+
+    <Rectangle RectangleLeft="320" RectangleTop="10" 
+      RectangleWidth="300" RectangleHeight="200">
+    
+      <Rectangle.Fill>
+        <LinearGradientBrush>
+        
+          <LinearGradientBrush.Transform>
+            <RotateTransform Center="470, 110" Angle="45" /> <!-- Rotation angle. -->
+          </LinearGradientBrush.Transform>
+          
+          <LinearGradientBrush.GradientStops>
+
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1" />
+              <GradientStop Color="blue" Offset="0.5"/>
+              <GradientStop Color="white" Offset="0.2"/>
+
+          </LinearGradientBrush.GradientStops>
+          
+        </LinearGradientBrush>
+      </Rectangle.Fill>
+      
+    </Rectangle>
+
+<!-- Rectangle #3 is identical to the second rectangle except that the layout
+	 size and position properties are used to to size and position the rectangle,
+	 instead of domain properties. Therefore, the transformation occurs in the
+	 rectangle's coordinate space, not its parent's as in the previous example.
+	 Therefore, to transform about the center of the fill, the transform's
+	 center is set to Width/2, Height/2, not 
+     RectangleLeft + RectangleWidth/2, RectangleTop + RectangleHeight/2.-->
+
+ <Rectangle Canvas.Left="630" Canvas.Top="10" 
+      Width="300" Height="200">
+    
+      <Rectangle.Fill>
+        <LinearGradientBrush>
+        
+          <LinearGradientBrush.Transform>
+            <RotateTransform  Center="150,100"  Angle="45" /> <!-- Rotation angle. -->
+          </LinearGradientBrush.Transform>
+          
+          <LinearGradientBrush.GradientStops>
+            
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1" />
+              <GradientStop Color="blue" Offset="0.5"/>
+              <GradientStop Color="white" Offset="0.2"/>
+           
+          </LinearGradientBrush.GradientStops>
+          
+        </LinearGradientBrush>
+      </Rectangle.Fill>
+      
+    </Rectangle>
+
+    
+<!-- Rectangle #4 is filled with a RadialGradientBrush. -->
+
+    <Rectangle RectangleLeft="10" RectangleTop="250" 
+      RectangleWidth="300" RectangleHeight="200">
+      
+      <Rectangle.Fill>
+        <RadialGradientBrush Focus="0.5,0.5">
+        
+          <RadialGradientBrush.GradientStops>
+
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1"/>
+              <GradientStop Color="blue" Offset="0.5"/>
+
+          </RadialGradientBrush.GradientStops>
+          
+        </RadialGradientBrush>
+      </Rectangle.Fill>
+      
+    </Rectangle>
+
+
+<!-- Rectangle #5 is identical to the fourth rectangle except that the Transform 
+     property applies a ScaleTransform to the RadialGradientBrush so that the 
+     gradient is half its previous height. 
+     
+      Note that, because the domain-specific size and position properties 
+     (RectangleWidth, RectangleHeight, RectangleTop, RectangleLeft) are set 
+     on this rectangle, the transformation occurs in the rectangle's parent's coordinate
+     space. To compensate, the center of the transform is set to
+     RectangleLeft + RectangleWidth/2, RectangleTop + RectangleHeight/2.-->
+
+    <Rectangle RectangleLeft="320" RectangleTop="250" 
+      RectangleWidth="300" RectangleHeight="200">
+      
+      <Rectangle.Fill>
+      
+        <RadialGradientBrush Focus="0.5,0.5">
+          <RadialGradientBrush.Transform>
+			
+			 <!-- Scale transform. -->
+            <ScaleTransform Center="470, 350"  
+				ScaleX="1" ScaleY="0.5" /> 
+          </RadialGradientBrush.Transform>
+        
+          <RadialGradientBrush.GradientStops>
+
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1"/>
+              <GradientStop Color="blue" Offset="0.5"/>
+
+          </RadialGradientBrush.GradientStops>
+          
+        </RadialGradientBrush>
+      </Rectangle.Fill>
+      
+    </Rectangle>
+    
+    <!-- Rectangle #6 is identical to the fifth rectangle except that the layout
+	 size and position properties are used to to size and position the rectangle,
+	 instead of domain properties. Therefore, the transformation occurs in the
+	 rectangle's coordinate space, not its parent's as in the previous example.
+	 Therefore, to transform about the center of the fill, the transform's
+	 center is set to Width/2, Height/2, not 
+     RectangleLeft + RectangleWidth/2, RectangleTop + RectangleHeight/2.-->
+
+    <Rectangle Canvas.Left="630" Canvas.Top="250" 
+      Width="300" Height="200">
+      
+      <Rectangle.Fill>
+      
+        <RadialGradientBrush Focus="0.5,0.5">
+          <RadialGradientBrush.Transform>
+          
+			 <!-- Scale transform. -->
+            <ScaleTransform Center="150, 100" 
+				ScaleX="1" ScaleY="0.5" /> 
+          </RadialGradientBrush.Transform>
+        
+          <RadialGradientBrush.GradientStops>
+
+              <GradientStop Color="red" Offset="0"/>
+              <GradientStop Color="yellow" Offset="1"/>
+              <GradientStop Color="blue" Offset="0.5"/>
+
+          </RadialGradientBrush.GradientStops>
+          
+        </RadialGradientBrush>
+      </Rectangle.Fill>
+      
+    </Rectangle>
+  
+  </Canvas>
+</Border>

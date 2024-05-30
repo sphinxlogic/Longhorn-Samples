@@ -1,0 +1,51 @@
+<%@ language="VB" class="Server" %>
+Imports System
+Imports System.MessageBus
+
+Public Class Server
+    Inherits SyncMessageHandler
+    Implements IHostedMessageHandler
+    Private port As Port
+    Private _site As MessageHandlerSite
+
+    ' IHostedMessageHandler.Site property
+    ' the setter is called from "Indigo" and
+    ' allows to the service to initialize itself from configuration.
+    Public Property Site() As MessageHandlerSite Implements IHostedMessageHandler.Site
+        Get
+
+            Return Me._site
+        End Get
+        Set(ByVal Value As MessageHandlerSite)
+            Me._site = value
+            Me.port = CType(Me.site.ServiceEnvironment(GetType(Port)), Port)
+        End Set
+    End Property
+
+    Public Overrides Function ProcessMessage(ByVal message As Message) As Boolean
+      
+        ' Note that if an exception is thrown during the processing
+        ' "Indigo" is going to turn it into a SOAP fault and return it
+        ' to the caller 
+
+        ' We know that the client sends us a string if it is not a string then
+        ' the cast will fail with an exception and the client process will get
+        ' notified by a soap fault.         
+        Dim messageString As String
+        messageString = CType(message.Content.GetObject(GetType(String)), String)
+        'Close the message content after you are done
+        message.Content.Close()
+
+        ' Create the reply string and store it in the same object
+        messageString = "Server says: hello " & messageString
+
+        ' Create and send the reply to the client
+        Dim reply As Message
+        reply = message.CreateReply(New System.Uri("http://www.tempuri.org/quickstarts/hosting/server"), messageString)
+        port.SendChannel.Send(reply)
+
+        'Indicate that the message is processed
+        Return True
+    End Function
+
+End Class

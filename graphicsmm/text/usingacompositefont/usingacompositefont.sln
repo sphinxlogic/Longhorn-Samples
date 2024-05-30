@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingACompositeFont", "UsingACompositeFont.csproj", "{8C399014-FFDD-4DE2-91DF-968E711A97BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C399014-FFDD-4DE2-91DF-968E711A97BA}.Debug|.NET.ActiveCfg = Debug|.NET
+		{8C399014-FFDD-4DE2-91DF-968E711A97BA}.Debug|.NET.Build.0 = Debug|.NET
+		{8C399014-FFDD-4DE2-91DF-968E711A97BA}.Release|.NET.ActiveCfg = Release|.NET
+		{8C399014-FFDD-4DE2-91DF-968E711A97BA}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

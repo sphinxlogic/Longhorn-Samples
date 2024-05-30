@@ -1,0 +1,107 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox FontFamily="Courier New" ScrollerVisibilityX="Visible" ScrollerVisibilityY="Visible" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+	</DockPanel.Resources>
+	<GridPanel DockPanel.Dock="Top" Height="50%" Columns="3">
+		<Text Width="250" TextWrap="Wrap" Margin="5">
+			GridPanel exposes one property which can be attached to its child elements: <Inline FontFamily="Courier New">GridPanel.ColumnSpan</Inline>
+		</Text>
+		<Border Background="#EEEEAA" GridPanel.ColumnSpan="2">
+			<Text Style="{Code}">
+				GridPanel.ColumnSpan="2"
+			</Text>
+		</Border>
+		<Border Background="#EEAAEE" Height="70">
+			<Text Style="{Code}">
+				Height="70"
+			</Text>
+		</Border>
+		<Border Background="#AAEEEE" Height="50">
+			<Text Style="{Code}">
+				Height="50"
+			</Text>
+		</Border>
+		<Border Background="#AAAAEE" Width="200">
+			<Text Style="{Code}">
+				 Width="200"
+			</Text>
+		</Border>
+		<Border Background="#AAEEAA" GridPanel.ColumnSpan="3">
+			<Text Style="{Code}">
+				GridPanel.ColumnSpan="3"
+			</Text>
+		</Border>
+		<Border Background="#EEAAAA" Margin="20">
+			<Text Style="{Code}">
+				 Margin="20"
+			</Text>
+		</Border>
+		<Border Background="#99AAAA" GridPanel.ColumnSpan="2">
+			<Text Style="{Code}">
+				GridPanel.ColumnSpan="2"
+			</Text>
+		</Border>
+		<Border Background="#AA99AA" GridPanel.ColumnSpan="2">
+			<Text Style="{Code}">
+				GridPanel.ColumnSpan="2"
+			</Text>
+		</Border>
+		<Border Background="#AAAA99"/>
+	</GridPanel>
+	<TextBox DockPanel.Dock="Fill">
+&lt;GridPanel Columns="3"&gt;<LineBreak />
+	&lt;Text Width="250" TextWrap="Wrap" Margin="5"&gt;<LineBreak />
+		GridPanel exposes one property which can be attached to its child elements: &lt;Inline FontFamily="Courier New"&gt;GridPanel.ColumnSpan&lt;/Inline&gt;<LineBreak />
+	&lt;/Text&gt;<LineBreak />
+	&lt;Border Background="#EEEEAA" GridPanel.ColumnSpan="2"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			GridPanel.ColumnSpan="2"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#EEAAEE" Height="70"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Height="70"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAEEEE" Height="50"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Height="50"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAAAEE" Width="200"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+				Width="200"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAEEAA" GridPanel.ColumnSpan="3"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			GridPanel.ColumnSpan="3"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#EEAAAA" Margin="20"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+				Margin="20"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#99AAAA" GridPanel.ColumnSpan="2"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			GridPanel.ColumnSpan="2"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AA99AA" GridPanel.ColumnSpan="2"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			GridPanel.ColumnSpan="2"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAAA99"/&gt;<LineBreak />
+&lt;/GridPanel&gt;<LineBreak />
+	</TextBox>
+</DockPanel>

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallPrintQueueOnLocalServeraSample", "InstallPrintQueueOnLocalServeraSample.csproj", "{CA233FDC-F1E3-461F-829C-6C84837E2C3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA233FDC-F1E3-461F-829C-6C84837E2C3F}.Debug|.NET.ActiveCfg = Debug|.NET
+		{CA233FDC-F1E3-461F-829C-6C84837E2C3F}.Debug|.NET.Build.0 = Debug|.NET
+		{CA233FDC-F1E3-461F-829C-6C84837E2C3F}.Release|.NET.ActiveCfg = Release|.NET
+		{CA233FDC-F1E3-461F-829C-6C84837E2C3F}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,23 @@
+<FlowPanel xmlns="http://schemas.microsoft.com/2005/xaml/"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    // Fires when mouse cursor enters the are occupied by the element
+    void OnMouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+      border1.Background = System.Windows.Media.Brushes.Red;
+    }
+    // Fires when mouse cursor leaves the are occupied by the element
+    void OnMouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+      border1.Background = System.Windows.Media.Brushes.White;
+    }
+ ]]>
+  </def:Code>
+
+<Border MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" ID="border1">
+  <Text Margin="10">Move Cursor Over Me</Text>
+</Border>
+
+</FlowPanel>

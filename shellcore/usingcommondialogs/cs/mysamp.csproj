@@ -1,0 +1,56 @@
+<Project DefaultTargets="Build">
+  <!--Imports the target which contains all the common targets-->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <!-- 
+				Description: This property defines the language used for coding
+				Possible Values: {cs, cpp, vb}
+				Default Value:
+				Required: YES
+		 -->
+    <Property DefaultClrNameSpace="SDKSample" />
+    <!-- 
+				Description: This property defines the name of the target
+				Possible Values:
+				Default Value:
+				Required: YES
+		 -->
+    <Property TargetName="Target" />
+    <!-- 
+				Description:Defines the full path of file that contains security information
+				Possible Values:
+				Default Value:
+				Required:YES
+		 -->
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{5DCF6973-FD88-42AF-ACA4-3BF1B69DF84E}" />
+    <Property AssemblyName="ComDlg" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property OutputPath="bin\Release\" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication markup -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <!-- Compiled Xaml Files list -->
+    <Item Type="Pages" Include="default.xaml" />
+    <!-- Compiled Code Files -->
+    <Item Type="Code" Include="app.xaml.cs" />
+    <Item Type="Code" Include="default.xaml.cs" />
+    <Item Type="References" Include="$(WCP)\System.Windows.dll" />
+    <Item Type="References" Include="$(WCP)\System.Windows.Explorer.dll" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Reference" Include="System.Windows" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Avalon\System.Windows.dll" Name="System.Windows" FusionName="System.Windows, Version=6.0.3708.0, Culture=neutral, PublicKeyToken=a29c01bbd4e39ac5, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+  </ItemGroup>
+</Project>

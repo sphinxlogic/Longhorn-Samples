@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+	<assemblyIdentity name="SampleApp" version="1.0.0.0" />
+
+	<description>Sample Managed Application</description>
+
+	<file name="SampleApp.exe" sourceName="SampleApp" sourcePath=".\" />
+
+	<configuration xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+		<configurationSchema>
+			<xsd:schema
+				xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+				xmlns:evt="urn:schemas-microsoft-com:wevtcfg.v1"
+				xmlns="SampleApp"
+				targetNamespace="SampleApp"
+			>
+
+				<xsd:import
+					namespace="urn:schemas-microsoft-com:wevtcfg.v1"
+					schemaLocation="wevtcfg.v1.xsd"
+				/>
+
+				<xsd:element name="ApplicationChannels" type="evt:ApplicationChannelsType"/>
+			</xsd:schema>
+		</configurationSchema>
+
+		<wcm:metadata>
+			<wcm:elements>
+				<ApplicationChannels wcm:context="shared">
+					<Operational>
+						<Publisher>
+							<Enabled wcm:default="true" />
+						</Publisher>
+						<Log>
+							<Enabled wcm:default="true" />
+							<Filter>
+								<Select>
+									<Path>*</Path>
+								</Select>
+							</Filter>
+						</Log>
+					</Operational>
+				</ApplicationChannels>
+			</wcm:elements>
+		</wcm:metadata>
+	</configuration>
+
+	<localization>
+		<resources culture="en-US">
+			<stringTable xmlns="urn:schemas-microsoft-com:asm.v2">
+				<string identifier="Event.PrinterAdded" value="The %1 printer was added" />
+				<string identifier="Event.PrinterRemoved" value="The %1 printer was removed" />
+			</stringTable>
+		</resources>
+	</localization>
+
+	<memberships>
+		<categoryMembership name="Microsoft.Windows.Events">
+			<eventData resourceFileName="SampleApp.exe" componentType="Application" schemaFileName="SampleApp.xsd">
+				<globalChannel name="Application"/>
+				<applicationChannel name="Operational" />
+			</eventData>
+		</categoryMembership>
+	</memberships>
+
+	<instrumentation>
+		<events componentType="Application">
+			<globalTags>
+				<tag>Application</tag>
+			</globalTags>
+
+			<eventCategories>
+				<category name="Addition" value="1" />
+				<category name="Removal" value="2" />
+			</eventCategories>
+
+			<event eventID="1000" channel="Operational" message="$(string.Event.PrinterAdded)">
+				<operationalInstance level="0" category="Addition" />
+				<template>
+					<PrinterAdded>
+						<PrinterName>%String;</PrinterName>
+					</PrinterAdded>
+				</template>
+			</event>
+
+			<event eventID="1001" channel="Operational" message="$(string.Event.PrinterRemoved)">
+				<operationalInstance level="0" category="Removal" />
+				<template>
+					<PrinterRemoved>
+						<PrinterName>%String;</PrinterName>
+					</PrinterRemoved>
+				</template>
+			</event>
+		</events>
+	</instrumentation>
+</assembly>

@@ -1,0 +1,89 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox DockPanel.Dock="Fill" FontFamily="Courier New" Height="Auto" Width="Auto"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+	</DockPanel.Resources>
+	<DockPanel DockPanel.Dock="Top" Height="50%">
+		<Text Width="250" TextWrap="Wrap" Margin="5" DockPanel.Dock="Top">
+			DockPanel does not expose any properties that attach child elements
+		</Text>
+		<Border Background="#EEEEAA" DockPanel.Dock="Top">
+			<Text Style="{Code}">
+				DockPanel.Dock="Top"
+			</Text>
+		</Border>
+		<Border Background="#EEAAEE" DockPanel.Dock="Right">
+			<Text Style="{Code}">
+				DockPanel.Dock="Right"
+			</Text>
+		</Border>
+		<Border Background="#AAEEEE" DockPanel.Dock="Bottom">
+			<Text Style="{Code}">
+				DockPanel.Dock="Bottom"
+			</Text>
+		</Border>
+		<Border Background="#AAAAEE" DockPanel.Dock="Left" Height="150">
+			<Text Style="{Code}">
+				Height="150"<LineBreak/>
+				DockPanel.Dock="Left"
+			</Text>
+		</Border>
+		<Border Background="#AAEEAA" Width="200" DockPanel.Dock="Bottom">
+			<Text Style="{Code}">
+				DockPanel.Dock="Bottom"<LineBreak/>
+				Width="200"<LineBreak/>
+			</Text>
+		</Border>
+		<Border Background="#EEAAAA" DockPanel.Dock="Fill">
+			<Text Style="{Code}">
+				 DockPanel.Dock="Fill"
+			</Text>
+		</Border>
+	</DockPanel>
+	<TextBox DockPanel.Dock="Fill">
+&lt;DockPanel&gt;<LineBreak/>
+	&lt;Text Width="250" TextWrap="Wrap" Margin="5" DockPanel.Dock="Top"&gt;<LineBreak/>
+		DockPanel does not expose any properties that attach child elements<LineBreak/>
+	&lt;/Text&gt;<LineBreak/>
+	&lt;Border Background="#EEEEAA" DockPanel.Dock="Top"&gt;<LineBreak/>
+		&lt;Text Style="{Code}"&gt;<LineBreak/>
+			DockPanel.Dock="Top"<LineBreak/>
+		&lt;/Text&gt;<LineBreak/>
+	&lt;/Border&gt;<LineBreak/>
+	&lt;Border Background="#EEAAEE" DockPanel.Dock="Right"&gt;<LineBreak/>
+		&lt;Text Style="{Code}"&gt;<LineBreak/>
+			DockPanel.Dock="Right"<LineBreak/>
+		&lt;/Text&gt;<LineBreak/>
+	&lt;/Border&gt;<LineBreak/>
+	&lt;Border Background="#AAEEEE" DockPanel.Dock="Bottom"&gt;<LineBreak/>
+		&lt;Text Style="{Code}"&gt;<LineBreak/>
+			DockPanel.Dock="Bottom"<LineBreak/>
+		&lt;/Text&gt;<LineBreak/>
+	&lt;/Border&gt;<LineBreak/>
+	&lt;Border Background="#AAAAEE" DockPanel.Dock="Left" Height="150"&gt;<LineBreak/>
+		&lt;Text Style="{Code}"&gt;<LineBreak/>
+			Height="150"&lt;LineBreak/&gt;<LineBreak/>
+			DockPanel.Dock="Left"<LineBreak/>
+		&lt;/Text&gt;<LineBreak/>
+	&lt;/Border&gt;<LineBreak/>
+	&lt;Border Background="#AAEEAA" Width="200" DockPanel.Dock="Bottom"&gt;<LineBreak/>
+		&lt;Text Style="{Code}"&gt;<LineBreak/>
+			DockPanel.Dock="Bottom"&lt;LineBreak/&gt;<LineBreak/>
+			Width="200"&lt;LineBreak/&gt;<LineBreak/>
+		&lt;/Text&gt;<LineBreak/>
+	&lt;/Border&gt;<LineBreak/>
+	&lt;Border Background="#EEAAAA" DockPanel.Dock="Fill"&gt;<LineBreak/>
+		&lt;Text Style="{Code}"&gt;<LineBreak/>
+				DockPanel.Dock="Fill"<LineBreak/>
+		&lt;/Text&gt;<LineBreak/>
+	&lt;/Border&gt;<LineBreak/>
+&lt;/DockPanel&gt;<LineBreak/>
+	</TextBox>
+</DockPanel>

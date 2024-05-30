@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextMenu_wcp", "ContextMenu_wcp.csproj", "{74A9D40E-8BC8-4827-898E-5DEC554D8A6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74A9D40E-8BC8-4827-898E-5DEC554D8A6B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{74A9D40E-8BC8-4827-898E-5DEC554D8A6B}.Debug|.NET.Build.0 = Debug|.NET
+		{74A9D40E-8BC8-4827-898E-5DEC554D8A6B}.Release|.NET.ActiveCfg = Release|.NET
+		{74A9D40E-8BC8-4827-898E-5DEC554D8A6B}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

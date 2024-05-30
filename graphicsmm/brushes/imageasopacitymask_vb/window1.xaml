@@ -1,0 +1,168 @@
+<!-- Window1.xaml.vb contains the code demonstrating the creation and application of opacity masks.  -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ImageAsOpacityMask_vb.Window1"
+    def:CodeBehind="Window1.xaml.vb" 
+    Text="ImageAsOpacityMask_vb" Visible="True"
+    Loaded="WindowLoaded"
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <!-- Typically, the following element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+     <GridPanel DockPanel.Dock="Fill" Columns="3" CellSpacing="5">
+        <TextPanel GridPanel.ColumnSpan="3"
+			Width="400"
+			FontSize="16"
+			Foreground="White"
+			Background="Black">Using an Image as an Opacity Mask</TextPanel>
+        <Text>Without Opacity Mask</Text>
+        <Text>The Opacity Mask</Text>
+        <Text>With Opacity Mask</Text>
+		   
+        <!-- Without Opacity Mask -->
+        <Image
+			Height="150"
+			Width="200"
+			Source="Data\Waterlilies.jpg" />
+		
+		<!-- The Opacity Mask-->
+		<Canvas>
+			<!-- Create a checkered background to show
+				 the transparent areas of the image. -->
+			<Rectangle
+				Height="150"
+				Width="200"
+				Stroke="Black"
+				StrokeThickness="1">	
+				<Rectangle.Fill>
+					<ImageBrush 
+						ViewPort="0,0,13,13"
+						ViewPortUnits="Absolute"
+						TileMode="Tile"
+						ImageSource="Data\checkers.gif"/>
+				</Rectangle.Fill>
+			</Rectangle>
+			
+			<!-- Use the opacity mask brush as a fill to show
+				 what it looks like. -->
+			<Rectangle
+				Height="150"
+				Width="200"
+				Stroke="Black"
+				StrokeThickness="1">	
+				<Rectangle.Fill>
+					<ImageBrush ImageSource="Data\tornedges.png"/>
+				</Rectangle.Fill>
+			</Rectangle>
+		</Canvas>
+		
+		<!-- With the Opacity Mask (Applied in Window1.xaml.vb) -->
+		<Image
+			ID="myImage"
+			Height="150"
+			Width="200"
+			Source="Data\Waterlilies.jpg" />
+
+		
+		<!-- Without an Opacity Mask -->
+		<Image
+			Height="150"
+			Width="200"
+			Source="Data\Waterlilies.jpg">
+		</Image>
+		
+		<!-- The Opacity Mask-->
+		<Canvas>
+			<!-- Create a checkered background to show
+				 the transparent areas of the image. -->
+			<Rectangle
+				Height="150"
+				Width="200"
+				Stroke="Black"
+				StrokeThickness="1">	
+				<Rectangle.Fill>
+					<ImageBrush 
+						ViewPort="0,0,13,13"
+						ViewPortUnits="Absolute"
+						TileMode="Tile"
+						ImageSource="Data\checkers.gif"/>
+				</Rectangle.Fill>
+			</Rectangle>
+			
+			<!-- Use the opacity mask brush as a fill to show
+				 what it looks like. -->
+			<Rectangle
+				Height="150"
+				Width="200"
+				Stroke="Black"
+				StrokeThickness="1">	
+				<Rectangle.Fill>
+					<ImageBrush
+						ViewPort="0,0,50,50"
+						ViewPortUnits="Absolute"
+						TileMode="Tile"  
+						ImageSource="Data\tornedges.png"/>
+				</Rectangle.Fill>
+			</Rectangle>
+		</Canvas>
+		
+		<!-- With the Opacity Mask (Applied in Window1.xaml.vb)-->
+		<Image
+			ID="anotherImage"
+			Height="150"
+			Width="200"
+			Source="Data\Waterlilies.jpg" />
+    
+		<!-- Without Opacity Mask -->
+		<Button
+			Height="100"
+			Width="200"
+			FontFamily="MS Gothic"
+			FontSize="16">
+			A Button
+		</Button>
+		
+			<!-- The Opacity Mask-->
+		<Canvas>
+			<!-- Create a checkered background to show
+				 the transparent areas of the image. -->
+			<Rectangle
+				Height="100"
+				Width="200"
+				Stroke="Black"
+				StrokeThickness="1">	
+				<Rectangle.Fill>
+					<ImageBrush 
+						ViewPort="0,0,13,13"
+						ViewPortUnits="Absolute"
+						TileMode="Tile"
+						ImageSource="Data\checkers.gif"/>
+				</Rectangle.Fill>
+			</Rectangle>
+			
+			<!-- Use the opacity mask brush as a fill to show
+				 what it looks like. -->
+			<Rectangle
+				Height="100"
+				Width="200"
+				Stroke="Black"
+				StrokeThickness="1">	
+				<Rectangle.Fill>
+					<ImageBrush  ImageSource="Data\tornedges.png"/>
+				</Rectangle.Fill>
+			</Rectangle>
+		</Canvas>
+		
+		
+		<!-- With the Opacity Mask (Applied in WIndow1.xaml.vb)-->
+		<Button
+			ID="myButton"
+			Height="100"
+			Width="200"
+			FontFamily="MS Gothic"
+			FontSize="16">
+			A Button
+		</Button>
+    </GridPanel>
+</Window>

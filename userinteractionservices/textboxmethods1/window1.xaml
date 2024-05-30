@@ -1,0 +1,45 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="TextBoxMethods.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="TextBoxMethods" Visible="True"
+    >
+    <DockPanel>
+	<FlowPanel DockPanel.Dock="Top">
+	<FlowPanel Width="33%"/>
+    <Button Click="RLFunctions" ID="lright">Line Right</Button>
+    <Button Click="RLFunctions" ID="lleft">Line Left</Button>
+    <Button Click="RLFunctions" ID="pright">Page Right</Button>
+    <Button Click="RLFunctions" ID="pleft">Page Left</Button>
+   </FlowPanel>
+    <TextBox
+   ID="tb2"
+   DockPanel.Dock="Top"
+   Margin="20, 20, 20, 20"
+   Height="50px"
+   ScrollerVisibilityX="Visible"
+   FontSize="20">This text box scrolls horizontally. Using the buttons above, you can navigate one line left or right. You can also navigate one page left or right.</TextBox>
+  <FlowPanel DockPanel.Dock="Top">
+  <FlowPanel Width="25%"/>
+  	<Button Click="UpDownFunctions" ID="ldown">Line Down</Button>
+    <Button Click="UpDownFunctions" ID="lup">Line Up</Button>
+    <Button Click="UpDownFunctions" ID="pdown">Page Down</Button>
+    <Button Click="UpDownFunctions" ID="pup">Page Up</Button>
+    <Button Click="UpDownFunctions" ID="pscrollend">Scroll to End</Button>
+    <Button Click="UpDownFunctions" ID="pscrollhome">Scroll to Home</Button>
+  
+  </FlowPanel>
+   <TextBox
+   DockPanel.Dock = "Top"
+   ID="tb1"
+   Margin="20, 20, 20, 20"
+   AcceptsReturn="True"
+   AcceptsTab="True"
+   Wrap="True"
+   ScrollerVisibilityY="Visible"
+   FontSize="20">This text box scrolls vertically. Using the buttons above, you can navigate up or down one line, up or down a page, and scroll all the way to the top or bottom.</TextBox>
+
+   </DockPanel>
+</Window>

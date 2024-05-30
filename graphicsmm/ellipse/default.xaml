@@ -1,0 +1,29 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+  <Ellipse   
+        CenterX="120"
+        CenterY="120"
+        RadiusX="100"
+        RadiusY="50"
+	Stroke="#000000"
+	StrokeThickness="3"
+	>
+	<Ellipse.Fill>
+		<SolidColorBrush Color="Yellow" Opacity="0.4"/>
+	</Ellipse.Fill>	
+  </Ellipse>
+
+  <Ellipse
+        CenterX="120"
+        CenterY="120"
+        RadiusX="50"
+        RadiusY="100"
+	Stroke="Orange"
+	StrokeThickness="3">
+	<Ellipse.Fill>
+		<SolidColorBrush Color="Blue" Opacity="0.4"/>
+	</Ellipse.Fill>
+
+  </Ellipse>
+</Canvas>

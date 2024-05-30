@@ -1,0 +1,21 @@
+<Border Background="white" ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition" >
+<DockPanel>
+
+	<DockPanel.Resources>
+		
+		<Style>
+			<Text Foreground="Red"/>
+		</Style>
+		<Style def:Name="BlueText">
+			<Text Foreground="Blue"/>
+		</Style>
+		
+	</DockPanel.Resources>
+
+	<Text>This text is Red.</Text>	  
+	<Text Style="{BlueText}">Text with "BlueText" style.</Text>
+
+
+	  
+</DockPanel>
+</Border>

@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="hostingclient">
+   <Target Name="hostingclient">
+      <Task Name="vbc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="hostingclient.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll"
+                 Sources="client.vb"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

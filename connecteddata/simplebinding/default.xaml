@@ -1,0 +1,13 @@
+<DockPanel ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+>
+  <DockPanel.Resources>
+    <ObjectDataSource def:Name="myDataSource" TypeName="WCPSample.SimpleBinding,SimpleBindingSample" />
+  </DockPanel.Resources>
+  <Text>
+    <Text.TextContent>
+      <Bind DataSource="{myDataSource}" BindType="OneTime" Path="SimpleProperty"/>
+    </Text.TextContent>
+  </Text>
+</DockPanel>

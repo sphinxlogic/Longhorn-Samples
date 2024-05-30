@@ -1,0 +1,41 @@
+<Project DefaultTargets="Build">
+
+  <PropertyGroup>
+    <Property Configuration="Release" Condition=" '$(Configuration)' == '' " />
+    <Property Language="C#" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property OutputType="Exe" />
+    <Property AssemblyName="PopulateContacts" />
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property DefineConstants="DEBUG;TRACE" />
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property DefineConstants="TRACE" />
+  </PropertyGroup>
+
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+
+  <ItemGroup>
+    <Item Type="compile" Include="PopulateContacts.cs" SubType="Code" />
+    <Item Type="compile" Include="SampleData.cs" SubType="Code" />
+    <Item Type="Reference" Include="System" HintPath="$(URT)\System.dll" />
+    <Item Type="Reference" Include="System.XML" HintPath="$(URT)\System.XML.dll" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="$(windir)\system32\WinFS\API\System.Storage.Contacts.dll" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="$(windir)\system32\WinFS\API\System.Storage.Core.dll" />
+    <Item Type="Reference" Include="System.Storage.Locations" HintPath="$(windir)\system32\WinFS\API\System.Storage.Locations.dll" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="$(windir)\system32\WinFS\API\System.Storage.WinFS.dll" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="$(windir)\Microsoft.NET\Windows\v6.0.4030\WindowsBase.dll" Name="WindowsBase" FusionName="WindowsBase, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingAsOpacityMask_csharp", "DrawingAsOpacityMask_csharp.csproj", "{C4D87CC9-36DC-4629-B2E6-E17B35B39DF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4D87CC9-36DC-4629-B2E6-E17B35B39DF4}.Debug|.NET.ActiveCfg = Debug|.NET
+		{C4D87CC9-36DC-4629-B2E6-E17B35B39DF4}.Debug|.NET.Build.0 = Debug|.NET
+		{C4D87CC9-36DC-4629-B2E6-E17B35B39DF4}.Release|.NET.ActiveCfg = Release|.NET
+		{C4D87CC9-36DC-4629-B2E6-E17B35B39DF4}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

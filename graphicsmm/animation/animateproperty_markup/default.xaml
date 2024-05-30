@@ -1,0 +1,30 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+  
+  <Button Canvas.Top="20" Canvas.Left="20"
+    Height="30" Width="200">
+    
+   <Button.Width>
+      <LengthAnimation To="50" Duration="5" RepeatDuration="Indefinite" AutoReverse="True"/>
+    </Button.Width>
+
+    A Button
+  </Button>
+
+
+  <Button Canvas.Top="70" Canvas.Left="20"
+    Height="30" Width="200">
+    
+    <Button.Background>
+      <SolidColorBrush Color="Blue">
+        <SolidColorBrush.ColorAnimations>
+          <ColorAnimation From="Red" To="Blue" Duration="7" 
+            RepeatDuration="Indefinite" AutoReverse="True"/>
+        </SolidColorBrush.ColorAnimations>
+      </SolidColorBrush>
+    </Button.Background>
+
+    Another Button
+  </Button>
+ 
+</Canvas>

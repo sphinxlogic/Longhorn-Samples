@@ -1,0 +1,18 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ScrollViewer_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <ScrollViewer Width="100%" Height="100%">
+    <Canvas>
+         <Text>Scrolling is enabled when it is necessary. Resize the window, making it larger and smaller.</Text>
+         <Rectangle Canvas.Top="30" Canvas.Left="1" Width="300" Height="300" Fill="Red" DockPanel.Dock="Left"/>
+    </Canvas>
+</ScrollViewer>
+
+
+</FlowPanel>

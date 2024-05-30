@@ -1,0 +1,133 @@
+
+<Canvas Height="400" Width="600"
+	xmlns="http://schemas.microsoft.com/2003/xaml" >
+    <Canvas.Background>
+		<ImageBrush 
+                Stretch="Uniform" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                ImageSource="gecko.jpg" />
+    </Canvas.Background>
+
+  
+<TransformDecorator AffectsLayout="False">
+    <TransformDecorator.Transform>
+	<TranslateTransform X="10" Y="10" />
+	</TransformDecorator.Transform>
+	
+<!-- FIRST PICTURE *************************** -->	
+    <Canvas>
+        <Rectangle
+            RectangleLeft="0"
+            RectangleTop="0"
+            RectangleWidth="250px"
+            RectangleHeight="300px"
+            Stroke="lime"
+            StrokeThickness="5">
+            <Rectangle.Fill>
+                <ImageBrush 
+					TileMode="None"
+					Stretch="None" 
+					HorizontalAlignment="Left" 
+					VerticalAlignment="Top"
+					ImageSource="gecko.jpg" />             
+            </Rectangle.Fill>            
+        </Rectangle>
+    </Canvas>
+</TransformDecorator>
+ 
+
+<!-- SECOND PICTURE ********************************** -->
+
+<TransformDecorator AffectsLayout="False">
+    <TransformDecorator.Transform>
+	<TranslateTransform X="270" Y="10" />
+	</TransformDecorator.Transform>
+<Canvas>
+        <Rectangle
+            RectangleLeft="0"
+            RectangleTop="0"
+            RectangleWidth="150px"
+            RectangleHeight="200px"
+            Stroke="lime"
+            StrokeThickness="5">
+            <Rectangle.Fill>
+                <ImageBrush
+					TileMode="Tile"
+                    Stretch="Uniform"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+		    ImageSource="gecko.jpg" />
+            </Rectangle.Fill>            
+        </Rectangle>
+    </Canvas>
+</TransformDecorator>
+
+<!-- THIRD PICTURE *********************************** -->
+
+<TransformDecorator AffectsLayout="False">
+    <TransformDecorator.Transform>
+	<TranslateTransform X="430" Y="10" />
+	</TransformDecorator.Transform>
+
+<Canvas>
+        <Rectangle
+            RectangleLeft="0"
+            RectangleTop="0"
+            RectangleWidth="150px"
+            RectangleHeight="200px"
+            Stroke="lime"
+            StrokeThickness="5">
+            <Rectangle.Fill>
+                <ImageBrush>
+					<ImageBrush.TileMode>
+						None
+					</ImageBrush.TileMode>
+                    <ImageBrush.Stretch>
+                        UniformToFill
+                    </ImageBrush.Stretch>
+                    <ImageBrush.HorizontalAlignment>
+                        Left
+                    </ImageBrush.HorizontalAlignment>
+                    <ImageBrush.VerticalAlignment>
+                        Top
+                    </ImageBrush.VerticalAlignment>
+                    <ImageBrush.ImageSource>
+                     gecko.jpg
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </Rectangle.Fill>            
+        </Rectangle>
+    </Canvas>
+    </TransformDecorator>
+
+<!-- Fourth PICTURE ********************************************* -->
+
+<TransformDecorator AffectsLayout="False">
+    <TransformDecorator.Transform>
+	<TranslateTransform X="590" Y="10" />
+	</TransformDecorator.Transform>
+
+<Canvas>
+        <Rectangle
+            RectangleLeft="0"
+            RectangleTop="0"
+            RectangleWidth="150px"
+            RectangleHeight="200px"
+            Stroke="lime"
+            StrokeThickness="5">
+            <Rectangle.Fill>
+                <ImageBrush
+					TileMode="None"
+					Stretch="Fill"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="gecko.jpg">
+                </ImageBrush>
+            </Rectangle.Fill>            
+        </Rectangle>
+    </Canvas>
+</TransformDecorator>
+
+</Canvas>
+

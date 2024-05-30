@@ -1,0 +1,104 @@
+<Project MSBuildVersion="1.2" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property ProjectType="Local" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{A7DF0A57-47F9-47DE-9F49-F31536BC5834}" />
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ApplicationIcon="" />
+    <Property AssemblyKeyContainerName="" />
+    <Property AssemblyName="Metadata" />
+    <Property AssemblyOriginatorKeyFile="" />
+    <Property DefaultClientScript="JScript" />
+    <Property DefaultHTMLPageLayout="Grid" />
+    <Property DefaultTargetSchema="IE50" />
+    <Property DelaySign="false" />
+    <Property OutputType="WinExe" />
+    <Property RootNamespace="Metadata" />
+    <Property RunPostBuildEvent="OnBuildSuccess" />
+    <Property StartupObject="" />
+    <Property InstanceType="SingleInstance" />
+    <Property ShutdownMode="MainFormClose" />
+    <Property Title="" />
+    <Property Description="" />
+    <Property Company="" />
+    <Property Product="" />
+    <Property Copyright="" />
+    <Property Trademark="" />
+    <Property AssemblyType="Library" />
+    <Property TypeComplianceDiagnostics="false" />
+    <Property CompatibilityChecks="false" />
+    <Property CompatibleAssembly="" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property OutputPath="bin\Debug\" />
+    <Property AllowUnsafeBlocks="false" />
+    <Property BaseAddress="285212672" />
+    <Property CheckForOverflowUnderflow="false" />
+    <Property ConfigurationOverrideFile="" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property DocumentationFile="" />
+    <Property DebugSymbols="true" />
+    <Property FileAlignment="4096" />
+    <Property IncrementalBuild="false" />
+    <Property NoStdLib="false" />
+    <Property NoWarn="" />
+    <Property Optimize="false" />
+    <Property RegisterForComInterop="false" />
+    <Property RemoveIntegerChecks="false" />
+    <Property TreatWarningsAsErrors="false" />
+    <Property WarningLevel="4" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property OutputPath="bin\Release\" />
+    <Property AllowUnsafeBlocks="false" />
+    <Property BaseAddress="285212672" />
+    <Property CheckForOverflowUnderflow="false" />
+    <Property ConfigurationOverrideFile="" />
+    <Property DefineConstants="TRACE" />
+    <Property DocumentationFile="" />
+    <Property DebugSymbols="false" />
+    <Property FileAlignment="4096" />
+    <Property IncrementalBuild="false" />
+    <Property NoStdLib="false" />
+    <Property NoWarn="" />
+    <Property Optimize="true" />
+    <Property RegisterForComInterop="false" />
+    <Property RemoveIntegerChecks="false" />
+    <Property TreatWarningsAsErrors="false" />
+    <Property WarningLevel="4" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.Data" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.Data.dll" Name="System.Data" />
+    <Item Type="Reference" Include="System.Discovery" HintPath="$(windir)\Microsoft.net\Windows\v6.0.4030\System.Discovery.dll" Name="System.Discovery" FusionName="System.Discovery, Version=6.0.4060.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=x86" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Drawing" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.Drawing.dll" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Explorer" HintPath="$(windir)\Microsoft.NET\Avalon\System.Windows.Explorer.dll" Name="System.Windows.Explorer" FusionName="System.Windows.Explorer, Version=6.0.3708.0, Culture=neutral, PublicKeyToken=a29c01bbd4e39ac5, ProcessorArchitecture=x86" SpecificVersion="False" />
+    <Item Type="Reference" Include="System.Windows.Forms" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.Windows.Forms.dll" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Xml" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.XML.dll" Name="System.XML" />
+    <Item Type="Reference" Include="System.Windows.Media.Core" HintPath="$(windir)\Microsoft.NET\Multimedia\System.Windows.Media.Core.dll" Name="System.Windows.Media.Core" />
+    <Item Type="Reference" Include="WinCorLib" HintPath="$(windir)\Microsoft.NET\Avalon\WinCorLib.dll" Name="WinCorLib" FusionName="WinCorLib, Version=6.0.3708.0, Culture=neutral, PublicKeyToken=a29c01bbd4e39ac5, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="Metadata.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="Metadata.resx" DependentUpon="Metadata.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property SccProjectName="" />
+    <Property SccLocalPath="" />
+    <Property SccAuxPath="" />
+    <Property SccProvider="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

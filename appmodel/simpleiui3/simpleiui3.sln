@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleIUI3", "SimpleIUI3.csproj", "{AE57B146-C6F8-4A59-86A3-C6ED26623C52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE57B146-C6F8-4A59-86A3-C6ED26623C52}.Debug|.NET.ActiveCfg = Debug|.NET
+		{AE57B146-C6F8-4A59-86A3-C6ED26623C52}.Debug|.NET.Build.0 = Debug|.NET
+		{AE57B146-C6F8-4A59-86A3-C6ED26623C52}.Release|.NET.ActiveCfg = Release|.NET
+		{AE57B146-C6F8-4A59-86A3-C6ED26623C52}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

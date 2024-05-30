@@ -1,0 +1,97 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox FontFamily="Courier New" ScrollerVisibilityX="Visible" ScrollerVisibilityY="Visible" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+	</DockPanel.Resources>
+	<FlowPanel DockPanel.Dock="Top" Height="50%">
+		<Text Width="250" TextWrap="Wrap" Margin="5">
+			FlowPanel exposes one property which can be attached to its child elements: <Inline FontFamily="Courier New">FlowPanel.BaselineAlignment</Inline>
+		</Text>
+		<Border Background="#EEEEAA" Height="70" Margin="10">
+			<Text Style="{Code}">
+				Height="70"<LineBreak />
+				Margin="10"
+			</Text>
+		</Border>
+		<Border Background="#EEAAEE" Width="120">
+			<Text Style="{Code}">
+				Width="120"
+			</Text>
+		</Border>
+		<Border Background="#AAEEEE" Margin="20">
+			<Text Style="{Code}">
+				Margin="20"
+			</Text>
+		</Border>
+		<Border Background="#AAAAEE" Height="100">
+			<Text Style="{Code}">
+				BaselineAlignment values:
+			</Text>
+		</Border>
+		<Border Background="#AAEEAA" FlowPanel.BaselineAlignment="Top">
+			<Text Style="{Code}">
+				Top
+			</Text>
+		</Border>
+		<Border Background="#EEAAAA" FlowPanel.BaselineAlignment="Center">
+			<Text Style="{Code}">
+				Center
+			</Text>
+		</Border>
+		<Border Background="#AAAAAA" FlowPanel.BaselineAlignment="Bottom">
+			<Text Style="{Code}">
+				Bottom
+			</Text>
+		</Border>
+	</FlowPanel>
+	<TextBox DockPanel.Dock="Fill">
+&lt;FlowPanel&gt;<LineBreak />
+	&lt;Text Width="250" TextWrap="Wrap" Margin="5"&gt;<LineBreak />
+		FlowPanel exposes one property which can be attached to its child elements: &lt;Inline FontFamily="Courier New"&gt;FlowPanel.BaselineAlignment&lt;/Inline&gt;<LineBreak />
+	&lt;/Text&gt;<LineBreak />
+	&lt;Border Background="#EEEEAA" Height="70" Margin="10"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Height="70"&lt;LineBreak /&gt;<LineBreak />
+			Margin="10"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#EEAAEE" Width="120"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Width="120"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAEEEE" Margin="20"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Margin="20"<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAAAEE" Height="100"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			BaselineAlignment values:<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAEEAA" FlowPanel.BaselineAlignment="Top"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Top<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#EEAAAA" FlowPanel.BaselineAlignment="Center"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Center<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+	&lt;Border Background="#AAAAAA" FlowPanel.BaselineAlignment="Bottom"&gt;<LineBreak />
+		&lt;Text Style="{Code}"&gt;<LineBreak />
+			Bottom<LineBreak />
+		&lt;/Text&gt;<LineBreak />
+	&lt;/Border&gt;<LineBreak />
+&lt;/FlowPanel&gt;<LineBreak />
+	</TextBox>
+</DockPanel>

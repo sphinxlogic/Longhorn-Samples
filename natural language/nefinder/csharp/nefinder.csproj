@@ -1,0 +1,83 @@
+<Project MSBuildVersion="1.2" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property ProjectType="Local" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{896634DE-B9B4-4296-96F6-83BAFE276083}" />
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ApplicationIcon="" />
+    <Property AssemblyKeyContainerName="" />
+    <Property AssemblyName="NEFinder" />
+    <Property AssemblyOriginatorKeyFile="" />
+    <Property DefaultClientScript="JScript" />
+    <Property DefaultHTMLPageLayout="Grid" />
+    <Property DefaultTargetSchema="IE50" />
+    <Property DelaySign="false" />
+    <Property OutputType="Exe" />
+    <Property RootNamespace="Speller" />
+    <Property RunPostBuildEvent="OnBuildSuccess" />
+    <Property StartupObject="" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property OutputPath="objchk\i386\" />
+    <Property AllowUnsafeBlocks="false" />
+    <Property BaseAddress="285212672" />
+    <Property CheckForOverflowUnderflow="false" />
+    <Property ConfigurationOverrideFile="" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property DocumentationFile="" />
+    <Property DebugSymbols="true" />
+    <Property FileAlignment="4096" />
+    <Property IncrementalBuild="false" />
+    <Property NoStdLib="false" />
+    <Property NoWarn="" />
+    <Property Optimize="false" />
+    <Property RegisterForComInterop="false" />
+    <Property RemoveIntegerChecks="false" />
+    <Property TreatWarningsAsErrors="false" />
+    <Property WarningLevel="4" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property OutputPath="objchk\i386\" />
+    <Property AllowUnsafeBlocks="false" />
+    <Property BaseAddress="285212672" />
+    <Property CheckForOverflowUnderflow="false" />
+    <Property ConfigurationOverrideFile="" />
+    <Property DefineConstants="TRACE" />
+    <Property DocumentationFile="" />
+    <Property DebugSymbols="false" />
+    <Property FileAlignment="4096" />
+    <Property IncrementalBuild="false" />
+    <Property NoStdLib="false" />
+    <Property NoWarn="" />
+    <Property Optimize="true" />
+    <Property RegisterForComInterop="false" />
+    <Property RemoveIntegerChecks="false" />
+    <Property TreatWarningsAsErrors="false" />
+    <Property WarningLevel="4" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" HintPath="..\..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" HintPath="..\..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll" />
+    <Item Type="Reference" Include="System.NaturalLanguage" HintPath="$(windir)\Microsoft.NET\Windows\v6.0.4030\System.NaturalLanguage.dll" Name="System.NaturalLanguage" />
+    <Item Type="Reference" Include="System.XML" Name="System.XML" HintPath="..\..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="cmdopts.cs" SubType="Code" />
+    <Item Type="Compile" Include="NEFinder.cs" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

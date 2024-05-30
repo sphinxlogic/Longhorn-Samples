@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingProjection", "BindingProjection\BindingProjection.csproj", "{93780F0E-30AE-4EF3-8605-FA3491437DA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93780F0E-30AE-4EF3-8605-FA3491437DA5}.Debug|.NET.ActiveCfg = Debug|.NET
+		{93780F0E-30AE-4EF3-8605-FA3491437DA5}.Debug|.NET.Build.0 = Debug|.NET
+		{93780F0E-30AE-4EF3-8605-FA3491437DA5}.Release|.NET.ActiveCfg = Release|.NET
+		{93780F0E-30AE-4EF3-8605-FA3491437DA5}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

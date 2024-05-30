@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleNav", "SimpleNav.csproj", "{40EA061E-8785-4D2B-8023-B245E5BC8955}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40EA061E-8785-4D2B-8023-B245E5BC8955}.Debug|.NET.ActiveCfg = Debug|.NET
+		{40EA061E-8785-4D2B-8023-B245E5BC8955}.Debug|.NET.Build.0 = Debug|.NET
+		{40EA061E-8785-4D2B-8023-B245E5BC8955}.Release|.NET.ActiveCfg = Release|.NET
+		{40EA061E-8785-4D2B-8023-B245E5BC8955}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizableApp2_wcp", "LocalizableApp2_wcp.csproj", "{6D30F8F7-B421-4B15-BCC4-159D86B10B79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D30F8F7-B421-4B15-BCC4-159D86B10B79}.Debug|.NET.ActiveCfg = Debug|.NET
+		{6D30F8F7-B421-4B15-BCC4-159D86B10B79}.Debug|.NET.Build.0 = Debug|.NET
+		{6D30F8F7-B421-4B15-BCC4-159D86B10B79}.Release|.NET.ActiveCfg = Release|.NET
+		{6D30F8F7-B421-4B15-BCC4-159D86B10B79}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="SDKSample" />
+    <Property TargetName="freeze_csharp" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{864A8A8B-3949-4B63-AA4B-205050292A46}" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="Compile" Include="default.cs" SubType="Code" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

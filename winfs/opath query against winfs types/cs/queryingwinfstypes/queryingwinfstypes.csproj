@@ -1,0 +1,80 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{23CE0200-3420-4DD7-A3E4-5828250070F1}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="QueryingWinFSTypes" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="QueryingWinFSTypes" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.Data" HintPath="..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Data.dll" Name="System.Data" />
+    <Item Type="Reference" Include="System.Drawing" HintPath="..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Drawing.dll" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Forms" HintPath="..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Windows.Forms.dll" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Xml" HintPath="..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.XML.dll" Name="System.XML" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.WinFS.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.WinFS" />
+    <Item Type="Reference" Include="System.Storage.Annotations" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Annotations.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Annotations" />
+    <Item Type="Reference" Include="System.Storage.Assistance" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Assistance.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Assistance" />
+    <Item Type="Reference" Include="System.Storage.Audio" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Audio.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Audio" />
+    <Item Type="Reference" Include="System.Storage.Audio.WMIS" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Audio.WMIS.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Audio.WMIS" />
+    <Item Type="Reference" Include="System.Storage.Calendar" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Calendar.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Calendar" />
+    <Item Type="Reference" Include="System.Storage.CategoryHierarchy" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.CategoryHierarchy.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.CategoryHierarchy" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Contacts.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Contacts" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Core.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Core" />
+    <Item Type="Reference" Include="System.Storage.Email" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Email.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Email" />
+    <Item Type="Reference" Include="System.Storage.Explorer" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Explorer.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Explorer" />
+    <Item Type="Reference" Include="System.Storage.Image" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Image.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Image" />
+    <Item Type="Reference" Include="System.Storage.Locations" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Locations.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Locations" />
+    <Item Type="Reference" Include="System.Storage.Media" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Media.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Media" />
+    <Item Type="Reference" Include="System.Storage.Messages" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Messages.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Messages" />
+    <Item Type="Reference" Include="System.Storage.Meta" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Meta.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Meta" />
+    <Item Type="Reference" Include="System.Storage.NaturalUI" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.NaturalUI.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.NaturalUI" />
+    <Item Type="Reference" Include="System.Storage.Notes" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Notes.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Notes" />
+    <Item Type="Reference" Include="System.Storage.Principals" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Principals.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Principals" />
+    <Item Type="Reference" Include="System.Storage.Programs" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Programs.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Programs" />
+    <Item Type="Reference" Include="System.Storage.Services" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Services.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Services" />
+    <Item Type="Reference" Include="System.Storage.Synchronization.WinFSSyncHandler" HintPath="C:\WINDOWS\Microsoft.net\Windows\v6.0.4030\System.Storage.Synchronization.WinFSSyncHandler.dll" AssemblyFolderKey="hklm\windowsclient" Name="System.Storage.Synchronization.WinFSSyncHandler" />
+    <Item Type="Reference" Include="System.Storage.Video" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Video.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Video" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\WindowsBase.dll" AssemblyFolderKey="hklm\windowsclient" Name="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="QueryingWinFSTypes.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="QueryingWinFSTypes.resx" DependentUpon="QueryingWinFSTypes.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

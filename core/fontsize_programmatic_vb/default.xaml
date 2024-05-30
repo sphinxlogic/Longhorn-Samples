@@ -1,0 +1,25 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+
+    Public Sub OnClick(sender As object, args As System.Windows.Controls.ClickEventArgs)
+      'Get the current value of the property
+      Dim fs As System.Windows.FontSize
+      fs = btn1.FontSize
+      'If the current value of the property is 14 Pixels then change it to a new value.
+      'Otherwise change it back to 14 Pixels.
+      if fs.Amount = 14 Then
+        btn1.FontSize = new System.Windows.FontSize(6,System.Windows.FontSizeType.Pixel)
+      Else
+        btn1.FontSize = new System.Windows.FontSize(14,System.Windows.FontSizeType.Pixel)
+      End If
+   End Sub
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" FontFamily="Arial" FontSize="14" ID="btn1">
+Click To See Change!!</Button>
+</FlowPanel>

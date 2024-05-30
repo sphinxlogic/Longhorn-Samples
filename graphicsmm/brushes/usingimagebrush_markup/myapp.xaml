@@ -1,0 +1,151 @@
+
+<Application
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.MyApp"
+    def:CodeBehind="MyApp.xaml.cs"
+    StartingUp="AppStartingUp"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+     <Application.Resources>
+      
+		<SolidColorBrush def:Name="glowingHighlight" Color="Yellow" >
+            <SolidColorBrush.ColorAnimations>
+                <ColorAnimation From="Yellow" To="WhiteSmoke" Duration="1" 
+					RepeatDuration="Indefinite" AutoReverse="True" />
+            </SolidColorBrush.ColorAnimations>
+        </SolidColorBrush>
+        
+        <LinearGradientBrush  def:Name="myHeaderBackground"
+			StartPoint="0,0.5" EndPoint="1,0.5" Opacity="0.5">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop Color="GoldenRod" Offset="0" /> 
+						<GradientStop Color="Gold" Offset="0.25" />
+						<GradientStop Color="Yellow" Offset="0.75" />
+						<GradientStop Color="White" Offset="1" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+		</LinearGradientBrush>
+		
+		<LinearGradientBrush  def:Name="ruledLineBackground"
+			StartPoint="0.5,0" EndPoint="0.5,1" Opacity="0.5">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop Color="LightGray" Offset="0" /> 
+						<GradientStop Color="WhiteSmoke" Offset="0.25" />
+						<GradientStop Color="LightGray" Offset="0.75" />
+						<GradientStop Color="Gray" Offset="1" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+		</LinearGradientBrush>
+        
+        <Style>
+			<TextPanel MaxWidth="400" FontFamily="Verdana" Margin="10" />
+        </Style>
+        
+        <Style def:Name="navButton">
+            <Button Margin="2" Foreground="Black" MinHeight="40" />
+            
+            <Style.VisualTree>
+                
+                <Canvas 
+					Width="100%"
+                    Height="100%">
+
+					<Rectangle def:StyleID="outlineRect"
+						Width="100%"
+						Height="100%"                       
+						RadiusX="10"
+						RadiusY="10"
+						StrokeThickness="5"
+						Stroke="*Alias(Target=Background)" />
+						
+					<Rectangle def:StyleID="sBackingRect"
+						Width="100%"
+						Height="100%"                       
+						StrokeThickness="20"
+						Stroke="Transparent"
+						Fill="*Alias(Target=Background)" /> 		
+					
+					 <FlowPanel		
+						Width="100%"
+						Height="100%"		
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center">
+						<DockPanel>
+							<ContentPresenter Margin="20" DockPanel.Dock="Fill"
+								ContentControl.Content="*Alias(Target=Content)" />
+						</DockPanel>
+					</FlowPanel>
+					
+       
+                    <!-- Simulates a glass surface. -->
+                    <Rectangle def:StyleID="glassCube"
+						Width="100%"
+                        Height="100%"               
+                        Stroke="VerticalGradient LightBlue Gray"
+						StrokeThickness="2"
+                        RadiusX="10"
+                        RadiusY="10"
+                        Opacity="0"
+                        OpacityMask="RadialGradient Transparent Black">
+  
+                     <Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="1">
+							<LinearGradientBrush.GradientStops>
+									<GradientStop Color="WhiteSmoke" Offset="0.2" />
+									<GradientStop Color="Transparent" Offset="0.4" />
+									<GradientStop Color="WhiteSmoke" Offset="0.5" />
+									<GradientStop Color="Transparent" Offset="0.75" />
+									<GradientStop Color="WhiteSmoke" Offset="0.9" />
+									<GradientStop Color="Transparent" Offset="1" />		
+							</LinearGradientBrush.GradientStops>			
+						</LinearGradientBrush>       
+                     </Rectangle.Fill>                             
+                 </Rectangle>
+                    
+            </Canvas>
+          
+            </Style.VisualTree>
+            <Style.VisualTriggers>
+                <PropertyTrigger Property="IsMouseOver" Value="true">
+                   
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="1"
+                        Target="glassCube" />
+                </PropertyTrigger>
+                
+                 <PropertyTrigger Property="IsPressed" Value="true">
+
+                    <Set PropertyPath="Rectangle.Fill" 
+                        Value="{glowingHighlight}"
+                        Target="sBackingRect" />
+                    
+                    <Set PropertyPath="Rectangle.Stroke" 
+                        Value="{glowingHighlight}"
+                        Target="outlineRect" />          
+                </PropertyTrigger>
+                
+                <PropertyTrigger Property="IsEnabled" Value="false">
+                    
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="0"
+                        Target="sBackingRect" />
+                    
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="0"
+                        Target="outlineRect" />
+                        
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="1"
+                        Target="glassCube" />                
+                     
+                </PropertyTrigger>
+            </Style.VisualTriggers>
+       
+        </Style>
+       
+
+    </Application.Resources>
+</Application>

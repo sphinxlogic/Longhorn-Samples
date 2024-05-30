@@ -1,0 +1,68 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	Dim firstRectangle As System.Windows.Shapes.Rectangle
+	firstRectangle = new System.Windows.Shapes.Rectangle
+	firstRectangle.RectangleTop = new System.Windows.Length(50)
+	firstRectangle.RectangleLeft = new System.Windows.Length(50)
+	firstRectangle.RectangleHeight = new System.Windows.Length(50)
+	firstRectangle.RectangleWidth = new System.Windows.Length(50)
+	firstRectangle.Fill = System.Windows.Media.Brushes.Red
+	firstRectangle.Stroke = System.Windows.Media.Brushes.Black
+	root.Children.Add(firstRectangle)
+
+	Dim secondRectangle As System.Windows.Shapes.Rectangle
+	secondRectangle = new System.Windows.Shapes.Rectangle
+	secondRectangle.RectangleTop = new System.Windows.Length(50)
+	secondRectangle.RectangleLeft = new System.Windows.Length(150)
+	secondRectangle.RectangleHeight = new System.Windows.Length(50)
+	secondRectangle.RectangleWidth = new System.Windows.Length(50)
+	secondRectangle.Fill = System.Windows.Media.Brushes.Yellow
+	secondRectangle.Stroke = System.Windows.Media.Brushes.Black
+
+	Dim transformation As new System.Windows.Controls.TransformDecorator
+	transformation.AffectsLayout = false
+	Dim myScaleTransform As new System.Windows.Media.ScaleTransform
+	myScaleTransform.ScaleY = 2.0
+	transformation.Transform = myScaleTransform
+	transformation.Child = secondRectangle
+	root.Children.Add(transformation)
+		
+	Dim thirdRectangle As new System.Windows.Shapes.Rectangle
+	thirdRectangle.RectangleTop = new System.Windows.Length(50)
+	thirdRectangle.RectangleLeft = new System.Windows.Length(250)
+	thirdRectangle.RectangleHeight = new System.Windows.Length(50)
+	thirdRectangle.RectangleWidth = new System.Windows.Length(50)
+	thirdRectangle.Fill = System.Windows.Media.Brushes.Blue
+	thirdRectangle.Stroke = System.Windows.Media.Brushes.Black
+	myScaleTransform = new System.Windows.Media.ScaleTransform
+	myScaleTransform.Center = new System.Windows.Point(0, 50)
+	myScaleTransform.ScaleY = 2.0
+
+	Dim secondTransformation As new System.Windows.Controls.TransformDecorator
+
+	secondTransformation.Transform = myScaleTransform
+	secondTransformation.Child = thirdRectangle
+	root.Children.Add(secondTransformation)   	
+
+
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

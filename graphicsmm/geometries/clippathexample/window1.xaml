@@ -1,0 +1,106 @@
+
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ClipPathExample.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="ClipPathExample" Visible="True"
+    >
+    <Window.Resources>
+        <Style>
+            <Rectangle RectangleWidth="100" RectangleHeight="100" />
+        </Style>
+        <Style>
+            <Text FontSize="14" Foreground="Black" />
+        </Style>
+    </Window.Resources>
+ 
+    <ScrollViewer>
+    <GridPanel DockPanel.Dock="Fill" Columns="4">
+        <Text>No Clip</Text>
+       
+        <GridPanel Columns="3" 
+            Width="300" Height="300" 
+            CellSpacing="0">
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />  
+        </GridPanel>
+        
+        <Text>Rectangular Clip Example</Text>  
+        <GridPanel Columns="3" 
+            Width="300" Height="300" 
+            CellSpacing="0"
+            Clip="M 150,0 L 300,300 0,300 Z">
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />  
+        </GridPanel>
+        
+        <Text>Another Clip Example</Text>  
+        <GridPanel Columns="3" 
+            Width="300" Height="300" 
+            CellSpacing="0">
+            <GridPanel.Clip>
+                <EllipseGeometry 
+                    RadiusX="100" 
+                    RadiusY="100"
+                    Center="150,150"
+                    />
+               
+            </GridPanel.Clip>
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />  
+        </GridPanel>
+        
+        <Text>Animated Clip Example</Text>  
+        <GridPanel Columns="3" 
+            Width="300" Height="300" 
+            CellSpacing="0">
+            <GridPanel.Clip>
+                <EllipseGeometry 
+                    RadiusX="100" 
+                    RadiusY="100"
+                    Center="150,150">
+                    <EllipseGeometry.CenterAnimations>
+                        <PointAnimation From="0,0" To="300,300"
+                            Duration="5" AutoReverse="True"
+                            RepeatDuration="Indefinite" />
+                   
+                    </EllipseGeometry.CenterAnimations>
+                </EllipseGeometry>
+               
+            </GridPanel.Clip>
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Orange Red" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient LightGray Gray" />
+            <Rectangle Fill="RadialGradient Blue BlueViolet" />
+            <Rectangle Fill="RadialGradient Orange Red" />  
+        </GridPanel>
+        
+    </GridPanel>
+    </ScrollViewer>
+</Window>

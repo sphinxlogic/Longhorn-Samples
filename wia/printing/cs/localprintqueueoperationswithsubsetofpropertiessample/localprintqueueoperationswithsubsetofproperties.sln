@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalPrintQueueOperationsWithSubsetOfPropertiesSample", "LocalPrintQueueOperationsWithSubsetOfPropertiesSample.csproj", "{5663D4A7-C72C-4E1B-8DCC-BDF0807EB06A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5663D4A7-C72C-4E1B-8DCC-BDF0807EB06A}.Debug|.NET.ActiveCfg = Debug|.NET
+		{5663D4A7-C72C-4E1B-8DCC-BDF0807EB06A}.Debug|.NET.Build.0 = Debug|.NET
+		{5663D4A7-C72C-4E1B-8DCC-BDF0807EB06A}.Release|.NET.ActiveCfg = Release|.NET
+		{5663D4A7-C72C-4E1B-8DCC-BDF0807EB06A}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

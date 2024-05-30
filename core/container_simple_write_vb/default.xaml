@@ -1,0 +1,37 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Loaded="OpenContainer">
+   <def:Code>
+   <![CDATA[
+
+   Public Sub OpenContainer(sender As object, args As System.EventArgs)
+    Try
+     'Create a Container
+     Dim myFile As System.IO.CompoundFile.StorageRoot
+     myFile = System.IO.CompoundFile.StorageRoot.Open("My Container.container", System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite)
+
+     
+     'Create the root storage
+     Dim rootStorage As System.IO.CompoundFile.StorageInfo
+     rootStorage = CType(myFile, System.IO.CompoundFile.StorageInfo)
+
+     'Creates a StreamInfo object referring to a data stream in the given parent (rootStorage).
+     'Create a few StreamInfo objects
+     Dim myData As new System.IO.CompoundFile.StreamInfo(rootStorage, "My Stream" )
+
+     'Create a data stream and write to it using the Stream and StreamWriter classes of the 
+     'Frameworks library. 
+     Dim  writeStream As System.IO.Stream
+     writeStream = myData.Create( System.IO.FileMode.Create )
+     Dim writer As new System.IO.StreamWriter(writeStream)
+     writer.Write("Here is some Text Content for the Stream!")
+     writer.Close 
+    Catch ex as System.Exception
+		System.Windows.MessageBox.Show(ex.Message)
+    End Try	
+  End Sub
+   ]]>
+   </def:Code>
+</DockPanel>
+

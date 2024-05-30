@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="system.remoting">
+   <Target Name="system.remoting">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="..\system.remoting.dll"
+                 References="system.dll;system.messagebus.dll"
+                 Sources="remotingapplication.cs"
+                 TargetType="library" />
+
+   </Target>
+</Project>

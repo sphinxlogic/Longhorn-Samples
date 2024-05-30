@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppEvents", "AppEvents.csproj", "{2A85E414-7409-4616-81FB-FC5F494B105D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A85E414-7409-4616-81FB-FC5F494B105D}.Debug|.NET.ActiveCfg = Debug|.NET
+		{2A85E414-7409-4616-81FB-FC5F494B105D}.Debug|.NET.Build.0 = Debug|.NET
+		{2A85E414-7409-4616-81FB-FC5F494B105D}.Release|.NET.ActiveCfg = Release|.NET
+		{2A85E414-7409-4616-81FB-FC5F494B105D}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

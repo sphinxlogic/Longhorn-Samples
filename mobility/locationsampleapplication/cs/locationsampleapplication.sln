@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationSampleApplication", "LocationSampleApplication\LocationSampleApplication.csproj", "{C393D596-8176-438B-B46B-934A2C4163BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C393D596-8176-438B-B46B-934A2C4163BD}.Debug.ActiveCfg = Debug|.NET
+		{C393D596-8176-438B-B46B-934A2C4163BD}.Debug.Build.0 = Debug|.NET
+		{C393D596-8176-438B-B46B-934A2C4163BD}.Release.ActiveCfg = Release|.NET
+		{C393D596-8176-438B-B46B-934A2C4163BD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleTransform_csharp", "ScaleTransform_csharp.csproj", "{597B762E-0150-438B-A910-C5442350AE74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{597B762E-0150-438B-A910-C5442350AE74}.Debug|.NET.ActiveCfg = Debug|.NET
+		{597B762E-0150-438B-A910-C5442350AE74}.Debug|.NET.Build.0 = Debug|.NET
+		{597B762E-0150-438B-A910-C5442350AE74}.Release|.NET.ActiveCfg = Release|.NET
+		{597B762E-0150-438B-A910-C5442350AE74}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

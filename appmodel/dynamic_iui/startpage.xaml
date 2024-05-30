@@ -1,0 +1,64 @@
+<StringPageFunction xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+           def:CodeBehind="StartPage.xaml.cs"
+           def:Class="WCSample.StartPage">
+  <DockPanel >
+
+	  <Border Background="LightGray">
+	  <DockPanel DockPanel.Dock="Left">
+      <Text DockPanel.Dock="Top"
+			    ID="SomeText"
+			    FontSize="14"
+			    FontWeight="Bold"
+			    Margin="10,20,10,10">Starting Page</Text>
+      <Text FontSize="14"
+				  FontWeight="Bold"
+				  Margin="10,20,10,10">Some Explanatory Text</Text>
+	  </DockPanel>
+	  </Border>
+  	
+    <DockPanel DockPanel.Dock="Fill">
+    		
+	    <Button DockPanel.Dock="Top"
+                  Margin="10,20,10,10"
+                  ID="firstTask"
+                  Click="StartTasks"
+                  Height="30"
+                  Width="100">Start</Button>
+
+	    <Button DockPanel.Dock="Top"
+                  Margin="10,20,10,10"
+                  ID="done"
+                  Click="ShutDown"
+                  Height="30"
+                  Width="100">ShutDown</Button>
+
+	    <Text DockPanel.Dock="Top"
+			    Margin="10,20,10,10"
+			    FontSize="14"
+			    FontWeight="Bold">Return Type: <Text ID="navhubReturn"
+			    FontSize="12"
+			    FontWeight="Normal"/></Text>
+	    <Text DockPanel.Dock="Top"
+			    Margin="10,20,10,10"
+			    FontSize="14"
+			    FontWeight="Bold">Return Data From Page 1: <Text ID="navhubReturn1"
+			    FontSize="12"
+			    FontWeight="Normal"/></Text>
+ 	    <Text DockPanel.Dock="Top"
+			    Margin="10,20,10,10"
+			    FontSize="14"
+			    FontWeight="Bold">Return Data From Page 2: <Text ID="navhubReturn2"
+			    FontSize="12"
+			    FontWeight="Normal"/></Text>
+ 	    <Text DockPanel.Dock="Top"
+			    Margin="10,20,10,10"
+			    FontSize="14"
+			    FontWeight="Bold">Return Data From Page 3: <Text ID="navhubReturn3"
+			    FontSize="12"
+			    FontWeight="Normal"/></Text>
+  			
+	    
+    </DockPanel>
+  </DockPanel>
+</StringPageFunction>

@@ -1,0 +1,46 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+
+  <Path ID="myPath"
+    Fill="Blue"
+    Stroke="Black"
+    StrokeThickness="5">
+  
+    <Path.Data>
+      <GeometryCollection>
+        
+        <LineGeometry StartPoint="50,50" EndPoint="300,50"/>
+        <EllipseGeometry Center="440, 100" RadiusX="40" RadiusY="75"/>
+	<RectangleGeometry >
+          <RectangleGeometry.Rect>
+            <Rect X="400" Y="225" Width="100" Height="50"/>
+          </RectangleGeometry.Rect>
+        </RectangleGeometry>
+
+        <PathGeometry>
+          <PathGeometry.Figures>
+            <PathFigureCollection>
+              <PathFigure>
+                <PathFigure.Segments>
+                  <PathSegmentCollection>
+                    <StartSegment Point="400,100"/>
+                    <BezierSegment Point1="400,100" Point2="400,200" Point3="200,300"/>
+                    <BezierSegment Point1="400,300" Point2="400,100" Point3="200,50"/>
+                    <BezierSegment Point1="0,100" Point2="0,200" Point3="200,300"/>
+                    <BezierSegment Point1="0,300" Point2="0,100" Point3="200,50"/>
+                  </PathSegmentCollection>
+                </PathFigure.Segments>
+              </PathFigure>
+            </PathFigureCollection>
+          </PathGeometry.Figures>
+        </PathGeometry>
+
+
+      </GeometryCollection>
+
+    </Path.Data>
+  </Path>
+
+
+</Canvas>

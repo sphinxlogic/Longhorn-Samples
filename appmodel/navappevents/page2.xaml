@@ -1,0 +1,32 @@
+<NavigationWindow xmlns="http://schemas.microsoft.com/2003/xaml/"
+            xmlns:def="Definition"
+            def:CodeBehind="Page2.xaml.cs"
+            def:Class="WCSample.Page2"
+            ID="Window2"
+            Visible="true"
+            Text="Page 2"
+            Loaded="Init">
+            
+	<DockPanel>
+            
+		<Text Margin="10,10,10,10"
+				DockPanel.Dock="Top">Page 2</Text>
+
+		<Button Margin="10,10,10,10"
+			Click="btnGoTo3"
+			Height="60"
+			Width="150"
+			DockPanel.Dock="Top"
+			Content="Go To Page 3"
+			ID="GoTo3"/>
+			
+		<Button Margin="10,10,10,10"
+			Click="btnClose"
+			Height="60"
+			Width="150"
+			DockPanel.Dock="Top"
+			Content="Close Window 2"
+			ID="GoTo1"/>
+    
+</DockPanel>
+</NavigationWindow>

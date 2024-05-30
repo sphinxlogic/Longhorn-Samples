@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtcSample", "RtcSample\RtcSample.csproj", "{4705BC00-D631-4373-8510-EAC9686CBD5E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4705BC00-D631-4373-8510-EAC9686CBD5E}.Debug.ActiveCfg = Debug|.NET
+		{4705BC00-D631-4373-8510-EAC9686CBD5E}.Debug.Build.0 = Debug|.NET
+		{4705BC00-D631-4373-8510-EAC9686CBD5E}.Release.ActiveCfg = Release|.NET
+		{4705BC00-D631-4373-8510-EAC9686CBD5E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

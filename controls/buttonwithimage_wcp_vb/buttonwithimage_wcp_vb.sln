@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ButtonwithImage_wcp_vb", "ButtonwithImage_wcp_vb.vbproj", "{FCCDB328-9E3D-45BC-9BE1-46FF53BF29AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCCDB328-9E3D-45BC-9BE1-46FF53BF29AB}.Debug|.NET.ActiveCfg = Debug|.NET
+		{FCCDB328-9E3D-45BC-9BE1-46FF53BF29AB}.Debug|.NET.Build.0 = Debug|.NET
+		{FCCDB328-9E3D-45BC-9BE1-46FF53BF29AB}.Release|.NET.ActiveCfg = Release|.NET
+		{FCCDB328-9E3D-45BC-9BE1-46FF53BF29AB}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

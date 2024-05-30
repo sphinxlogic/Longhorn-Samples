@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLinker", "ImageLinker\ImageLinker.csproj", "{C7CAA0C3-F1A8-4847-8AE6-3E28E840AD76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7CAA0C3-F1A8-4847-8AE6-3E28E840AD76}.Debug|.NET.ActiveCfg = Debug|.NET
+		{C7CAA0C3-F1A8-4847-8AE6-3E28E840AD76}.Debug|.NET.Build.0 = Debug|.NET
+		{C7CAA0C3-F1A8-4847-8AE6-3E28E840AD76}.Release|.NET.ActiveCfg = Release|.NET
+		{C7CAA0C3-F1A8-4847-8AE6-3E28E840AD76}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

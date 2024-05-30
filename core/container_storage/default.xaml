@@ -1,0 +1,30 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition">
+
+<Button Width="500" Height="30" Click="OpenContainer">Create a Root
+Storage and Another Storage Inside the Root Storage</Button>
+
+   <def:Code>
+   <![CDATA[
+   void OpenContainer(object sender, System.Windows.Controls.ClickEventArgs e)
+   {
+     // Create a Container
+     System.IO.CompoundFile.StorageRoot myFile =
+	 System.IO.CompoundFile.StorageRoot.Open(
+                                     "My Container.container",
+                                     System.IO.FileMode.OpenOrCreate, 
+                                     System.IO.FileAccess.ReadWrite);
+	 
+     // Create the root storage
+     System.IO.CompoundFile.StorageInfo rootStorage =
+	 (System.IO.CompoundFile.StorageInfo)myFile;
+     rootStorage.Create();
+     // Create another storage underneath the root storage
+     System.IO.CompoundFile.StorageInfo newStorage = new
+	 System.IO.CompoundFile.StorageInfo(rootStorage, "NewStorageUnderRoot");
+     newStorage.Create();
+   }
+   ]]>
+   </def:Code>
+</DockPanel>

@@ -1,0 +1,17 @@
+<Canvas 
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+  <Line Stroke="Black"
+    X1="200" 
+    Y1="10" 
+    X2="50" 
+    Y2="300"/>
+
+  <Line Stroke="RadialGradient Red Blue"
+    StrokeThickness="5"
+    X1="250" 
+    Y1="50" 
+    X2="100" 
+    Y2="280"/>
+  
+</Canvas>

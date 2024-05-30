@@ -1,0 +1,131 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="EnableAndDisableTextFormattingNew.Window1"
+    def:CodeBehind="Window1.xaml.vb" 
+    Text="EnableAndDisableTextFormattingNew" Visible="True"
+    Loaded="WindowLoaded"
+    >
+    <Canvas>
+    <FlowPanel>
+ <Button ID="btnbold" Click="doCommand">Bold <!-- <Image Source="Data\ui_bold.gif"/>--> </Button>
+<Button ID="btnitalic" Click="doCommand">Italic<!-- <Image Source="Data\ui_italic.gif"/>--></Button>
+<Button ID="btnunderline" Click="doCommand">Underline<!-- <Image Source="Data\ui_underline.gif"/>--></Button>
+
+<Button ID="btnplaintext" Click="PlainText">Plain Text</Button>
+<Button ID="btnrichtext" Click="RichText">Rich Text</Button> 
+
+</FlowPanel>
+      <TextBox 
+ ID="tb1"   
+ Canvas.Top="50px" 
+ Height="400px"
+ Width="700px"
+ Margin="20, 0, 20, 20"
+ Wrap="true"
+ AcceptsReturn="true"
+ >I am going to talk of controversial things. I make no apology for this. 
+
+It's time we asked ourselves if we still know the freedoms intended for us by the Founding Fathers. James Madison said, "We 
+
+base all our experiments on the capacity of mankind for self government." 
+
+This idea? that government was beholden to the people, that it had no other source of power is still the newest, most unique 
+
+idea in all the long history of man's relation to man. This is the issue of this election: Whether we believe in our capacity 
+
+for self-government or whether we abandon the American Revolution and confess that a little intellectual elite in a far-
+
+distant capital can plan our lives for us better than we can plan them ourselves. 
+
+You and I are told we must choose between a left or right, but I suggest there is no such thing as a left or right. There is 
+
+only an up or down. Up to man's age-old dream-the maximum of individual freedom consistent with order or down to the ant heap 
+
+of totalitarianism. Regardless of their sincerity, their humanitarian motives, those who would sacrifice freedom for security 
+
+have embarked on this downward path. Plutarch warned, "The real destroyer of the liberties of the people is he who spreads 
+
+among them bounties, donations and benefits." 
+
+The Founding Fathers knew a government can't control the economy without controlling people. And they knew when a government 
+
+sets out to do that, it must use force and coercion to achieve its purpose. So we have come to a time for choosing. 
+
+Public servants say, always with the best of intentions, "What greater service we could render if only we had a little more 
+
+money and a little more power." But the truth is that outside of its legitimate function, government does nothing as well or 
+
+as economically as the private sector. 
+
+Yet any time you and I question the schemes of the do-gooders, we're denounced as being opposed to their humanitarian goals. 
+
+It seems impossible to legitimately debate their solutions with the assumption that all of us share the desire to help the 
+
+less fortunate. They tell us we're always "against," never "for" anything. 
+
+We are for a provision that destitution should not follow unemployment by reason of old age, and to that end we have accepted 
+
+Social Security as a step toward meeting the problem. However, we are against those entrusted with this program when they 
+
+practice deception regarding its fiscal shortcomings, when they charge that any criticism of the program means that we want 
+
+to end payments.... 
+
+We are for aiding our allies by sharing our material blessings with nations which share our fundamental beliefs, but we are 
+
+against doling out money government to government, creating bureaucracy, if not socialism, all over the world. 
+
+We need true tax reform that will at least make a start toward I restoring for our children the American Dream that wealth is 
+
+denied to no one, that each individual has the right to fly as high as his strength and ability will take him.... But we can 
+
+not have such reform while our tax policy is engineered by people who view the tax as a means of achieving changes in our 
+
+social structure.... 
+
+Have we the courage and the will to face up to the immorality and discrimination of the progressive tax, and demand a return 
+
+to traditional proportionate taxation? . . . Today in our country the tax collector's share is 37 cents of -very dollar 
+
+earned. Freedom has never been so fragile, so close to slipping from our grasp. 
+
+Are you willing to spend time studying the issues, making yourself aware, and then conveying that information to family and 
+
+friends? Will you resist the temptation to get a government handout for your community? Realize that the doctor's fight 
+
+against socialized medicine is your fight. We can't socialize the doctors without socializing the patients. Recognize that 
+
+government invasion of public power is eventually an assault upon your own business. If some among you fear taking a stand 
+
+because you are afraid of reprisals from customers, clients, or even government, recognize that you are just feeding the 
+
+crocodile hoping he'll eat you last. 
+
+If all of this seems like a great deal of trouble, think what's at stake. We are faced with the most evil enemy mankind has 
+
+known in his long climb from the swamp to the stars. There can be no security anywhere in the free world if there is no 
+
+fiscal and economic stability within the United States. Those who ask us to trade our freedom for the soup kitchen of the 
+
+welfare state are architects of a policy of accommodation. 
+
+They say the world has become too complex for simple answers. They are wrong. There are no easy answers, but there are simple 
+
+answers. We must have the courage to do what we know is morally right. Winston Churchill said that "the destiny of man is not 
+
+measured by material computation. When great forces are on the move in the world, we learn we are spirits-not animals." And 
+
+he said, "There is something going on in time and space, and beyond time and space, which, whether we like it or not, spells 
+
+duty." 
+
+You and I have a rendezvous with destiny. We will preserve for our children this, the last best hope of man on earth, or we 
+
+will sentence them to take the first step into a thousand years of darkness. If we fail, at least let our children and our 
+
+children's children say of us we justified our brief moment here. We did all that could be done.</TextBox>
+    
+    </Canvas>
+</Window>

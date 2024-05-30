@@ -1,0 +1,36 @@
+<!-- This markup is used to layout the sample. See Window1.xaml.cs for the
+	 code the demonstrates how to interactively control an animation.  -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="restartanimation_code_csharp.MyWindow"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Interactively Control an Animation" Visible="True"
+    Loaded="WindowLoaded"
+    >
+   
+   <Window.Resources>
+		<Style>
+			<Button Height="30" Width="150" FontWeight="Bold" Margin="5" />
+		</Style>
+    </Window.Resources>
+    
+    
+    
+    <GridPanel 
+		ID="mainPanel"
+		DockPanel.Dock="Fill" 
+		Margin="20" Columns="2" Width="500" 
+		CellSpacing="5">
+		
+		<TextPanel GridPanel.ColumnSpan="2"
+			FontFamily="Verdana" FontSize="12pt"
+			Width="400"
+			Margin="0,0,0,20">
+			  This example demonstrates how to restart, pause, resume, and end animations
+			  interactively.
+		</TextPanel>
+	
+
+    </GridPanel>
+</Window>

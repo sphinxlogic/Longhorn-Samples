@@ -1,0 +1,31 @@
+<DockPanel
+ xmlns="http://schemas.microsoft.com/2003/xaml"
+ xmlns:def="Definition"
+ ID="root"
+>
+<DockPanel.Resources>
+  <ObjectDataSource def:Name="myDataSource" TypeName="WCPSample.myDataCollection,DataClassSample" />
+  <Style def:Name="BidItemDataStyle">
+  	<ContentPresenter/>
+  	<Style.VisualTree>
+        <Canvas>
+  		<Text FontSize="Small" Foreground="Black" Width="350" Canvas.Left="0" TextContent="*Bind(Path=BidItemName)"/>
+        <Text FontSize="Small" Foreground="Blue" TextContent="$" Canvas.Left="350"/>
+  		<Text FontSize="Small" Foreground="Blue" Width="150" Canvas.Left="365" TextContent="*Bind(Path=BidItemPrice)"/>
+        </Canvas>
+  	</Style.VisualTree>
+  </Style>
+</DockPanel.Resources>
+
+<Text FontSize="18" Margin="5" FontWeight="Bold" DockPanel.Dock="Top">My Auction Tracker</Text>
+<ListBox ID="myListBox" ItemStyle="{BidItemDataStyle}" Width="800" Height="300" DockPanel.Dock="Left">
+  <ListBox.Items>
+    <CollectionContainer>
+      <CollectionContainer.Collection>
+        <Bind DataSource="{myDataSource}"/>
+      </CollectionContainer.Collection>
+    </CollectionContainer>
+  </ListBox.Items>
+</ListBox>
+<Text ID="InfoText" Width="500" TextWrap="Wrap" DockPanel.Dock="Bottom"/>
+</DockPanel>

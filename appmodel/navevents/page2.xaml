@@ -1,0 +1,17 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+           def:CodeBehind="Page2.xaml.cs"
+           def:Class="WCSample.Page2"
+           Loaded="Init">
+
+    <Text Margin="10,10,10,10"
+            DockPanel.Dock="Top">Page 2</Text>
+
+    <Button Margin="10,10,10,10"
+        Click="btnGoTo1"
+        Height="30"
+        Width="150"
+        DockPanel.Dock="Top"
+        Content="Go To Page 1"
+        ID="GoTo1"/>
+</DockPanel>

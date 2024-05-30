@@ -1,0 +1,7 @@
+<Project MSBuildVersion="1.2">
+  <PropertyGroup Condition="">
+    <Property LastOpenVersion="8.0.31113" />
+    <Property ProjectView="ProjectFiles" />
+    <Property ProjectTrust="0" />
+  </PropertyGroup>
+</Project>

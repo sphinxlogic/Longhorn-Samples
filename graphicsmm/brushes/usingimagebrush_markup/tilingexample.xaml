@@ -1,0 +1,209 @@
+<!-- In this example, several ImageBrushes are set with different tile modes.
+	 The Stretch property of the ImageBrush's have been set to "None" so that
+	 a single tile isn't automatically stretched to fill the entire shape. 
+	 The ImageBrush content is also aligned to the top left of the shape to
+	 make it easier to compare the tile modes. -->
+	 
+<GridPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.TilingExample"
+    def:CodeBehind="TilingExample.xaml.cs" 
+    Columns="3"
+    CellSpacing="5">
+   
+	<!-- Sets the styles for this example. -->
+	<GridPanel.Resources>
+		<Style>
+			<Text FontWeight="Bold" Margin="0,10,0,0"></Text>
+		</Style>
+		<Style>
+			<Image Height="50" Width="50"></Image>
+		</Style>
+    </GridPanel.Resources>
+
+	<DockPanel GridPanel.ColumnSpan="3"
+		Background="HorizontalGradient LimeGreen Yellow" 
+		MinHeight="50">
+		
+		<!-- Enables you to change the image displayed. -->
+		<Button DockPanel.Dock="Right" 
+			Style="{navButton}" Click="loadImage"> 
+			<Image Source="data\cherries.jpg" />
+		</Button>
+		<Button DockPanel.Dock="Right" 
+			Style="{navButton}" Click="loadImage" >
+			<Image Source="data\butterfly2_small.jpg" />
+		</Button>
+		<Button DockPanel.Dock="Right" 
+			Style="{navButton}" Click="loadImage" >
+			<Image Source="data\music.jpg" />
+		</Button>
+		<Button DockPanel.Dock="Right"
+			Style="{navButton}" IsEnabled="False"  Click="loadImage"
+			ID="firstImageButton">
+			<Image Source="data\triangle.jpg" />
+		</Button>
+		
+		<TextPanel DockPanel.Dock="Fill" Width="200">
+				The TileMode property enables you to specify how an
+				ImageBrush is tiled to fill the output area.
+			</TextPanel>
+	</DockPanel>
+	
+	
+	
+	<GridPanel>
+		<Text>No Tile</Text>
+		
+		<!-- The ImageBrush's content is not tiled in this example. -->
+		<Rectangle
+			ID="noTileRectangle"
+			Width="150"
+			Height="150"
+			Stroke="Black"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\triangle.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	
+	
+	</GridPanel>
+	
+	
+	<GridPanel>
+		<Text>TileMode="Tile"</Text>
+		
+		<!-- The ImageBrush's content is tiled in this example. -->
+		<Rectangle
+			ID="tileRectangle"
+			Width="150"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None"
+					TileMode="Tile"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"	
+					ImageSource="data\triangle.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>TileMode="FlipX"</Text>
+		
+		<!-- The ImageBrush's content is flipped horizontally as it is 
+			 tiled in this example. -->
+		<Rectangle
+			ID="flipXTileRectangle"
+			Width="150"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None"
+					TileMode="FlipX"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\triangle.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<!-- Used as a spacer. -->
+	<FlowPanel />
+	
+	<GridPanel>
+		<Text>TileMode="FlipY"</Text>
+		<!-- The ImageBrush's content is flipped vertically as it is 
+			 tiled in this example. -->
+		<Rectangle
+			ID="flipYTileRectangle"
+			Width="150"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None"
+					TileMode="FlipY"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\triangle.jpg" 
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	
+	
+	<GridPanel>
+		<Text>TileMode="FlipXY"</Text>
+		<!-- The ImageBrush's content is flipped horizontally 
+			 and vertically as it is tiled in this example. -->
+		<Rectangle
+			ID="flipXYTileRectangle"
+			Width="150"
+			Height="150"
+			Stroke="LimeGreen"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None"
+					TileMode="FlipXY"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					ImageSource="data\triangle.jpg" 
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<def:Code>
+			<![CDATA[
+				// Tracks the last button clicked so that it can be enabled.
+				private Button lastButtonClicked;
+				
+				// Changes the image being displayed.
+				private void loadImage(object sender, ClickEventArgs args){
+					// Retrieve the Image from the button's content.
+					Button b = ((Button)sender);
+					
+					Image selectedImage = (Image) b.Content;
+					
+					// Sets the ImageSource of the ImageBrushes used to fill the shapes.
+					((ImageBrush)noTileRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)tileRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)flipXTileRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)flipYTileRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)flipXYTileRectangle.Fill).ImageSource = selectedImage.Source;
+					
+					// Disable the button that contains the selected image
+					// and enable the previously selected image button.
+					b.IsEnabled = false;
+					if (lastButtonClicked == null)
+						firstImageButton.IsEnabled = true;
+					else
+						lastButtonClicked.IsEnabled = true;
+					lastButtonClicked = b;
+					
+				}
+	
+			]]>
+		
+	</def:Code>
+	
+
+</GridPanel>

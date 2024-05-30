@@ -1,0 +1,39 @@
+<!-- 
+' This sample is comprised of the following files:
+'
+'		Window1.xaml And Window1.xaml.vb:		
+'			Used to layout and initialize the timing
+'			and animation samples.
+'
+'		AnimationAndTimlineLinkingExample.vb
+'			Demonstrates how to use a single
+'			Timeline to control other timelines
+'			and animations.
+'
+'		BeginTimesExample.vb
+'			Demonstrates the behavior of the Begin property.
+'
+'		EndTimesExample.vb
+'			Demonstrates the use of implicit end times on a timeline.
+'
+'		SynchronizeTimelinesExample.vb
+'			Demonstrates how to synchronize timeline objects.
+'
+'		MyClock.cs
+'			Used to visually represent a timeline.
+'
+-->
+
+
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="parentTimelines_vb.Window1"
+    def:CodeBehind="Window1.xaml.vb" 
+    Text="parentTimelines_vb" Visible="True"
+    Loaded="WindowLoaded"
+    ID="mainWindow"
+    >
+    
+    
+</Window>

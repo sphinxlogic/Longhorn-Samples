@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLink_wcp", "HyperLink_wcp.csproj", "{91CEF601-51FD-40D6-9A2F-979D2F8CCFEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91CEF601-51FD-40D6-9A2F-979D2F8CCFEE}.Debug|.NET.ActiveCfg = Debug|.NET
+		{91CEF601-51FD-40D6-9A2F-979D2F8CCFEE}.Debug|.NET.Build.0 = Debug|.NET
+		{91CEF601-51FD-40D6-9A2F-979D2F8CCFEE}.Release|.NET.ActiveCfg = Release|.NET
+		{91CEF601-51FD-40D6-9A2F-979D2F8CCFEE}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

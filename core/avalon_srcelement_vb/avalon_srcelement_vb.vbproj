@@ -1,0 +1,26 @@
+<Project DefaultTargets="Build">
+	<!--Imports the target which contains all the common targets-->
+	
+	<PropertyGroup>
+
+   	<Property Language="VB" />
+		
+		<Property DefaultClrNameSpace="CuCu" />
+
+		<Property TargetName="avalon_srcElement_vb" />
+		
+	</PropertyGroup>
+	
+
+	<Import Project="$(LAPI)\WindowsApplication.target" />
+		
+	<ItemGroup>
+		<!-- Aplication markup -->
+		<Item Type="ApplicationDefinition" Include="App.xaml" />
+
+		<!-- Compiled Xaml Files list -->
+		<Item Type="Pages" Include="Default.xaml"/>
+	
+	</ItemGroup>
+
+</Project>

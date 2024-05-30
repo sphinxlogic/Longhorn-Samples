@@ -1,0 +1,34 @@
+<Border xmlns="http://schemas.microsoft.com/2003/xaml" Background="Yellow">
+
+<!-- Animation Sample showing both dependent and independent animations -->
+ 
+  <FlowPanel>
+    <Button Background="Yellow">
+         <Button.Background>
+            <SolidColorBrush >
+                <SolidColorBrush.ColorAnimations>
+                    <ColorAnimation
+                        From="Cyan" 
+                        To="Yellow" Begin="2" Duration="8" AutoReverse="True" RepeatCount="50" Fill="Freeze"/>
+				</SolidColorBrush.ColorAnimations>
+            </SolidColorBrush>
+        </Button.Background>   
+      <Canvas Width="120" Height="120">
+         <Ellipse CenterX="60" CenterY="60" RadiusX="50" 
+          RadiusY="50" Fill="Gray" Stroke="Black"/>
+         <Ellipse CenterX="40" CenterY="40" RadiusX="10" 
+          RadiusY="10" Fill="Blue"/>
+         <Ellipse CenterX="80" CenterY="40" RadiusX="10" 
+          RadiusY="10" Fill="Blue">
+             <Ellipse.RadiusY>
+                 <LengthAnimation  
+                   From="10" To="1" Duration="0.5" 
+                   AutoReverse="True" RepeatDuration="Indefinite"/>
+             </Ellipse.RadiusY>
+         </Ellipse>
+         <Polyline Points="30, 70, 60, 80, 90, 70" 
+          StrokeThickness="10" Stroke="Red"/>
+     </Canvas>
+    </Button>
+  </FlowPanel>   
+</Border>

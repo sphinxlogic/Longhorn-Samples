@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCardSync", "VCardSync\VCardSync.csproj", "{DE847599-40A5-4F06-B892-304D4A94C5BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE847599-40A5-4F06-B892-304D4A94C5BE}.Debug|.NET.ActiveCfg = Debug|.NET
+		{DE847599-40A5-4F06-B892-304D4A94C5BE}.Debug|.NET.Build.0 = Debug|.NET
+		{DE847599-40A5-4F06-B892-304D4A94C5BE}.Release|.NET.ActiveCfg = Release|.NET
+		{DE847599-40A5-4F06-B892-304D4A94C5BE}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

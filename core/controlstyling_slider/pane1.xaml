@@ -1,0 +1,34 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<Window
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="controlstyling_slider.Pane1"
+    def:CodeBehind="Pane1.xaml.cs"
+    Width="100%" Height="100%" Background="White"
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+<DockPanel Width="100%" Height="100%">
+<DockPanel.Resources>
+	<Style def:Name="VerticalSliderStyle1">
+		<VerticalSlider Background="transparent" Width="50px" Height="500px" />
+		<Style.VisualTree>
+			<Border Background="black">			
+				<DockPanel>
+					<RepeatButton Width="100%" DockPanel.Dock="Bottom"/>
+					<Thumb Height="5%" Width="100%" Background="blue" DockPanel.Dock="Bottom" Cursor="Hand"></Thumb>
+					<RepeatButton Width="100%" DockPanel.Dock="Fill"/>
+				</DockPanel>
+			</Border>
+		</Style.VisualTree>
+	</Style>
+</DockPanel.Resources>
+
+<VerticalSlider DockPanel.Dock="Left" Style="{VerticalSliderStyle1}" Value="5"/>
+<VerticalSlider DockPanel.Dock="Left" Style="{VerticalSliderStyle1}" Value="3"/>
+<VerticalSlider DockPanel.Dock="Left" Style="{VerticalSliderStyle1}" Value="8"/>
+</DockPanel>
+
+
+
+</Window>

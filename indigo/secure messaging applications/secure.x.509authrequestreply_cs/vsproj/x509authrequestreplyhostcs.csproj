@@ -1,0 +1,54 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{148EB720-ECE0-4B60-9FB2-0A6EE8ACBFF5}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="Host" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath="..\Server" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="..\Server" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.MessageBus" Name="System.MessageBus" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="..\Server\host.cs" Link="host.cs" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="None" Include="..\Server\app.config" Link="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

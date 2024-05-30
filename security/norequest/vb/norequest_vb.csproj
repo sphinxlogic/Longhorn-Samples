@@ -1,0 +1,29 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Version="1.0.0.0" />
+
+    <Property Language="VB" />
+		
+    <Property DefaultClrNameSpace="SDKSample" />
+
+    <Property TargetName="NoRequest_vb" />
+			
+    <Property HostInBrowser="False" />
+
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+		
+  <ItemGroup>
+    <!-- Application Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="Default.xaml"/>
+  </ItemGroup>
+
+</Project>

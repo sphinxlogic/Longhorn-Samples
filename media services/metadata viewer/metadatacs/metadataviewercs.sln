@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metadata", "MetadataViewer\Metadata.csproj", "{A7DF0A57-47F9-47DE-9F49-F31536BC5834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7DF0A57-47F9-47DE-9F49-F31536BC5834}.Debug|.NET.ActiveCfg = Debug|.NET
+		{A7DF0A57-47F9-47DE-9F49-F31536BC5834}.Debug|.NET.Build.0 = Debug|.NET
+		{A7DF0A57-47F9-47DE-9F49-F31536BC5834}.Release|.NET.ActiveCfg = Release|.NET
+		{A7DF0A57-47F9-47DE-9F49-F31536BC5834}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,155 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ImageView.ViewImage"
+    def:CodeBehind="ViewImage.xaml.cs" 
+    Loaded="OnLoaded"
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+
+      <Border ID="MetadataPanel" 
+		    xmlns="http://schemas.microsoft.com/2003/xaml"
+		    BorderThickness="2"
+	        Style="{VerGrad}"
+		    BorderBrush="black">
+		        <DockPanel Width="150" DockPanel.Dock="Left">
+	                <Button Style="{PanelButton}" ID="btnZoomIn" Click="OnClicked">Zoom In</Button>
+	                <Button Style="{PanelButton}" ID="btnZoomOut" Click="OnClicked">Zoom Out</Button>
+	                <Button Style="{PanelButton}" ID="btnZoom100" Click="OnClicked">100%</Button>
+		        <DockPanel DockPanel.Dock="Top">
+                    <Text TextWrap="Wrap" FontFamily="Arial" FontWeight="Bold" FontSize="16pt">Metadata:</Text>
+		        </DockPanel>
+		        <DockPanel DockPanel.Dock="Top">
+                    <Text ID="Image1MetadataSize" TextWrap="Wrap" FontFamily="Arial" FontSize="10pt">Size:</Text>
+		        </DockPanel>
+		        <DockPanel DockPanel.Dock="Top">
+                    <Text ID="Image1MetadataFormat" TextWrap="Wrap" FontFamily="Arial" FontSize="10pt">Format:</Text>
+		        </DockPanel>
+		        <DockPanel DockPanel.Dock="Top">
+                    <Text ID="Image1MetadataFileSize" TextWrap="Wrap" FontFamily="Arial" FontSize="10pt">FileSize:</Text>
+		        </DockPanel>
+		        <DockPanel DockPanel.Dock="Top">
+                    <Text ID="Image1Metadata" TextWrap="Wrap" FontFamily="Arial" FontSize="10pt"></Text>
+		        </DockPanel>
+		        </DockPanel>
+    </Border>   
+
+    <GridPanel Style="{VerGrad}" Columns="2" DockPanel.Dock="Top" Margin="0,0,0,5" CellSpacing="10">
+        <GridPanel.ColumnStyles>
+            <ColumnStyle Width="10%" />
+            <ColumnStyle Width="90%" />
+        </GridPanel.ColumnStyles>
+        <Text HorizontalAlignment="Right" Style="{Dir}">Image:</Text>
+        <Text Style="{Dir}" ID="ImageName">C:\Foo.jpg</Text>
+    </GridPanel>"  
+
+  <Menu DockPanel.Dock="Top">
+    <MenuItem Header="Save As">
+        <MenuItem Header="Bmp">
+            <MenuItem Header="Indexed1" Click="Bmp1Clicked" />
+            <MenuItem Header="Indexed4" Click="Bmp4Clicked" />
+            <MenuItem Header="Indexed8" Click="Bmp8Clicked" />
+            <MenuItem Header="RGB555" Click="Bmp555Clicked" />
+            <MenuItem Header="RGB565" Click="Bmp565Clicked" />
+            <MenuItem Header="RGB24" Click="Bmp24Clicked" />
+            <MenuItem Header="RGB32" Click="Bmp32Clicked" />
+            <MenuItem Header="ARGB64" Click="Bmp64Clicked" />
+        </MenuItem>
+        <MenuItem Header="Gif">
+            <MenuItem Header="Indexed8" Click="Gif8Clicked" />
+		</MenuItem>
+        <MenuItem Header="Jpeg">
+            <MenuItem Header="Gray8" Click="Jpeg8Clicked" />
+            <MenuItem Header="RGB24" Click="Jpeg24Clicked" />
+		</MenuItem>
+        <MenuItem Header="Png">
+            <MenuItem Header="BlackWhite" Click="PngBWClicked" />
+            <MenuItem Header="Indexed1" Click="Png1Clicked" />
+            <MenuItem Header="Indexed4" Click="Png4Clicked" />
+            <MenuItem Header="Indexed8" Click="Png8Clicked" />
+            <MenuItem Header="Gray8" Click="PngG8Clicked" />
+            <MenuItem Header="RGB24" Click="Png24Clicked" />
+            <MenuItem Header="ARGB32" Click="Png32Clicked" />
+        </MenuItem>
+        <MenuItem Header="Tiff">
+            <MenuItem Header="BlackWhite" Click="TiffBWClicked" />
+            <MenuItem Header="Indexed4" Click="Tiff4Clicked" />
+            <MenuItem Header="Indexed8" Click="Tiff8Clicked" />
+            <MenuItem Header="Gray8" Click="TiffG8Clicked" />
+            <MenuItem Header="RGB24" Click="Tiff24Clicked" />
+            <MenuItem Header="ARGB32" Click="Tiff32Clicked" />
+        </MenuItem>
+	</MenuItem>
+  </Menu> 
+  
+	<!--
+	<ScrollViewer DockPanel.Dock="Fill" VerticalScrollerVisibility="Auto"> -->
+	<ScrollViewer DockPanel.Dock="Fill">
+	    <DockPanel ID="DP2">
+            <Image ID="Image1">
+                <Image.Source>
+                <Bind Path="ImageName">
+  	                </Bind>
+                </Image.Source>
+            </Image> 
+        </DockPanel>
+	</ScrollViewer>
+
+<!--            
+	<DockPanel ID="DP1">
+   
+        <DockPanel.Resources>
+          <Style def:Name="ScrollingListBox">
+            <ListBox/>
+              <Style.VisualTree>
+                <Border                  
+                   BorderThickness ="*Alias(Target=BorderThickness)"
+		           BorderBrush     ="*Alias(Target=BorderBrush)">
+		           <ScrollViewer Height="*Alias(Target=Height)" Width="*Alias(Target=Width)">
+		             <FlowPanel ID="ListBoxFlowPanel" ItemsControl.IsItemsHost="true" Margin="50"/>
+	               </ScrollViewer>
+		        </Border>
+	           </Style.VisualTree>    
+	       </Style>
+	  
+	  
+	  <Style def:Name="MyDataStyle">
+	    <ListItem/>
+	                <Style.VisualTree>
+                <DockPanel Width="200px" Height="200px" Margin="10">
+                    <Text FontSize="12" DockPanel.Dock="Top">
+		                <Text.TextContent>
+                        <Bind Path="Name"/>
+                        </Text.TextContent>
+                    </Text>
+                    <TransformDecorator DockPanel.Dock="Fill">
+                        <Image>
+                            <Image.Source>
+                            <Bind Path="FullName">
+  	                            </Bind>
+                            </Image.Source>   
+                            <Image.ID>
+  	                            <Bind Path="Name">                        
+  	                            </Bind>
+                            </Image.ID>
+                        </Image> 
+                    </TransformDecorator>
+		        </DockPanel>
+              </Style.VisualTree>
+	  </Style>
+        </DockPanel.Resources>
+        
+        <ListBox 
+            ID="TOC" 
+            ItemStyle="{MyDataStyle}" 
+            Style="{ScrollingListBox}"
+            SelectionChanged="OnSelect"
+            >
+          <ListBox.Items>
+            <CollectionContainer Collection="*Bind()"/>
+          </ListBox.Items>
+        </ListBox>
+     </DockPanel>
+-->
+</DockPanel>

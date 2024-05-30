@@ -1,0 +1,4 @@
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml" 
+    xmlns:def="Definition" 
+    def:Class="Surfin.SurfinApp"
+    StartupUri="Window.xaml"/>

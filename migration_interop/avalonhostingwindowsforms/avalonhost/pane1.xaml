@@ -1,0 +1,26 @@
+<?Mapping XmlNamespace="wfi" ClrNamespace="System.Windows.Forms.Integration" Assembly="WindowsFormsIntegration"?>
+<?Mapping XmlNamespace="mcl" ClrNamespace="MyControlLibrary" Assembly="MyControlLibrary"?>
+ 
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml" 
+        xmlns:def="Definition" 
+        xmlns:wfi="wfi"
+        xmlns:mcl="mcl"
+        def:Class="AvalonHost.Pane1" 
+        def:CodeBehind="Pane1.xaml.cs"
+        Width="100%" Height="100%" Background="LightBlue">
+ 
+    <wfi:WindowsFormsHost ID="wfh"
+				Width="200" 
+				Height="40" 
+				DockPanel.Dock="Top">
+
+        <wfi:WindowsFormsHost.Controls>
+            <mcl:MyControl Name="mc" Width="200" Height="40" 
+                    MessageText="Hello Windows Forms!"
+                    BeforeMessageBox="BeforeMessageBox"/>
+        </wfi:WindowsFormsHost.Controls>         
+    </wfi:WindowsFormsHost>
+ 
+
+</DockPanel>
+

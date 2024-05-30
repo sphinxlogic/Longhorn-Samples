@@ -1,0 +1,30 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml">
+    <Border Background="LightBlue"
+            DockPanel.Dock="Top">
+        <Text >Some Text</Text>
+    </Border>
+    <Border DockPanel.Dock="Bottom"
+            Background="LightYellow">
+        <Text >Some text at the bottom of the page.</Text>
+    </Border>
+    <Border DockPanel.Dock="Left"
+            Background="Lavender">
+        <Text>Some More Text</Text>
+    </Border>
+    <Border DockPanel.Dock="Fill">
+        <DockPanel>
+            <Button DockPanel.Dock="Top" 
+                    Height="30px"
+                    Width="100px"
+                    Margin="10,10,10,10">Button1</Button>
+            <Button DockPanel.Dock="Top"
+                    Height="30px"
+                    Width="100px"
+                    Margin="10,10,10,10">Button2</Button>
+            <Border DockPanel.Dock="Fill"
+                   Background="LightGreen">
+               <Text >Some Text Below the Buttons</Text>
+            </Border>
+        </DockPanel>
+    </Border>
+</DockPanel>

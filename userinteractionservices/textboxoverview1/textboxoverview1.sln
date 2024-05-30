@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBoxOverview1", "TextBoxOverview1.csproj", "{BE262293-3FBD-4EE8-884B-ED0EBB3DD330}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE262293-3FBD-4EE8-884B-ED0EBB3DD330}.Debug|.NET.ActiveCfg = Debug|.NET
+		{BE262293-3FBD-4EE8-884B-ED0EBB3DD330}.Debug|.NET.Build.0 = Debug|.NET
+		{BE262293-3FBD-4EE8-884B-ED0EBB3DD330}.Release|.NET.ActiveCfg = Release|.NET
+		{BE262293-3FBD-4EE8-884B-ED0EBB3DD330}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

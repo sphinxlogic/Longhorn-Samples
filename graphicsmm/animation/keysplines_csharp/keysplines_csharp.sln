@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "keysplines_csharp", "keysplines_csharp.csproj", "{BBA1E577-E359-4AF5-BABC-ADC222B9A29D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA1E577-E359-4AF5-BABC-ADC222B9A29D}.Debug|.NET.ActiveCfg = Debug|.NET
+		{BBA1E577-E359-4AF5-BABC-ADC222B9A29D}.Debug|.NET.Build.0 = Debug|.NET
+		{BBA1E577-E359-4AF5-BABC-ADC222B9A29D}.Release|.NET.ActiveCfg = Release|.NET
+		{BBA1E577-E359-4AF5-BABC-ADC222B9A29D}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

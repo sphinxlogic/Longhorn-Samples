@@ -1,0 +1,180 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="SystemColorsAndBrushes_markup.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="System Colors" Visible="True">
+   <Window.Resources>
+		<Style>
+			<Rectangle Height="20" Width="50" Stroke="Black" StrokeThickness="1" />
+		</Style>
+		<Style>
+			<Text HorizontalAlignment="Right"></Text>
+		</Style>
+    </Window.Resources>
+    <DockPanel DockPanel.Dock="Fill" Margin="10,10,10,10">
+		<Border Background="Black"  DockPanel.Dock="Top">
+			<FlowPanel Margin="10,10,10,10" Background="Black">
+				<Text FontSize="14" Foreground="White">System Colors</Text>
+			</FlowPanel>
+		</Border>
+		<Border ID="myBorder" DockPanel.Dock="Top" BorderThickness="5,5,5,5">
+			<GridPanel Columns="8" CellSpacing="10"
+				ID="systemBrushesPanel">
+				<Text>ActiveBorder</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ActiveBorderBrush}" />
+				
+				<Text>ActiveCaption</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ActiveCaptionBrush}" />
+				
+				<Text>ActiveCaptionText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ActiveCaptionTextBrush}" />
+				
+				<Text>AppWorkspace</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/AppWorkspaceBrush}" />
+				
+				<Text>Control</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlBrush}" />
+				
+				<Text>ControlDark</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlDarkBrush}" />
+				
+				<Text>ControlDarkDark</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlDarkDarkBrush}" />
+				
+				<Text>ControlLight</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlLightBrush}" />
+				
+				<Text>ControlLightLight</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlLightLightBrush}" />
+				
+				<Text>ControlText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlTextBrush}" />
+				
+				<Text>Desktop</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/DesktopBrush}" />
+				
+				<Text>GradientActiveCaption</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/GradientActiveCaptionBrush}" />
+				
+				<Text>GradientInactiveCaption</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/GradientInactiveCaptionBrush}" />
+				
+				<Text>GrayText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/GrayTextBrush}" />
+				
+				<Text>Highlight</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/HighlightBrush}" />
+				
+				<Text>HighlightText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/HighlightTextBrush}" />
+				
+				<Text>HotTrack</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/HotTrackBrush}" />
+				
+				<Text>InactiveBorder</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/InactiveBorderBrush}" />
+				
+				<Text>InactiveCaption</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/InactiveCaptionBrush}" />
+				
+				<Text>InactiveCaptionText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/InactiveCaptionTextBrush}" />
+				
+				<Text>Info</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/InfoBrush}" />
+				
+				<Text>InfoText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/InfoTextBrush}" />
+				
+				<Text>Menu</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/MenuBrush}" />
+				
+				<Text>MenuBar</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/MenuBarBrush}" />
+				
+				<Text>MenuHighlight</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/MenuHighlightBrush}" />
+				
+				<Text>MenuText</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/MenuTextBrush}" />
+				
+				<Text>ScrollBar</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/ScrollBarBrush}" />
+				
+				<Text>Window</Text>
+				<Rectangle Fill="{http://schemas.microsoft.com/2003/xaml/SystemResources/WindowBrush}" />
+				
+				<Text>WindowFrame</Text>
+				<Button Width="50" Height="20" Background="{http://schemas.microsoft.com/2003/xaml/SystemResources/WindowFrameBrush}" />
+				
+				<Text>WindowText</Text>
+				<Button Width="50" Height="20" Background="{http://schemas.microsoft.com/2003/xaml/SystemResources/WindowTextBrush}" />
+			</GridPanel>	
+		</Border>
+		
+		<Border DockPanel.Dock="Top" BorderThickness="5,5,5,5" BorderBrush="Black">
+		<GridPanel Columns="8" CellSpacing="10">
+				<Text GridPanel.ColumnSpan="8"
+					FontWeight="Bold"
+					HorizontalAlignment="Left">System Color Gradient Examples</Text>
+				<Text>ControlDark to ControlLight</Text>
+				<Rectangle>
+					<Rectangle.Fill>
+						<RadialGradientBrush>
+							<RadialGradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlDarkColor}"/>
+									<GradientStop Offset="1" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlLightColor}"/>
+								</GradientStopCollection>
+							</RadialGradientBrush.GradientStops>
+						</RadialGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				
+				<Text>ControlDarkDark to ControlLightLight</Text>
+				<Rectangle>
+					<Rectangle.Fill>
+						<LinearGradientBrush>
+							<LinearGradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlDarkDarkColor}"/>
+									<GradientStop Offset="1" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlLightLightColor}"/>
+								</GradientStopCollection>
+							</LinearGradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				
+				<Text>Desktop to AppWorkspace</Text>
+				<Button Width="50" Height="20">
+					<Button.Background>
+						<RadialGradientBrush>
+							<RadialGradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/DesktopColor}"/>
+									<GradientStop Offset="1" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/AppWorkspaceColor}"/>
+								</GradientStopCollection>
+							</RadialGradientBrush.GradientStops>
+						</RadialGradientBrush>
+					</Button.Background>
+				</Button>		
+				
+				<Text>Desktop to Control</Text>
+				<Button Width="50" Height="20">
+					<Button.Background>
+						<LinearGradientBrush>
+							<LinearGradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/DesktopColor}"/>
+									<GradientStop Offset="1" Color="{http://schemas.microsoft.com/2003/xaml/SystemResources/ControlColor}"/>
+								</GradientStopCollection>
+							</LinearGradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Button.Background>
+				</Button>				
+			</GridPanel>
+		</Border>
+	</DockPanel>	
+</Window>

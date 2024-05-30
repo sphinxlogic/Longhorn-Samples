@@ -1,0 +1,64 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{76DA4D16-3A0C-4724-8E95-241C1834A6C1}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="Slider_wcp_csharponly" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="Slider_wcp_csharponly" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="App.ico" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Reference" Include="Accessibility" HintPath="..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\Accessibility.dll" Name="Accessibility" FusionName="Accessibility, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="PresentationCore" HintPath="..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\PresentationCore.dll" Name="PresentationCore" FusionName="PresentationCore, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="PresentationDescriptorManager" HintPath="..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\PresentationDescriptorManager.dll" Name="PresentationDescriptorManager" FusionName="PresentationDescriptorManager, Version=6.0.4060.0, Culture=neutral, PublicKeyToken=2d51bd4b3ea3a6df, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="PresentationFramework" HintPath="..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\PresentationFramework.dll" Name="PresentationFramework" FusionName="PresentationFramework, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System" HintPath="..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.dll" Name="System" FusionName="System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Data" HintPath="..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Data.dll" Name="System.Data" FusionName="System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=x86" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Drawing" HintPath="..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Drawing.dll" Name="System.Drawing" FusionName="System.Drawing, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Windows.Forms" HintPath="..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Windows.Forms.dll" Name="System.Windows.Forms" FusionName="System.Windows.Forms, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.XML" HintPath="..\..\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.XML.dll" Name="System.XML" FusionName="System.Xml, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="..\..\WINDOWS\Microsoft.net\Windows\v6.0.4030\WindowsBase.dll" Name="WindowsBase" FusionName="WindowsBase, Version=6.0.4030.0, Culture=neutral, PublicKeyToken=e0e73d5e60c20d3c, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="slider.cs" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Resources" Include="App.ico" />
+  </ItemGroup>
+</Project>

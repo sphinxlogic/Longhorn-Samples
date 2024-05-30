@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="client">
+   <Target Name="client">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="client.exe"
+                 References="system.messagebus.dll;system.dll;remoteinterface.dll"
+                 Sources="client.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

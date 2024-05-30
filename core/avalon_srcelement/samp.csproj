@@ -1,0 +1,49 @@
+<Project DefaultTargets="Build">
+	<!--Imports the target which contains all the common targets-->
+	
+	<PropertyGroup>
+	
+
+        	<Property Language="C#" />
+
+		<!-- 
+				Description: This property defines the language used for coding
+				Possible Values: {cs, cpp, vb}
+				Default Value:
+				Required: YES
+		 -->
+		
+		
+		<Property DefaultClrNameSpace="CuCu" />
+		<!-- 
+				Description: This property defines the name of the target
+				Possible Values:
+				Default Value:
+				Required: YES
+		 -->
+
+		<Property TargetName="Target" />
+		<!-- 
+				Description:Defines the full path of file that contains security information
+				Possible Values:
+				Default Value:
+				Required:YES
+		 -->
+		
+		
+		
+	</PropertyGroup>
+	
+
+	<Import Project="$(LAPI)\WindowsApplication.target" />
+		
+	<ItemGroup>
+		<!-- Aplication markup -->
+		<Item Type="ApplicationDefinition" Include="App.xaml" />
+
+		<!-- Compiled Xaml Files list -->
+		<Item Type="Pages" Include="Default.xaml"/>
+	
+	</ItemGroup>
+
+</Project>

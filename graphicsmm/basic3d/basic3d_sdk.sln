@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basic3D_SDK", "Basic3D_SDK.csproj", "{13555D8D-ED86-4BCF-8424-BF7F4C4CF7DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13555D8D-ED86-4BCF-8424-BF7F4C4CF7DD}.Debug|.NET.ActiveCfg = Debug|.NET
+		{13555D8D-ED86-4BCF-8424-BF7F4C4CF7DD}.Debug|.NET.Build.0 = Debug|.NET
+		{13555D8D-ED86-4BCF-8424-BF7F4C4CF7DD}.Release|.NET.ActiveCfg = Release|.NET
+		{13555D8D-ED86-4BCF-8424-BF7F4C4CF7DD}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

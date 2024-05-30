@@ -1,0 +1,36 @@
+<DockPanel ID="ParentElement"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <Button DockPanel.Dock="Top" Click="OnClick">3</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">1</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">4</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">2</Button>
+
+  <def:Code>
+  <![CDATA[
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Get a reference to the button clicked
+      System.Windows.Controls.Button b = (System.Windows.Controls.Button)sender;
+      // Get the index of the button clicked to determine what order the button 
+      // was in.
+      int OldIndex = ParentElement.Children.IndexOf(b);
+      // Remove the button from the tree so it can be reinserted.
+      ParentElement.Children.Remove(b);
+      // If the button pressed is not the one on top, then move it one Up. Otherwise,
+      // add it to the bottom.
+      if(OldIndex != 0)
+      {
+	    // Insert the button at the index location one lower then it was before.
+        ParentElement.Children.Insert(OldIndex - 1, b);
+      }
+      else
+      {
+	    // Insert the button at the end of the index collection.
+        ParentElement.Children.Add(b);
+      }
+    }
+  ]]>
+  </def:Code>
+</DockPanel>

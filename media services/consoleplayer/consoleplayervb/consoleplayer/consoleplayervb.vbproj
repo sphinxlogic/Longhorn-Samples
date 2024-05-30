@@ -1,0 +1,86 @@
+<Project MSBuildVersion="1.2" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property ProjectType="Local" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{7082F0BF-061D-4774-B3CC-8CA97A6C45D6}" />
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ApplicationIcon="" />
+    <Property AssemblyKeyContainerName="" />
+    <Property AssemblyName="ConsolePlayerVB" />
+    <Property AssemblyOriginatorKeyFile="" />
+    <Property AssemblyOriginatorKeyMode="None" />
+    <Property DefaultClientScript="JScript" />
+    <Property DefaultHTMLPageLayout="Grid" />
+    <Property DefaultTargetSchema="IE50" />
+    <Property DelaySign="false" />
+    <Property OutputType="Exe" />
+    <Property OptionCompare="Binary" />
+    <Property OptionExplicit="On" />
+    <Property OptionStrict="Off" />
+    <Property RootNamespace="ConsolePlayerVB" />
+    <Property StartupObject="ConsolePlayerVB.MediaEngineDemo" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property OutputPath="bin\" />
+    <Property BaseAddress="285212672" />
+    <Property ConfigurationOverrideFile="" />
+    <Property DefineConstants="" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property DebugSymbols="true" />
+    <Property IncrementalBuild="true" />
+    <Property Optimize="false" />
+    <Property RegisterForComInterop="false" />
+    <Property RemoveIntegerChecks="false" />
+    <Property TreatWarningsAsErrors="false" />
+    <Property WarningLevel="1" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property OutputPath="bin\" />
+    <Property BaseAddress="285212672" />
+    <Property ConfigurationOverrideFile="" />
+    <Property DefineConstants="" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property DebugSymbols="false" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property RegisterForComInterop="false" />
+    <Property RemoveIntegerChecks="false" />
+    <Property TreatWarningsAsErrors="false" />
+    <Property WarningLevel="1" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.dll" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" HintPath="$(windir)\Microsoft.NET\Framework\v2.0.31113\System.Data.dll" />
+    <Item Type="Reference" Include="System.Discovery" HintPath="C:\WINDOWS\Microsoft.net\Windows\v6.0.4030\System.Discovery.dll" Name="System.Discovery" FusionName="System.Discovery, Version=6.0.4060.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=x86" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Xml" Name="System.XML" HintPath="$(windir)\Microsoft.NET\Framework\v1.1.4322\System.XML.dll" />
+    <Item Type="Reference" Include="System.Windows.Media.Core" Name="System.Windows.Media.Core" HintPath="$(windir)\Microsoft.NET\Multimedia\System.Windows.Media.Core.dll" AssemblyFolderKey="hklm\mediafoundation" />
+    <Item Type="Reference" Include="WinCorLib" Name="WinCorLib" HintPath="$(windir)\Microsoft.NET\Avalon\WinCorLib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.vb" SubType="Code" />
+    <Item Type="Compile" Include="ConsolePlayer.vb" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

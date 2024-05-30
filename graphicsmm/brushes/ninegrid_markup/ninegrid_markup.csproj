@@ -1,0 +1,29 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="SDKSample" />
+    <Property TargetName="ninegrid_markup" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{29EF11DC-4D72-453B-9005-7F4D1E0CC142}" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml" />
+    <Item Type="Resources" Include="data\image.png" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

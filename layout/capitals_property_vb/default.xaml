@@ -1,0 +1,90 @@
+<FlowPanel ID="myFP"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Background="PowderBlue"
+	   Width="100%"
+	   Height="100%">
+
+    <FlowPanel Width="100%" Height="10" />
+    
+    <Text FontSize="18" FontWeight="Bold">Capitals Property Sample</Text>
+
+    <FlowPanel Width="100%" Height="10" />
+
+    <Text FontSize="12" TextWrap="Wrap">Click any of the buttons below to see the different values of the Capitals typographic Property. Please note, the Capitals property is only supported in OpenType fonts. Other fonts may have algorithmic equivalents of these forms. Support of Capitals is contingent upon the font supporting the corresponding alternate glyph form. If a font form is unavailable in the specified OpenType font (Palatino Linotype) the text will remain unchanged when the new Capital form is selected.</Text>
+
+    <FlowPanel Width="100%" Height="10" />
+
+    <FlowPanel Width="100%">
+    	<Button Background="Thistle" Width="100" Height="25" Click="Normal">Normal</Button>
+    	<Button Background="Thistle" Width="100" Height="25" Click="AllSmallCaps">AllSmallCaps</Button>
+    	<Button Background="Thistle" Width="100" Height="25" Click="SmallCaps">SmallCaps</Button>
+    	<Button Background="Thistle" Width="100" Height="25" Click="AllPetiteCaps">AllPetiteCaps</Button>
+    	<Button Background="Thistle" Width="100" Height="25" Click="PetiteCaps">PetiteCaps</Button>
+    	<Button Background="Thistle" Width="100" Height="25" Click="Unicase">Unicase</Button>
+    	<Button Background="Thistle" Width="100" Height="25" Click="Titling">Titling</Button>
+    </FlowPanel>
+
+    <FlowPanel Width="100%" Height="20" />
+
+    <TextPanel ID="txt2" FontSize="24" TextWrap="Wrap" FontFamily="Palatino Linotype" Foreground="Black">Capitals Property</TextPanel>
+
+    <FlowPanel Width="100%" Height="20" />
+
+    <Text FontSize="12" ID="txt1" DockPanel.Dock="Bottom">The Capitals property is currently set to Normal.</Text>
+
+
+  <def:Code>
+  <![CDATA[
+
+
+Sub Normal(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.Normal
+	txt1.TextContent = "The Capitals property is currently set to Normal."
+
+End Sub
+
+Sub AllSmallCaps(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.AllSmallCaps
+	txt1.TextContent = "The Capitals property is currently set to AllSmallCaps."
+
+End Sub
+
+Sub SmallCaps(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.SmallCaps
+	txt1.TextContent = "The Capitals property is currently set to SmallCaps."
+
+End Sub
+
+Sub AllPetiteCaps(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.AllPetiteCaps
+	txt1.TextContent = "The Capitals property is currently set to AllPetiteCaps."
+
+End Sub
+
+Sub PetiteCaps(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.PetiteCaps
+	txt1.TextContent = "The Capitals property is currently set to PetiteCap."
+
+End Sub
+
+Sub Unicase(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.Unicase
+	txt1.TextContent = "The Capitals property is currently set to Unicase."
+
+End Sub
+
+Sub Titling(ByVal sender As Object, ByVal e As System.Windows.Controls.ClickEventArgs)
+	txt2.Capitals = System.Windows.FontCapitals.Titling
+	txt1.TextContent = "The Capitals property is currently set to Titling."
+
+End Sub
+
+  ]]>
+  </def:Code>
+
+</FlowPanel>
+
+
+
+

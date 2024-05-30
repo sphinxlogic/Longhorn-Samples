@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PnrpRegister", "PnrpRegister.vbproj", "{02D8096D-BFD9-4680-9BD3-3AF37BDFCEEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{02D8096D-BFD9-4680-9BD3-3AF37BDFCEEB}.Debug.ActiveCfg = Debug|.NET
+		{02D8096D-BFD9-4680-9BD3-3AF37BDFCEEB}.Debug.Build.0 = Debug|.NET
+		{02D8096D-BFD9-4680-9BD3-3AF37BDFCEEB}.Release.ActiveCfg = Release|.NET
+		{02D8096D-BFD9-4680-9BD3-3AF37BDFCEEB}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

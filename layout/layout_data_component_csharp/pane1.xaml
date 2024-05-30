@@ -1,0 +1,70 @@
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+       def:Class="ExpenseIt.Pane1"
+       def:CodeBehind="Pane1.xaml.cs">
+        <DockPanel.Resources> 
+        <XmlDataSource def:Name="ExpenseDataSource" XPath="Expenses">
+        <Expenses xmlns="">
+            <Person Name="Mike" Department="Legal"> 
+               <Expense ExpenseReason="Lunch" ExpenseAmount="50" />
+               <Expense ExpenseReason="Transportation" ExpenseAmount="50" />
+            </Person>
+            <Person Name="Lisa" Department="Marketing">                    
+               <Expense ExpenseReason="Document printing"
+                   ExpenseAmount="50"/>
+               <Expense ExpenseReason="Gift" ExpenseAmount="125" />
+            </Person>
+            <Person Name="John" Department="Engineering">                    
+                <Expense ExpenseReason="Magazine subscription" 
+                   ExpenseAmount="50"/>
+                <Expense ExpenseReason="New machine" ExpenseAmount="600" />
+                <Expense ExpenseReason="Software" ExpenseAmount="500" />
+            </Person>
+           <Person Name="Mary" Department="Finance">
+                <Expense ExpenseReason="Dinner" ExpenseAmount="100" />
+           </Person>
+       </Expenses>        
+    </XmlDataSource>
+ <XmlDataSource def:Name="ImageDataSource" XPath="ImageData">
+    <ImageData xmlns="">
+       <Image Name="images/msn_watermark.png"></Image>
+    </ImageData>
+ </XmlDataSource>    
+    <Style def:Name="NameDataStyle">
+       <Style.VisualTree>
+          <Text TextContent="*Bind(Path=@Name)"/>
+       </Style.VisualTree>
+    </Style>      
+   </DockPanel.Resources>
+   <DockPanel DockPanel.Dock="Top">
+   <Canvas Style="{BackgroundCanvasStyler}">
+   <Image>
+      <Image.Source>
+          <Bind DataSource="{ImageDataSource}" Path="Image/@Name" />
+      </Image.Source>
+   </Image>
+ </Canvas>
+    <Text Style="{BackgroundTextStyler}">Create an expense report</Text>        
+  </DockPanel>
+  <GridPanel Style="{StandardGridStyler}">
+     <GridPanel.ColumnStyles>
+         <ColumnStyle Width="43%" />
+         <ColumnStyle Width="57%" />
+     </GridPanel.ColumnStyles>        
+  <Text Style="{LabelStyler}">Name:</Text>
+  <ListBox ID="ListBox1" ItemStyle="{NameDataStyle}">
+        <ListBox.Items>
+           <CollectionContainer>
+              <CollectionContainer.Collection>
+                 <Bind Path="Person" DataSource="{ExpenseDataSource}" />
+              </CollectionContainer.Collection>
+           </CollectionContainer>                
+         </ListBox.Items>
+  </ListBox>
+  <Border />
+<FlowPanel>
+        <Button Click="CreateReport">Create Report</Button>
+</FlowPanel>
+  </GridPanel>
+</DockPanel>

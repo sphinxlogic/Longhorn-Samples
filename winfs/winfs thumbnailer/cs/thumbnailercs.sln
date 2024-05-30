@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thumbnailer", "Thumbnailer\Thumbnailer.csproj", "{F0FD5FF7-D6B9-41F5-88AF-140DA8411C90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0FD5FF7-D6B9-41F5-88AF-140DA8411C90}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F0FD5FF7-D6B9-41F5-88AF-140DA8411C90}.Debug|.NET.Build.0 = Debug|.NET
+		{F0FD5FF7-D6B9-41F5-88AF-140DA8411C90}.Release|.NET.ActiveCfg = Release|.NET
+		{F0FD5FF7-D6B9-41F5-88AF-140DA8411C90}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animaterotate_csharp", "animaterotate_csharp.csproj", "{9FAD8619-EF29-4F60-A4CD-A4F1281DE8A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FAD8619-EF29-4F60-A4CD-A4F1281DE8A5}.Debug|.NET.ActiveCfg = Debug|.NET
+		{9FAD8619-EF29-4F60-A4CD-A4F1281DE8A5}.Debug|.NET.Build.0 = Debug|.NET
+		{9FAD8619-EF29-4F60-A4CD-A4F1281DE8A5}.Release|.NET.ActiveCfg = Release|.NET
+		{9FAD8619-EF29-4F60-A4CD-A4F1281DE8A5}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

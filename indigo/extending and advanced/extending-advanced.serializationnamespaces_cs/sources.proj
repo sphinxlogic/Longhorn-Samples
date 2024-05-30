@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="SerializationNamespace">
+   <Target Name="SerializationNamespace">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="SerializationNamespace.exe"
+                 References="system.dll;system.messagebus.dll;system.serialization.dll;system.xml.dll"
+                 Sources="SerializableType.cs;SerializationNamespace.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

@@ -1,0 +1,49 @@
+<!-- 
+	The markup in this file is used to lay out the sample and provide descriptive text.
+	The animations are actually created and applied in Window1.xaml.cs. 
+
+-->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ApplyMultipleAnimationsToSingleProperty_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Apply Multiple Animations to a Single Property" Visible="True"
+    Loaded="WindowLoaded"
+    >
+  
+       
+       <GridPanel DockPanel.Dock="Fill" Margin="20" CellSpacing="10">
+	   
+	   
+	    <TextPanel Width="400">
+			<Heading>Applying Multiple Animations to the Same Property</Heading>
+			In the following example, two animations are applied to the RectangleWidth property of a rectangle.
+			The first animation has a Fill setting of Freeze, so the second animation builds off 
+			the first animation's ending value (200) rather than the property's base value (100).
+			Another rectangle is provided for comparison; the animations applied to the second rectangle don't have a Fill setting of Freeze.
+		</TextPanel>
+		
+		<Text Margin="0,20,0,0">With Fill="Freeze" on the First Animation</Text>
+       <Canvas Width="400">
+			<Rectangle ID="rectangleWithFreezeAnimation" 
+				RectangleWidth="100" RectangleHeight="30" Fill="MediumBlue">
+				<!-- See Window1.xaml.cs for the code in which the animations are created
+					 and applied to the rectangle. -->
+			</Rectangle>
+       </Canvas>
+	 
+		<Text Margin="0,20,0,0">Without Fill="Freeze" on the First Animation</Text>
+       <Canvas Width="400">
+			<Rectangle ID="rectangleWithoutFreezeAnimation"
+				RectangleWidth="100" RectangleHeight="30" Fill="MediumBlue">
+				<!-- See Window1.xaml.cs for the code in which the animations are created
+					 and applied to the rectangle. -->
+			</Rectangle>
+       </Canvas>
+       <Button Width="100" Height="40" Click="restartFreezeAnimationExamples" Background="LimeGreen">Restart</Button>
+
+    
+       
+       </GridPanel>
+</Window>

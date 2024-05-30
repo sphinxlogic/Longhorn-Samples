@@ -1,0 +1,121 @@
+<!-- This example shows how to use an ImageBrush as a fill for shapes and controls. -->
+<GridPanel 
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.BasicImageFills"
+    def:CodeBehind="BasicImageFills.xaml.cs" 
+    Columns="3"
+    CellSpacing="5">
+    <GridPanel.Resources>
+		<Style>
+			<Image Width="50" Height="50" />
+		</Style>
+    </GridPanel.Resources>
+    
+    <!-- Describes the sample and enables you to change the image displayed. -->
+		
+		<DockPanel GridPanel.ColumnSpan="3" 
+			Background="HorizontalGradient LimeGreen Teal" MinHeight="50">
+			
+			<!-- Enables you to change the image displayed. -->
+			
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage"> 
+				<Image Source="data\gecko.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage" >
+				<Image Source="data\butterfly2.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage" >
+			<Image Source="data\music.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right"
+				Style="{navButton}" IsEnabled="False"  Click="loadImage"
+				ID="firstImageButton">
+				<Image Source="data\Waterlilies.jpg" />
+			</Button>
+			
+			<!-- A description of this sample. -->
+			<TextPanel DockPanel.Dock="Fill" Width="200">
+				An ImageBrush can be used to fill a variety of objects with an image. 
+				The following are some examples.
+			</TextPanel>
+		</DockPanel>
+	
+	
+	<!-- Demonstrates how to fill an area with an image. 
+		 An ImageBrush is applied to shape, a button, and
+		 a panel. -->
+	<GridPanel Columns="1">
+		<Text>Filling a shape:</Text>
+		<Ellipse
+			ID="myEllipse"
+			RadiusX="100"
+			RadiusY="100"
+			Stroke="MediumBlue"
+			StrokeThickness="5">
+			<Ellipse.Fill>
+				<ImageBrush ImageSource="data\Waterlilies.jpg" />
+			</Ellipse.Fill>
+		</Ellipse>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>Filling a button:</Text>
+		<Button ID="myButton"
+			Height="75" Width="100" Foreground="White" FontWeight="Bold">
+			A Button
+			<Button.Background>
+				<ImageBrush ImageSource="data\Waterlilies.jpg" Opacity="0.25"/>
+			</Button.Background>
+		</Button>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>Filling a Panel:</Text>
+		<Canvas ID="myCanvas"
+			Height="200" Width="300">
+			<Canvas.Background>
+				<ImageBrush ImageSource="data\Waterlilies.jpg" />
+			</Canvas.Background>
+		</Canvas>
+	</GridPanel>
+	
+	
+	<def:Code>
+			<![CDATA[
+				
+				private Button lastButtonClicked;
+				
+				private void loadImage(object sender, ClickEventArgs args){
+					// Retrieve the Image from the button's content.
+					Button b = ((Button)sender);	
+					Image selectedImage = (Image) b.Content;
+					ImageBrush myImageBrush = new ImageBrush();
+					myImageBrush.ImageSource = selectedImage.Source;
+						
+					// Set the fill of the elements.
+					myEllipse.Fill = myImageBrush;
+					myButton.Background = myImageBrush;
+					myCanvas.Background = myImageBrush;
+					
+					// Disable the button that contains the selected image
+					// and enable the previously selected image button.
+					b.IsEnabled = false;
+					if (lastButtonClicked == null)
+						firstImageButton.IsEnabled = true;
+					else
+						lastButtonClicked.IsEnabled = true;
+					lastButtonClicked = b;
+					
+				}
+	
+			]]>
+		
+		</def:Code>
+	
+	
+	
+</GridPanel>

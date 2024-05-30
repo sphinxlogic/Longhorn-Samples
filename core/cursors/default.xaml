@@ -1,0 +1,88 @@
+<DockPanel ID="RootElement" xmlns="http://schemas.microsoft.com/2003/xaml" 
+xmlns:def="Definition" def:Language="C#">
+
+<Text DockPanel.Dock="Top">Select a Cursor Type</Text>
+<!-- The user can select different cursor types using this ComboBox -->
+<ComboBox SelectionChanged="HandleChange" Width="40%" DockPanel.Dock="Top">
+  <ComboBoxItem>Arrow</ComboBoxItem>
+  <ComboBoxItem>Cross</ComboBoxItem>
+  <ComboBoxItem>HandCursor</ComboBoxItem>
+  <ComboBoxItem>Help</ComboBoxItem>
+  <ComboBoxItem>IBeam</ComboBoxItem>
+  <ComboBoxItem>No</ComboBoxItem>
+  <ComboBoxItem>SizeAll</ComboBoxItem>
+  <ComboBoxItem>SizeNESW</ComboBoxItem>
+  <ComboBoxItem>SizeNS</ComboBoxItem>
+  <ComboBoxItem>SizeNWSE</ComboBoxItem>
+  <ComboBoxItem>SizeWE</ComboBoxItem>
+  <ComboBoxItem>UpArrow</ComboBoxItem>
+  <ComboBoxItem>WaitCursor</ComboBoxItem>
+</ComboBox>
+<!-- When the mouse pointer is over this FlowPanel the selected
+cursor type is shown -->
+<Border ID="CustomButton" BorderThickness="1.0, 1.0, 1.0, 1.0" BorderBrush="#000000">
+<DockPanel  
+  Margin="10,10,0,0" Width="500px">
+  <Text Margin="10,5,0,0">Move the pointer over this box to 
+  see what the cursor looks like.</Text>
+</DockPanel>
+</Border>
+ 
+<def:Code>
+<![CDATA[
+  // When the ComboBox changes, a new cursor type is set on
+  // the FlowPanel.
+  void HandleChange(object sender, SelectionChangedEventArgs args)
+  {
+  		
+	ComboBox cb = (ComboBox)sender;
+	ComboBoxItem cbi = (ComboBoxItem)cb.SelectedItem;
+	string ItemValue = cbi.ToString();
+
+	switch (ItemValue)
+	{
+		case "Arrow":
+			CustomButton.Cursor = System.Windows.Input.Cursor.Arrow;
+			break;
+		case "Cross":
+			CustomButton.Cursor = System.Windows.Input.Cursor.Cross;
+			break;
+		case "HandCursor":
+			CustomButton.Cursor = System.Windows.Input.Cursor.Hand;
+			break;
+		case "Help":
+			CustomButton.Cursor = System.Windows.Input.Cursor.Help;
+			break;
+		case "IBeam":
+			CustomButton.Cursor = System.Windows.Input.Cursor.IBeam;
+			break;
+		case "No":
+			CustomButton.Cursor = System.Windows.Input.Cursor.No;
+			break;
+		case "SizeAll":
+			CustomButton.Cursor = System.Windows.Input.Cursor.SizeAll;
+			break;
+		case "SizeNESW":
+			CustomButton.Cursor = System.Windows.Input.Cursor.SizeNESW;
+			break;
+		case "SizeNS":
+			CustomButton.Cursor = System.Windows.Input.Cursor.SizeNS;
+			break;
+		case "SizeNWSE":
+			CustomButton.Cursor = System.Windows.Input.Cursor.SizeNWSE;
+			break;
+		case "SizeWE":
+			CustomButton.Cursor = System.Windows.Input.Cursor.SizeWE;
+			break;
+		case "UpArrow":
+			CustomButton.Cursor = System.Windows.Input.Cursor.UpArrow;
+			break;
+		case "WaitCursor":
+			CustomButton.Cursor = System.Windows.Input.Cursor.Wait;
+			break; 
+	}
+  }
+]]>
+</def:Code>
+
+</DockPanel>

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyControlLibrary", "MyControlLibrary.csproj", "{54EB2D0E-2A1D-4DAB-9654-D620BEB5204D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54EB2D0E-2A1D-4DAB-9654-D620BEB5204D}.Debug|.NET.ActiveCfg = Debug|.NET
+		{54EB2D0E-2A1D-4DAB-9654-D620BEB5204D}.Debug|.NET.Build.0 = Debug|.NET
+		{54EB2D0E-2A1D-4DAB-9654-D620BEB5204D}.Release|.NET.ActiveCfg = Release|.NET
+		{54EB2D0E-2A1D-4DAB-9654-D620BEB5204D}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

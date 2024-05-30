@@ -1,0 +1,153 @@
+<?Mapping XmlNamespace="app" ClrNamespace="ExpenseItApp" Assembly="ExpenseItUtilitiesDLL" ?>
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml" 
+    xmlns:def="Definition" 
+    def:Class="ExpenseItApp.AppModelDemo"
+    def:CodeBehind="app.xaml.cs"
+    StartupUri="page1.xaml"
+    >   
+        <Application.Resources>
+            <Expense def:Name="ExpenseData" xmlns="app" Alias="Someone" EmployeeNumber="57304" CostCenter="4032">
+                <Expense.LineItems>
+                    <LineItem Type="Meal"      Description="Mexican Lunch"         Cost="12" />
+                    <LineItem Type="Meal"      Description="Italian Dinner"        Cost="72" />
+                    <LineItem Type="Education" Description="Developer Conference"  Cost="500" />
+                </Expense.LineItems>
+            </Expense>
+
+            <Color def:Name="GreenColor" A="255" G="255"/>
+            <SolidColorBrush def:Name="GreenBrush">
+                <SolidColorBrush.Color>
+                    <Color A="100" R="219" G="219" B="244"/>
+                </SolidColorBrush.Color>
+            </SolidColorBrush>
+
+            <Style def:Name="AppTitle">
+                <Text FontSize="24" FontWeight="Bold" Foreground="#FFFFFF" Margin="10,0,0,13" />
+            </Style>
+            <Style def:Name="BackButton">
+                <Image Source="images\back_button.png" />
+            </Style>
+            <Style def:Name="BackgroundImage">
+                <Image Source="images\bg.png" Height="100%" Canvas.Left="-550" Canvas.Top="-10"  />
+            </Style> 
+            <Style def:Name="ButtonFlow">
+                <FlowPanel Margin="0,40,0,10" />
+            </Style>    
+            <Style def:Name="ButtonInFlow">
+                <Button Margin="0,0,5,5" />
+            </Style>    
+            <Style def:Name="EmployeeList">
+                <ListBox Margin="0,0,75,0" />
+            </Style>
+            
+            <Style def:Name="ForwardButton">
+                <Image Source="images\forward_button.png" />
+            </Style>
+            <Style def:Name="HorizontalRadio">
+                <RadioButton Margin="0,0,5,0" />
+            </Style>
+            <Style def:Name="HorizontalRadioList">
+<!-- Temporary:  TabStop and TabNavigation should not need to be specified in the default style; RadioButtonList -->
+<!--             needs to override the default value for TabStop and attach TabNavigation to the ContentOwner    -->
+                <RadioButtonList TabStop="False" />
+                <Style.VisualTree>
+                    <FlowPanel KeyboardNavigation.TabNavigation="Once" ItemsControl.IsItemsHost="True" />
+                </Style.VisualTree>
+            </Style>
+            
+            <Style def:Name="InputText">
+                <TextBox Height="25px" FontFamily="Trebuchet MS" Foreground="#0066CC" FontSize="10pt"/>
+            </Style>
+            <Style def:Name="Label">
+                <Text Foreground="#000000" FontSize="8pt" FontFamily="arial" FontWeight="bold" Margin="0,3,10,0" 
+                      VerticalAlignment="Center" HorizontalAlignment="Right" />
+            </Style>
+            <Style def:Name="Page1Grid">
+                <GridPanel Margin="0,5,40,5" CellSpacing="10" Columns="2">
+                    <GridPanel.ColumnStyles>
+                        <ColumnStyle Width="43%" />
+                        <ColumnStyle Width="57%" />
+                    </GridPanel.ColumnStyles>
+                </GridPanel>
+            </Style>
+            <Style def:Name="Page2Grid">
+                <GridPanel CellSpacing="0" Margin="0,5,5,0" Columns="3">
+                    <GridPanel.ColumnStyles>
+                        <ColumnStyle Width="32%" />
+                        <ColumnStyle Width="40%" />
+                        <ColumnStyle Width="28%" />
+                    </GridPanel.ColumnStyles>
+                </GridPanel>
+            </Style>
+            <Style def:Name="Page2Spacer">
+                <Border MinWidth="0" Width="33%" MaxWidth="230" />
+            </Style>
+            <Style def:Name="PageBackground">
+                <DockPanel Background="White" />
+            </Style> 
+            <Style def:Name="TitleBarFlow">
+                <FlowPanel Background="HorizontalGradient #4E87D4 #73B2F5" Height="60" VerticalAlignment="center" />
+            </Style> 
+            <Style def:Name="TitleText">
+                <Text FontSize="18pt" Foreground="#4E87D4"  FontFamily="Trebuchet MS" Margin="0,40,10,10" />
+            </Style> 
+            <Style def:Name="TotalExpenses">
+                <Text FontSize="18pt" FontWeight="bold" Foreground="White" Margin="10,10,10,10" />
+            </Style>
+            <Style def:Name="TotalExpensesFlow">
+                <FlowPanel HorizontalAlignment="Right" />
+            </Style>
+            <Style def:Name="TotalExpensesLabel">
+                <Text FontFamily="Trebuchet MS" FontWeight="bold" Margin="10,10,0,10" Foreground="White"
+                      FlowPanel.BaselineAlignment="Center" />
+            </Style>
+            <Style def:Name="TotalRectangle">
+                <Rectangle Stroke="VerticalGradient #4E87D4 #73B2F5" StrokeThickness="1" Fill="VerticalGradient #73B2F5 #4E87D4"
+                           RadiusX="10" RadiusY="10" />         
+            </Style>
+            <Style def:Name="WatermarkCanvas">
+                <Canvas Width="230" Height="20" />
+            </Style>
+            <Style def:Name="WatermarkImage">
+                <Image Source="images\msn_watermark.png" Canvas.Top="0" Canvas.Left="0" />
+            </Style>    
+            
+            <Style def:Name="ExpenseItems">
+                <ItemsControl />
+                <Style.VisualTree>
+                    <DockPanel ItemsControl.IsItemsHost="True" />
+                </Style.VisualTree>
+            </Style>
+
+
+            <Style def:Name="EmployeeTypeItemStyle">
+                <Style.VisualTree>
+                    <Text TextContent="*Bind(Path=@DisplayString)" />
+                </Style.VisualTree>
+            </Style>
+            
+            <Style def:Name="EmployeeItemStyle">
+                <Style.VisualTree>
+                    <Text TextContent="*Bind(Path=@Name)"  />
+                </Style.VisualTree>
+            </Style>
+
+            <Style def:Name="ExpenseStyle">
+                <ContentPresenter DockPanel.Dock="Top" />
+                <Style.VisualTree>
+                    <GridPanel Style="{Page2Grid}">
+                        <TextBox Text="*Bind(Path=Type)" Height="30" Margin="4,0,2,0" />
+                        <TextBox Text="*Bind(Path=Description)" Height="30" Margin="2,0,2,0"  />
+                        <TextBox Text="*Bind(Path=Cost)" IsNumberOnly="true" Height="30" Margin="2,0,4,0" />
+                    </GridPanel>
+                </Style.VisualTree>
+            </Style>
+            
+            <Style def:Name="CostCenterStyle">
+                <ContentPresenter DockPanel.Dock="Top" />
+                <Style.VisualTree>
+                    <Text TextContent="*Bind(Path=@Name)"  />
+                </Style.VisualTree>
+            </Style>            
+        </Application.Resources>
+</NavigationApplication>

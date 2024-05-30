@@ -1,0 +1,204 @@
+<Window  xmlns="http://schemas.microsoft.com/2005/xaml/"
+            xmlns:def       = "Definition"
+            def:Language    = "C#"
+            def:Class       = "Colors.MainWindow"
+            def:CodeBehind  = "Colors.xaml.cs"
+            Text            = "Colors"
+            Height          = "1200"
+            Width           = "650">
+
+    <!-- ************************   RESOURCES   ************************************ -->
+    <Window.Resources>
+
+        <ObjectDataSource def:Name="ColorList" TypeName="Common.ColorItemList,Colors" />
+
+        <TransformerSource def:Name="ByteToDouble" TypeName="ByteToDoubleTransformer" />
+        <TransformerSource def:Name="DoubleToString" TypeName="DoubleToStringTransformer" />
+        <TransformerSource def:Name="SourceToBool" TypeName="SourceToBoolTransformer" />
+        <TransformerSource def:Name="LuminanceToBrush" TypeName="LuminanceToBrushTransformer" />
+
+        <Style def:Name="ColorItemStyle">
+            <Style.VisualTree>
+                <Border Width="100" Height="30"
+                        Background="*Bind(Path=Brush)">
+                    <Text   Height="100%" Width="100%"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="*Bind(Path=Luminance; Transformer={LuminanceToBrush})"
+                            TextContent="*Bind(Path=Name)"/>
+                </Border>
+            </Style.VisualTree>
+        </Style>
+
+        <!-- override default theme that uses DockPanel -->
+        <Style>
+            <ListBox/>
+            <Style.VisualTree>
+                <Border Background      = "*Alias(Target=Background)"
+                        BorderBrush     = "*Alias(Target=BorderBrush)"
+                        BorderThickness = "*Alias(Target=BorderThickness)">
+                    <FlowPanel ItemsControl.IsItemsHost="true"/>
+                </Border>
+            </Style.VisualTree>
+        </Style>
+
+        <!-- override default theme that uses Width=100% -->
+        <Style>
+            <ListItem Width="Auto"/>
+        </Style>
+
+        <!-- override default theme that uses DockPanel -->
+        <Style>
+            <RadioButtonList/>
+            <Style.VisualTree>
+                <Border Background      = "*Alias(Target=Background)"
+                        BorderBrush     = "*Alias(Target=BorderBrush)"
+                        BorderThickness = "*Alias(Target=BorderThickness)">
+                    <FlowPanel ItemsControl.IsItemsHost="true"/>
+                </Border>
+            </Style.VisualTree>
+        </Style>
+
+        <Style>
+            <RadioButton Margin="3,0,0,0"/>
+        </Style>
+
+        <Style>
+            <Label Width="70" HorizontalAlignment="Right"/>
+        </Style>
+
+        <Style>
+            <HorizontalSlider Width="100"/>
+        </Style>
+
+    </Window.Resources>
+
+    <!-- ************************   PAGE LAYOUT   ************************************ -->
+
+    <DockPanel DataContext="*Bind(DataSource={ColorList})">
+
+    <!-- Control panel -->
+    <FlowPanel DockPanel.Dock="Top" Width="100%" Background="cornsilk">
+
+        <!-- Identification / general -->
+        <DockPanel Width="Auto">
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Name:</Label>
+                <TextBox Width="110" Height="20" Text="*Bind(Path=Name)"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Hex name:</Label>
+                <Text TextContent="*Bind(Path=Brush.Color)"/>
+                <Label>Source:</Label>
+                <Text TextContent="*Bind(Path=Source)"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Luminance:</Label>
+                <HorizontalSlider Minimum="0.0" Maximum="1.0" IsEnabled="false"
+                        Value="*Bind(Path=Luminance)"/>
+                <Label Width="30" Content="*Bind(Path=Luminance; Transformer={DoubleToString})"/>
+            </DockPanel>
+            <Button DockPanel.Dock="Top" Width="110" Margin="70,0,0,0" Click="OnNewColorClicked">New Color</Button>
+        </DockPanel>
+
+        <!-- RGB properties -->
+        <DockPanel Width="Auto">
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Alpha:</Label>
+                <HorizontalSlider ID="slider" Minimum="0" Maximum="255"
+                        Value="*Bind(Path=Alpha; Transformer={ByteToDouble})"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Alpha)"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Red:</Label>
+                <HorizontalSlider Minimum="0" Maximum="255"
+                        Value="*Bind(Path=Red; Transformer={ByteToDouble})"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Red)"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Green:</Label>
+                <HorizontalSlider Minimum="0" Maximum="255"
+                        Value="*Bind(Path=Green; Transformer={ByteToDouble})"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Green)"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Blue:</Label>
+                <HorizontalSlider Minimum="0" Maximum="255"
+                        Value="*Bind(Path=Blue; Transformer={ByteToDouble})"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Blue)"/>
+            </DockPanel>
+        </DockPanel>
+
+        <!-- HSV properties -->
+        <DockPanel Width="Auto">
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Alpha:</Label>
+                <HorizontalSlider Minimum="0" Maximum="255"
+                        Value="*Bind(Path=Alpha; Transformer={ByteToDouble})"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Alpha)"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Hue:</Label>
+                <HorizontalSlider Minimum="0.0" Maximum="360.0"
+                        Value="*Bind(Path=Hue)"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="40" Content="*Bind(Path=Hue; Transformer={DoubleToString})"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Saturation:</Label>
+                <HorizontalSlider Minimum="0.0" Maximum="1.0"
+                        Value="*Bind(Path=Saturation)"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Saturation; Transformer={DoubleToString})"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label>Value:</Label>
+                <HorizontalSlider ID="slider2" Minimum="0.0" Maximum="1.0"
+                        Value="*Bind(Path=Value)"
+                        IsEnabled="*Bind(Path=Source; Transformer={SourceToBool})"/>
+                <Label Width="30" Content="*Bind(Path=Value; Transformer={DoubleToString})"/>
+            </DockPanel>
+        </DockPanel>
+
+        <!-- Color Tile -->
+        <Border Width="100" Height="100" Margin="10,0,0,0" Background="*Bind(Path=Brush)">
+            <Text   Height="100%" Width="100%"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="*Bind(Path=Luminance; Transformer={LuminanceToBrush})"
+                    TextContent="*Bind(Path=Name)"/>
+        </Border>
+
+        <!-- Sorting -->
+        <DockPanel Width="100%">
+            <Label>Sort by:</Label>
+            <RadioButtonList SelectionChanged="OnSortByChanged">
+                <RadioButton>Name</RadioButton>
+                <RadioButton>Luminance</RadioButton>
+                <RadioButton>Red</RadioButton>
+                <RadioButton>Green</RadioButton>
+                <RadioButton>Blue</RadioButton>
+                <RadioButton>Hue</RadioButton>
+                <RadioButton>Saturation</RadioButton>
+                <RadioButton>Value</RadioButton>
+            </RadioButtonList>
+        </DockPanel>
+
+    </FlowPanel>
+
+    <!-- Color list -->
+    <ScrollViewer DockPanel.Dock="Fill" Width="100%" >
+        <ListBox    ID="colorListBox"
+                    ItemStyle="{ColorItemStyle}"
+                    ItemsSource="*Bind()" />
+    </ScrollViewer>
+
+    </DockPanel>
+
+</Window>

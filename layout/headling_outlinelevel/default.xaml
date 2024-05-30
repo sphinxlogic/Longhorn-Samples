@@ -1,0 +1,13 @@
+<TextPanel ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition">
+        <Heading OutlineLevel="1">Heading Level 1</Heading>
+        <Heading OutlineLevel="2">Heading Level 2</Heading>
+        <Heading OutlineLevel="3">Heading Level 3</Heading>
+        <Heading OutlineLevel="4">Heading Level 4</Heading>
+        <Heading OutlineLevel="5">Heading Level 5</Heading>
+        <Heading OutlineLevel="6">Heading Level 6</Heading>
+        <Heading OutlineLevel="7">Heading Level 7</Heading>
+</TextPanel>
+
+

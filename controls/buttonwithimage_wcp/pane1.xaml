@@ -1,0 +1,14 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<Canvas  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ButtonwithImage_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+  <Button ID="btn1" Canvas.Top="2" Width="190" Height="160" Click="OnClick"><Image Source="data/flower2.jpg"/></Button>
+  <Button ID="btn2" Canvas.Top="165">Click on the photo</Button>
+
+
+</Canvas>

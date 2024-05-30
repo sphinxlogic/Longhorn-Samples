@@ -1,0 +1,22 @@
+<Canvas MouseMove="OnMouseMove"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+ID="rootCanvas" xmlns:def="Definition">
+
+<Ellipse ID="circle1" Fill="Blue" RadiusX="30" RadiusY="30"></Ellipse>
+
+  <def:Code>
+  <![CDATA[
+    // Fires when the mouse pointer moves.
+    void OnMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+      // Get the x and y coordinates of the mouse pointer.
+      System.Windows.Point p = e.GetPosition(rootCanvas);
+      double pX = p.X;
+      double pY = p.Y;
+      // Set the coordinates of the circle to the mouse pointer coordinates.
+      circle1.CenterX = new System.Windows.Length(pX);
+      circle1.CenterY = new System.Windows.Length(pY);
+    }
+ ]]>
+  </def:Code>
+</Canvas>

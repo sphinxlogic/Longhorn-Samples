@@ -1,0 +1,67 @@
+<?Mapping XmlNamespace="MIL" ClrNamespace="System.Windows.Media" Assembly="PresentationFramework"?>
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+      	'Create a PointCollection to contain the points of the
+	'Polygon shapes.
+	Dim myPointCollection As System.Windows.Media.PointCollection
+	myPointCollection = new System.Windows.Media.PointCollection
+	myPointCollection.Add(new System.Windows.Point(60, 60))
+	myPointCollection.Add(new System.Windows.Point(70, 70))
+	myPointCollection.Add(new System.Windows.Point(70, 110))
+	myPointCollection.Add(new System.Windows.Point(110, 110))
+	myPointCollection.Add(new System.Windows.Point(110, 70))
+	myPointCollection.Add(new System.Windows.Point(70, 70))
+
+	'Create the first Polygon and add it to the Canvas.
+	Dim box1 As System.Windows.Shapes.Polygon
+	box1 = new System.Windows.Shapes.Polygon
+	box1.Points = myPointCollection
+	box1.Stroke = Brushes.Black
+	box1.StrokeThickness = new System.Windows.Length(5)
+	root.Children.Add(box1)
+	
+	'Create the second Polygon. This polygon contains the same
+	'points as the first, but is rotated.
+	Dim box2 As System.Windows.Shapes.Polygon
+	box2 = new System.Windows.Shapes.Polygon
+	box2.Points = myPointCollection
+	box2.Stroke = Brushes.Blue
+	box2.StrokeThickness = new System.Windows.Length(5)
+			
+  	'Create a TransformDecorator to transform the shape.
+	Dim transformer As System.Windows.Controls.TransformDecorator
+	transformer = new System.Windows.Controls.TransformDecorator
+	transformer.AffectsLayout = false
+	
+	'Create the scale transformation.
+	Dim myRotateTransform As new System.Windows.Media.RotateTransform(45, new System.Windows.Point(110,110))
+   	'Set the TransformDecorator.Transform property
+	transformer.Transform = myRotateTransform
+
+	'Add box2 as a child of the TransformDecorator and add
+	'the TransformDecorator to the Canvas.
+	transformer.Child = box2
+	root.Children.Add(transformer)
+	
+	
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

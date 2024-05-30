@@ -1,0 +1,21 @@
+<NavigationWindow xmlns="http://schemas.microsoft.com/2003/xaml/"
+            xmlns:def="Definition"
+            def:CodeBehind="Page3.xaml.cs"
+            def:Class="WCSample.Page3"
+			Visible="true"
+            Text="Page 3"
+            ID="Window3">
+            
+	<DockPanel>
+            
+    <Text DockPanel.Dock="Top"
+            Margin="10,10,10,10">Page 3</Text>
+    
+    <Button Click="btnClose"
+            Height="60"
+            Width="150"
+            DockPanel.Dock="Top"
+            Content="Close Window 3"
+            Margin="10,10,10,10"/>
+</DockPanel>
+</NavigationWindow>

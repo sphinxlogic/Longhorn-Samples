@@ -1,0 +1,21 @@
+<Project DefaultTargets="Build">
+
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property TargetName="PickerSampleSelectingContacts" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+  </PropertyGroup>
+
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+
+  <ItemGroup>
+    <Item Type="compile" Include="PickerSampleSelectingContacts.cs" />
+    <Item Type="Reference" Include="$(windir)\microsoft.net\avalon\System.Windows.Contacts" />
+    <Item Type="Reference" Include="$(windir)\system32\WinFS\api\System.Storage.Core" />
+    <Item Type="Reference" Include="$(windir)\system32\WinFS\api\System.Storage.Contacts" />
+    <Item Type="Reference" Include="$(windir)\system32\WinFS\api\System.Storage.WinFS" />
+  </ItemGroup>
+
+</Project>

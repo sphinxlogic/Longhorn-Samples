@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "positionanimation_csharp", "positionanimation_csharp.csproj", "{0609D291-5F9E-430E-A4FA-5FBB85F786AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0609D291-5F9E-430E-A4FA-5FBB85F786AC}.Debug|.NET.ActiveCfg = Debug|.NET
+		{0609D291-5F9E-430E-A4FA-5FBB85F786AC}.Debug|.NET.Build.0 = Debug|.NET
+		{0609D291-5F9E-430E-A4FA-5FBB85F786AC}.Release|.NET.ActiveCfg = Release|.NET
+		{0609D291-5F9E-430E-A4FA-5FBB85F786AC}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

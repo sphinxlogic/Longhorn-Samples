@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="customheadersample">
+   <Target Name="customheadersample">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="customheadersample.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="customheadersample.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

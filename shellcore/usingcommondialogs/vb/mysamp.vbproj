@@ -1,0 +1,54 @@
+<Project DefaultTargets="Build">
+  <!--Imports the target which contains all the common targets-->
+  <PropertyGroup>
+    <Property Language="vb" />
+    <!-- 
+				Description: This property defines the language used for coding
+				Possible Values: {cs, cpp, vb}
+				Default Value:
+				Required: YES
+		 -->
+    <Property DefaultClrNameSpace="SDKSample" />
+    <!-- 
+				Description: This property defines the name of the target
+				Possible Values:
+				Default Value:
+				Required: YES
+		 -->
+    <Property TargetName="Target" />
+    <!-- 
+				Description:Defines the full path of file that contains security information
+				Possible Values:
+				Default Value:
+				Required:YES
+		 -->
+    <Property AssemblyName="ComDlg" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{B5F117B9-2FB8-43C6-A509-E1E53BC5E6C2}" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DocumentationFile="ComDlg.xml" />
+    <Property OutputPath="bin\Release\" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication markup -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <!-- Compiled Xaml Files list -->
+    <Item Type="Pages" Include="default.xaml" />
+    <Item Type="References" Include="$(WCP)\System.Windows.dll" />
+    <Item Type="References" Include="$(WCP)\System.Windows.Explorer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System.Windows" HintPath="..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Avalon\System.Windows.dll" Name="System.Windows" FusionName="System.Windows, Version=6.0.3708.0, Culture=neutral, PublicKeyToken=a29c01bbd4e39ac5, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

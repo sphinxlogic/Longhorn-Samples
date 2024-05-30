@@ -1,0 +1,75 @@
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="TextBoxOverview1.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="TextBoxOverview1" Visible="True"
+    Loaded="WindowLoaded"
+    >
+  <FlowPanel>
+    <DockPanel> 
+    <TextBox 
+    Width="200px"
+    Height="50px"
+    DockPanel.Dock="Top"
+    ScrollerVisibilityX="Auto"
+    FontWeight="Bold">This is a text box with bold font weight.
+    </TextBox>
+    <TextBox 
+    Width="200px"
+    Height="50px"
+    DockPanel.Dock="Top"
+    FontFamily="Times New Roman"
+    FontStyle="Italic"
+    FontSize="12"
+    Wrap="true"
+    >
+    </TextBox>
+    <TextBox 
+    Height="50px"
+    Width="200px"
+    DockPanel.Dock="Top"
+    Padding="10px, 10px, 10px, 10px"
+    >This is a text box on a dock panel.
+    </TextBox>
+     <TextBox 
+    Height="50px"
+    Width="200px"
+    DockPanel.Dock="Top"
+    IsReadOnly="True"
+    >This is read only text box.
+    </TextBox>
+      <TextBox 
+    Height="25px"
+    Width="25px"
+    DockPanel.Dock="Top"
+    IsNumberOnly="True"
+    MaxLength="2"
+    >
+    </TextBox>
+   </DockPanel>
+   <Canvas ID="CanvasOne">
+    <TextBox
+        Height="100px"
+        Width="200px"
+        Margin="20px, 50px, 0px, 0px" 
+        Wrap="true"
+        ScrollerVisibilityY="Auto"
+        AcceptsReturn="true"
+	AcceptsTab="true"
+        IsSpellCheckEnabled="true">If you misspell a word, it will be highlighted.
+        </TextBox>
+        <TextBox
+        Height="50px"
+        Width="200px"
+        Canvas.Top="150px"
+        Canvas.Left="20px"
+        Foreground="Blue"
+        GotFocus="focused"
+        TextChanged="setChangedFlag"
+        LostFocus="ValidateChangedText"
+        >Enter your name here.
+    </TextBox>
+   </Canvas>
+  </FlowPanel>
+</Window>

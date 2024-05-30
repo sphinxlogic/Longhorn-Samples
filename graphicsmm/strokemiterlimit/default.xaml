@@ -1,0 +1,20 @@
+<Canvas 
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  Background="White">
+
+
+  <!-- No restriction is placed on the size of the vertex corners. -->
+  <Polyline
+    Points="50,70 75,50 50,120"
+    Stroke="Red"
+    StrokeThickness="10"/>
+
+  <!-- The corner is cut off (beveled) because the miter limit
+       is set to 1.-->
+  <Polyline
+    Points="50,200 75,180 50,250"
+    Stroke="Blue"
+    StrokeThickness="10"
+    StrokeMiterLimit="1" />
+
+</Canvas>

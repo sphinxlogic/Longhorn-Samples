@@ -1,0 +1,36 @@
+<Canvas 
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  Background="White">
+
+    <!-- Polygon A -->
+  <TransformDecorator Transform="translate(-20,0)" AffectsLayout="False">
+    <Polygon
+        Points="45,44 147,169 147,46 
+            23,108 45,155 108,90
+            147,46"
+        Fill="Blue"
+        Stroke="Orange"
+        StrokeThickness="3"
+        FillRule="NonZero">
+    </Polygon>
+  </TransformDecorator>
+
+    <!-- Polygon B -->
+  <TransformDecorator Transform="translate(250,0)" AffectsLayout="False">
+    <Polygon
+        Points="45,44 147,169 147,46 
+            23,108 45,155 108,90
+            147,46"
+        Fill="Blue"
+        Stroke="Orange"
+        StrokeThickness="3"
+        FillRule="EvenOdd">
+    </Polygon>
+  </TransformDecorator>
+
+    <!-- Labels -->
+    <Text Canvas.Left="20" Canvas.Top="10" FontSize="14" Foreground="Black">Polygon A FillRule="NonZero"</Text>
+    <Text Canvas.Left="295" Canvas.Top="10" FontSize="14" 
+	    Foreground="Black">Polygon B FillRule="EvenOdd" </Text>
+
+</Canvas>

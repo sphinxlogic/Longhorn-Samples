@@ -1,0 +1,86 @@
+<!-- Temporary:  Width="100%" should not need to be specified in the root element; Window needs to change  -->
+<!--             from implicitly containing a DockPanel to explicitly containing one child for its content -->
+<DockPanel 
+        xmlns="http://schemas.microsoft.com/2003/xaml"
+        xmlns:def="Definition"
+        Width="100%"
+        def:Class="ExpenseItApp.Page2"
+        def:CodeBehind="Page2.xaml.cs"
+        Style="{PageBackground}"
+        DataContext="{ExpenseData}"
+        >
+    <DockPanel.Resources>
+        <Style def:Name="DisplayText">
+            <Text Foreground="#4E87D4" FontSize="9pt" FontFamily="arial" FontWeight="bold" Margin="10,0,0,0" />
+        </Style>
+    </DockPanel.Resources>
+
+    <FlowPanel DockPanel.Dock="Top" Style="{TitleBarFlow}">
+        <HyperLink ID="NAV_BACK" Click="Navigate" Cursor="Hand"><Image Source="images\back_button.png"    /></HyperLink>
+        <HyperLink ID="NAV_FWD"  Click="Navigate" Cursor="Hand"><Image Source="images\forward_button.png" /></HyperLink>
+        <Text Style="{AppTitle}">ExpenseIt!</Text>
+    </FlowPanel>
+    <DockPanel DockPanel.Dock="Top">
+        <Canvas DockPanel.Dock="Left" Style="{WatermarkCanvas}">
+            <Image Style="{BackgroundImage}" />
+            <Image Style="{WatermarkImage}" />
+        </Canvas>
+        <Text DockPanel.Dock="Fill" Style="{TitleText}">Expense report for:</Text>
+    </DockPanel>
+    <Border DockPanel.Dock="Left" Style="{Page2Spacer}" />
+    <FlowPanel DockPanel.Dock="Top">
+        <GridPanel DockPanel.Dock="Top" Columns="2">
+            <Text Style="{Label}">Email Alias:</Text>
+            <Text Style="{DisplayText}" TextContent="*Bind(Path=Alias)"/>
+            <Text Style="{Label}">Employee Number:</Text>
+            <Text Style="{DisplayText}" TextContent="*Bind(Path=EmployeeNumber)"/>
+            <Text Style="{Label}">Cost Center:</Text>
+            <Text Style="{DisplayText}" TextContent="*Bind(Path=CostCenter)"/>
+        </GridPanel>
+    </FlowPanel>
+
+    <GridPanel DockPanel.Dock="Top" Style="{Page2Grid}">
+        <!-- Column description row -->
+        <Border Height="30" Background="VerticalGradient #4E87D4 #73B2F5">
+            <Text Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">Expense Type</Text>
+        </Border>
+        <Border Height="30" Background="VerticalGradient #4E87D4 #73B2F5">
+            <Text Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">Description</Text>
+        </Border>
+        <Border Height="30" Background="VerticalGradient #4E87D4 #73B2F5">
+            <Text Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">Amount</Text>
+        </Border>
+    </GridPanel>
+
+    <ItemsControl DockPanel.Dock="Top" Style="{ExpenseItems}" ItemStyle="{ExpenseStyle}">
+        <CollectionContainer Collection="*Bind(Path=LineItems)" />
+    </ItemsControl>
+
+    <FlowPanel Style="{ButtonFlow}" DockPanel.Dock="Top">
+        <DockPanel>
+            <Button Style="{ButtonInFlow}" Click="AddExpense">Add Expense</Button>
+            <Button Style="{ButtonInFlow}" Click="ViewChart">
+                <DockPanel>
+                    <Image Source="images\chart.png" DockPanel.Dock="Left" /> 
+                    <Text Margin="10,0,0,0" DockPanel.Dock="Fill" VerticalAlignment="Center">View Chart</Text>
+                </DockPanel>
+            </Button>
+            <Button Style="{ButtonInFlow}" ID="SubmitExpenseButton" Click="SubmitExpense">
+                <DockPanel>
+                    <Image Source="images\chart.png" DockPanel.Dock="Left" /> 
+                    <Text Margin="10,0,0,0" DockPanel.Dock="Fill" VerticalAlignment="Center">Submit Report</Text>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+    </FlowPanel>
+    
+    <FlowPanel DockPanel.Dock="Top" HorizontalAlignment="Right" Margin="0,0,5,0">
+        <Canvas>
+            <Rectangle Width="100%" Height="100%" Style="{TotalRectangle}" />
+            <FlowPanel Width="100%" Height="100%" Style="{TotalExpensesFlow}">
+                <Text Style="{TotalExpensesLabel}">Total Expenses:</Text>
+                <Text Style="{TotalExpenses}" TextContent="*Bind(Path=TotalExpenses)"/>
+            </FlowPanel>
+        </Canvas>
+    </FlowPanel>
+</DockPanel>

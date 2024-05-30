@@ -1,0 +1,37 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox DockPanel.Dock="Fill" FontFamily="Courier New" Height="Auto" Width="Auto"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+	</DockPanel.Resources>
+	<TextPanel DockPanel.Dock="Top" Height="50%" ColumnCount="2" ColumnBalancing="True" ColumnGap="10">
+		<TextPanel.Resources>
+			<Style>
+				<Paragraph Margin="0" TextIndent="0"/>
+			</Style>
+			<Style>
+				<Border Width="50" Height="50" />
+			</Style>
+		</TextPanel.Resources>
+		<Paragraph>
+			<Border Background="#EEEEAA" TextPanel.FlowBehavior="Figure" Margin="2"/>Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consect etuer adipiscing elit.
+			Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam non ymmy nibh euismod tinc idunt ut laoreet dolore magna aliquam erat volutpat.
+		</Paragraph>
+		<Border Background="#EEAAEE" TextPanel.FlowBehavior="Floating" TextPanel.FloatingDirection="Right" Margin="2"/> 
+		<Paragraph>Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consect etuer adipiscing elit.</Paragraph>
+		<Paragraph>Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consect etuer adipiscing elit.</Paragraph>
+		<Border Background="#AAEEEE" TextPanel.FlowBehavior="Floating" TextPanel.FloatingDirection="Right" Margin="2"/> 
+		<Paragraph>Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consect etuer adipiscing elit.</Paragraph>
+		<Paragraph>Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consect etuer adipiscing elit.</Paragraph>
+		<Border Background="#AAAAEE" TextPanel.FlowBehavior="Floating" TextPanel.FloatingDirection="Left" Margin="2"/> 
+		<Paragraph>Lorem ipsum dolor sit amet, consect etuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consect etuer adipiscing elit.</Paragraph>
+	</TextPanel>
+	<TextBox DockPanel.Dock="Fill">
+	</TextBox>
+</DockPanel>

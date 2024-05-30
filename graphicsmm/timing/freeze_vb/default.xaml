@@ -1,0 +1,38 @@
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+	Dim myRect As new System.Windows.Shapes.Rectangle
+	myRect.RectangleHeight = new System.Windows.Length(100)
+	myRect.RectangleWidth = new System.Windows.Length(100)
+	myRect.RectangleTop = new System.Windows.Length(20)
+	myRect.RectangleLeft = new System.Windows.Length(20)
+
+	myRect.Fill = new System.Windows.Media.RadialGradientBrush(System.Windows.Media.Colors.Blue, System.Windows.Media.Colors.Green)
+
+	Dim myLengthAnimation As new System.Windows.Media.Animation.LengthAnimation
+	myLengthAnimation.Duration = new System.Windows.Media.Animation.Time(5000)
+	myLengthAnimation.To = new System.Windows.Length(30)
+	myLengthAnimation.Fill = System.Windows.Media.Animation.TimeFill.Freeze
+	
+	myRect.AddAnimation(System.Windows.Shapes.Rectangle.RectangleWidthProperty, myLengthAnimation)
+
+	myCanvas.Children.Add(myRect)
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

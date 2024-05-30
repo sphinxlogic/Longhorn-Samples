@@ -1,0 +1,444 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The AcceleratorLicensing Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The AcceleratorLicensing Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003<u1:p></u1:p></span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+<a href="#Overview"><span style='text-decoration:none'>Overview</span></a><br>
+<a href="##KeyConcepts"><span style='text-decoration:none'>Key Concepts</span></a><br>
+<a href="#Building"><span style='text-decoration:none'>Building</span></a><br>
+<a href="#Setup"><span style='text-decoration:none'>Setup</span></a><br>
+<a href="#Running"><span style='text-decoration:none'>Running</span></a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem (code-named "Indigo") can be used to help secure applications.
+The AcceleratorLicensing sample is an application consisting of a
+client, a service, a service host, and client and host configuration and data
+files. It demonstrates optimization of the initial client authentication
+process at the service, by issuing a license containing the roles that the
+client belongs to. Clients automatically use this license on subsequent
+requests, which bypasses the authentication process. Initially, the server
+authenticates that the messages are secured using a valid user name and
+password; the data for the user name&nbsp; and password is stored in a server
+configuration data file on the server. The server issues an accelerator license
+back to the client. The client is a console application that sends the user
+name string to the server in a message body. It also sends a user name token to
+the server on the first message. Subsequent requests to the server are secured
+using the license issued by the server. The client writes the response from the
+server to the console. Note that most of the accelerator license issuance,
+usage, and consumption are handled internally by the "Indigo" system. The
+"Indigo" security system exposes some simple settings for controlling the
+behavior of accelerator licensing. </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Client:</span></b><span
+style='font-family:Arial'><br>
+The client is a simple console application that uses a configuration file to
+store settings for the objects that it uses.</span></p>
+
+<pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; </span></pre><pre><span
+style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;identityRole&gt;soap.tcp://localhost:46001/HelloClient/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- WARNING: This sample does not secure the server policy for demonstration purposes. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Permits untrusted policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre>
+
+<p><span style='font-family:Arial'>Because it uses the &quot;main&quot; service
+environment, the client inherits all the security settings of that environment.
+This includes the location of the data file (Client.exe.config) that contains
+the user name and password information. The Machine.config file references the
+data file as the #.security file. This implies that the data file is named relative
+to the executable/host name. The client loads this configuration information,
+uses the <b>ServiceManager</b> to create a proxy that represents a service, and
+invokes the method on the proxy. Because this service method is an RPC-style or
+request-reply style method, the execution of the client stops until the call
+returns. The security data file for the client is as follows.</span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;tokens&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;tokenCache
+id=&quot;mainTokenCache&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;userNameToken user=&quot;joe&quot; password=&quot;eoj&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/tokenCache&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/tokens&gt;<br>
+&lt;/securityData&gt;</span></p>
+
+<p><span style='font-family:Arial'>The initial authentication tokens used in
+this application are populated into a token cache. In this case, the token
+being used is a userNameToken with instance data of user=&quot;joe&quot; and
+password=&quot;eoj&quot;. Typically&nbsp; this information would be encrypted. </span></p>
+
+<p><span style='font-family:Arial'>It is important to realize that, although
+this client sends SOAP 1.2 messages to communicate with the service, you
+interact with this service in your client as though it were a local call and
+used no custom parameter types. It is also important to note that in this case,
+the client code has not changed for the secure implementation. </span></p>
+
+<pre><span style='color:#202080'>&nbsp;&nbsp; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;// Load the default service environment, called &quot;main&quot;.</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; ServiceEnvironment se = ServiceEnvironment.Load();</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; // Retrieve the ServiceManager from the default environment.</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; ServiceManager manager = se[typeof(ServiceManager)] as ServiceManager;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; if (manager == null)</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ApplicationException</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;The ServiceManager is not available in the service se.&quot;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></pre><pre><span
+style='color:#202080'> &nbsp;&nbsp;&nbsp;}</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; // Start the service environment.</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; se.Open();</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; // Create a proxy channel that points to the service to call.</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; Uri uri = new Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; IHelloChannel channel = (IHelloChannel)manager.CreateChannel(typeof(IHelloChannel), uri);</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; try </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;{</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(channel.Greeting(name));</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; </span><span lang=FR style='color:
+#202080'>}</span></pre><pre><span lang=FR style='color:#202080'>&nbsp;&nbsp;&nbsp; catch(Exception Ex)</span></pre><pre><span
+lang=FR style='color:#202080'>&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+lang=FR style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(Ex);</span></pre><pre><span
+lang=FR style='color:#202080'>&nbsp;&nbsp;&nbsp; </span><span style='color:
+#202080'>}</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; finally</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; se.Close();</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; }</span></pre>
+
+<p><b><span style='font-family:Arial'>Securing the Service in Three Steps</span></b></p>
+
+<p><strong><span style='font-family:Arial;color:black'>1. Service</span></strong></p>
+
+<p><span style='font-family:Arial'>The service itself is marked by the <strong><span
+style='font-family:Arial'>DatagramPortTypeAttribute</span></strong> and the
+methods are marked with the <strong><span style='font-family:Arial'>ServiceMethodAttribute</span></strong>.
+In addition, a new <b>[ServiceSecurity()]</b> attribute is added to indicate
+that the method should be secured. This establishes a security scope such that
+all messages matching the scope will require the constraints established in the
+configuration file (step 2). In this case, the scope is identified by the
+&lt;namespace&gt;.&lt;class&gt;.&lt;method&gt; syntax, and only appropriately
+scoped messages that have been mapped to the MBClient role are allowed access
+to the Greeting method. (By the time the Greeting method is invoked, all
+relevant authentication, authorization, and access checking has been
+performed). Other than this, there is nothing special about the class or
+securing the method at development time.</span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; using System; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; using System.MessageBus; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; using System.MessageBus.Services; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><b><span style='font-size:12.0pt;
+color:#202080'>&nbsp;&nbsp; &nbsp;&nbsp; </span><span style='color:#202080'>[ServiceMethod]</span></b></pre><pre><b><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+style='color:#202080'>[ServiceSecurity(Confidentiality=false, Role=&quot;MBClient&quot;)]</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public ServerResponseMessage Greeting(ClientRequestMessage request)</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Call with request '{0}' signed with {1}&quot;, request.Message, request.SigningToken);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string responseMessage = string.Format(&quot;Hello! Server received your request '{0}'&quot;, request.Message);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return new ServerResponseMessage(responseMessage);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>2. Host</span></b><span style='font-family:
+Arial'><br>
+The host application configures "Indigo" to listen for incoming messages for
+the services listed in the <b>&lt;activatableServices&gt;</b> element. In
+addition, the host application indicates the usage of the
+userNamePasswordWithLicensing profile&nbsp; for binding to the Greeting method.
+The host does not change for this sample. </span></p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; </span><span lang=FR style='color:
+#202080'>&lt;serviceEnvironments&gt;</span></pre><pre><span lang=FR
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+lang=FR style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;port&gt;</span></pre><pre><span
+lang=FR style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='color:#202080'>&lt;identityRole&gt;soap.tcp://localhost:46000/HelloService/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;securityManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;applicationSecurity&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;binding scope=&quot;Microsoft.MessageBus.QuickStarts.Hello.Greeting&quot; profile=&quot;userNamePasswordWithLicensing&quot;/&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/applicationSecurity&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/securityManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- WARNING: Policy is not secured to clarify demonstration. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Permits unsigned policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add type=&quot;Hello, HelloService&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>3. Data file</span></b><span
+style='font-family:Arial'><br>
+Finally, you must store the authorization, user name, and password data. For
+this sample, the security data file (Host.exe.security) contains this
+information and is located in the same directory as the the Host.exe file. Note
+that the licensing module requires a certifying authority. This is done using
+the X509Token and populating it in the tokenCache. The contents of this file
+are as follows.</span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";color:#202080'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;credentials&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;username
+id=&quot;mainUsers&quot; nonceLength=&quot;24&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;memoryPasswordResolver&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;add user=&quot;joe&quot; password=&quot;eoj&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/memoryPasswordResolver&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/username&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/credentials&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;tokens&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;tokenCache id=&quot;mainTokenCache&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;store location=&quot;currentUser&quot; name=&quot;My&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;criteria
+type=&quot;subjectString&quot;&gt;soap.tcp://localhost:46000/HelloService/&lt;/criteria&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/certificate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/x509Token&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/tokenCache&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/tokens&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;authorizationData&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;memoryMapping
+id=&quot;mainAuthorizationData&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;userNameRoleAssignment user = &quot;joe&quot; roles =
+&quot;MBClient&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/memoryMapping&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/authorizationData&gt;<br>
+&lt;/securityData&gt;</span></p>
+
+<p><span style='color:#202080'>&nbsp;</span></p>
+
+<h3><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>Typically
+the user name information would be encrypted. However, the current version of Message
+Bus provides a simple memoryPasswordResolver for specifying user name data.
+Password resolvers provide an extensibility point for applications that have
+data in other stores. </span></h3>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><a
+name="#Building"></a><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Open the <b>Longhorn Build Environment</b> console
+window (click <b>Start</b>, click <b>All Programs</b>, click&nbsp;<b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Navigate to the directory where this
+readme is located.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and press
+ENTER.</span></p>
+
+<h3><a name="#Setup"><span style='font-family:Arial'>Setup</span></a></h3>
+
+<p><span style='font-family:Arial'>Run the Installcert.bat file, located in the
+AcceleratorLicensing directory, on the sever machine to install the necessary
+X.509 certificates. This sets up the relevant license issuance certificates. </span></p>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><span style='font-family:Arial'>To run the sample, both the certmgr.exe and
+makecert.exe utilities must be installed.&nbsp; To install the utilities,
+download and run the following file:&nbsp; </span><span style='font-size:10.0pt;
+font-family:"Bookman Old Style";color:#333399'><a
+href="http://download.microsoft.com/download/b/e/f/bef2551b-401d-4311-ab8f-13d3892b8154/codesigningx86.exe"><span
+style='color:#003399'>http://download.microsoft.com/download/b/e/f/bef2551b-401d-4311-ab8f-13d3892b8154/codesigningx86.exe</span></a>&nbsp;</span><span
+style='font-family:Arial'>&nbsp; When prompted for a location to unzip to, choose a location in your user’s path.</span></p>
+
+<p><a name="#Running"></a><b><span style='font-family:Arial'>Running on a
+single machine:</span></b><span style='font-family:Arial'><br>
+To run the sample on a single machine, open a command prompt window in the
+Server directory and another one in the Client directory. At the server command
+prompt, type <strong><span style='font-family:Arial'>host</span></strong> to
+start the server application. Then, at the client directory command prompt,
+type <b>client</b> to start the client application. Type request strings from
+the client shell and wait for server responses. Observe that the first request
+is signed with a UserNameToken but subsequent requests are signed with a
+license token. Once you are done, press ENTER on the client and host shells to
+end both programs.</span></p>
+
+<p><b><span style='font-family:Arial'>Cleanup:</span></b></p>
+
+<p><span style='font-family:Arial'>Run the '.\installcert.bat remove' command
+from the AcceleratorLicensing directory to remove the X.509 certificates you
+installed during setup. </span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.config file in the Server directory. Replace
+     &quot;localhost&quot; with the server machine name. Then run the server
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit the Client.cs file in the Client directory. In the URI that
+     represents the server location, replace &quot;localhost&quot; with the
+     server machine name. Recompile the client and rerun the client
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit Client.exe.config.&nbsp; Replace &quot;localhost&quot; in the <b>&lt;identityRole&gt;
+     </b>element with the client machine name.</span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Note:</span></b></p>
+
+<p><span style='font-family:Arial'>If your computer is attached to a workgroup
+but is not attached to a Microsoft Windows domain, this sample will fail unless
+you modify your Machine.config file.&nbsp; For instructions, see</span> <span
+style='font-family:Arial'>&quot;Enabling 'Indigo' Security&nbsp;within a
+Workgroup&quot; in the Longhorn SDK readme</span>.</p>
+
+<p>&nbsp;</p>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<Border ID="root"
+        xmlns="http://schemas.microsoft.com/2003/xaml"
+	Background="white"
+	BorderThickness="2"
+	BorderBrush="black"
+	Width="275"
+	Height="275">
+
+	<FlowPanel Width="275" Height="275">
+		<FlowPanel Width="75" Height="75">
+		<Rectangle Fill="blue" Width="75" Height="75" />
+		</FlowPanel>
+		<FlowPanel Width="75" Height="75">
+		<Rectangle Fill="green" Width="75" Height="75" />
+		</FlowPanel>
+		<FlowPanel Width="75" Height="75">
+		<Rectangle Fill="red" Width="75" Height="75" />
+		</FlowPanel>
+		<FlowPanel Width="75" Height="75">
+		<Rectangle Fill="yellow" Width="75" Height="75" />
+		</FlowPanel>
+	</FlowPanel>
+</Border>

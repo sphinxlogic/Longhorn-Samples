@@ -1,0 +1,28 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Get the current value of the property
+      System.String fontFamily = btn1.FontFamily;
+      // If the current value of the property is "Arial" then change it to a new value.
+      // Otherwise change it back to "Arial".
+      if(fontFamily == "Arial")
+      {
+        btn1.FontFamily = "Comic Sans MS";
+      }
+      else
+      {
+        btn1.FontFamily = "Arial";
+      }
+    }
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" FontFamily="Arial" FontSize="16" ID="btn1">
+Click To See Change!!</Button>
+</FlowPanel>

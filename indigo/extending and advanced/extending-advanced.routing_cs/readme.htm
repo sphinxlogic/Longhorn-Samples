@@ -1,0 +1,219 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The Router Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>Router Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem is code-named "Indigo". The Router sample
+demonstrates how to add a router for load distribution. This sample builds on
+the Request-Reply sample.</span></p>
+
+<p><span style='font-family:Arial'>The router replaces the server in listening
+at the well known address of the service. In this sample, there is only one
+instance of the service behind the router, but it is straightforward to add
+another service listening on a different IP port. Multiple services could be
+used for load balancing or partitioning messages.</span></p>
+
+<p><span style='font-family:Arial'>Only the configuration of the service
+instance from the Request-Reply sample is changed. The client is unaffected by
+the introduction of the router.</span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><span style='font-family:Arial'>The <b>router </b>is
+an extensible engine for partitioning a set of messages across backend XML Web
+services. It cooperates with the backend Web services in implementing one or
+more distributed roles. A distributed role is the SOAP role whose processing is
+shared across multiple "Indigo" ports. In this sample, the distributed role
+is soap.tcp://localhost:46000/HelloService/, the original role of the service
+in the Request-Reply sample.</span></p>
+
+<p><span style='font-family:Arial'>The router utilizes a file,
+Router.exe.routes, which is referenced from Router.exe.config (see the
+documentation for System.MessageBus.Routing.FileRuleStore for more
+information). This file contains the route that directs messages bound for the
+distributed role to be sent to the backend service.</span></p>
+
+<p><span style='font-family:Arial'>The first highlighted part of the code below
+[1] shows that messages bound for the distributed route will be selected for
+routing. The second highlighted part [2] shows that the messages matching this
+route go to the backend Web service. Additional backend services could be added
+by replicating the &lt;priorityDestination&gt; element. By default, this would
+be a priority route with all destinations having the same priority, messages
+would be sent randomly between the two backend services.</span></p>
+
+<pre>&lt;routes&gt;</pre><pre>  &lt;router id=&quot;http://www.tempuri.org/quickstarts/router&quot;&gt;</pre><pre>    &lt;priorityRoute url=&quot;<span
+style='background:yellow'>soap.tcp://localhost:46000/HelloService/</span>&quot;&gt; <span
+style='background:yellow'>[1]</span></pre><pre>    &lt;routingPolicyTtl&gt;10&lt;/routingPolicyTtl&gt;</pre><pre>      &lt;priorityDestination&gt;</pre><pre>        &lt;sendTo&gt;<span
+style='background:yellow'>soap.tcp://localhost:46101/HelloService/1</span>&lt;/sendTo&gt; <span
+style='background:yellow'>[2]</span></pre><pre>      &lt;/priorityDestination&gt;</pre><pre>    &lt;/priorityRoute&gt;</pre><pre>  &lt;/router&gt;</pre><pre>&lt;/routes&gt;</pre>
+
+<p><span style='font-family:Arial'>By default, this sample is configured so
+that the router returns routing policy. This means that the message path 
+follows these steps:</span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>Client sends a Get Policy
+     message to the router.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Router sends a Get Policy
+     message to the service.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Service returns its policy
+     (empty; since security is not enabled, there are no security policy assertions).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Router returns its routing
+     policy together with the service's policy to the client.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Client applies routing
+     policy to the message and sends its Greeting message directly to the
+     service.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>The service sends a Get
+     Policy message directly to the client.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>The client responds with
+     its policy (empty).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>The service applies the
+     client's policy to the response message, and sends it to the client.</span></li>
+</ol>
+
+<p><span style='font-family:Arial'>If the client sends subsequent messages,
+both it and the service  apply their cached policies. Therefore, only messages
+5 and 8 would be sent. </span></p>
+
+<p><span style='font-family:Arial'>If Routing Policy were disabled on the
+router,&nbsp;the client would have sent the Greeting message to the router in
+step 5; and in a new step 5b, the router would have sent the message to the
+service. The rest of the message exchange would have been the same. If Policy
+were not enabled on the client, router, and service, then only messages 5, 5b,
+and 8 would be sent.</span></p>
+
+<p><span style='font-family:Arial'>In general, routing is asymmetric. Messages
+are sent from a client to a service through a router. This does not mean that
+messages sent from the service back to the client will be through the same, or
+any other, router.</span></p>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><a name="#Building"></a><span style='font-family:Arial'>Open
+     the <b>Longhorn Build Environment</b> console window (click <b>Start</b>,
+     click <b>All Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click
+     <b>Open Build Environment Window</b>, and click <b>Longhorn Build
+     Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><a name="#Running"></a><span style='font-family:Arial'>To see the output,
+run Host.exe and Router.exe, which are created in their respective source
+directories, from the command prompts&nbsp;in separate windows. Once both are
+running, run Client.exe in a third command window. You should see output from
+the client and service indicating that they received and processed messages.
+This output will be identical to that from the Request-Reply Sample.</span></p>
+
+<p><span style='font-family:Arial'>--</span></p>
+
+</div>
+
+</body>
+
+</html>

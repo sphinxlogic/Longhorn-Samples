@@ -1,0 +1,28 @@
+<DockPanel ID="RootElement" xmlns="http://schemas.microsoft.com/2003/xaml"
+ xmlns:def="Definition" def:Language="C#">
+
+
+<FlowPanel MouseLeftButtonDown="HandleButtonDown" MouseLeftButtonUp="HandleButtonUp"   
+  Margin="10,10,0,0" Width="100px" Height="100px">
+  <Border ID="CustomButton" BorderThickness="4" Width="50px" Height="50px"
+  BorderBrush="black" Background="#eeeeee">
+  <Text Margin="10,5,0,0">Click</Text>
+  </Border>
+</FlowPanel>
+
+
+<def:Code>
+<![CDATA[
+  void HandleButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs args)
+  {
+    CustomButton.BorderBrush = new SolidColorBrush(Color.FromScRGB(1.0F, 1.0F, 0.0F, 0.0F));
+  }
+        
+  void HandleButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs args)
+  {
+    CustomButton.BorderBrush = new SolidColorBrush(Color.FromScRGB(1.0F, 0.0F, 0.0F, 0.0F));    
+  }
+]]>
+</def:Code>
+
+</DockPanel>

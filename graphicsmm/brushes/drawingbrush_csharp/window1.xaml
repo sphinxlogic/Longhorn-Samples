@@ -1,0 +1,150 @@
+<!-- This file is used to define the shapes to be filled and lay out the sample.
+	 See Window1.xaml.cs for the code that creates an applies the drawing brushes. -->
+	 
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="DrawingBrush_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Using a DrawingBrush" Visible="True"
+    Loaded="WindowLoaded">
+    <Window.Resources>
+		<SolidColorBrush def:Name="myStrokeColor"  Color="MediumBlue" />
+		<Style>
+			<TextPanel Width="500" Margin="0,10,0,0" />
+		</Style>
+    </Window.Resources>
+  
+	<ScrollViewer DockPanel.Dock="Fill">
+    <GridPanel Columns="1" Margin="10">
+       
+		<TextPanel>
+			A DrawingBrush is used to fill an area with a drawing. It may also be used to create
+			a pattern. The following are some examples.
+		</TextPanel>
+		<GridPanel Columns="3" Width="400" CellSpacing="5">
+			<Rectangle
+				ID="firstShape"
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="{myStrokeColor}"
+				StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+			</Rectangle>
+			
+			<Rectangle
+				ID="secondShape"
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="{myStrokeColor}"
+				StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+			
+			</Rectangle>
+        
+			<Rectangle
+				ID="checkeredShape"
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="{myStrokeColor}"
+				StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+			</Rectangle>
+			
+		</GridPanel>
+       
+        <TextPanel>
+			The following rectangles are filled with a drawing brush.
+			Notice how the pattern defined by the DrawingBrush expand to fill the area of the rectangle.
+        </TextPanel>
+        <GridPanel Columns="5" CellSpacing="5" Width="400">
+        <Rectangle
+			ID="squareShape"
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="{myStrokeColor}"
+			StrokeThickness="5">
+			<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+        </Rectangle>
+        
+        <Rectangle
+			ID="wideShape"
+			RectangleWidth="200" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+        </Rectangle>
+       
+        
+        <Rectangle
+			ID="tallShape"
+			RectangleWidth="100" RectangleHeight="200"
+			Stroke="MediumBlue" StrokeThickness="5">
+			<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+        </Rectangle>
+        </GridPanel>
+        
+        
+        <TextPanel>A DrawingBrush can also tile its drawing to fill an area with a pattern. 
+					The following are some examples.</TextPanel>
+        <GridPanel Columns="3" CellSpacing="5" Width="400"> 
+		 <Rectangle
+			ID="firstCheckeredShape"
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+        </Rectangle>
+        <Rectangle
+			ID="secondCheckeredShape"
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+        </Rectangle>
+        <Rectangle
+			ID="thirdCheckeredShape"
+			RectangleWidth="100" RectangleHeight="100"
+			Stroke="MediumBlue" StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+        </Rectangle>
+        </GridPanel>
+        
+        <TextPanel>
+			A DrawingBrush may be transformed. The following example shows a DrawingBrush before and after a SkewTransform is applied.
+        </TextPanel>
+        <GridPanel Columns="2" Width="200">
+			<Rectangle
+				ID="noTransformFillShape"
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="MediumBlue" StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+			</Rectangle>
+			
+			<Rectangle
+				ID="transformFillShape"
+				RectangleWidth="100" RectangleHeight="100"
+				Stroke="MediumBlue" StrokeThickness="5">
+				<!-- See Window1.xaml.cs for the code
+					 that creates and applies a
+					 DrawingBrush to the shape's fill. -->
+			</Rectangle>
+        
+        </GridPanel>
+    
+    </GridPanel>
+    </ScrollViewer>
+</Window>

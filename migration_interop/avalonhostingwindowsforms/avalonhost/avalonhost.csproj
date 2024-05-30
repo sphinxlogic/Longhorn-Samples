@@ -1,0 +1,46 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property AssemblyName="AvalonHost" />
+    <Property TargetName="$(AssemblyName)" />
+    <Property ApplicationIcon="App.ico" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property RootNamespace="AvalonHost" />
+    <Property ProjectGuid="{DB797F18-7C0E-4C35-A8B4-5C92B0F7419D}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <!-- The rest of the References are currently in one of the .target files. Eventually, post-PDC we'll put them all here -->
+  <Item Type="Reference" Include="$(lapi)\WindowsFormsIntegration" Name="WindowsFormsIntegration" HintPath="$(lapi)\WindowsFormsIntegration.dll" />
+  <Item Type="Reference" Include="MyControlLibrary" HintPath="..\MyControlLibrary\bin\debug\MyControlLibrary.dll" Name="MyControlLibrary" FusionName="MyControlLibrary, Version=1.0.1546.22285, Culture=neutral, PublicKeyToken=f2f8e0696f852ed3, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+    <Item Type="Pages" Include="Pane1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="MyApp.xaml.cs" DependentUpon="MyApp.xaml" SubType="Code" />
+    <Item Type="Compile" Include="Pane1.xaml.cs" DependentUpon="Pane1.xaml" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Resources" Include="App.ico" />
+  </ItemGroup>
+</Project>
+<!-- 
+    This project gets built by MSBuild on the commmand line.
+    Visual Studio "Whidbey" can also compile a project using only this data.
+
+    The build steps of a project are defined in the .target file referenced in the <Import>.
+    You can modify the steps involved in build.
+
+    You can also "execute" other targets besides the defaulttarget of build.
+    From a command prompt: msbuild myproj.csproj /t:TARGETNAME
+    Examples of TARGETNAME include: Build, Clean, CleanBuild, Run
+-->

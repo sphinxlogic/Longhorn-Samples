@@ -1,0 +1,44 @@
+<DockPanel
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition" def:Language="C#"
+  def:Class="WCPSample.CollectionViewSample"
+  def:CodeBehind="default.xaml.cs"
+  ID="rootElem"
+  DataContextChanged="StartHere"
+  >
+    <DockPanel.Resources>
+      <ObjectDataSource def:Name="myDataSource" TypeName="WCPSample.Orders,CollectionViewSample" />
+      <Style def:Name="orderCells">
+       	<ContentPresenter/>
+        <Style.VisualTree>
+                <Canvas>
+                	<Text Canvas.Left="5" TextContent="*Bind(Path=order)"/>
+                	<Text Canvas.Left="100" TextContent="*Bind(Path=customer)"/>
+               		<Text Canvas.Left="200" TextContent="*Bind(Path=name)"/>
+                	<Text Canvas.Left="400" TextContent="*Bind(Path=id)"/>
+                	<Text Canvas.Left="500" TextContent="*Bind(Path=filled)"/>
+                </Canvas>
+        </Style.VisualTree>
+      </Style>
+    </DockPanel.Resources>
+    <DockPanel.DataContext>
+      <Bind DataSource="{myDataSource}"/>
+    </DockPanel.DataContext>
+
+    <ListBox ID="myListBox" ItemStyle="{orderCells}" Width="800" DockPanel.Dock="Top" IsSelectionRequired="True">
+      <CollectionContainer Collection="*Bind()"/>
+    </ListBox>
+
+    <Canvas DockPanel.Dock="Top">
+        <Text Canvas.Top="65px" Canvas.Left="10px" ID="FeedbackText"></Text>
+        <Button Canvas.Top="100px" Canvas.Left="0px" ID="Previous" Click="OnButton">Previous</Button><Button Canvas.Top="100px" Canvas.Left="80px" ID="Next" Click="OnButton">Next</Button>
+        <Text Canvas.Left="10px" Canvas.Top="130px">Order Details:</Text>
+          <Text Canvas.Left="120px" Canvas.Top="130px" ID="ViewOrder" TextContent="*Bind(Path=order)"/>
+        <Text Canvas.Left="10px" Canvas.Top="170px">Customer ID:</Text>
+          <Text Canvas.Left="120px" Canvas.Top="170px" ID="ViewCustomer" TextContent="*Bind(Path=customer)"/>
+        <Text Canvas.Left="10px" Canvas.Top="190px">Order Date:</Text>
+          <Text Canvas.Left="120px" Canvas.Top="190px" ID="ViewOrderDate" TextContent="*Bind(Path=orderdate)"/>
+        <Text Canvas.Left="10px" Canvas.Top="210px">Filled Date:</Text>
+          <Text Canvas.Left="120px" Canvas.Top="210px" ID="ViewDateFilled" TextContent="*Bind(Path=datefilled)"/>
+    </Canvas>
+</DockPanel>

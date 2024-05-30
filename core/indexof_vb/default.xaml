@@ -1,0 +1,42 @@
+<DockPanel ID="ParentElement"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+<Text DockPanel.Dock="Top" ID="TxtDisplay"></Text>
+
+<Button DockPanel.Dock="Top" Click="FindIndex">What is the Index Number
+of the Element Just Added?</Button>
+<DockPanel ID="oParent">
+    <Text DockPanel.Dock="Top">Text 1</Text>
+    <Text DockPanel.Dock="Top">Text 2</Text>
+</DockPanel>
+
+<def:Code>
+<![CDATA[
+    Public Sub FindIndex(sender As object, args As System.Windows.Controls.ClickEventArgs)
+	Try
+     	'Create a new Text element.
+      	Dim newText As new System.Windows.Controls.Text
+
+      	'Add this element to the tree, under the DockPanel element.
+      	oParent.Children.Add(newText)
+
+      	'Add a text node under the Text element. This text is displayed. 
+      	newText.TextRange.Text = "Clicked Text"
+
+      	'Display the Index number of the new element.
+	Dim indexOfnewText As String
+	indexOfnewText = CType(oParent.Children.IndexOf(newText), String)
+	Dim textString As String
+	textString = "The Index of the new element is "  
+      	TxtDisplay.TextRange.Text =  textString & indexOfnewText
+
+	Catch ex as System.Exception
+		System.Windows.MessageBox.Show(ex.Message)
+	End Try	
+
+    End Sub
+]]>
+</def:Code>
+
+</DockPanel>

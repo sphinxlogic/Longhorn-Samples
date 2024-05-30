@@ -1,0 +1,72 @@
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ExpenseIt.Pane2">
+    <DockPanel.Resources>
+      <Style def:Name="ExpenseItemsStyler">
+         <ItemsControl />
+         <Style.VisualTree>
+            <DockPanel
+                ItemsControl.IsItemsHost="true">
+            </DockPanel>
+         </Style.VisualTree>
+      </Style>
+      <Style def:Name="ExpenseStyler">
+         <ContentPresenter DockPanel.Dock="Top"/>
+         <Style.VisualTree>
+             <GridPanel Columns="2" Margin="0,5,40,0">
+                <TextBox Width="50%" Text="*Bind(Path=@ExpenseReason)" />
+                <TextBox Width="50%" Text="*Bind(Path=@ExpenseAmount; 
+                    BindFlags=NotifyOnTransfer)" />
+             </GridPanel>
+         </Style.VisualTree>
+    </Style>
+  </DockPanel.Resources>
+    
+  <DockPanel DockPanel.Dock="Top">
+        <Canvas Style="{BackgroundCanvasStyler}">
+            <Image Style="{BackgroundImageStyler}" />
+        </Canvas>
+        <Text Style="{BackgroundTextStyler}">Expense report for:</Text>
+    </DockPanel>
+        
+    <GridPanel Style="{StandardGridStyler}">
+       <GridPanel.ColumnStyles>
+            <ColumnStyle Width="43%" />
+            <ColumnStyle Width="57%" />
+        </GridPanel.ColumnStyles>    
+        <Text Style="{LabelStyler}">Name:</Text>
+        <Text ID="Text_Name"  TextContent="*Bind(Path=@Name)"/>
+        <Text Style="{LabelStyler}">Department:</Text>
+        <Text ID="Text_Department" TextContent="*Bind(Path=@Department)"
+        />
+       </GridPanel>
+            <DockPanel DockPanel.Dock="Top">
+           <Canvas Width="230"/>
+           <GridPanel Style="{StandardGridStyler}">
+                 <GridPanel.ColumnStyles>
+                    <ColumnStyle Width="50%"/>
+                    <ColumnStyle Width="50%"/>
+                 </GridPanel.ColumnStyles>
+                <Border Height="30" Background="VerticalGradient 
+                     #4E87D4 #73B2F5">
+                <Text Foreground="White" VerticalAlignment="Center"
+                     HorizontalAlignment="Center">Expense Type</Text>
+            </Border>
+            <Border Height="30" Background="VerticalGradient 
+                     #4E87D4 #73B2F5">
+            <Text Foreground="White" VerticalAlignment="Center"
+                     HorizontalAlignment="Center">Amount</Text>
+          </Border>
+         </GridPanel>
+    </DockPanel>
+    
+    <DockPanel DockPanel.Dock="Top">
+       <Canvas Style="{BackgroundCanvasStyler}" />
+        <ItemsControl DockPanel.Dock="Top" Style="{ExpenseItemsStyler}"
+                   ItemStyle="{ExpenseStyler}" >
+            <CollectionContainer Collection="*Bind()"/>
+        </ItemsControl>
+    </DockPanel>        
+
+      </DockPanel>

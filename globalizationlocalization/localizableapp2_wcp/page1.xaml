@@ -1,0 +1,11 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2005/xaml/"
+           xmlns:def="Definition"
+           def:CodeBehind="page1.xaml.cs"
+           def:Class="MySampleApp.MyPage">
+
+<Image DockPanel.Dock="Top" Source="data\picture1.jpg" />  
+<Text DockPanel.Dock="Left" ID="Text1">This is a sample applcation.</Text>
+<Button DockPanel.Dock="Left" Width="100" Height="50" Click="OnClick">Click Me</Button>
+  
+</DockPanel>

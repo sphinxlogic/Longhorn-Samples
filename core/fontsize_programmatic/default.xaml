@@ -1,0 +1,28 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2005/xaml/"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Get the current value of the property
+      System.Windows.FontSize fs = text1.FontSize;
+      // If the current value of the property is 14 Pixels then change it to a new value.
+      // Otherwise change it back to 14 Pixels.
+      if(fs.Amount == 14 && fs.FontSizeType == System.Windows.FontSizeType.Pixel)
+      {
+        text1.FontSize = new System.Windows.FontSize(6,System.Windows.FontSizeType.Pixel);
+      }
+      else
+      {
+        text1.FontSize = new System.Windows.FontSize(14,System.Windows.FontSizeType.Pixel);
+      }
+    }
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" FontSize="14" ID="text1">
+Click To See Change!!</Button>
+</FlowPanel>

@@ -1,0 +1,23 @@
+<NavigationWindow xmlns="http://schemas.microsoft.com/2003/xaml/"
+            xmlns:def="Definition"
+            def:CodeBehind="Pane2.xaml.cs" 
+            def:Class="OpenWindow.Pane2"
+            ID="myWindow"
+			      Visibility="Visible"
+            Text="Page 2">
+	<DockPanel>
+    <Button Click="btnNavigate"
+            Margin="10,10,10,10"
+            Height="40"
+            Width="150"
+            DockPanel.Dock="Top"
+            Content="Navigate to New Page"/>
+
+    <Button Click="btnClose"
+            Margin="10,10,10,10"
+            Height="40"
+            Width="150"
+            DockPanel.Dock="Top"
+            Content="Close Window"/>
+  </DockPanel>
+</NavigationWindow>

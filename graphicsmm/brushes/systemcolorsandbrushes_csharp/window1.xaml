@@ -1,0 +1,36 @@
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="SystemColorsAndBrushes_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="System Colors" Visible="True"
+    Loaded="WindowLoaded"
+    >
+    <Window.Resources>
+		<Style>
+			<Rectangle Height="20" Width="50" Stroke="Black" StrokeThickness="1" />
+		</Style>
+		<Style>
+			<Text HorizontalAlignment="Right"></Text>
+		</Style>
+    </Window.Resources>
+    <DockPanel DockPanel.Dock="Fill" Margin="10,10,10,10">
+		<Border Background="Black"  DockPanel.Dock="Top">
+			<FlowPanel Margin="10,10,10,10" Background="Black">
+				<Text DockPanel.Dock="Left" FontSize="14" Foreground="White">System Colors</Text>
+			</FlowPanel>
+		</Border>
+		<Border ID="myBorder" DockPanel.Dock="Top" BorderThickness="5,5,5,5">
+			<GridPanel Columns="8" CellSpacing="10"
+				ID="systemBrushesPanel">
+			</GridPanel>
+		</Border>
+		
+		<Border DockPanel.Dock="Top" BorderThickness="5,5,5,5" BorderBrush="Black">
+			<GridPanel ID="gradientExamplePanel" Columns="8" CellSpacing="10">
+					
+			</GridPanel>
+		</Border>
+	
+	</DockPanel>	
+</Window>

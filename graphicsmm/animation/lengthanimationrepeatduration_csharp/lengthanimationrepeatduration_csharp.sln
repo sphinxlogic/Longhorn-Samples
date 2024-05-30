@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lengthanimationrepeatduration_csharp", "lengthanimationrepeatduration_csharp.csproj", "{9F52DA8E-6F51-4C81-BAEB-A7E15C8B64DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F52DA8E-6F51-4C81-BAEB-A7E15C8B64DD}.Debug|.NET.ActiveCfg = Debug|.NET
+		{9F52DA8E-6F51-4C81-BAEB-A7E15C8B64DD}.Debug|.NET.Build.0 = Debug|.NET
+		{9F52DA8E-6F51-4C81-BAEB-A7E15C8B64DD}.Release|.NET.ActiveCfg = Release|.NET
+		{9F52DA8E-6F51-4C81-BAEB-A7E15C8B64DD}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

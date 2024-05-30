@@ -1,0 +1,44 @@
+<ObjectPageFunction xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+           def:CodeBehind="Green.xaml.cs"
+           def:Class="WCSample.GreenTask">
+
+	<DockPanel>
+    <Border Background="LightGray">
+	    <DockPanel DockPanel.Dock="Left">
+		    <Text DockPanel.Dock="Top"
+				    ID="SomeText"
+				    FontSize="14"
+				    FontWeight="Bold"
+				    Margin="10,20,10,20">Green Task</Text>
+		    <Text FontSize="14"
+				    FontWeight="Bold"
+				    Margin="10,20,10,10">Some Explanatory Text</Text>
+	    </DockPanel>
+	  </Border>
+	
+	  <Border Background="LightGreen" DockPanel.Dock="Fill">
+	    <DockPanel>    			
+		    <Button DockPanel.Dock="Top"
+				    Margin="10,20,10,10"
+				    ID="nextTask"
+				    Click="NextTask"
+				    Height="25"
+				    Width="100">Next Task</Button>
+
+		    <Button DockPanel.Dock="Top"
+				    Margin="10,20,10,10"
+				    ID="previousTask"
+				    Click="NextTask"
+				    Height="25"
+				    Width="100">Previous Task</Button>
+		    <Button DockPanel.Dock="Top"
+				    Margin="10,20,10,10"
+				    ID="Cancel"
+				    Click="NextTask"
+				    Height="25"
+			      Width="100">Cancel</Button>
+        </DockPanel>
+      </Border>
+    </DockPanel>	
+</ObjectPageFunction>

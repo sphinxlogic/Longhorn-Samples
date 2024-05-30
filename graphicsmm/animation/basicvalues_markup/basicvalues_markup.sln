@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basicvalues_markup", "basicvalues_markup.csproj", "{F092C7B1-1560-4A11-9EFD-7E9B1EB0C58B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F092C7B1-1560-4A11-9EFD-7E9B1EB0C58B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F092C7B1-1560-4A11-9EFD-7E9B1EB0C58B}.Debug|.NET.Build.0 = Debug|.NET
+		{F092C7B1-1560-4A11-9EFD-7E9B1EB0C58B}.Release|.NET.ActiveCfg = Release|.NET
+		{F092C7B1-1560-4A11-9EFD-7E9B1EB0C58B}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,90 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Basic3D_SDK_xaml.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Basic3D_SDK_xaml" Visible="True"
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <!-- Typically, the following element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+    <DockPanel>
+    
+    <!-- ViewPort3D is the rendering surface. -->
+    <ViewPort3D ID="viewport" ClipToBounds="true" DockPanel.Dock="Fill">
+            
+    <!-- Add a camera. -->
+                
+                <ViewPort3D.Camera>
+                    <PerspectiveCamera FarPlaneDistance="20" LookAtPoint="0,0,0" Up="0,1,0" NearPlaneDistance="1" Position="0,0,5" FieldOfView="45" />
+                </ViewPort3D.Camera>
+    <!-- Add models. -->
+                <ViewPort3D.Models>
+                    <Model3DCollection IncludeInHitTestResults="True">
+                        <Model3DCollection.Children>
+    <!-- Lights, MeshPrimitive3D and BrushMaterial objects are added to 
+    the Model3DCollection. -->    
+                            <DirectionalLight Color="#FFFFFFFF" Direction="-3,-4,-5" />
+    <!-- Define a cube with vertices added in z-order. -->                             
+                            <MeshPrimitive3D IncludeInHitTestResults="True">
+                                <MeshPrimitive3D.Mesh>
+                                    <Mesh3D
+                                        TriangleIndices="0 2 1 0 3 2 1 5 4 1 2 5 0 6 7 0 7 3 6 4 5 6 7 5 3 5 2 3 7 5 0 1 4 0 4 6"
+                                        TextureCoordinates="1,0 0,0 0,1 1,1 0,0 0,1 1,0 1,1"
+                                        Normals="0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1"
+                                        Positions="1,1,0 0,1,0 0,0,0 1,0,0 0,1,-1 0,0,-1 1,1,-1 1,0,-1"
+                                        />
+                                </MeshPrimitive3D.Mesh>
+                                <MeshPrimitive3D.Material>
+                                    <BrushMaterial Brush="yellow" />
+                                </MeshPrimitive3D.Material>
+                            </MeshPrimitive3D>
+
+	<!-- Define backdrop planes. -->                            
+                            <MeshPrimitive3D IncludeInHitTestResults="True">
+                                <MeshPrimitive3D.Mesh>
+                                    <Mesh3D
+                                        TriangleIndices="0 1 2 2 1 3"
+                                        TextureCoordinates="0,0 0,0 0,0 0,0"
+                                        Normals="0,1,0 0,1,0 0,1,0 0,1,0"
+                                        Positions="-2,-1,2 -2,-1,-2 2,-1,2 2,-1,-2"
+                                        />
+                                </MeshPrimitive3D.Mesh>
+                                <MeshPrimitive3D.Material>
+                                    <BrushMaterial Brush="white" />
+                                </MeshPrimitive3D.Material>
+                            </MeshPrimitive3D>
+                            <MeshPrimitive3D IncludeInHitTestResults="True">
+                                <MeshPrimitive3D.Mesh>
+                                    <Mesh3D
+                                        TriangleIndices="0 1 2 2 1 3"
+                                        TextureCoordinates="0,0 0,0 0,0 0,0"
+                                        Normals="1,0,0 1,0,0 1,0,0 1,0,0"
+                                        Positions="-2,-1,2 -2,1,2 -2,-1,-2 -2,1,-2"
+                                        />
+                                </MeshPrimitive3D.Mesh>
+                                <MeshPrimitive3D.Material>
+                                    <BrushMaterial Brush="white" />
+                                </MeshPrimitive3D.Material>
+                            </MeshPrimitive3D>
+                            <MeshPrimitive3D IncludeInHitTestResults="True">
+                                <MeshPrimitive3D.Mesh>
+                                    <Mesh3D
+                                        TriangleIndices="0 1 2 2 1 3"
+                                        TextureCoordinates="0,0 0,0 0,0 0,0"
+                                        Normals="0,0,1 0,0,1 0,0,1 0,0,1"
+                                        Positions="-2,-1,-2 -2,1,-2 2,-1,-2 2,1,-2"
+                                        />
+                                </MeshPrimitive3D.Mesh>
+                                <MeshPrimitive3D.Material>
+                                    <BrushMaterial Brush="white"/>
+                                </MeshPrimitive3D.Material>
+                            </MeshPrimitive3D>
+                        </Model3DCollection.Children>
+                    </Model3DCollection>
+                </ViewPort3D.Models>
+
+            </ViewPort3D>
+            </DockPanel>
+</Window>

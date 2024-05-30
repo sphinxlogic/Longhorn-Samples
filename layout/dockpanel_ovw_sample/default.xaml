@@ -1,0 +1,33 @@
+
+<Border ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+	   Background="white"
+	   BorderThickness="2">
+	<DockPanel>
+		<Border Background="blue" BorderThickness="1" DockPanel.Dock="Top">
+			<FlowPanel Width="500" Height="25">
+				<Text Foreground="black">Dock = "Top"</Text>
+			</FlowPanel>
+		</Border>
+		<Border Background="green" BorderThickness="1" DockPanel.Dock="Top">
+			<FlowPanel Width="500" Height="25">	
+				<Text Foreground="black">Dock = "Top"</Text>
+			</FlowPanel>
+		</Border>
+		<Border Background="yellow" BorderThickness="1" DockPanel.Dock="Bottom">
+			<FlowPanel Width="500" Height="25">
+				<Text Foreground="black">Dock = "Bottom"</Text>
+			</FlowPanel>
+		</Border>
+		<Border Background="purple" BorderThickness="1" DockPanel.Dock="Left">
+			<FlowPanel Width="200" Height="400">
+				<Text Foreground="black">Dock = "Left"</Text>
+			</FlowPanel>
+		</Border>
+		<Border Background="orange" BorderThickness="1" DockPanel.Dock="Fill">
+			<FlowPanel Width="300" Height="400">
+				<Text Foreground="black">Dock = "Fill"</Text>
+			</FlowPanel>
+		</Border>
+	</DockPanel>
+</Border>

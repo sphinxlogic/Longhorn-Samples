@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="createtx">
+   <Target Name="createtx">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="createtx.exe"
+                 References="system.dll;system.transactions.dll"
+                 Sources="createtx.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

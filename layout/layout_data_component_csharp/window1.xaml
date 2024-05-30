@@ -1,0 +1,8 @@
+<NavigationWindow
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="NavigationApplication1.Window1"
+    Text="NavigationApplication1" Visible="True"
+    Uri="Pane1.xaml">
+    
+</NavigationWindow>

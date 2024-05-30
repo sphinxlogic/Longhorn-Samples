@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EnableAndDisableTextFormattingNew", "EnableAndDisableTextFormattingNew.vbproj", "{DACA7078-018F-48FB-A5AB-A04A7DB2F117}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DACA7078-018F-48FB-A5AB-A04A7DB2F117}.Debug|.NET.ActiveCfg = Debug|.NET
+		{DACA7078-018F-48FB-A5AB-A04A7DB2F117}.Debug|.NET.Build.0 = Debug|.NET
+		{DACA7078-018F-48FB-A5AB-A04A7DB2F117}.Release|.NET.ActiveCfg = Release|.NET
+		{DACA7078-018F-48FB-A5AB-A04A7DB2F117}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+	
+	
+  <Button
+    Canvas.Top="50"
+    Canvas.Left="50"
+    BorderBrush="Black"
+    Width="200"
+    Height="30">
+    <Button.Background>
+      <LinearGradientBrush >
+        <LinearGradientBrush.GradientStops>
+          <GradientStopCollection>
+            <GradientStop Color="Red" Offset="0" />
+            <GradientStop Color="Blue" Offset="0.25"/>
+            <GradientStop Color="Orange" Offset="0.75"/>
+            <GradientStop Color="Yellow" Offset="1"/>
+          </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+      </LinearGradientBrush>
+    </Button.Background>
+  </Button>
+
+</Canvas>

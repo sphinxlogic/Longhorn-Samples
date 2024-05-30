@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<routes>
+    <router id="http://www.tempuri.org/quickstarts/router">
+        <priorityRoute url="soap.tcp://localhost:46000/HelloService/">
+            <routingPolicyTtl>10</routingPolicyTtl>
+            <priorityDestination>
+                <sendTo>soap.tcp://localhost:46101/HelloService/1</sendTo>
+            </priorityDestination>
+        </priorityRoute>
+    </router>
+</routes>

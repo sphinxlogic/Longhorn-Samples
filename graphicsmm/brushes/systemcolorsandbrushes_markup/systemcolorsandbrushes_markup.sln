@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemColorsAndBrushes_markup", "SystemColorsAndBrushes_markup.csproj", "{618013F4-1CF9-4C78-BE12-BE392C410892}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{618013F4-1CF9-4C78-BE12-BE392C410892}.Debug|.NET.ActiveCfg = Debug|.NET
+		{618013F4-1CF9-4C78-BE12-BE392C410892}.Debug|.NET.Build.0 = Debug|.NET
+		{618013F4-1CF9-4C78-BE12-BE392C410892}.Release|.NET.ActiveCfg = Release|.NET
+		{618013F4-1CF9-4C78-BE12-BE392C410892}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

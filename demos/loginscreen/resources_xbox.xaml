@@ -1,0 +1,507 @@
+﻿<DockPanel
+	xmlns="http://schemas.microsoft.com/2003/xaml/"
+	xmlns:def="Definition"
+	Width="100%" Height="100%"
+		def:Class="LoginScreen.Resources_XBox"
+>
+
+
+<DockPanel.Resources>
+
+<!-- Background Styles  ********************************* -->
+<Style def:Name="CustomBackground">
+			<Border Width="100%" Height="100%" />
+			<Style.VisualTree>
+			<Canvas Width="100%" Height="100%" Background="VerticalGradient #666666 black">
+			    <Rectangle Width="100%" Height="100" Fill="VerticalGradient #666666 black" Stroke="#66cccccc" StrokeThickness="3" />
+			    <Rectangle Width="100%" Height="60" Canvas.Bottom="0" Stroke="#66cccccc" Fill="VerticalGradient #666666 black" StrokeThickness="1"/>
+			</Canvas>
+			</Style.VisualTree>
+		</Style>
+
+
+<!-- Button Styles  ********************************* -->
+<!-- This draws the gold ball for the buttons  *********************************-->
+	<DrawingBrush  def:Name="GoldBall" ViewBox="-5,-5,265,265"  >
+		<DrawingBrush.Drawing>
+		<Drawing>
+			<Path  StrokeThickness="4pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+				<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="1.192488E-08,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FF575757" />
+									<GradientStop Offset="1" Color="#FF000000" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+				<Path.Stroke>
+			  		<LinearGradientBrush   StartPoint="4.371139E-08,0" EndPoint="0,1"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FF000000" />
+									<GradientStop Offset="1" Color="#FF7E7E7E" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Stroke>
+			</Path>
+			<Path   Fill="RadialGradient #ffcc00 #cc9900"  StrokeThickness="1pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+				<Path.Stroke>
+			  		<LinearGradientBrush   StartPoint="0,0" EndPoint="1,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FF000000" />
+									<GradientStop Offset="1" Color="#FF7E7E7E" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Stroke>
+			</Path>
+			<Path   Stroke="transparent" StrokeThickness="1pt" Data="M234.605,82.995c0,30.001-48.82,0-109.042,0c-60.222,0-109.042,30.001-109.042,0    S66.579,7.542,126.802,7.542S234.605,52.993,234.605,82.995z">
+				<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="0.7002075,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0.4135802 " Color="#00FFFFFF " />
+									<GradientStop Offset="1" Color="#72FFFFFF" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+			</Path>
+			<Path   Stroke="transparent" StrokeThickness="1pt"  Data="M33.652,195.33c0-14.167,40.926,0,91.411,0c50.484,0,91.411-14.167,91.411,0    c0,14.167-41.964,49.129-92.449,49.129S33.652,209.497,33.652,195.33z" >
+				<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="0.2679492,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0.00617284" Color="#00FFFFFF " />
+									<GradientStop Offset="0.3148148" Color="#5FFFFFFF" />
+									<GradientStop Offset="0.771605" Color="#00FFFFFF" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+			</Path>
+	</Drawing>
+	</DrawingBrush.Drawing>
+</DrawingBrush>
+
+<!-- This draws the green ball for the buttons  *********************************-->
+	<DrawingBrush  def:Name="GreenBall" ViewBox="-5,-5,265,265"  >
+		<DrawingBrush.Drawing>
+		<Drawing>
+			<Path  StrokeThickness="4pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+				<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="1.192488E-08,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FF575757" />
+									<GradientStop Offset="1" Color="#FF000000" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+				<Path.Stroke>
+			  		<LinearGradientBrush   StartPoint="4.371139E-08,0" EndPoint="0,1"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FF000000" />
+									<GradientStop Offset="1" Color="#FF7E7E7E" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Stroke>
+			</Path>
+			<Path   Fill="RadialGradient #a0d338 #2c932e "  StrokeThickness="1pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+				<Path.Stroke>
+			  		<LinearGradientBrush   StartPoint="0,0" EndPoint="1,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FF000000" />
+									<GradientStop Offset="1" Color="#FF7E7E7E" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Stroke>
+			</Path>
+			<Path   Stroke="transparent" StrokeThickness="1pt" Data="M234.605,82.995c0,30.001-48.82,0-109.042,0c-60.222,0-109.042,30.001-109.042,0    S66.579,7.542,126.802,7.542S234.605,52.993,234.605,82.995z">
+				<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="0.7002075,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0.4135802 " Color="#00FFFFFF " />
+									<GradientStop Offset="1" Color="#72FFFFFF" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+			</Path>
+			<Path   Stroke="transparent" StrokeThickness="1pt"  Data="M33.652,195.33c0-14.167,40.926,0,91.411,0c50.484,0,91.411-14.167,91.411,0    c0,14.167-41.964,49.129-92.449,49.129S33.652,209.497,33.652,195.33z" >
+				<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="0.2679492,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0.00617284" Color="#00FFFFFF " />
+									<GradientStop Offset="0.3148148" Color="#5FFFFFFF" />
+									<GradientStop Offset="0.771605" Color="#00FFFFFF" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+			</Path>
+	</Drawing>
+	</DrawingBrush.Drawing>
+</DrawingBrush>
+
+
+<!-- This defines the style for other buttons to base off *********************************-->
+		<Style def:Name="ButtonStyler" >
+			 <Button Margin="0,0,20,0" Background="limegreen" Cursor="Hand"  />
+			      <Style.VisualTree>
+		            <DockPanel Width="100%" Height="100%">
+			            <Canvas DockPanel.Dock="Fill"  Margin="2.5,5,2.5,5">
+				            <Rectangle def:StyleID="MainRect"
+						            RadiusX="20" RadiusY="20"
+						            Fill="RadialGradient LimeGreen Green "
+						            Stroke="VerticalGradient transparent #66ffffff "
+						            StrokeThickness="6"
+						            Width="100%" Height="100%" />
+
+				            <DockPanel Width="100%" Height="100%" >
+						            <Rectangle Height="15" Margin="12,7,12,0"
+								            DockPanel.Dock="Fill"
+								            RadiusX="20" RadiusY="20"
+								            Fill="VerticalGradient white transparent"
+								            Opacity="0.5"   />
+				            </DockPanel>
+				            <FlowPanel Width="100%" Height="100%" >
+						            <ContentPresenter ContentControl.Content="*Alias(Target = Content)" Margin="25,15,25,15"/>
+				            </FlowPanel>
+			            </Canvas>
+		            </DockPanel>
+                </Style.VisualTree>
+     		    <Style.VisualTriggers>
+				    <PropertyTrigger Property="IsMouseOver" Value="true">
+					    <Set PropertyPath="Rectangle.Fill" Value="RadialGradient #ffcc00 #cc9900 " Target="MainRect"/>
+				    </PropertyTrigger>
+			    </Style.VisualTriggers>
+		</Style>
+		<Style def:Name="ManageUsersButton" BasedOn="{ButtonStyler}">
+			 <Button />
+		</Style>
+		<Style def:Name="GuestSigninButton" BasedOn="{ButtonStyler}">
+			 <Button  />
+		</Style>
+		<Style def:Name="ForgotPasswordButton" BasedOn="{ButtonStyler}">
+			 <Button DockPanel.Dock="right"  />
+		</Style>
+
+<!-- This defines the style for round login button *********************************-->
+	    <Style def:Name="LoginButton" >
+			 <Button Width="100" Height="100" Cursor="Hand" />
+			 <Style.VisualTree>
+			    <Canvas Width="100" Height="100" >
+				    <Border def:StyleID="MainBorder" Width="100" Height="100" Background="{GreenBall}" />
+				    <FlowPanel Width="100%" Height="100%" HorizontalAlignment="Center" VerticalAlignment="center" >
+						    <ContentPresenter   ContentControl.Content="*Alias(Target = Content)" />
+				    </FlowPanel>
+			    </Canvas>
+            </Style.VisualTree>
+            <Style.VisualTriggers>
+		        <PropertyTrigger Property="IsMouseOver" Value="true">
+			        <Set PropertyPath="Background" Value="{GoldBall}" Target="MainBorder"/>
+		        </PropertyTrigger>
+	        </Style.VisualTriggers>
+	    </Style>
+
+
+<!-- UserTile ListBox Styles  *********************************-->
+		<Style def:Name="LoginListBox" >
+			<ListBox ClipToBounds="False" Width="510" Height="140" Margin="0,20,0,0" DockPanel.Dock="Top"/>
+			<Style.VisualTree>
+			<Canvas>
+			<Rectangle	RadiusX="10" RadiusY="10"
+							Fill="VerticalGradient black transparent "
+							Stroke="VerticalGradient transparent #66ffffff  "
+							StrokeThickness="2"
+							Width="100%" Height="100%" >
+							<Rectangle.Fill>
+			  		<LinearGradientBrush   StartPoint="0,0" EndPoint="0,1"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0.00617284" Color="transparent" />
+									<GradientStop Offset="0.1" Color="black" />
+									<GradientStop Offset="0.3" Color="black" />
+									<GradientStop Offset="0.7" Color="transparent" />
+									<GradientStop Offset="1" Color="#cc000000" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Rectangle.Fill>
+			  </Rectangle>
+			  <FlowPanel HorizontalAlignment="center">
+				<DockPanel Margin="15,0,0,3" ItemsControl.IsItemsHost="true" />
+				</FlowPanel>
+            </Canvas>
+			</Style.VisualTree>
+
+		</Style>
+
+		<Style def:Name="UserTile" >
+			<Image Width="100px" Height="100px"   />
+		</Style>
+
+		<Style def:Name="UserTileText" >
+			<Text FontFamily="Courier New" FontSize="15" FontWeight="bold"  Width="100%" DockPanel.Dock="Top" HorizontalAlignment="center" Foreground="limegreen" />
+		</Style>
+
+		<Style def:Name="UserListItem" >
+			 <ListItem  DockPanel.Dock="left" Cursor="Hand" />
+			            <Style.VisualTree>
+			                    <DockPanel Width="100%" Height="100%">
+			                    <Canvas DockPanel.Dock="Fill" Margin="5"  >
+				                    <Rectangle def:StyleID="MainRect"
+						                    RadiusX="10" RadiusY="10"
+						                    Fill="#66000000 "
+						                    Stroke="VerticalGradient transparent #66ffffff   "
+						                    StrokeThickness="1"
+						                    Width="100%" Height="100%" >
+						                    <Rectangle.Fill>
+			  		                    <LinearGradientBrush   StartPoint="0,0" EndPoint="0,1"  >
+						                    <LinearGradientBrush.GradientStops >
+								                    <GradientStopCollection>
+									                    <GradientStop Offset="0.00617284" Color="#66cccccc" />
+									                    <GradientStop Offset="0.3" Color="black" />
+									                    <GradientStop Offset="1" Color="transparent" />
+							                    </GradientStopCollection>
+						                    </LinearGradientBrush.GradientStops>
+					                    </LinearGradientBrush>
+			                    </Rectangle.Fill>
+			                    </Rectangle>
+
+				                    <DockPanel Width="100%" Height="100%" >
+						                    <Rectangle
+								                    Height="10" Margin="8,4,8,0"
+								                    DockPanel.Dock="Fill"
+								                    RadiusX="10" RadiusY="10"
+								                    Fill="VerticalGradient white transparent"
+								                    Opacity="0.5"   />
+				                    </DockPanel>
+				                    <FlowPanel  Margin="5" >
+						                    <ContentPresenter ContentControl.Content="*Alias(Target = Content)"   />
+				                    </FlowPanel>
+			                    </Canvas>
+		                    </DockPanel>
+			            </Style.VisualTree>
+			 			<Style.VisualTriggers>
+					        <PropertyTrigger Property="IsMouseOver" Value="true">
+					            <Set PropertyPath="Rectangle.Fill" Value="VerticalGradient #66a0d338 #662c932e " Target="MainRect"/>
+				            </PropertyTrigger>
+			            </Style.VisualTriggers>
+		</Style>
+
+		<Style def:Name="PatrickListItem" BasedOn="{UserListItem}" >
+			 <ListItem   />
+		</Style>
+		<Style def:Name="AbbeyListItem" BasedOn="{UserListItem}">
+			 <ListItem   />
+		</Style>
+		<Style def:Name="TobeyListItem" BasedOn="{UserListItem}">
+			 <ListItem   />
+		</Style>
+		<Style def:Name="JasonListItem" BasedOn="{UserListItem}">
+			 <ListItem   />
+		</Style>
+
+
+
+<!-- Password TextBox Styles ****************************************** -->
+   <Style def:Name="TextBoxStyle">
+
+    <ContentPresenter  />
+
+     <Style.VisualTree>
+        <Text FontFamily="Segoe" Foreground="black" FontSize="10pt" >
+         <Text.TextContent>
+			<Bind/>
+          </Text.TextContent>
+         </Text>
+      </Style.VisualTree>
+    </Style>
+
+		<Style>
+			<TextBox Width="300" Height="40" Margin="20"/>
+			<Style.VisualTree>
+				<Canvas Width="100%" Height="100%">
+					<Rectangle	RadiusX="8" RadiusY="8"
+							Fill="VerticalGradient #66666666 transparent "
+							Stroke="VerticalGradient black #66ffffff  "
+							StrokeThickness="1"
+							Width="100%" Height="100%" />
+
+					<Canvas Width="100%" Height="100%" Margin="11">
+
+					<Text  HorizontalAlignment="left"	TextBox.IsTextBoxContent="True"
+						FontSize="17"  Foreground="limegreen"  FontFamily="Courier New"
+						Width="100%" Height="100%"  FrameworkElement.Focusable="true"/>
+
+						</Canvas>
+				</Canvas>
+				</Style.VisualTree>
+			</Style>
+
+
+
+<!-- This Draws the Logo  ********************************* -->
+<DrawingBrush ViewBox="0,0,565,230" def:Name="LogoBrush" >
+				<DrawingBrush.Drawing>
+					<Drawing>
+
+<Path Fill="#000000" Stroke="#000000" StrokeThickness="2.3042" StrokeMiterLimit="1" Data="M338.695,16.841    c-9.947,20.996-15.668,45.592-15.668,71.895c0,72.971,44.034,132.845,100.121,138.923c3.123,0.074,6.26,0.119,9.417,0.119    c3.154,0,6.294-0.045,9.417-0.119c56.089-6.078,100.121-65.953,100.121-138.923c0-26.303-5.725-50.901-15.666-71.895    c-28.258-7.475-60.135-11.69-93.872-11.69C398.826,5.151,366.951,9.366,338.695,16.841z" />
+
+
+        <Path Fill="RadialGradient #a0d338 #2c932e " Stroke="#000000" StrokeThickness="2.3042" StrokeMiterLimit="1" Data="M338.195,12.841    c-9.947,20.996-15.668,45.592-15.668,71.895c0,72.971,44.034,132.845,100.121,138.923c3.123,0.074,6.26,0.119,9.417,0.119    c3.154,0,6.294-0.045,9.417-0.119c56.089-6.078,100.121-65.953,100.121-138.923c0-26.303-5.725-50.901-15.666-71.895    c-28.258-7.475-60.135-11.69-93.872-11.69C398.326,1.151,366.451,5.366,338.195,12.841z" >
+<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="1.192488E-08,0" Transform="rotate 45"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FFCAC7C6" />
+									<GradientStop Offset="0.3" Color="#FFFFFFFF" />
+									<GradientStop Offset="0.6" Color="#FFFFFFFF" />
+									<GradientStop Offset="1" Color="#FFCAC7C6" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+<Path.Stroke>
+			  		<LinearGradientBrush   StartPoint="4.371139E-08,0" EndPoint="0,1"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#666666" />
+									<GradientStop Offset="0.5" Color="#00FFFFFF" />
+									<GradientStop Offset="1" Color="#666666" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Stroke>
+			</Path>
+        <Path Fill="red" Data="M342.408,18.212c-9.447,19.865-14.881,43.138-14.881,68.025    c0,69.042,41.824,125.694,95.094,131.444c2.967,0.07,5.946,0.113,8.944,0.113c2.996,0,5.978-0.042,8.944-0.113    c53.271-5.75,95.094-62.402,95.094-131.444c0-24.887-5.437-48.162-14.879-68.025c-26.84-7.073-57.115-11.061-89.159-11.061    C399.52,7.151,369.246,11.14,342.408,18.212z" >
+<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="0,1" EndPoint="1.192488E-08,0" Transform="rotate 45"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#66FFFFFF" />
+									<GradientStop Offset="0.1" Color="#00FFFFFF" />
+									<GradientStop Offset="0.9" Color="#00FFFFFF" />								<GradientStop Offset="0.5" Color="#00FFFFFF" />
+									<GradientStop Offset="1" Color="#66FFFFFF" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+</Path>
+<!-- Fill="RadialGradient #a0d338 #2c932e " -->
+        <Path Fill="RadialGradient #a0d338 #2c932e"  Stroke="#809CC9" StrokeThickness="3" Data="M350.052,91.706c0,3.149,0.114,6.261,0.329,9.339h77.385    V29.16c-23.668,0.336-46.031,3.439-65.981,8.717C354.336,53.597,350.052,72.014,350.052,91.706z M436.16,195.772    c0.988-0.014,1.973-0.032,2.955-0.049c37.957-4.118,68.533-41.132,74.068-88.55H436.16V195.772z M502.351,37.877    c-20.013-5.294-42.447-8.398-66.19-8.72v71.888h77.59c0.212-3.078,0.329-6.19,0.329-9.339    C514.079,72.014,509.79,53.597,502.351,37.877z M425.016,195.723c0.914,0.018,1.832,0.032,2.75,0.049v-88.6h-76.816    C356.479,154.591,387.061,191.605,425.016,195.723z" >
+<Path.Stroke>
+			  		<LinearGradientBrush   StartPoint="4.371139E-08,0" EndPoint="0,1"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#FFFFFF" />
+									<GradientStop Offset="0.5" Color="#00FFFFFF" />
+									<GradientStop Offset="1" Color="#FFFFFF" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Stroke>
+</Path>
+            <Path  Fill="black" Data="M175.397,107.819h17.961V48.194h-17.961V107.819z M245.932,74.93c0,0.887,0.006,1.907,0.02,3.057    c0.014,1.15,0.089,2.238,0.229,3.264h-0.165c-0.167-0.388-0.412-0.832-0.73-1.331c-0.318-0.497-0.658-1.01-1.018-1.537    c-0.36-0.527-0.72-1.04-1.08-1.54c-0.362-0.497-0.667-0.927-0.915-1.289l-20.165-27.36h-16.965v59.625h16.63V82.788    c0-1.911-0.021-3.671-0.062-5.278c-0.042-1.607-0.104-3.146-0.187-4.616h0.165c0.5,0.859,1.082,1.796,1.747,2.806    c0.664,1.012,1.442,2.128,2.329,3.347l21.04,28.772h15.757V48.194h-16.63V74.93z M22.251,48.194H4.29v59.625h38.502V93.767H22.251    V48.194z M96.677,55.43c-2.605-2.647-5.71-4.684-9.313-6.112c-3.604-1.428-7.54-2.142-11.808-2.142    c-4.519,0-8.655,0.77-12.41,2.307c-3.757,1.54-6.979,3.701-9.667,6.486c-2.689,2.786-4.783,6.12-6.279,10    c-1.498,3.882-2.246,8.15-2.246,12.806c0,4.658,0.782,8.845,2.349,12.56c1.567,3.715,3.702,6.868,6.404,9.459    c2.701,2.591,5.861,4.58,9.479,5.967c3.618,1.384,7.478,2.078,11.581,2.078c4.24,0,8.198-0.728,11.872-2.184    c3.671-1.456,6.874-3.534,9.604-6.237c2.729-2.701,4.871-5.958,6.424-9.769c1.551-3.811,2.329-8.086,2.329-12.828    c0-4.711-0.736-8.959-2.204-12.744C101.321,61.293,99.283,58.077,96.677,55.43z M85.037,85.139    c-0.61,1.914-1.422,3.485-2.432,4.718c-1.013,1.233-2.17,2.148-3.473,2.745s-2.647,0.893-4.033,0.893    c-1.442,0-2.828-0.283-4.159-0.852c-1.331-0.568-2.508-1.47-3.534-2.703c-1.026-1.233-1.844-2.828-2.452-4.781    c-0.611-1.953-0.915-4.318-0.915-7.09c0-2.134,0.207-4.143,0.623-6.028c0.416-1.886,1.082-3.534,1.997-4.948    c0.915-1.412,2.092-2.536,3.534-3.367s3.174-1.249,5.199-1.249c1.579,0,3.013,0.348,4.302,1.04    c1.289,0.692,2.398,1.71,3.327,3.055c0.927,1.344,1.649,3.001,2.162,4.97c0.513,1.969,0.77,4.227,0.77,6.776    C85.952,80.952,85.645,83.226,85.037,85.139z M136.295,85.388h11.436v8.522c-0.362,0.083-0.951,0.161-1.768,0.231    c-0.82,0.069-1.74,0.103-2.765,0.103c-1.637,0-3.286-0.249-4.948-0.748c-1.663-0.5-3.16-1.358-4.491-2.58    c-1.331-1.219-2.418-2.84-3.264-4.865c-0.847-2.022-1.269-4.572-1.269-7.651c0-2.798,0.422-5.245,1.269-7.337    c0.845-2.092,2.002-3.833,3.472-5.219c1.468-1.386,3.18-2.418,5.133-3.099c1.953-0.678,4.053-1.018,6.301-1.018    c2.078,0,3.914,0.097,5.509,0.292c1.593,0.195,3.027,0.45,4.302,0.768c1.275,0.318,2.424,0.672,3.451,1.061    c1.026,0.39,1.997,0.792,2.912,1.205V49.379c-0.887-0.223-1.921-0.465-3.099-0.728c-1.178-0.263-2.474-0.505-3.886-0.728    c-1.414-0.221-2.926-0.4-4.533-0.539s-3.297-0.209-5.071-0.209c-4.103,0-7.811,0.41-11.124,1.228    c-3.313,0.817-6.259,1.953-8.836,3.409c-2.578,1.456-4.809,3.188-6.694,5.197c-1.886,2.011-3.431,4.194-4.636,6.549    c-1.205,2.357-2.1,4.845-2.681,7.464c-0.583,2.62-0.873,5.287-0.873,8.003c0,4.602,0.706,8.745,2.12,12.432    c1.414,3.687,3.5,6.82,6.259,9.397c2.757,2.578,6.173,4.553,10.249,5.925c4.075,1.373,8.775,2.059,14.097,2.059    c2.605,0,5.119-0.181,7.545-0.541c2.424-0.362,4.648-0.795,6.673-1.309c2.024-0.513,3.785-1.054,5.28-1.623    s2.605-1.06,3.327-1.476v-32.1h-29.397V85.388z M80.55,120.978c-5.02,0-9.544,0.792-13.578,2.371    c-4.034,1.579-7.47,3.796-10.31,6.652c-2.842,2.856-5.026,6.251-6.549,10.187c-1.525,3.936-2.287,8.259-2.287,12.971    c0,3.994,0.603,7.771,1.808,11.332c1.206,3.563,3.057,6.687,5.551,9.375c2.494,2.689,5.668,4.823,9.523,6.402    c3.852,1.579,8.426,2.371,13.721,2.371c2.078,0,4.005-0.092,5.78-0.271c1.774-0.181,3.381-0.404,4.823-0.664    c1.442-0.263,2.711-0.555,3.805-0.874c1.094-0.318,1.989-0.603,2.683-0.853V163.97c-0.722,0.362-1.547,0.736-2.477,1.124    c-0.929,0.388-1.947,0.748-3.055,1.08c-1.11,0.334-2.307,0.605-3.596,0.812c-1.289,0.207-2.641,0.311-4.055,0.311    c-2.438,0-4.622-0.374-6.547-1.122c-1.927-0.748-3.556-1.796-4.887-3.14s-2.343-2.965-3.035-4.865    c-0.694-1.897-1.041-3.998-1.041-6.299c0-2.717,0.43-5.058,1.289-7.026c0.859-1.967,2.011-3.588,3.453-4.865    c1.44-1.275,3.116-2.209,5.03-2.806c1.913-0.597,3.908-0.895,5.988-0.895c1.468,0,2.854,0.098,4.157,0.292    s2.502,0.443,3.598,0.748c1.094,0.306,2.079,0.645,2.952,1.019c0.873,0.374,1.615,0.742,2.226,1.102v-16.591    c-1.498-0.386-3.5-0.795-6.008-1.225C87,121.192,84.015,120.978,80.55,120.978z M227.889,158.793h18.005V144.74h-18.005v-8.689    h19.168v-14.055h-37.129v59.625h38.502v-14.053h-20.541V158.793z M180.879,158.793h18.005V144.74h-18.005v-8.689h19.168v-14.055    h-37.129v59.625h38.502v-14.053h-20.541V158.793z M148.25,161.914c-0.667-1.247-1.442-2.363-2.329-3.347    c-0.887-0.985-1.907-1.83-3.057-2.538c-1.15-0.706-2.474-1.281-3.97-1.724v-0.209c1.967-0.581,3.774-1.322,5.425-2.224    c1.649-0.901,3.083-1.989,4.304-3.264c1.219-1.274,2.168-2.764,2.848-4.471c0.678-1.705,1.019-3.679,1.019-5.925    c0-5.461-1.983-9.528-5.947-12.204c-3.964-2.675-10.131-4.013-18.502-4.013H104.8v59.625h17.961v-21.537h0.209    c0.748,0,1.516,0.153,2.307,0.458c0.79,0.304,1.545,0.79,2.265,1.454c0.72,0.666,1.4,1.525,2.039,2.58    c0.637,1.054,1.205,2.315,1.705,3.783l4.449,13.263h20.249l-5.861-15.592C149.539,164.533,148.914,163.161,148.25,161.914z     M132.926,143.41c-0.318,0.804-0.812,1.518-1.476,2.142c-0.665,0.625-1.503,1.13-2.514,1.518c-1.012,0.39-2.211,0.583-3.598,0.583    h-2.578v-12.848h2.745c2.605,0,4.572,0.521,5.903,1.559c1.331,1.04,1.997,2.558,1.997,4.553    C133.405,141.775,133.244,142.606,132.926,143.41z M39.063,151.976c-1.511-1.483-3.299-2.8-5.364-3.95s-4.33-2.226-6.796-3.224    c-1.416-0.581-2.615-1.116-3.598-1.601c-0.984-0.485-1.774-0.957-2.371-1.414c-0.597-0.458-1.026-0.949-1.289-1.476    c-0.262-0.525-0.394-1.122-0.394-1.788c0-1.301,0.608-2.327,1.83-3.075c1.219-0.748,2.826-1.124,4.823-1.124    c1.496,0,2.943,0.125,4.343,0.374c1.4,0.25,2.737,0.575,4.014,0.977c1.275,0.402,2.452,0.845,3.534,1.331    c1.08,0.485,2.05,0.964,2.912,1.434v-15.175c-0.833-0.223-1.784-0.471-2.85-0.75c-1.066-0.276-2.271-0.525-3.616-0.748    c-1.344-0.221-2.85-0.408-4.513-0.561c-1.663-0.151-3.506-0.229-5.529-0.229c-3.632,0-6.931,0.438-9.896,1.311    c-2.967,0.874-5.511,2.134-7.631,3.783c-2.12,1.65-3.763,3.646-4.926,5.988C0.581,134.402,0,137.042,0,139.979    c0,1.857,0.256,3.646,0.77,5.364c0.513,1.719,1.345,3.333,2.494,4.845c1.149,1.512,2.641,2.918,4.471,4.221    c1.83,1.303,4.047,2.452,6.653,3.451c1.384,0.527,2.653,1.032,3.803,1.517s2.134,0.997,2.954,1.538    c0.817,0.541,1.456,1.146,1.913,1.81c0.458,0.664,0.686,1.454,0.686,2.369c0,0.501-0.091,0.992-0.271,1.478    c-0.181,0.485-0.507,0.929-0.979,1.331c-0.471,0.402-1.102,0.728-1.891,0.977c-0.79,0.25-1.808,0.374-3.055,0.374    c-1.525,0-3.064-0.179-4.616-0.541c-1.554-0.36-3.057-0.832-4.513-1.414c-1.456-0.581-2.826-1.233-4.115-1.953    c-1.289-0.72-2.446-1.456-3.472-2.204v16.34c0.887,0.362,1.925,0.728,3.118,1.102c1.191,0.374,2.516,0.714,3.972,1.019    c1.456,0.304,3.029,0.553,4.72,0.75c1.69,0.193,3.464,0.291,5.322,0.291c3.464,0,6.513-0.278,9.146-0.832    c2.633-0.555,4.904-1.316,6.818-2.287c1.913-0.97,3.506-2.086,4.783-3.347c1.274-1.261,2.293-2.6,3.057-4.014    c0.762-1.412,1.303-2.86,1.621-4.343c0.318-1.484,0.477-2.904,0.477-4.262c0-2.466-0.423-4.642-1.269-6.527    C41.751,155.142,40.574,153.459,39.063,151.976z M297.725,121.996v26.736c0,0.887,0.006,1.907,0.021,3.057    c0.014,1.15,0.089,2.238,0.229,3.264h-0.165c-0.167-0.388-0.412-0.831-0.73-1.331c-0.318-0.497-0.658-1.01-1.018-1.537    c-0.36-0.527-0.721-1.04-1.08-1.54c-0.362-0.497-0.667-0.927-0.915-1.289l-20.165-27.36h-16.965v59.625h16.631V156.59    c0-1.911-0.022-3.671-0.062-5.278c-0.042-1.607-0.104-3.146-0.187-4.616h0.165c0.499,0.859,1.082,1.796,1.746,2.806    c0.665,1.012,1.442,2.128,2.329,3.347l21.04,28.772h15.758v-59.625H297.725z" />
+           <Path Data="M356.052,81.515    c0,2.419,0.089,4.811,0.253,7.176h59.457V33.459c-18.185,0.258-35.367,2.643-50.695,6.698    C359.344,52.235,356.052,66.385,356.052,81.515z" >
+<Path.Fill>
+			  		<LinearGradientBrush    StartPoint="1,1" EndPoint="0,0"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="1" Color="#00ffffff" />
+									<GradientStop Offset="0.8" Color="#66ffffff" />
+									<GradientStop Offset="0.5" Color="#00ffffff" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+</Path>
+        <Path Data="M445.712,188.972    c0.759-0.012,1.515-0.027,2.271-0.042c29.163-3.533,52.656-35.29,56.908-75.973h-59.179V188.972z" >
+<Path.Fill>
+			  		<LinearGradientBrush  StartPoint="0,0" EndPoint="1,1"   >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="1" Color="#00ffffff" />
+									<GradientStop Offset="0.8" Color="#66ffffff" />
+									<GradientStop Offset="0.5" Color="#00ffffff" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+</Path>
+        <Path  Data="M499.068,39.157    c-15.377-4.068-32.614-6.453-50.856-6.7V87.69h59.614c0.163-2.365,0.253-4.756,0.253-7.176    C508.079,65.385,504.783,51.235,499.068,39.157z" >
+<Path.Fill>
+			  		<LinearGradientBrush  StartPoint="1,0" EndPoint="0,1"   >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0" Color="#00ffffff" />
+									<GradientStop Offset="0.3" Color="#33ffffff" />
+									<GradientStop Offset="0.5" Color="#00ffffff" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+</Path>
+        <Path  Data="M417.541,188.372    c0.738,0.015,1.479,0.026,2.221,0.041v-76.015h-62.02C362.205,153.082,386.897,184.839,417.541,188.372z" >
+<Path.Fill>
+			  		<LinearGradientBrush   StartPoint="1,0" EndPoint="0,1"  >
+						<LinearGradientBrush.GradientStops >
+								<GradientStopCollection>
+									<GradientStop Offset="0.8" Color="#00ffffff" />
+									<GradientStop Offset="0.6" Color="#33ffffff" />
+									<GradientStop Offset="0.4" Color="#00ffffff" />
+							</GradientStopCollection>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+			  </Path.Fill>
+</Path>
+
+					</Drawing>
+				</DrawingBrush.Drawing>
+			</DrawingBrush>
+
+<!-- This is the element where we use the  Logo ********************************* -->
+        <Style def:Name="Logo">
+	        <Border Background="{LogoBrush}" Margin="93,155,0,0" Width="280" Height="112"   />
+        </Style>
+
+<!-- This draws the green ball behind the logo ********************************* -->
+        <Style def:Name="WaterMark">
+        <Border />
+        <Style.VisualTree>
+	        <Border def:StyleID="GreenBallBorder" Background="{GreenBall}" Margin="30"  Width="400" Height="400" />
+        </Style.VisualTree>
+        </Style>
+
+<!-- Text Styles  *********************************-->
+        <Style def:Name="TypeText">
+        <Text Margin="0,30,0,0"  FontSize="22" FontWeight="bold" FontFamily="Courier New" Foreground="limegreen" DockPanel.Dock="Top" Width="100%" HorizontalAlignment="center" TextContent="Type Password"/>
+        </Style>
+
+<!-- This FlowPanel Style is used to stack elements and position them horizontally -->
+		<Style def:Name="VerticalDockStacker">
+			<FlowPanel DockPanel.Dock="top" Width="100%" HorizontalAlignment="center" Margin="10,10,10,10" />
+		</Style>
+
+
+<!-- Styles for toolbar that holds the buttons at the bottom of the screen -->
+		<Style def:Name="BottomToolBar">
+			<DockPanel Margin="20,0,20,5" Width="100%" DockPanel.Dock="Bottom"/>
+		</Style>
+
+
+</DockPanel.Resources>
+</DockPanel>

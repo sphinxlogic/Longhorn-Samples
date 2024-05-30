@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStart_2", "QuickStart_2.csproj", "{E0930C7B-FEDF-4284-BFBE-9F3B0FD70FF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E0930C7B-FEDF-4284-BFBE-9F3B0FD70FF8}.Debug.ActiveCfg = Debug|.NET
+		{E0930C7B-FEDF-4284-BFBE-9F3B0FD70FF8}.Debug.Build.0 = Debug|.NET
+		{E0930C7B-FEDF-4284-BFBE-9F3B0FD70FF8}.Release.ActiveCfg = Release|.NET
+		{E0930C7B-FEDF-4284-BFBE-9F3B0FD70FF8}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

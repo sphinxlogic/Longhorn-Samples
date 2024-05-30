@@ -1,0 +1,27 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ContextMenu_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <Button Width="250" Height="30">Button with ContextMenu 
+<Button.ContextMenu>
+<ContextMenu>
+     <MenuItem Header="File"/>
+     <MenuItem Header="Save"/>
+     <MenuItem Header="SaveAs"/>
+     <MenuItem Header="Recent Files">
+        <MenuItem Header="Readme.txt"/>
+        <MenuItem Header="Schedule.xls"/>
+     </MenuItem>
+
+</ContextMenu>
+</Button.ContextMenu>
+</Button>
+
+
+
+</FlowPanel>

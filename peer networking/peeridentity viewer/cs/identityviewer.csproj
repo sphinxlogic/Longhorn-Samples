@@ -1,0 +1,70 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{A8961F7B-2F21-4BD7-8000-085C9B26B489}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="IdentityViewer" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="IdentityViewer" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.Data" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Data.dll" Name="System.Data" />
+    <Item Type="Reference" Include="System.Drawing" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Drawing.dll" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Forms" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Windows.Forms.dll" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Xml" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.XML.dll" Name="System.XML" />
+    <Item Type="Reference" Include="System.Net.PeerToPeer" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Net.PeerToPeer.dll" Name="System.Net.PeerToPeer" Private="False" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Content" Include="App.ico" />
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="DlgExportIdentity.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgExportIdentity.resx" DependentUpon="DlgExportIdentity.cs" />
+    <Item Type="Compile" Include="DlgImportIdentity.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgImportIdentity.resx" DependentUpon="DlgImportIdentity.cs" />
+    <Item Type="Compile" Include="DlgNewIdentity.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgNewIdentity.resx" DependentUpon="DlgNewIdentity.cs" />
+    <Item Type="Compile" Include="DlgSaveIdentityInfo.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgSaveIdentityInfo.resx" DependentUpon="DlgSaveIdentityInfo.cs" />
+    <Item Type="Compile" Include="FormIdentity.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="FormIdentity.resx" DependentUpon="FormIdentity.cs" />
+    <Item Type="Compile" Include="FormMain.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="FormMain.resx" DependentUpon="FormMain.cs" />
+    <Item Type="Compile" Include="utilities.cs" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="App.ico" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

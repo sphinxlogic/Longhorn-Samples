@@ -1,0 +1,41 @@
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+	Dim myLine As new System.Windows.Shapes.Line
+	myLine.X1 = new System.Windows.Length(20)
+	myLine.Y1 = new System.Windows.Length(50)
+	myLine.X2 = new System.Windows.Length(30)
+	myLine.Y2 = new System.Windows.Length(50)
+	myLine.Stroke = System.Windows.Media.Brushes.Blue
+	myLine.StrokeThickness = new System.Windows.Length(10)
+
+	'Create an animation.
+	Dim myLengthAnimation As new System.Windows.Media.Animation.LengthAnimation
+	myLengthAnimation.Duration = new System.Windows.Media.Animation.Time(10000)
+	myLengthAnimation.From = new System.Windows.Length(10)
+	myLengthAnimation.To = new System.Windows.Length(300)
+	myLengthAnimation.RepeatDuration = System.Windows.Media.Animation.Time.Indefinite
+	myLengthAnimation.AutoReverse = true
+
+	myLine.AddAnimation(System.Windows.Shapes.Line.X2Property, myLengthAnimation)
+
+	myCanvas.Children.Add(myLine)
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

@@ -1,0 +1,16 @@
+<securityData>
+    <credentials>
+        <username id="mainUsers" nonceLength="24">
+            <memoryPasswordResolver>
+                <add user="caliban" password="wprt" />
+            </memoryPasswordResolver>
+        </username>
+    </credentials>
+     <authorizationData>
+        <memoryMapping id="mainAuthorizationData">
+            <globalEntries>
+                <userNameRoleAssignment user = "caliban" roles = "StandardUserRole"/>
+            </globalEntries>
+        </memoryMapping>
+    </authorizationData>
+</securityData>

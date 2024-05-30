@@ -1,0 +1,6 @@
+
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml"
+            xmlns:def="Definition"
+            def:CodeBehind="SimpleIUI3.xaml.cs"
+            def:Class="WCSample.SimpleIUI3"
+						StartupUri="default.pf"/>

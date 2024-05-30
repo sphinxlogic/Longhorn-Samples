@@ -1,0 +1,53 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="TextBoxOverview2.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="TextBoxOverview2" Visible="True"
+    >
+  <Window.Resources>
+    <Style>
+		<TextBox 
+		Width="300"
+		Height="60"
+		Margin="20"
+		/>
+		<Style.VisualTree>
+		<Canvas>
+			<Rectangle
+			RadiusX="20"
+			RadiusY="20"
+			Fill="RadialGradient LimeGreen Green"
+			Width="100%"
+			Height="100%"/>
+			<Text TextBox.IsTextBoxContent="True"
+			FontSize="22"
+			FontWeight="Bold"
+			Foreground="White"
+			Margin="15"></Text>
+		</Canvas>
+		</Style.VisualTree>
+		
+    </Style>
+    <Style def:Name="BlueTextBox">
+    <TextBox
+    Width="300"
+    Height="60"
+    Background="Blue"/>
+   <Style.VisualTriggers>
+		<PropertyTrigger Property="IsMouseOver" Value="True">
+		<Set PropertyPath="Background" Value="Yellow"/>
+		</PropertyTrigger>
+		<PropertyTrigger Property="IsFocusWithin" Value="True">
+		<Set PropertyPath="Background" Value="Red"/>
+		</PropertyTrigger>
+		</Style.VisualTriggers>
+    </Style>
+  </Window.Resources>    
+  <FlowPanel>
+        <TextBox>This text box is styled!</TextBox>
+        <TextBox Style="{BlueTextBox}" Width="300">This text box is styled with a named style.</TextBox>
+		<TextBox Style="{BlueTextBox}" Width="300"></TextBox>
+    </FlowPanel>
+</Window>

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OpenWindow_VB", "OpenWindow_VB.vbproj", "{B248BF4A-A226-4E36-93FD-437CEB4D44BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B248BF4A-A226-4E36-93FD-437CEB4D44BA}.Debug|.NET.ActiveCfg = Debug|.NET
+		{B248BF4A-A226-4E36-93FD-437CEB4D44BA}.Debug|.NET.Build.0 = Debug|.NET
+		{B248BF4A-A226-4E36-93FD-437CEB4D44BA}.Release|.NET.ActiveCfg = Release|.NET
+		{B248BF4A-A226-4E36-93FD-437CEB4D44BA}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

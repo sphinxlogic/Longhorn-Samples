@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxElement_wcp", "CheckBoxElement_wcp.csproj", "{54A16BC4-AD92-4B39-87F0-9ADAB203B81C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54A16BC4-AD92-4B39-87F0-9ADAB203B81C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{54A16BC4-AD92-4B39-87F0-9ADAB203B81C}.Debug|.NET.Build.0 = Debug|.NET
+		{54A16BC4-AD92-4B39-87F0-9ADAB203B81C}.Release|.NET.ActiveCfg = Release|.NET
+		{54A16BC4-AD92-4B39-87F0-9ADAB203B81C}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

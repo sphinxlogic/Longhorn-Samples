@@ -1,0 +1,12 @@
+<?Mapping XmlNamespace="anim" ClrNamespace="System.Windows.Media.Animation" Assembly="PresentationCore" ?>
+<?Mapping XmlNamespace="media" ClrNamespace="System.Windows.Media" Assembly="PresentationCore" ?>
+<?Mapping XmlNamespace="shapes" ClrNamespace="System.Windows.Shapes" Assembly="PresentationFramework" ?>
+<DockPanel  ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+           xmlns:media="media">
+
+<Button Style="{GelButton}" Content="Button 1" />
+<Button Style="{GelButton}" Content="Button 2" />
+
+</DockPanel>

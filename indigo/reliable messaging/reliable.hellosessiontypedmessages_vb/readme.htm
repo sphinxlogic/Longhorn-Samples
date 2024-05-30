@@ -1,0 +1,1050 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The HelloSessionTypedMessages Sample</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+span.msoins0
+	{text-decoration:underline;}
+span.msodel0
+	{color:red;
+	text-decoration:line-through;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The HelloSessionTypedMessages Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The
+HelloSessionTypedMessages sample is a basic "Longhorn" application consisting
+of a client, a service, a service host, and client and host configuration
+files. It uses the "Longhorn" communications subsystem (code-named "Indigo").  The client is a console application that lets you enter a name and then
+sends the name to the server. The server is a console application that responds
+to greetings.</span></p>
+
+<p><span style='font-family:Arial'>The HelloSessionTypedMessages application is
+the same as the HelloSession application with the exception of using custom Typed
+messages classes for salutations (HelloSalutation) and responses
+(HelloResponse).&nbsp; </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<h3><a name="#KeyConcepts"></a><span style='font-size:12.0pt;font-family:Arial'>Client:<br>
+</span><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>The
+client application for the HelloSessionTypedMessages samples augments the
+HelloSession example with the usage of the HelloSalutation and HelloResponse
+classes declared in the service as input and output arguments to the Greeting
+method of the service.&nbsp; Otherwise the client application is the same as
+the HelloSession example.</span></h3>
+
+<h3><span style='font-size:12.0pt;font-family:Arial'>NOTE: The Client class in
+this example does not explicitly handle the Done event on the Channel, which is
+called when the Channel is finished and ready for disposal.&nbsp; Closing the
+channel without waiting for this event can result in client and server
+exceptions that the channel is already closed when sending final messages.&nbsp;
+This was left out of the example for simplicity but handling this event is
+recommended for production quality code.&nbsp; The BothWayServiceMessageSession
+example shows the correct handling of the Channel Done event.</span><span
+style='font-size:12.0pt;font-family:Arial;font-weight:normal'>&nbsp; </span></h3>
+
+<h3><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>C#
+Client:</span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>public</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+<span style='color:blue'>class</span> Client </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> <span style='color:blue'>static</span> <span
+style='color:blue'>void</span> Main(<span style='color:blue'>string</span>[]
+args) </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>string</span> name = &quot;Client&quot;;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span style='color:blue'>if</span> (args.Length &gt; 0)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+name = args[0];</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// Load the default service environment, called
+&quot;main&quot;.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ServiceEnvironment se = ServiceEnvironment.Load();</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// Retrieve the ServiceManager from the default
+environment</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ServiceManager manager = se[<span style='color:blue'>typeof</span>(ServiceManager)]
+<span style='color:blue'>as</span> ServiceManager;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>if</span> (manager == <span style='color:blue'>null</span>)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>throw</span> <span style='color:blue'>new</span>
+ApplicationException(</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&quot;The ServiceManager is not available in the service se for some
+reason.&quot;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// Start the service environment.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+se.Open();</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// Create a proxy channel that points to the service
+to call.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Uri uri = <span style='color:blue'>new</span> Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IHelloChannel channel = (IHelloChannel)manager.CreateChannel(<span
+style='color:blue'>typeof</span>(IHelloChannel), uri);</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>try</span> </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HelloResponse response = channel.Greeting(<span style='color:blue'>new</span>
+HelloSalutation(name));</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(response.Response);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+response = channel.Greeting(<span style='color:blue'>new</span>
+HelloSalutation(name + &quot;: Second time around&quot;));</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(response.Response);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+response = channel.Greeting(<span style='color:blue'>new</span>
+HelloSalutation(name + &quot;: Third time around&quot;));</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(response.Response);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = channel.Greeting(<span
+style='color:blue'>new</span> HelloSalutation(name + &quot;: Fourth time
+around&quot;));</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(response.Response);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+channel.DoneSending();</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>catch</span>(Exception Ex)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(Ex);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>finally</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+se.Close();</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></p>
+
+<h3><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>VB
+Client:</span></h3>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Public</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span> Client</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  <span style='color:blue'>Public</span> <span
+style='color:blue'>Shared</span> <span style='color:blue'>Sub</span> Main(<span
+style='color:blue'>ByVal</span> args() <span style='color:blue'>As</span> <span
+style='color:blue'>String</span>)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Dim</span> name <span
+style='color:blue'>As</span> <span style='color:blue'>String</span> =
+&quot;Client&quot;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>If</span>
+(args.Length &gt; 0) <span style='color:blue'>Then</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          name = args(0)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>End</span> <span
+style='color:blue'>If</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:green'>' Load the default
+service environment, called &quot;main&quot;.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Dim</span> se <span
+style='color:blue'>As</span> ServiceEnvironment = ServiceEnvironment.Load()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:green'>' Retrieve the
+ServiceManager from the default environment</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Dim</span> manager <span
+style='color:blue'>As</span> ServiceManager = <span style='color:blue'>CType</span>(se(<span
+style='color:blue'>GetType</span>(ServiceManager)), ServiceManager)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>If</span> (manager <span
+style='color:blue'>Is</span> <span style='color:blue'>Nothing</span>) <span
+style='color:blue'>Then</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          <span style='color:blue'>Throw</span> <span
+style='color:blue'>New</span> ApplicationException(&quot;The ServiceManager is not
+available in the service se for some reason.&quot;)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>End</span> <span
+style='color:blue'>If</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:green'>' Start the service
+environment.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      se.Open()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:green'>' Create a proxy
+channel that points to the service to call.</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Dim</span> serverUri <span
+style='color:blue'>As</span> <span style='color:blue'>New</span>
+Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Dim</span> channel <span
+style='color:blue'>As</span> IHelloChannel = <span style='color:blue'>CType</span>(manager.CreateChannel(<span
+style='color:blue'>GetType</span>(IHelloChannel), serverUri), IHelloChannel)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Dim</span> greeting <span
+style='color:blue'>As</span> HelloSalutation = <span style='color:blue'>New</span>
+HelloSalutation(name)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Try</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          <span style='color:blue'>Dim</span>
+response <span style='color:blue'>As</span> HelloResponse = channel.Greeting(greeting)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          Console.WriteLine(response.Response)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          response = channel.Greeting(<span
+style='color:blue'>New</span> HelloSalutation(name + &quot;: Second time
+around&quot;))</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          Console.WriteLine(response.Response)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          response = channel.Greeting(<span
+style='color:blue'>New</span> HelloSalutation(name + &quot;: Third time
+around&quot;))</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          Console.WriteLine(response.Response)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          response = channel.Greeting(<span
+style='color:blue'>New</span> HelloSalutation(name + &quot;: Fourth time
+around&quot;))</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          Console.WriteLine(response.Response)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          channel.DoneSending()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Catch</span> ex <span
+style='color:blue'>As</span> Exception</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          Console.WriteLine(Ex)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>Finally</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>          se.Close()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      <span style='color:blue'>End</span> <span
+style='color:blue'>Try</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  <span style='color:blue'>End</span> <span
+style='color:blue'>Sub</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>End</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><span style='font-size:12.0pt;font-family:Arial'>Host:<br>
+</span><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>The
+host application is the same as in the HelloSession example.</span></h3>
+
+<h3><span style='font-size:12.0pt;font-family:Arial'>Service:<br>
+</span><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>The
+class augments the HelloSession application with the declaration of the
+HelloSalutation and HelloResponse classes, which are used as the input and
+outputs arguments on the Greeting method of the service.&nbsp; Both typed
+classes inherit from the TypedMessage class and are marked with the MessageAttribute
+attribute.&nbsp; Otherwise the service is the same as the HelloSession sample.</span></h3>
+
+<h3><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>C#
+Service:</span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>using</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+System;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>using</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+System.MessageBus;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>using</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+System.MessageBus.Services;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>[DialogPortType(Name=&quot;Hello&quot;,Namespace=&quot;http://www.tempuri.org/quickstarts&quot;)]</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>public</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+<span style='color:blue'>class</span> Hello</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> Hello()</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(&quot;Hello service instance created; hash code {0}&quot;, <span
+style='color:blue'>this</span>.GetHashCode().ToString());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+[ServiceMethodAttribute]</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> HelloResponse Greeting(HelloSalutation
+senderGreeting)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(&quot;Called by a client with the name {0}&quot;,
+senderGreeting.Name);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HelloResponse response = <span style='color:blue'>new</span>
+HelloResponse(senderGreeting.Name);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+response.Response = String.Format(&quot;Hello, {0}! This is service instance
+{1}&quot;, </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+senderGreeting.Name,</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>this</span>.GetHashCode().ToString()</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+);</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>return</span> response;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+~Hello()</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Console.WriteLine(&quot;Hello service instance {0} is being recycled.&quot;, <span
+style='color:blue'>this</span>.GetHashCode());</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:green'>// required</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>[MessageAttribute(Namespace=&quot;http://www.tempuri.org/quickstarts&quot;)]</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>public</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+<span style='color:blue'>class</span> HelloSalutation : TypedMessage{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>private</span> <span style='color:blue'>string</span>
+internalSalutation;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// required</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> HelloSalutation() : <span
+style='color:blue'>base</span>() {&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> HelloSalutation(<span style='color:blue'>string</span>
+name)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>this</span>.internalSalutation = name;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// required. Can be a series of MessagePartAttribute
+attributes as well.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+[MessageBodyAttribute]</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> <span style='color:blue'>string</span>
+Name{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>get</span> { <span style='color:blue'>return</span> <span
+style='color:blue'>this</span>.internalSalutation; }</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>set</span> { <span style='color:blue'>this</span>.internalSalutation
+= <span style='color:blue'>value</span>; }</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:green'>// required</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>[MessageAttribute(Namespace=&quot;http://www.tempuri.org/quickstarts&quot;)]</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:blue'>public</span><span style='font-size:10.0pt;font-family:"Courier New"'>
+<span style='color:blue'>class</span> HelloResponse : TypedMessage</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>private</span> <span style='color:blue'>string</span>
+internalResponse;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// required</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> HelloResponse() : <span
+style='color:blue'>base</span>() {}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> HelloResponse(<span style='color:blue'>string</span>
+response)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>this</span>.internalResponse = response;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:green'>// required. Can be a series of MessagePartAttribute
+attributes as well.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+[MessageBodyAttribute]</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>public</span> <span style='color:blue'>string</span>
+Response</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>get</span> { <span style='color:blue'>return</span> <span
+style='color:blue'>this</span>.internalResponse; }</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:blue'>set</span> { <span style='color:blue'>this</span>.internalResponse=
+<span style='color:blue'>value</span>; }</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<h3><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></h3>
+
+<h3><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>VB
+Service:</span></h3>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System.MessageBus</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Imports</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> System.MessageBus.Services</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;DialogPortType(Name:=&quot;Hello&quot;, <span
+style='color:blue'>Namespace</span>:=&quot;http://www.tempuri.org/quickstarts&quot;)&gt;
+_</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Public</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span> Hello</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:green'>' ServiceMethod
+attribute exposes methods for access on the service</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    &lt;ServiceMethodAttribute()&gt; _</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Function</span> Greeting(<span style='color:blue'>ByVal</span>
+senderGreeting <span style='color:blue'>As</span> HelloSalutation) <span
+style='color:blue'>As</span> HelloResponse</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        Console.WriteLine(&quot;Called by a client
+with the name {0}&quot;, senderGreeting.Name)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Dim</span> response
+<span style='color:blue'>As</span> HelloResponse = <span style='color:blue'>New</span>
+HelloResponse(senderGreeting.Name)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        response.Response = <span style='color:blue'>String</span>.Format(&quot;Hello,
+{0}!&quot;, senderGreeting.Name)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Return</span>
+response</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Function</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Protected</span> <span
+style='color:blue'>Overrides</span> <span style='color:blue'>Sub</span>
+Finalize()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        Console.WriteLine(&quot;Hello service
+instance {0} is being recycled.&quot;, <span style='color:blue'>Me</span>.GetHashCode())</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Sub</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>End</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' The HelloSalutation class is a custom
+class inheriting from the TypedMessage class</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' to allow the developer to create
+custom classes that can be used for input and output</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' parameters to methods of the service. 
+This is the default way to send custom types</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' over the Service Framework.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;MessageAttribute(<span style='color:blue'>Namespace</span>:=&quot;http://www.tempuri.org/quickstarts&quot;)&gt;
+_</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Public</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span>
+HelloSalutation</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Inherits</span>
+TypedMessage</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Private</span>
+internalSalutation <span style='color:blue'>As</span> <span style='color:blue'>String</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:green'>' Required</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Sub</span> <span style='color:blue'>New</span>()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>MyBase</span>.New()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Sub</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Sub</span> <span style='color:blue'>New</span>(<span
+style='color:blue'>ByVal</span> name <span style='color:blue'>As</span> <span
+style='color:blue'>String</span>)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Me</span>.internalSalutation
+= name</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Sub</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    &lt;MessageBodyAttribute()&gt; _</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Property</span> Name() <span style='color:blue'>As</span> <span
+style='color:blue'>String</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Get</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            <span style='color:blue'>Return</span> <span
+style='color:blue'>Me</span>.internalSalutation</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>End</span> <span
+style='color:blue'>Get</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Set</span>(<span
+style='color:blue'>ByVal</span> Value <span style='color:blue'>As</span> <span
+style='color:blue'>String</span>)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            <span style='color:blue'>Me</span>.internalSalutation
+= value</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>End</span> <span
+style='color:blue'>Set</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Property</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>End</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' The HelloResponse class is a custom
+class inheriting from the TypedMessage class</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' to allow the developer to create
+custom classes that can be used for input and output</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' parameters to methods of the service. 
+This is the default way to send custom types</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green'>' over the Service Framework.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;MessageAttribute(<span style='color:blue'>Namespace</span>:=&quot;http://www.tempuri.org/quickstarts&quot;)&gt;
+_</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>Public</span><span style='font-size:10.0pt;
+font-family:"Courier New"'> <span style='color:blue'>Class</span> HelloResponse</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Inherits</span>
+TypedMessage</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Private</span>
+internalResponse <span style='color:blue'>As</span> <span style='color:blue'>String</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Sub</span> <span style='color:blue'>New</span>()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>MyBase</span>.New()</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Sub</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Sub</span> <span style='color:blue'>New</span>(<span
+style='color:blue'>ByVal</span> response <span style='color:blue'>As</span> <span
+style='color:blue'>String</span>)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Me</span>.internalResponse
+= response</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Sub</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    &lt;MessageBodyAttribute()&gt; _</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>Public</span> <span
+style='color:blue'>Property</span> Response() <span style='color:blue'>As</span>
+<span style='color:blue'>String</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Get</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            <span style='color:blue'>Return</span> <span
+style='color:blue'>Me</span>.internalResponse</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>End</span> <span
+style='color:blue'>Get</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>Set</span>(<span
+style='color:blue'>ByVal</span> Value <span style='color:blue'>As</span> <span
+style='color:blue'>String</span>)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            <span style='color:blue'>Me</span>.internalResponse
+= value</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>        <span style='color:blue'>End</span> <span
+style='color:blue'>Set</span></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>    <span style='color:blue'>End</span> <span
+style='color:blue'>Property</span></span></p>
+
+<h3><span style='font-size:10.0pt;font-family:"Courier New";color:blue'>End</span><span
+style='font-size:10.0pt;font-family:"Courier New"'> <span style='color:blue'>Class</span></span></h3>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><a name="#Building"></a><span style='font-family:Arial'>Open
+     the <b>Longhorn Build Environment</b> console window (click <b>Start</b>,
+     click <b>All Programs</b>, click&nbsp;<b>Microsoft Longhorn SDK</b>, click
+     <b>Open Build Environment Window</b>, and click <b>Longhorn Build
+     Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><a name="#Running"></a><b><span style='font-family:Arial'>Running on a
+single machine:</span></b><span style='font-family:Arial'><br>
+To run the sample on a single machine, open a command prompt window in the
+Server directory and another one in the Client directory. At the server command
+prompt, type <strong><span style='font-family:Arial'>host</span></strong> to
+start the server application. Then, at the client command prompt, type <strong><span
+style='font-family:Arial'>client </span></strong>&lt;<em><span
+style='font-family:Arial'>name</span></em> &gt; to start the client
+application.</span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>1.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the server machine, edit the
+Host.exe.config file in the Server directory. Replace &quot;localhost&quot;
+with the server machine name. Then run the server application, Host.exe. </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>On the client machine, edit the
+Client.cs (or Client.vb) file in the Client directory. In the URI that
+represents the server location, replace &quot;localhost&quot; with the server
+machine name. Recompile and run the client application, Client.exe. </span></p>
+
+<p>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

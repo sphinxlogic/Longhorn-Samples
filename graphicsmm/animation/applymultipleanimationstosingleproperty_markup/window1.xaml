@@ -1,0 +1,64 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ApplyMultipleAnimationsToSingleProperty_markup.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Apply Multiple Animations to a Single Property" Visible="True"
+    >
+       
+       
+       <GridPanel DockPanel.Dock="Fill" Margin="20" CellSpacing="10">
+	   
+	   
+	    <TextPanel Width="400">
+			<Heading>Applying Multiple Animations to the Same Property</Heading>
+			In the following example, two animations are applied to the RectangleWidth property of a rectangle.
+			The first animation has a Fill setting of Freeze, so the second animation builds off 
+			the first animation's ending value (200) rather than the property's base value (100).
+			Another rectangle is provided for comparison; the animations applied to the second rectangle don't have a Fill setting of Freeze.
+		</TextPanel>
+		
+		<Text Margin="0,20,0,0">With Fill="Freeze" on the First Animation</Text>
+       <Canvas Width="400">
+			<Rectangle RectangleWidth="100" RectangleHeight="30" Fill="MediumBlue">
+				<Rectangle.RectangleWidth>
+					<Timeline def:ID="freezeAnimations" StatusOfNextUse="ChangeableReference">
+						<LengthAnimation Fill="Freeze" To="200" Duration="2" />
+						<LengthAnimation To="400" Duration="5" Begin="5" />
+					</Timeline>
+				</Rectangle.RectangleWidth>
+			</Rectangle>
+       </Canvas>
+	 
+		<Text Margin="0,20,0,0">Without Fill="Freeze" on the First Animation</Text>
+       <Canvas Width="400">
+			<Rectangle RectangleWidth="100" RectangleHeight="30" Fill="MediumBlue">
+				<Rectangle.RectangleWidth>
+					<Timeline  def:ID="nonFreezeAnimations" StatusOfNextUse="ChangeableReference">
+						<LengthAnimation To="200" Duration="2" />
+						<LengthAnimation To="400" Duration="5" Begin="5" />
+					</Timeline>
+				</Rectangle.RectangleWidth>
+			</Rectangle>
+       </Canvas>
+       <Button Width="100" Height="40" Click="restartFreezeAnimationExamples" Background="LimeGreen">Restart</Button>
+       <def:Code>
+			<![CDATA[
+				
+				private void restartFreezeAnimationExamples(object sender, ClickEventArgs args){
+				
+					freezeAnimations.BeginIn(0);
+					nonFreezeAnimations.BeginIn(0);
+				
+				}
+			
+			
+			]]>
+       
+       
+       </def:Code>
+    
+       
+       </GridPanel>
+</Window>

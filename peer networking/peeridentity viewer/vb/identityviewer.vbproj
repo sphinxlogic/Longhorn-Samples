@@ -1,0 +1,77 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{589FBFCC-6BAF-49D4-9A5A-88903797E7E1}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject=".FormMain" />
+    <Property RootNamespace="" />
+    <Property AssemblyName="IdentityViewer" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\Debug\" />
+    <Property DefineConstants="_MyType=&quot;WinForms&quot;" />
+    <Property DocumentationFile="IdentityViewer.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\Release\" />
+    <Property DefineConstants="_MyType=&quot;WinForms&quot;" />
+    <Property DocumentationFile="IdentityViewer.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" />
+    <Item Type="Reference" Include="System.Drawing" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Forms" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Xml" Name="System.XML" />
+    <Item Type="Reference" Include="System.Net.PeerToPeer" Name="System.Net.PeerToPeer" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Drawing" />
+    <Item Type="Import" Include="System.Diagnostics" />
+    <Item Type="Import" Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.vb" SubType="Code" />
+    <Item Type="Compile" Include="DlgExportIdentity.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgExportIdentity.resx" DependentUpon="DlgExportIdentity.vb" />
+    <Item Type="Compile" Include="DlgImportIdentity.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgImportIdentity.resx" DependentUpon="DlgImportIdentity.vb" />
+    <Item Type="Compile" Include="DlgNewIdentity.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgNewIdentity.resx" DependentUpon="DlgNewIdentity.vb" />
+    <Item Type="Compile" Include="DlgSaveIdentityInfo.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="DlgSaveIdentityInfo.resx" DependentUpon="DlgSaveIdentityInfo.vb" />
+    <Item Type="Compile" Include="FormIdentity.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="FormIdentity.resx" DependentUpon="FormIdentity.vb" />
+    <Item Type="Compile" Include="FormMain.vb" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="FormMain.resx" DependentUpon="FormMain.vb" />
+    <Item Type="Compile" Include="utilities.vb" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

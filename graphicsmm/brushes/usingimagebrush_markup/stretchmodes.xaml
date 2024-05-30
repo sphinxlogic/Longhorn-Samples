@@ -1,0 +1,156 @@
+<!-- Demonstrates different ImageBrush Stretch settings.-->
+<GridPanel 
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.StretchModes"
+    def:CodeBehind="StretchModes.xaml.cs" 
+    Columns="4"
+    CellSpacing="5">
+    
+	<GridPanel.Resources>
+		<Style>
+			<Text HorizontalAlignment="Right" />
+		</Style>
+		<Style>
+			<Image Width="50" Height="50" />
+		</Style>
+    </GridPanel.Resources>
+    
+	
+		<DockPanel GridPanel.ColumnSpan="4" Margin="0,0,0,40"
+			Background="HorizontalGradient AliceBlue MediumBlue" MinHeight="50">	
+			
+			<!-- Enabled you to select the image to be displayed. -->
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage"> 
+				<Image Source="data\butterfly2.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage" >
+				<Image Source="data\cherries.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage" >
+			<Image Source="data\music.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right"
+				Style="{navButton}" IsEnabled="False"  Click="loadImage"
+				ID="firstImageButton">
+				<Image Source="data\square.jpg" />
+			</Button>
+			
+			<TextPanel DockPanel.Dock="Fill" Width="200" HorizontalAlignment="Left" Margin="10">
+				The contents of an ImageBrush can be stretched in different ways to
+				fill its output area. The following are some examples.
+			</TextPanel>
+		</DockPanel>
+
+
+	
+	<Text>Stretch="None"</Text>
+	<!-- The image is not resized. -->
+	<Rectangle
+		ID="noStretchRectangle"
+		Width="200"
+		Height="100"
+		Stroke="MediumBlue"
+		StrokeThickness="5">
+		<Rectangle.Fill>
+			<ImageBrush Stretch="None"  ImageSource="data\square.jpg" 
+				StatusOfNextUse="ChangeableReference" />
+		</Rectangle.Fill>
+	</Rectangle>
+	
+	<Text>Stretch="Uniform"</Text>
+	
+	<!-- The ImageBrush in this example has its
+		 Stretch property set to UniformToFill. As a result,
+		 the image is expanded to completely fill 
+		 the rectangle, but its aspect ratio is preserved.-->
+	<Rectangle
+		ID="uniformStretchRectangle"
+		Width="200"
+		Height="100"
+		Stroke="MediumBlue"
+		StrokeThickness="5">
+		<Rectangle.Fill>
+			<ImageBrush 
+				Stretch="Uniform" ImageSource="data\square.jpg"
+				StatusOfNextUse="ChangeableReference" />
+		</Rectangle.Fill>
+	</Rectangle>
+
+	
+	<Text>Stretch="UniformToFill"</Text>
+	
+	<!-- The ImageBrush in this example has its
+		 Stretch property set to UniformToFill. As a result,
+		 the image is expanded to completely fill 
+		 the rectangle, but its aspect ratio is preserved.-->
+	<Rectangle
+		ID="uniformToFillRectangle"
+		Width="200"
+		Height="100"
+		Stroke="MediumBlue"
+		StrokeThickness="5">
+		<Rectangle.Fill>
+			<ImageBrush Stretch="UniformToFill"  ImageSource="data\square.jpg"
+				StatusOfNextUse="ChangeableReference" />
+		</Rectangle.Fill>
+	</Rectangle>
+	
+	<Text>Stretch="Fill"</Text>
+	
+	<!-- The ImageBrush in this example has its
+		 Stretch property set to Fill. As a result,
+		 the image is expanded to completely fill 
+		 the rectangle. Because the image's
+		 aspect ratio is not preserved,
+		 some distortion is apparent.-->
+	<Rectangle
+		ID="fillRectangle"
+		Width="200"
+		Height="100"
+		Stroke="MediumBlue"
+		StrokeThickness="5">
+		<Rectangle.Fill>
+			<ImageBrush Stretch="Fill"  ImageSource="data\square.jpg"
+				StatusOfNextUse="ChangeableReference" />
+		</Rectangle.Fill>
+	</Rectangle>
+	
+	<def:Code>
+			<![CDATA[
+				
+				// Tracks the last button clicked so that
+				// it can easily be enabled.
+				private Button lastButtonClicked;
+				
+				private void loadImage(object sender, ClickEventArgs args){
+					// Retrieve the Image from the button's content.
+					Button b = ((Button)sender);	
+					Image selectedImage = (Image) b.Content;
+					
+					//Change the ImageSource of the shapes' ImageBrushes. 
+					((ImageBrush)noStretchRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)uniformStretchRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)uniformToFillRectangle.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)fillRectangle.Fill).ImageSource = selectedImage.Source;
+					
+					// Disable the button that contains the selected image
+					// and enable the previously selected image button.
+					b.IsEnabled = false;
+					if (lastButtonClicked == null)
+						firstImageButton.IsEnabled = true;
+					else
+						lastButtonClicked.IsEnabled = true;
+					lastButtonClicked = b;
+					
+				}
+	
+			]]>
+		
+		</def:Code>
+	
+
+</GridPanel>

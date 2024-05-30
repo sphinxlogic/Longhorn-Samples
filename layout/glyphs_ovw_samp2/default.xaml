@@ -1,0 +1,62 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  Background="#FFF" 
+  Width="100%" 
+  Height="100%">
+
+<Glyphs 
+   FontUri             = "c:\windows\fonts\times.ttf" 
+   FontFaceIndex       = "0"
+   FontRenderingEmSize = "20"
+   FontHintingEmSize   = "12"
+   StyleSimulations    = "ItalicSimulation"
+   Sideways            = "false"
+   BidiLevel           = "0"
+   OriginX             = "75"
+   OriginY             = "75"
+   Fill                = "Blue"
+   UnicodeString       = "Hello World!"
+/>
+<!-- "Hello World!" without kerning -->
+ <Glyphs 
+   OriginX             = "200" 
+   OriginY             = "50"
+   UnicodeString       = "Hello World!"
+   FontUri             = "C:\Windows\Fonts\Times.TTF"
+   Fill                = "Red"
+   FontRenderingEmSize = "20" 
+/>
+<!-- "Hello World!" with kerning -->
+ <Glyphs 
+   OriginX             = "200" 
+   OriginY             = "150"
+   UnicodeString       = "Hello World!"
+   Indices             = ";;;;;;;,89"
+   FontUri             = "C:\Windows\Fonts\Times.TTF"
+   Fill                = "Purple"
+   FontRenderingEmSize = "20" 
+/>
+<!-- "Open file" without "fi" ligature -->
+<Glyphs
+   OriginX             = "200" 
+   OriginY             = "250"
+   UnicodeString       = "Open file"
+   FontUri             = "C:\Windows\Fonts\Times.TTF"
+   Fill                = "Green"
+   FontRenderingEmSize = "20" 
+/>
+<!-- "Open file" with "fi" ligature -->
+<Glyphs
+   OriginX             = "200" 
+   OriginY             = "350"
+   UnicodeString       = "Open file"
+   Indices             = ";;;;;(2:1)191"
+   FontUri             = "C:\Windows\Fonts\Times.TTF"
+   Fill                = "Yellow"
+   FontRenderingEmSize = "20" 
+/>
+
+
+
+</Canvas>

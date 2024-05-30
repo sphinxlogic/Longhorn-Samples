@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBoxEvent_wcp", "ListBoxEvent_wcp.csproj", "{F05839D5-02F8-418E-9BBB-39F05EBEF311}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F05839D5-02F8-418E-9BBB-39F05EBEF311}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F05839D5-02F8-418E-9BBB-39F05EBEF311}.Debug|.NET.Build.0 = Debug|.NET
+		{F05839D5-02F8-418E-9BBB-39F05EBEF311}.Release|.NET.ActiveCfg = Release|.NET
+		{F05839D5-02F8-418E-9BBB-39F05EBEF311}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+<Project DefaultTargets="Build">
+
+  <PropertyGroup>
+    <Property Language="VB" />
+    <Property TargetName="CTBSampleVB" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+  </PropertyGroup>
+
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+
+  <ItemGroup>
+    <Item Type="compile" Include="CTBSampleVB.vb" />
+    <Item Type="Reference" Include="$(windir)\microsoft.net\avalon\System.Windows.Contacts" />
+  </ItemGroup>
+
+</Project>

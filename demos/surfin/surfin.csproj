@@ -1,0 +1,71 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{B10509F0-AB36-4D33-BE98-372EB2F6073A}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="Surfin" />
+    <Property DefaultClrNameSpace="Surfin" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="Surfin" />
+    <Property StrongNameKeyFile="Surfin.snk" />
+    <Property Optimizations="Download" />
+    <Property Language="C#" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="Surfin.xaml" />
+    <Item Type="Pages" Include="ChannelBrowser.xaml" />
+    <Item Type="Compile" Include="ChannelBrowser.xaml.cs" DependentUpon="ChannelBrowser.xaml" SubType="Code" />
+    <Item Type="Pages" Include="Window.xaml" />
+    <!--<Item Type="Compile" Include="Channels\Channels.cs" SubType="Code" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Resources" Include="images\*.png" FileStorage="embedded" Localizable="False" />
+    <Item Type="Resources" Include="images\*.jpg" FileStorage="embedded" Localizable="False" />
+    <Item Type="Resources" Include="media\*.wmv" FileStorage="loose" Localizable="False" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--<Item Type="ProjectReference" Include="Channels\Channels.csproj" Project="{2593D186-1E07-45A2-B8CE-9589E83D4939}" Package="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}" Name="Channels" Private="False" />-->
+	<Item Type="DependentProjects" Include="Channels\Channels.csproj"/> 
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\ChannelBrowser.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Surfin.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Surfin.Main.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Window.g.cs" />
+  </ItemGroup>
+  <Import Project="$(lapi)\WindowsApplication.Target" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

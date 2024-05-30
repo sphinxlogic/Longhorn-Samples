@@ -1,0 +1,7 @@
+<securityData>
+    <tokens>
+        <tokenCache id="mainTokenCache">
+            <userNameToken user="caliban" password="wprt"/>
+        </tokenCache>
+    </tokens>
+</securityData>

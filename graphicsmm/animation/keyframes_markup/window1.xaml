@@ -1,0 +1,141 @@
+<!-- This example demonstrates how to use an animation's KeyFrames. -->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="keyframes_markup.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="KeyFrames Example (Markup)" Visible="True"
+    >
+    <Window.Resources>
+        <Style>
+            <Ellipse 
+                RadiusX="10"
+                RadiusY="10" />
+        </Style>
+        <Style>
+            <Text
+                Foreground="Black"/>
+        </Style>
+    </Window.Resources>
+    
+    <Canvas ID="myCanvas" DockPanel.Dock="Fill">
+    
+        <!-- Mark the KeyFrame points for illustrative purposes. -->
+        <!-- Mark the first KeyFrame location. -->
+        <Ellipse
+            CenterX="35"
+            CenterY="125"
+            Fill="Black" />
+        <Text
+            Canvas.Top="160"
+            Canvas.Left="10">
+            1. Value = 10 Time = 0
+        </Text>
+        
+        <!-- Mark the second KeyFrame location. -->
+        <Ellipse
+            CenterX="525"
+            CenterY="125"
+            Fill="Gray" />
+        <Text
+            Canvas.Top="160"
+            Canvas.Left="500">
+            2. Value = 500 Time = 0.5
+        </Text>
+        
+         <!-- Mark the third KeyFrame location. -->
+        <Ellipse
+            CenterX="225"
+            CenterY="125"
+            Fill="LightGray" />
+        <Text
+            Canvas.Top="160"
+            Canvas.Left="200">
+            3. Value = 200 Time = 0.75
+        </Text>
+        
+         <!-- Mark the final KeyFrame location. -->
+        <Ellipse
+            CenterX="375"
+            CenterY="125"
+            Fill="RadialGradient White LightGray" />
+        <Text
+            Canvas.Top="160"
+            Canvas.Left="350">
+            4. Value = 350 Time = 0.5
+        </Text>
+    
+        <!-- Create the animated rectangle. -->
+        <Rectangle ID="myRectangle"
+            RectangleTop="100"
+            RectangleLeft="10"
+            RectangleHeight="50"
+            RectangleWidth="50"
+            Stroke="Black"
+            StrokeThickness="5">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4" />
+            </Rectangle.Fill>
+            <Rectangle.RectangleLeft>
+                    <LengthAnimation Duration="15" RepeatDuration="Indefinite">
+                        <LengthAnimation.KeyFrames>
+                            <LengthKeyFrameCollection>
+                                <LengthKeyFrame Value="10" KeyTime="0" />
+                                 <LengthKeyFrame Value="500" KeyTime="0.5" />
+                                 <LengthKeyFrame Value="200" KeyTime="0.75" />
+                                 <LengthKeyFrame Value="350" KeyTime="1" />              
+                            </LengthKeyFrameCollection>
+                        </LengthAnimation.KeyFrames>
+                    </LengthAnimation>
+            </Rectangle.RectangleLeft>
+        </Rectangle>
+        
+        <!-- The following is an alternate way of expressing the key frames' time value.
+        
+        <Rectangle ID="myRectangle2"
+            RectangleTop="100"
+            RectangleLeft="10"
+            RectangleHeight="50"
+            RectangleWidth="50"
+            Stroke="Black"
+            StrokeThickness="5">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4" />
+            </Rectangle.Fill>
+            <Rectangle.RectangleLeft>
+              
+                    <LengthAnimation Duration="15" RepeatDuration="Indefinite">
+                        <LengthAnimation.KeyFrames>
+                            <LengthKeyFrameCollection>
+                                 <LengthKeyFrame Value="10">
+                                    <LengthKeyFrame.KeyTime>
+                                        <KeyTime Time="0" />
+                                    </LengthKeyFrame.KeyTime>
+                                 </LengthKeyFrame>
+                                 <LengthKeyFrame Value="500" >
+                                    <LengthKeyFrame.KeyTime>
+                                        <KeyTime Time="7.5" />
+                                    </LengthKeyFrame.KeyTime>
+                                 </LengthKeyFrame>
+                                 <LengthKeyFrame Value="200">
+                                 <LengthKeyFrame.KeyTime>
+                                        <KeyTime Time="11.25" />
+                                    </LengthKeyFrame.KeyTime>
+                                 </LengthKeyFrame>
+                                 <LengthKeyFrame Value="350">
+                                 <LengthKeyFrame.KeyTime>
+                                        <KeyTime Time="15" />
+                                    </LengthKeyFrame.KeyTime>
+                                 </LengthKeyFrame>              
+                            </LengthKeyFrameCollection>
+                        </LengthAnimation.KeyFrames>
+                    </LengthAnimation>
+       
+            </Rectangle.RectangleLeft>
+        </Rectangle>
+        
+        
+        -->
+            
+    </Canvas>
+</Window>

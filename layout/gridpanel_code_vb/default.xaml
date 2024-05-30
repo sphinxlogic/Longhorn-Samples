@@ -1,0 +1,53 @@
+<GridPanel ID="myGP"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+	   Loaded="onInit"
+	   Width="200"
+	   Height="200"
+	   Columns="2">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	' Add the Header Text to the GridPanel
+	Dim header1 As new System.Windows.Controls.Text 
+	header1.TextContent = "This is a Simple Grid"
+	header1.FontSize = new System.Windows.FontSize(18)
+	header1.FontWeight = System.Windows.FontWeight.Bold
+	SetColumnSpan(header1, 2)
+	myGP.Children.Add(header1)
+
+	' Add the first Text Cell to the GridPanel
+	Dim txt1 As new System.Windows.Controls.Text 
+	txt1.TextContent = "Data 1"
+	txt1.FontSize = new System.Windows.FontSize(12)
+	txt1.FontWeight = System.Windows.FontWeight.Normal
+	myGP.Children.Add(txt1)
+
+	' Add the second Text Cell to the GridPanel
+	Dim txt2 As new System.Windows.Controls.Text 
+	txt2.TextContent = "Data 2"
+	txt2.FontSize = new System.Windows.FontSize(12)
+	txt2.FontWeight = System.Windows.FontWeight.Normal
+	myGP.Children.Add(txt2)
+
+	' Add the third Text Cell to the GridPanel
+	Dim txt3 As new System.Windows.Controls.Text 
+	txt3.TextContent = "Data 3"
+	txt3.FontSize = new System.Windows.FontSize(12)
+	txt3.FontWeight = System.Windows.FontWeight.Normal
+	myGP.Children.Add(txt3)
+
+	' Add the fourth Text Cell to the GridPanel
+	Dim txt4 As new System.Windows.Controls.Text 
+	txt4.TextContent = "Data 4"
+	txt4.FontSize = new System.Windows.FontSize(12)
+	txt4.FontWeight = System.Windows.FontWeight.Normal
+	myGP.Children.Add(txt4)
+
+
+End Sub
+  ]]>
+  </def:Code>
+
+</GridPanel>

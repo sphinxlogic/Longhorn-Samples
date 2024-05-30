@@ -1,0 +1,25 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property TargetName="MyLib" />
+    <Property TargetType="Library" />
+    <Property DefaultClrNameSpace="Library1" />
+    <Property Optimization="Download" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{EA910027-D1C6-438B-8084-B95BC29BF5C8}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="Pages" Include="Page2.xaml" />
+    <Item Type="Code" Include="Page2.xaml.cs" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

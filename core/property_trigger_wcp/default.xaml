@@ -1,0 +1,33 @@
+<?Mapping XmlNamespace="media" ClrNamespace="System.Windows.Media" Assembly="PresentationCore"?>
+<Border Background="white" ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition" xmlns:media="media"   >
+<DockPanel>
+
+	<DockPanel.Resources>
+		
+
+		
+		<Style >
+		<Rectangle	Fill="Gold" 
+						Stroke="Red" StrokeThickness="3" 
+						Width="150" Height="100" Margin="10" 
+						RadiusX="10" RadiusY="10"
+						/> 
+						
+			<Style.VisualTriggers>
+				<PropertyTrigger Property="IsMouseOver" Value="true">
+					<Set PropertyPath="Fill" Value="limegreen"/>
+				</PropertyTrigger>
+			</Style.VisualTriggers>
+			
+		</Style>
+		
+	</DockPanel.Resources>
+	  
+	<Rectangle />
+	<Rectangle />
+	<Rectangle />
+
+	  	  
+	  
+</DockPanel>
+</Border>

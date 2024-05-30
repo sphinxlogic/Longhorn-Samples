@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationSampleProvider", "LocationSampleProvider\LocationSampleProvider.csproj", "{D46CC727-9FDD-409A-B3E9-242D43BBB35A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D46CC727-9FDD-409A-B3E9-242D43BBB35A}.Debug|.NET.ActiveCfg = Debug|.NET
+		{D46CC727-9FDD-409A-B3E9-242D43BBB35A}.Debug|.NET.Build.0 = Debug|.NET
+		{D46CC727-9FDD-409A-B3E9-242D43BBB35A}.Release|.NET.ActiveCfg = Release|.NET
+		{D46CC727-9FDD-409A-B3E9-242D43BBB35A}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

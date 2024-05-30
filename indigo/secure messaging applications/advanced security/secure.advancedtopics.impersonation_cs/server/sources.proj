@@ -1,0 +1,24 @@
+<Project DefaultTargets="impersonationtest;Host">
+   <Target Name="impersonationtest">
+
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="impersonationtest.dll"
+                 References="system.dll;system.messagebus.dll"
+                 Sources="impersonationtest.cs"
+                 TargetType="library" />
+
+      <Task Name="Exec"
+          Command="wsdlgen /nologo impersonationtest.dll" />
+
+   </Target>
+
+   <Target Name="Host">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="host.exe"
+                 References="system.messagebus.dll;system.dll;impersonationtest.dll"
+                 Sources="host.cs"
+                 TargetType="exe" />
+   </Target>
+</Project>

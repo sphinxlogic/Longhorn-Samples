@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleProcedural", "SimpleProcedural.csproj", "{F93695FC-EAE2-471B-AD1E-3F9515FD42BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F93695FC-EAE2-471B-AD1E-3F9515FD42BD}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F93695FC-EAE2-471B-AD1E-3F9515FD42BD}.Debug|.NET.Build.0 = Debug|.NET
+		{F93695FC-EAE2-471B-AD1E-3F9515FD42BD}.Release|.NET.ActiveCfg = Release|.NET
+		{F93695FC-EAE2-471B-AD1E-3F9515FD42BD}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

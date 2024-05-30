@@ -1,0 +1,21 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml"
+           xmlns:def="Definition"
+           def:CodeBehind="Pane1.xaml.cs"
+           def:Class="Get_Set.Pane1">
+	        
+    <Text DockPanel.Dock="Top"
+			Margin="10,10,10,10">Enter Text for Page 2</Text>
+    <TextBox ID="txtBox"
+			Width="150" 
+			Height="30" 
+			DockPanel.Dock="Top"
+			Margin="10,10,10,10"/>
+    <Button Click="btnGoTo2"
+            Height="30"
+            Width="150"
+			Margin="10,10,10,10"
+            DockPanel.Dock="Top"
+            Content="Go To Page 2"/>
+    
+
+</DockPanel>

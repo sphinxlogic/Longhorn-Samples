@@ -1,0 +1,11 @@
+<Canvas ID="root" Background="White"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+	
+  <Line X1="10" Y1="20" X2="50" Y2="20"
+    StrokeThickness="10" Stroke="Blue">
+    <Line.X2>
+        <LengthAnimation From="30" To="300" Duration="10" RepeatDuration="Indefinite" />
+    </Line.X2>
+  </Line>
+
+</Canvas>

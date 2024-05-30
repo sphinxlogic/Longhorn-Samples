@@ -1,0 +1,34 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Language="C#" />
+		
+    <Property DefaultClrNameSpace="SDKSample" />
+
+    <Property TargetName="XmlDataSource2" />
+
+    <Property BuildSystem="MSBuild" />
+		
+    <Property HostInBrowser="False" />
+
+    <Property Optimization="Download" />
+		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml"/>
+
+		<Item Type="Resources" Include="data\BookData.xml" FileStorage="Embedded" Localizable="True"/>
+
+  </ItemGroup>
+
+</Project>

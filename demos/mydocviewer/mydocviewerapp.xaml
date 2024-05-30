@@ -1,0 +1,5 @@
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml" 
+    xmlns:def="Definition" 
+    def:CodeBehind="MyDocViewerApp.xaml.cs"
+    def:Class="MyDocViewerApplication.Viewer">    		
+</NavigationApplication>

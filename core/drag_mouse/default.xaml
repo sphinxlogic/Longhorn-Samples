@@ -1,0 +1,35 @@
+<DockPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    // Create a variable that holds the value of the color that is copied.
+    System.Windows.Media.SolidColorBrush foreBrush = new System.Windows.Media.SolidColorBrush();
+    // Fires when the left mousebutton clicks down, copying the text color of the
+    // element
+    void OnLeftMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+      System.Windows.Controls.Text sourceText = sender as System.Windows.Controls.Text;
+      foreBrush = sourceText.Foreground as System.Windows.Media.SolidColorBrush;
+    }
+    // Fires when the left mousebutton is released, setting the color of the text.
+    void OnLeftMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+      System.Windows.Controls.Text sourceText = sender as System.Windows.Controls.Text;
+      sourceText.Foreground = foreBrush;
+    }
+ ]]>
+  
+  </def:Code>
+
+<Text DockPanel.Dock="Top" MouseLeftButtonDown="OnLeftMouseDown" 
+MouseLeftButtonUp="OnLeftMouseUp" Foreground="Red" Margin="10">
+Click and Drag My Color to the other text.
+</Text>
+
+<Text DockPanel.Dock="Top" MouseLeftButtonDown="OnLeftMouseDown" 
+MouseLeftButtonUp="OnLeftMouseUp" Foreground="Blue" Margin="10">
+Click and Drag My Color to the other text.
+</Text>
+</DockPanel>

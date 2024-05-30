@@ -1,0 +1,45 @@
+<Project DefaultTargets="Build">
+  <!--Imports the target which contains all the common targets-->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="LoginScreen" />
+    <Property TargetName="LoginScreen" />
+    <Property StrongNameKeyFile="target.snk" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{C907C762-6761-48A1-AD7D-6363141D3107}" />
+    <Property Optimization="Download" />
+    <Property HostInBrowser="false" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <Item Type="Compile" Include="app.xaml.cs" SubType="Code" />
+    <Item Type="Pages" Include="default.xaml" />
+    <Item Type="Compile" Include="default.xaml.cs" SubType="Code" />
+    <Item Type="Pages" Include="resources_default.xaml" />
+    <Item Type="Pages" Include="resources_toons.xaml" />
+    <Item Type="Pages" Include="resources_luna.xaml" />
+    <Item Type="Pages" Include="resources_xbox.xaml" />
+    <Item Type="Resources" Include="Images\*.png" FileStorage="loose" Localizable="False" />
+    <Item Type="Resources" Include="Images\*.jpg" FileStorage="loose" Localizable="False" />
+    <Item Type="Resources" Include="Media\blissclouds.wmv" FileStorage="loose" Localizable="False" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\app.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\default.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\LoginScreen.Main.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\resources_default.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\resources_luna.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\resources_toons.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\resources_xbox.g.cs" />
+  </ItemGroup>
+</Project>

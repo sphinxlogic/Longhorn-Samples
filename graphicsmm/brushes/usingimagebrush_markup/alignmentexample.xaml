@@ -1,0 +1,202 @@
+<!-- This example demonstrates different ImageBrush alignment settings. -->
+<GridPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.AlignmentExample"
+    def:CodeBehind="AlignmentExample.xaml.cs" 
+    Columns="3"
+    CellSpacing="5">
+    <GridPanel.Resources>
+		<Style>
+			<Text FontWeight="Bold"></Text>
+		</Style>
+		<Style>
+			<Image Height="50" Width="50"/>
+		</Style>
+    </GridPanel.Resources>
+   
+   
+	
+	
+		<DockPanel GridPanel.ColumnSpan="3"
+			Background="HorizontalGradient Pink Maroon" MinHeight="50">
+			
+				<!-- Enables you to change the image displayed. -->
+			
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage"> 
+				<Image Source="data\gecko.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage" >
+				<Image Source="data\cherries.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right" 
+				Style="{navButton}" Click="loadImage" >
+			<Image Source="data\music.jpg" />
+			</Button>
+			<Button DockPanel.Dock="Right"
+				Style="{navButton}" IsEnabled="False"  Click="loadImage"
+				ID="firstImageButton">
+				<Image Source="data\butterfly2.jpg" />
+			</Button>
+
+			<TextPanel DockPanel.Dock="Fill" Width="300">
+				An ImageBrush's content alignment can be specified using
+				the HorizontalAlignment and VerticalAlignment properties.
+				The following are some examples.
+			</TextPanel>
+		</DockPanel>
+	
+	
+	
+	<GridPanel>
+		<Text>HorizontalAlignment="Left"</Text>
+		
+		<!-- The ImageBrush's content is left-aligned. -->
+		<Rectangle
+			ID="leftAlignedShape"
+			Width="200"
+			Height="150"
+			Stroke="Maroon"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None" 
+					HorizontalAlignment="Left" 
+					ImageSource="data\butterfly2.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>HorizontalAlignment="Center"</Text>
+		
+		<!-- The ImageBrush's content is centered. -->
+		<Rectangle
+			ID="rightAlignedShape"
+			Width="200"
+			Height="150"
+			Stroke="Maroon"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None" 
+					HorizontalAlignment="Center" 
+					ImageSource="data\butterfly2.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>HorizontalAlignment="Right"</Text>
+		<!-- The ImageBrush's content is right-aligned. -->
+		<Rectangle
+			ID="centerAlignedShape"
+			Width="200"
+			Height="150"
+			Stroke="Maroon"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None" 
+					HorizontalAlignment="Right" 
+					ImageSource="data\butterfly2.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+		<Text>VerticalAlignment="Top"</Text>
+		<!-- The ImageBrush's content is vertically aligned 
+		     with the top of the output area. -->
+		<Rectangle
+			ID="topAlignedShape"
+			Width="200"
+			Height="150"
+			Stroke="Maroon"
+			StrokeThickness="5">
+			<Rectangle.Fill>
+				<ImageBrush 
+					Stretch="None" 
+					VerticalAlignment="Top" 
+					ImageSource="data\butterfly2.jpg"
+					StatusOfNextUse="ChangeableReference" />
+			</Rectangle.Fill>
+		</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+	<Text>VerticalAlignment="Center"</Text>
+	<!-- The ImageBrush's content is vertically centered. -->
+	<Rectangle
+		ID="verticalCenterAlignedShape"
+		Width="200"
+		Height="150"
+		Stroke="Maroon"
+		StrokeThickness="5">
+		<Rectangle.Fill>
+			<ImageBrush 
+				Stretch="None" 
+				VerticalAlignment="Center"
+				ImageSource="data\butterfly2.jpg"
+				StatusOfNextUse="ChangeableReference" />
+		</Rectangle.Fill>
+	</Rectangle>
+	</GridPanel>
+	
+	<GridPanel>
+	<Text>VerticalAlignment="Bottom"</Text>
+	<!-- The ImageBrush's content is vertically aligned 
+		 with the bottom of the output area. -->
+	<Rectangle
+		ID="bottomAlignedShape"
+		Width="200"
+		Height="150"
+		Stroke="Maroon"
+		StrokeThickness="5">
+		<Rectangle.Fill>
+			<ImageBrush 
+				Stretch="None" 
+				VerticalAlignment="Bottom" 
+				ImageSource="data\butterfly2.jpg"
+				StatusOfNextUse="ChangeableReference" />
+		</Rectangle.Fill>
+	</Rectangle>
+	</GridPanel>
+	
+	<def:Code>
+			<![CDATA[
+				
+				private Button lastButtonClicked;
+				
+				private void loadImage(object sender, ClickEventArgs args){
+					// Retrieve the Image from the button's content.
+					Button b = ((Button)sender);	
+					Image selectedImage = (Image) b.Content;
+					
+					//Change the ImageSource of the shapes' ImageBrushes. 
+					((ImageBrush)leftAlignedShape.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)centerAlignedShape.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)rightAlignedShape.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)topAlignedShape.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)verticalCenterAlignedShape.Fill).ImageSource = selectedImage.Source;
+					((ImageBrush)bottomAlignedShape.Fill).ImageSource = selectedImage.Source;	
+
+					b.IsEnabled = false;
+					if (lastButtonClicked == null)
+						firstImageButton.IsEnabled = true;
+					else
+						lastButtonClicked.IsEnabled = true;
+					lastButtonClicked = b;
+					
+				}
+	
+			]]>
+		
+		</def:Code>
+
+</GridPanel>

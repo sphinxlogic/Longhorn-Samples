@@ -1,0 +1,1 @@
+certmgr -del -s My -c -n "MBTestCert"

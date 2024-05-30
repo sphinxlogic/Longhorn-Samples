@@ -1,0 +1,12 @@
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Application1.Pane2"
+    def:CodeBehind="Page2.xaml.cs" 
+    Background="LightBlue"
+    >
+    <Text ID="txtVersion"
+          FontWeight="Bold"
+          Margin="10,10,10,10"
+          DockPanel.Dock="Top">Page2 from DLL</Text>
+</DockPanel>

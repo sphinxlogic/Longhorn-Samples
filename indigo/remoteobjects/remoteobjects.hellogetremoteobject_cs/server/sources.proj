@@ -1,0 +1,23 @@
+<Project DefaultTargets="remotableobject;host">
+   <Target Name="remotableobject">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="remotableobject.dll"
+                 References="system.dll;system.messagebus.dll"
+                 Sources="remotableobject.cs"
+                 TargetType="library" />
+
+      <Task Name="Exec"
+                 Command="copy RemotableObject.dll ..\client" />
+
+   </Target>
+   <Target Name="host">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="host.exe"
+                 References="system.messagebus.dll;system.dll;remotableobject.dll"
+                 Sources="host.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

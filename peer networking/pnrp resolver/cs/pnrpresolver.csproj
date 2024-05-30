@@ -1,0 +1,59 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{03CCCB8F-F5CA-4505-9C09-7EDE87694AEA}" />
+    <Property OutputType="WinExe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="PnrpResolver" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="PnrpResolver" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.dll" Name="System" />
+    <Item Type="Reference" Include="System.Data" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Data.dll" Name="System.Data" />
+    <Item Type="Reference" Include="System.Drawing" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Drawing.dll" Name="System.Drawing" />
+    <Item Type="Reference" Include="System.Windows.Forms" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Windows.Forms.dll" Name="System.Windows.Forms" />
+    <Item Type="Reference" Include="System.Xml" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.XML.dll" Name="System.XML" />
+    <Item Type="Reference" Include="System.Net.PeerToPeer" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v1.2.30703\System.Net.PeerToPeer.dll" Name="System.Net.PeerToPeer" Private="False" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Content" Include="App.ico" />
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="PnrpResolver.cs" SubType="Form" />
+    <Item Type="EmbeddedResource" Include="PnrpResolver.resx" DependentUpon="PnrpResolver.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+    <Property ApplicationIcon="App.ico" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

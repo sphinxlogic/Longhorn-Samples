@@ -1,0 +1,61 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{6921DA41-F571-4144-8D11-91412AB2908B}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="Microsoft.Samples.WinFS.SearchByType" />
+    <Property RootNamespace="Microsoft.Samples.WinFS" />
+    <Property AssemblyName="SearchByType" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="SearchByType.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="SearchByType.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Contacts.dll" Name="System.Storage.Contacts" FusionName="System.Storage.Contacts, Version=6.0.4067.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Core.dll" Name="System.Storage.Core" FusionName="System.Storage.Core, Version=6.0.4067.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.WinFS.dll" Name="System.Storage.WinFS" FusionName="System.Storage.WinFS, Version=6.0.4067.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Xml" Name="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.vb" SubType="Code" />
+    <Item Type="Compile" Include="SearchByType.vb" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

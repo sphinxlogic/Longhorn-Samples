@@ -1,0 +1,121 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<DockPanel.Resources>
+		<Style>
+			<TextBox DockPanel.Dock="Fill" FontFamily="Courier New" Height="Auto" Width="Auto"/>
+		</Style>
+		<Style>
+			<Text FontFamily="Verdana" FontSize="14" />
+		</Style>
+		<Style def:Name="Code">
+			<Text FontFamily="Courier New" Margin="10"/>
+		</Style>
+	</DockPanel.Resources>
+	<TransformDecorator DockPanel.Dock="Top" Height="50%" Transform="rotate 45 scale 1.2 1.2" HorizontalAlignment="Center" VerticalAlignment="Center">
+		<ScrollViewer>
+			<FlowPanel HorizontalAlignment="Center">
+				<Text TextWrap="Wrap" Margin="10">Hooray for Transforms, they're the greatest!</Text>
+				<Border Background="#EEEEAA" Margin="10">
+					<TransformDecorator Transform="scale 2.5 2.5 rotate 7.5">
+						<Border Background="#EEAAEE">
+							<TransformDecorator Transform="rotate 7.5">
+								<Border Background="#AAEEEE">
+									<TransformDecorator Transform="rotate 7.5">
+										<Border Background="#AAAAEE">
+											<TransformDecorator Transform="rotate 7.5">
+												<Border Background="#AAEEAA">
+													<TransformDecorator Transform="rotate 7.5">
+														<Border Background="#EEAAAA">
+															<Text>Yay!</Text>
+														</Border>
+													</TransformDecorator>
+												</Border>
+											</TransformDecorator>
+										</Border>
+									</TransformDecorator>
+								</Border>
+							</TransformDecorator>
+						</Border>
+					</TransformDecorator>
+				</Border>
+				<Border Background="#EEEEAA" Margin="10">
+					<TransformDecorator Transform="scale 1.5 1.5 rotate -7.5">
+						<Border Background="#EEAAEE">
+							<TransformDecorator Transform="rotate -7.5">
+								<Border Background="#AAEEEE">
+									<TransformDecorator Transform="rotate -7.5">
+										<Border Background="#AAAAEE">
+											<TransformDecorator Transform="rotate -7.5">
+												<Border Background="#AAEEAA">
+													<TransformDecorator Transform="rotate -7.5">
+														<Border Background="#EEAAAA">
+															<Text>Yay!</Text>
+														</Border>
+													</TransformDecorator>
+												</Border>
+											</TransformDecorator>
+										</Border>
+									</TransformDecorator>
+								</Border>
+							</TransformDecorator>
+						</Border>
+					</TransformDecorator>
+				</Border>
+			</FlowPanel>
+		</ScrollViewer>
+	</TransformDecorator>
+	<TextBox DockPanel.Dock="Fill">
+&lt;TransformDecorator Transform="rotate 45 scale 1.2 1.2" HorizontalAlignment="Center" VerticalAlignment="Center"&gt;<LineBreak/>
+	&lt;ScrollViewer&gt;<LineBreak/>
+		&lt;FlowPanel HorizontalAlignment="Center"&gt;<LineBreak/>
+			&lt;Text TextWrap="Wrap" Margin="10"&gt;Hooray for Transforms, they're the greatest!&lt;/Text&gt;<LineBreak/>
+			&lt;Border Background="#EEEEAA" Margin="10"&gt;<LineBreak/>
+				&lt;TransformDecorator Transform="scale 2.5 2.5 rotate 7.5"&gt;<LineBreak/>
+					&lt;Border Background="#EEAAEE"&gt;<LineBreak/>
+						&lt;TransformDecorator Transform="rotate 7.5"&gt;<LineBreak/>
+							&lt;Border Background="#AAEEEE"&gt;<LineBreak/>
+								&lt;TransformDecorator Transform="rotate 7.5"&gt;<LineBreak/>
+									&lt;Border Background="#AAAAEE"&gt;<LineBreak/>
+										&lt;TransformDecorator Transform="rotate 7.5"&gt;<LineBreak/>
+											&lt;Border Background="#AAEEAA"&gt;<LineBreak/>
+												&lt;TransformDecorator Transform="rotate 7.5"&gt;<LineBreak/>
+													&lt;Border Background="#EEAAAA"&gt;<LineBreak/>
+														&lt;Text&gt;Yay!&lt;/Text&gt;<LineBreak/>
+													&lt;/Border&gt;<LineBreak/>
+												&lt;/TransformDecorator&gt;<LineBreak/>
+											&lt;/Border&gt;<LineBreak/>
+										&lt;/TransformDecorator&gt;<LineBreak/>
+									&lt;/Border&gt;<LineBreak/>
+								&lt;/TransformDecorator&gt;<LineBreak/>
+							&lt;/Border&gt;<LineBreak/>
+						&lt;/TransformDecorator&gt;<LineBreak/>
+					&lt;/Border&gt;<LineBreak/>
+				&lt;/TransformDecorator&gt;<LineBreak/>
+			&lt;/Border&gt;<LineBreak/>
+			&lt;Border Background="#EEEEAA" Margin="10"&gt;<LineBreak/>
+				&lt;TransformDecorator Transform="scale 1.5 1.5 rotate -7.5"&gt;<LineBreak/>
+					&lt;Border Background="#EEAAEE"&gt;<LineBreak/>
+						&lt;TransformDecorator Transform="rotate -7.5"&gt;<LineBreak/>
+							&lt;Border Background="#AAEEEE"&gt;<LineBreak/>
+								&lt;TransformDecorator Transform="rotate -7.5"&gt;<LineBreak/>
+									&lt;Border Background="#AAAAEE"&gt;<LineBreak/>
+										&lt;TransformDecorator Transform="rotate -7.5"&gt;<LineBreak/>
+											&lt;Border Background="#AAEEAA"&gt;<LineBreak/>
+												&lt;TransformDecorator Transform="rotate -7.5"&gt;<LineBreak/>
+													&lt;Border Background="#EEAAAA"&gt;<LineBreak/>
+														&lt;Text&gt;Yay!&lt;/Text&gt;<LineBreak/>
+													&lt;/Border&gt;<LineBreak/>
+												&lt;/TransformDecorator&gt;<LineBreak/>
+											&lt;/Border&gt;<LineBreak/>
+										&lt;/TransformDecorator&gt;<LineBreak/>
+									&lt;/Border&gt;<LineBreak/>
+								&lt;/TransformDecorator&gt;<LineBreak/>
+							&lt;/Border&gt;<LineBreak/>
+						&lt;/TransformDecorator&gt;<LineBreak/>
+					&lt;/Border&gt;<LineBreak/>
+				&lt;/TransformDecorator&gt;<LineBreak/>
+			&lt;/Border&gt;<LineBreak/>
+		&lt;/FlowPanel&gt;<LineBreak/>
+	&lt;/ScrollViewer&gt;<LineBreak/>
+&lt;/TransformDecorator&gt;<LineBreak/>
+	</TextBox>
+</DockPanel>

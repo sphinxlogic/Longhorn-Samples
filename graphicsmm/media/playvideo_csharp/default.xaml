@@ -1,0 +1,22 @@
+<Window ID="window1" Loaded="OnLoad"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  def:Class="Microsoft.Samples.Communications.PlayVideo"
+  def:CodeBehind="default.xaml.cs">
+<DockPanel>
+  <DockPanel.Resources>
+    <Style>
+      <Button Height="30" Width="80"/>
+    </Style>
+  </DockPanel.Resources>
+  <DockPanel Dock="Top" ID="dp1" />
+  
+  <DockPanel Dock="Left">
+  <Button Click="OnPlay">Play</Button>
+  <Button Click="OnPause">Pause/Restart</Button>
+  <Button Click="OnStop">Stop</Button>
+  <Button Click="OnMute">Mute</Button>
+  </DockPanel>
+</DockPanel>
+
+</Window>

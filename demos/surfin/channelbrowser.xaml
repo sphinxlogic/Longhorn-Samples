@@ -1,0 +1,431 @@
+<?Mapping XmlNamespace="DataObjects" ClrNamespace="Surfin" Assembly="Channels"?>
+
+<Canvas xmlns="http://schemas.microsoft.com/2003/xaml"
+        xmlns:def="Definition" 
+        def:Class="Surfin.ChannelBrowser"
+        def:CodeBehind="ChannelBrowser.xaml.cs"
+        ID="mainCanvas" Background="Black" Width="100%" Height="100%"
+        Loaded="PageLoaded">
+
+    <Canvas.Resources>
+        
+        <Listings def:Name="channels" xmlns="DataObjects">
+            <Listings.Channels>
+                <Channel Name="Tech TV 1"   Title="The .NET Show"          Source="Intro"        />
+                <Channel Name="Tech TV 2"   Title="Quake Radar"            Source="QuakeRadar"   />
+                <Channel Name="MSDN News"   Title="News Update"            Source="News"         />
+                <Channel Name="XBox TV"     Title="Diversionary Tactics"   Source="Day7"         />
+            </Listings.Channels>
+        </Listings>
+
+        <Style def:Name="ChannelStyle">
+            <ListItem Foreground="white" Height="85px" Background="Transparent"/>
+            <Style.VisualTree>
+                <DockPanel Width="100%" Height="85px">
+                    <Border Width="40" Height="40" Margin="0,5,5,0" Cursor="Hand"
+                            Background="Image Images\preview.png" ID="hotspot"/>
+                    <DockPanel DockPanel.Dock="Fill"> 
+                        <Text DockPanel.Dock="Top" TextContent="*Bind(Path=Name)"
+                                FontFamily="Segoe" FontSize="12pt" Margin="5,0,0,0"/>
+                        <Text DockPanel.Dock="Top" TextContent="*Bind(Path=Title)"
+                                FontFamily="Arial" FontSize="16pt" Margin="5,0,0,0" 
+                                Width="140" TextWrap="Wrap" FontWeight="bold" Opacity="0.9"/>
+                    </DockPanel>       
+                </DockPanel>
+            </Style.VisualTree>
+        </Style>
+
+        <Style def:Name="FavoritesStyle">
+            <ListItem Foreground="white" Width="240" Height="200" DockPanel.Dock="Left"/>
+            <Style.VisualTree>
+                <Canvas Width="100%" Height="100%">                
+                    <Text Canvas.Left="40" Canvas.Top="10" TextContent="*Bind(Path=Name)" FontFamily="Segoe" 
+                            FontWeight="bold" FontSize="12pt"/>
+                    <Image Canvas.Left="30" Canvas.Top="40" Width="160" Height="120" Stretch="Fill" 
+                            Source="*Bind(Path=ImageData)"/>
+                    <Image Canvas.Left="30" Canvas.Top="40" Width="160" Height="120" Stretch="Fill" 
+                            Source="Images\tvframe.png"/>
+                    <Text Canvas.Left="40" Canvas.Top="170" TextContent="*Bind(Path=Title)" FontFamily="Arial" 
+                            FontSize="12pt" Opacity="0.9"/>
+                    <TransformDecorator Canvas.Bottom="5" Canvas.Left="0">
+                        <Text Foreground="Blue" TextContent="Buy Now" Visibility="*Bind(Path=PurchaseRequired)"
+                                FontFamily="Times New Roman" FontWeight="bold" FontSize="60"/>
+                        <TransformDecorator.Transform>
+                            <RotateTransform Angle="-40"/>
+                        </TransformDecorator.Transform>
+                    </TransformDecorator>
+                </Canvas>
+            </Style.VisualTree>
+        </Style>
+
+        <Style def:Name="ListBoxWithDockedItems">
+            <ListBox />
+            <Style.VisualTree>
+                <DockPanel ItemsControl.IsItemsHost="true"/>
+            </Style.VisualTree>
+        </Style>
+
+        <Style def:Name="TransparentButton">
+            <Button />
+            <Style.VisualTree>
+                <Canvas>
+                    <Border Background="transparent" Width="100%" Height="100%" />
+                </Canvas>
+            </Style.VisualTree>
+        </Style>
+        
+        <Style def:Name="GreenRoundButton">
+            <Button Cursor="Hand"/>
+            <Style.VisualTree>
+                <Border def:StyleID="GreenBallBorder"
+                        Width="100%" Height="100%">
+                    <Border.Background>
+                        <DrawingBrush ViewBox="-5,-5,265,265"  >
+                            <DrawingBrush.Drawing>
+                                <Drawing>
+                                    <Path StrokeThickness="4pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+                                        <Path.Fill>
+                                            <LinearGradientBrush StartPoint="0,1" EndPoint="1.192488E-08,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0" Color="#FF575757" />
+                                                        <GradientStop Offset="1" Color="#FF000000" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                        <Path.Stroke>
+                                            <LinearGradientBrush StartPoint="4.371139E-08,0" EndPoint="0,1"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0" Color="#FF000000" />
+                                                        <GradientStop Offset="1" Color="#FF7E7E7E" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Stroke>
+                                    </Path>
+                                    <Path Fill="RadialGradient limegreen green"  StrokeThickness="1pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+                                        <Path.Stroke>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0" Color="#FF000000" />
+                                                        <GradientStop Offset="1" Color="#FF7E7E7E" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Stroke>
+                                    </Path>
+                                    <Path Stroke="transparent" StrokeThickness="1pt" Data="M234.605,82.995c0,30.001-48.82,0-109.042,0c-60.222,0-109.042,30.001-109.042,0    S66.579,7.542,126.802,7.542S234.605,52.993,234.605,82.995z">
+                                        <Path.Fill>
+                                            <LinearGradientBrush StartPoint="0,1" EndPoint="0.7002075,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0.4135802 " Color="#00FFFFFF " />
+                                                        <GradientStop Offset="1" Color="#72FFFFFF" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                    </Path>
+                                    <Path Stroke="transparent" StrokeThickness="1pt"  Data="M33.652,195.33c0-14.167,40.926,0,91.411,0c50.484,0,91.411-14.167,91.411,0    c0,14.167-41.964,49.129-92.449,49.129S33.652,209.497,33.652,195.33z" >
+                                        <Path.Fill>
+                                            <LinearGradientBrush StartPoint="0,1" EndPoint="0.2679492,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0.00617284" Color="#00FFFFFF " />
+                                                        <GradientStop Offset="0.3148148" Color="#5FFFFFFF" />
+                                                        <GradientStop Offset="0.771605" Color="#00FFFFFF" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                    </Path> 
+                                </Drawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Border.Background>
+                </Border>
+            </Style.VisualTree>
+            <Style.VisualTriggers>
+                <PropertyTrigger Property="IsMouseOver" Value="true">
+                    <Set PropertyPath="Opacity" Value="0.7" Target="GreenBallBorder"/>
+                </PropertyTrigger>
+            </Style.VisualTriggers>
+        </Style>
+        
+        <Style def:Name="RedRoundButton">
+            <Button Cursor="Hand"/>
+            <Style.VisualTree>
+                <Border def:StyleID="RedBallBorder" 
+                        Width="100%" Height="100%">
+                    <Border.Background>
+                        <DrawingBrush ViewBox="-5,-5,265,265"  >
+                            <DrawingBrush.Drawing>
+                                <Drawing>
+                                    <Path StrokeThickness="4pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+                                        <Path.Fill>
+                                            <LinearGradientBrush StartPoint="0,1" EndPoint="1.192488E-08,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0" Color="#FF575757" />
+                                                        <GradientStop Offset="1" Color="#FF000000" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                        <Path.Stroke>
+                                            <LinearGradientBrush StartPoint="4.371139E-08,0" EndPoint="0,1"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0" Color="#FF000000" />
+                                                        <GradientStop Offset="1" Color="#FF7E7E7E" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Stroke>
+                                    </Path>
+                                    <Path Fill="RadialGradient red maroon"  StrokeThickness="1pt" Data="M249.436,124.968c0,68.742-55.726,124.468-124.468,124.468C56.226,249.436,0.5,193.709,0.5,124.968    C0.5,56.226,56.226,0.5,124.968,0.5C193.709,0.5,249.436,56.226,249.436,124.968z">
+                                        <Path.Stroke>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0" Color="#FF000000" />
+                                                        <GradientStop Offset="1" Color="#FF7E7E7E" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Stroke>
+                                    </Path>
+                                    <Path Stroke="transparent" StrokeThickness="1pt" Data="M234.605,82.995c0,30.001-48.82,0-109.042,0c-60.222,0-109.042,30.001-109.042,0    S66.579,7.542,126.802,7.542S234.605,52.993,234.605,82.995z">
+                                        <Path.Fill>
+                                            <LinearGradientBrush StartPoint="0,1" EndPoint="0.7002075,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0.4135802 " Color="#00FFFFFF " />
+                                                        <GradientStop Offset="1" Color="#72FFFFFF" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                    </Path>
+                                    <Path Stroke="transparent" StrokeThickness="1pt"  Data="M33.652,195.33c0-14.167,40.926,0,91.411,0c50.484,0,91.411-14.167,91.411,0    c0,14.167-41.964,49.129-92.449,49.129S33.652,209.497,33.652,195.33z" >
+                                        <Path.Fill>
+                                            <LinearGradientBrush StartPoint="0,1" EndPoint="0.2679492,0"  >
+                                                <LinearGradientBrush.GradientStops >
+                                                    <GradientStopCollection>
+                                                        <GradientStop Offset="0.00617284" Color="#00FFFFFF " />
+                                                        <GradientStop Offset="0.3148148" Color="#5FFFFFFF" />
+                                                        <GradientStop Offset="0.771605" Color="#00FFFFFF" />
+                                                    </GradientStopCollection>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                    </Path> 
+                                </Drawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Border.Background>
+                </Border>
+            </Style.VisualTree>
+            <Style.VisualTriggers>
+                <PropertyTrigger Property="IsMouseOver" Value="true">
+                    <Set PropertyPath="Opacity" Value="0.7" Target="RedBallBorder"/>
+                </PropertyTrigger>
+            </Style.VisualTriggers>
+        </Style>
+        
+    </Canvas.Resources>
+
+    <DockPanel Width="100%" Height="100%">
+
+        <Canvas ID="favoritesPanel" DockPanel.Dock="Bottom" Height="0" Width="100%">
+            <Canvas.Height>
+                <Timeline Duration="Indefinite">
+                    <LengthAnimation From="0" To="200" Begin="Indefinite" Duration=".5" Begun="FavoritesPanelResizing"/> <!-- 1 -->
+                    <LengthAnimation From="200" To="0" Begin="Indefinite" Duration=".5" Begun="FavoritesPanelResizing"/> <!-- 4 -->
+                </Timeline>
+            </Canvas.Height>
+        </Canvas>
+
+        <DockPanel DockPanel.Dock="Right" Width="200">
+
+            <ListBox ID="channelsListBox" DockPanel.Dock="Fill"
+                    DataContext="{channels}" ItemStyle="{ChannelStyle}"
+                    Background="Transparent" SelectionChanged="ChangeChannel">
+                
+                <ListBox.Items>
+                    <CollectionContainer Collection="*Bind(Path=Channels)"/>
+                </ListBox.Items>
+
+            </ListBox>
+
+        </DockPanel>
+
+        <Canvas ID="mainScreen" DockPanel.Dock="Fill">
+            <Video ID="mainVideo" Width="100%" Height="100%" Stretch="Fill" 
+                RepeatCount="100000"/>
+            <Image Width="100%" Height="100%" Stretch="Fill" Source="Images\tvframe.png"/>
+        </Canvas>
+        
+    </DockPanel>
+
+    <TransformDecorator ID="previewScreen" Width="160" Height="120" Opacity="0.01">
+        <Canvas>
+            <Video ID="previewVideo" Width="160" Height="120" Stretch="Fill" 
+                    Volume="0" RepeatCount="100000"/>
+            <Image Width="160" Height="120" Stretch="Fill" Source="Images\tvframe.png"/>
+        </Canvas>
+    </TransformDecorator>
+    
+    <ListBox ID="favoritesListBox" Canvas.Bottom="0" Width="100%" Height="200" 
+            Style="{ListBoxWithDockedItems}" ItemStyle="{FavoritesStyle}"
+            Opacity="0" Background="transparent" SelectionChanged="SelectFavoriteChannel">
+
+        <ListBox.Opacity>
+            <Timeline Duration="Indefinite">
+                <DoubleAnimation From="0" To="1" Begin="Indefinite" Duration=".5" Begun="FavoritesListBoxFading"/> <!-- 2 -->
+                <DoubleAnimation From="1" To="0" Begin="Indefinite" Duration=".5" Begun="FavoritesListBoxFading"/> <!-- 3 -->
+                <DoubleAnimation From="1" To="0" Begin="Indefinite" Duration=".5" Ended="EndChangeFavorites"/> <!-- 5 -->
+                <DoubleAnimation From="0" To="1" Begin="Indefinite" Duration=".5" /> <!-- 6 -->
+            </Timeline>
+        </ListBox.Opacity>
+        
+        <ListBox.Items>
+            <CollectionContainer Collection="*Bind(Path=Channels)"/>
+        </ListBox.Items>    
+
+    </ListBox>
+
+    <TransformDecorator ID="favoritesTitlePanelTranslateDecorator" Canvas.Bottom="0" Canvas.Right="50" Width="100" Height="29">
+        <TransformDecorator ID="favoritesTitlePanelRotateDecorator" Width="100%" Height="100%">
+            <Canvas ID="favoritesTitlePanel" Width="100%" Height="100%">
+                
+                <Rectangle ID="favoritesBackgroundRect" Width="105%" Height="105%" RadiusX="6" RadiusY="6" Opacity="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="1,0" SpreadMethod="Pad" EndPoint="0,0" MappingMode="RelativeToBoundingBox"  >
+                            <LinearGradientBrush.GradientStops >
+                                    <GradientStopCollection>
+                                        <GradientStop Offset="0" Color="lightgray" />
+                                        <GradientStop Offset="0.5" Color="slategray" />
+                                        <GradientStop Offset="0.9074074" Color="darkgray" />
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.Opacity>
+                        <Timeline Duration="Indefinite">
+                            <DoubleAnimation From="0" To="1" Begin="Indefinite" Duration=".5" Begun="FavoritesBackgroundRectFading"/> <!-- 1 -->
+                            <DoubleAnimation From="1" To="0" Begin="Indefinite" Duration=".5" Begun="FavoritesBackgroundRectFading"/> <!-- 4 -->
+                        </Timeline>
+                    </Rectangle.Opacity>
+                </Rectangle>
+                
+                <ComboBox ID="favoritesComboBox" Canvas.Left="6" Canvas.Bottom="4" Width="96" Height="21" 
+                        SelectionChanged="BeginChangeFavorites"/>
+                        
+                <Rectangle ID="favoritesForegroundRect" Canvas.Right="-4" Canvas.Bottom="4" Width="100" Height="21" 
+                        RadiusX="6" RadiusY="6" Fill="steelblue" Opacity="1">
+                    <Rectangle.Opacity>
+                        <Timeline Duration="Indefinite">
+                            <DoubleAnimation From="1" To="0" Begin="Indefinite" Duration=".5" Begun="FavoritesForegroundRectFading"/> <!-- 2 -->
+                            <DoubleAnimation From="0" To="1" Begin="Indefinite" Duration=".5" Begun="FavoritesForegroundRectFading"/> <!-- 3 -->
+                        </Timeline>
+                    </Rectangle.Opacity>
+                </Rectangle>
+                
+                <Text Canvas.Right="-4" Canvas.Bottom="0" Width="100" Height="30"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white"
+                        FontFamily="Segoe" FontSize="12pt" FontWeight="bold">Favorites</Text>
+                
+                <Button Canvas.Right="-4" Canvas.Bottom="0" Width="100" Height="25"
+                        Style="{TransparentButton}" Click="ToggleFavoritesPanel"/>
+                
+                <Canvas.Width>
+                    <Timeline Duration="Indefinite">
+                        <LengthAnimation From="100" To="200" Begin="Indefinite" Duration=".5" Begun="FavoritesTitlePanelResizing"/> <!-- 2 -->
+                        <LengthAnimation From="200" To="100" Begin="Indefinite" Duration=".5" Begun="FavoritesTitlePanelResizing" Ended="RelocateTitlePanel"/> <!-- 3 -->
+                    </Timeline>
+                </Canvas.Width>
+                
+            </Canvas>
+        </TransformDecorator>
+    </TransformDecorator>
+    
+    <TransformDecorator ID="contentControlPanel" Width="350" Height="200" Visibility="Collapsed">
+        <Canvas Width="100%" Height="100%" >
+            <Rectangle Fill="white" RadiusX="5" RadiusY="5" Opacity="0.5" Width="100%" Height="100%" />
+            <Rectangle Fill="transparent" RadiusX="5" RadiusY="5" Stroke="#cc000000" StrokeThickness="1" Width="100%" Height="100%" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0.0524078,1"  >
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStopCollection>
+                                <GradientStop Offset="0.1975309" Color="#88FFFFFF" />
+                                <GradientStop Offset="0.3271605" Color="#BBFFFFFF"  />
+                                <GradientStop Offset="0.345679" Color="#88FFFFFF" />
+                                <GradientStop Offset="1" Color="#2FFFFFFF" />
+                            </GradientStopCollection>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DockPanel Width="100%" Height="100%">
+                <Rectangle Margin="1" DockPanel.Dock="fill" Fill="transparent" RadiusX="5" RadiusY="5" Stroke="white" StrokeThickness="1"  >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.0524078,1" EndPoint="0,0"  >
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Offset="0.1" Color="#88FFFFFF" />
+                                    <GradientStop Offset="0.3" Color="#CCFFFFFF"  />
+                                    <GradientStop Offset="0.5" Color="#88FFFFFF" />
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.Stroke>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0"  >
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Offset="0" Color="#66FFFFFF" />
+                                    <GradientStop Offset="0.5" Color="#ffffff"  />
+                                    <GradientStop Offset="1" Color="#66FFFFFF" />
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Rectangle.Stroke>
+                </Rectangle>
+            </DockPanel>
+            <DockPanel Width="100%" Height="100%">
+                <Rectangle Margin="1" DockPanel.Dock="fill" Fill="transparent" 
+                        RadiusX="5" RadiusY="5" Stroke="white" StrokeThickness="1"  >
+                    <Rectangle.Stroke>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0"  >
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Offset="0" Color="#00FFFFFF" />
+                                    <GradientStop Offset="0.5" Color="#ffffff"  />
+                                    <GradientStop Offset="1" Color="#00FFFFFF" />
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Rectangle.Stroke>
+                </Rectangle>
+            </DockPanel>
+            <Text Canvas.Top="5" Canvas.Left="0" Width="100%" HorizontalAlignment="Center" 
+                    FontFamily="Segoe" FontSize="18pt" FontWeight="bold" Foreground="Red" TextContent="Downloadable Content"/>
+            <Text Canvas.Top="45" Canvas.Left="20" Width="310" Height="110" 
+                    FontFamily="Arial" FontSize="9pt" 
+                    Foreground="blue" TextWrap="Wrap"
+                    TextContent="(This feature not yet implemented.)"/>
+            <Text Canvas.Bottom="15" Canvas.Left="60" FontFamily="Segoe" FontSize="12pt" 
+                    FontWeight="bold" Foreground="Red" TextContent="Download this content?"/>
+            <Button Canvas.Bottom="13" Canvas.Left="260" Width="25" Height="25" Style="{GreenRoundButton}" />
+            <Button Canvas.Bottom="13" Canvas.Left="295" Width="25" Height="25" Style="{RedRoundButton}" Click="HideCCP"/>
+        </Canvas>
+        <TransformDecorator.Transform>
+            <ScaleTransform Center="175,100" ScaleX="0" ScaleY="0"/>
+        </TransformDecorator.Transform>
+    </TransformDecorator>
+            
+</Canvas>

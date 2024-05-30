@@ -1,0 +1,55 @@
+<Canvas ID="myCanvas"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onInit">
+
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+	Dim myLine As new System.Windows.Shapes.Line
+	myLine.X1 = new System.Windows.Length(20)
+	myLine.Y1 = new System.Windows.Length(50)
+	myLine.X2 = new System.Windows.Length(30)
+	myLine.Y2 = new System.Windows.Length(50)
+	myLine.Stroke = System.Windows.Media.Brushes.Blue
+	myLine.StrokeThickness = new System.Windows.Length(10)
+
+	'Create an animation that runs for five seconds.
+	Dim myLengthAnimation As new System.Windows.Media.Animation.LengthAnimation
+	myLengthAnimation.Duration = new System.Windows.Media.Animation.Time(5000)
+	myLengthAnimation.From = new System.Windows.Length(30)
+	myLengthAnimation.To = new System.Windows.Length(300)
+	myLengthAnimation.RepeatDuration = System.Windows.Media.Animation.Time.Indefinite
+
+	myLine.AddAnimation(Line.X2Property, myLengthAnimation)
+
+
+	myCanvas.Children.Add(myLine)
+
+
+	' Setting the duration of a Timeline object is similar
+	' to setting the duration of an animation.
+	Dim myTimeline As new System.Windows.Media.Animation.Timeline
+	myTimeline.Duration = new System.Windows.Media.Animation.Time(5000)
+			
+	' Hook up the timeline to the timing tree.
+	myTimeline.Enable()
+	
+	' Timelines should be disabled after you're finished with them.
+	myTimeline.Disable()
+	
+End Sub
+  ]]>
+  </def:Code>
+
+</Canvas>
+
+
+			
+
+			
+
+			
+			
+
+			

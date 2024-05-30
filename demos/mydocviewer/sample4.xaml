@@ -1,0 +1,13 @@
+<?Mapping XmlNamespace="xaml" ClrNamespace="System.Windows.Controls" Assembly="PresentationFramework" ?>
+<?Mapping XmlNamespace="win" ClrNamespace="System.Windows" Assembly="PresentationFramework" ?>
+<DockPanel xmlns="xaml">
+    <DockPanel.Resources>
+	<Style xmlns="win">
+	    <Text xmlns="xaml" Foreground="yellow" />
+	</Style>
+    </DockPanel.Resources>
+    <Text> Hello World! </Text>
+    <Button> Click Me! </Button>
+    <Button> <Text> Click Me Again! </Text> </Button>
+    <HyperLink> <Button> <Text> Click Me Again and Again! </Text> </Button> </HyperLink>
+</DockPanel>

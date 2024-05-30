@@ -1,0 +1,33 @@
+<Canvas ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition">
+
+<Text FontSize="14"
+      TextWrap="Wrap">Select some text in the textbox and then click the button to see the text 
+displayed below. </Text>
+<TextBox ID="tb1"
+	 Height="40"
+	 Width="300"
+	 Canvas.Top="60"
+	 Text="Here is some text"/>
+<Button Width="150" 
+	Height="30"
+	Canvas.Top="110"
+	Click="OnClick">Display Selection</Button>
+
+<Text Foreground="Red"
+      Canvas.Top="200"
+      ID="text1"/> 
+
+  <def:Code>
+  <![CDATA[
+    void OnClick(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+	text1.TextRange.Text=tb1.SelectedText;
+    }
+
+  ]]>
+  </def:Code>
+
+</Canvas>
+

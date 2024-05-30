@@ -1,0 +1,509 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>CustomAccessControl</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+span.msoins0
+	{text-decoration:underline;}
+span.msodel0
+	{color:red;
+	text-decoration:line-through;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The CustomAccessControl Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003<u1:p></u1:p></span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem (code-named "Indigo") can be used to help secure applications. The
+CustomAccessControl sample is an application consisting of a
+client, a service, a service host, and client and host configuration and data
+files. It demonstrates access control to a service method based on user
+credentials. It also demonstrates the combination of two different
+authentication schemes: user name authentication and anonymous access
+control.&nbsp; The server validates either that the messages are secured using
+a valid user name and password or that the messages use anonymous access. The
+data for the user name and password is stored in server configuration data file
+on the server. The client is a console application that sends three different
+messages: the first is an anonymous message, and the second and third messages
+are secured using different user credentials. The client writes the response
+from the server to the console. The server validates the role that the client
+authorizes. The server then determines the membership level based on the client
+role and sends a string to the client with the server's membership level. </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Client:</span></b><span
+style='font-family:Arial'><br>
+The client is a simple console application that uses configuration to store its
+settings for the objects that it uses.</span></p>
+
+<pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp; </span></pre><pre><span
+style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;identityRole&gt;soap.tcp://localhost:46001/HelloClient/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- WARNING: This sample does not secure the server policy for demonstration purposes. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;securityManager isEnabledForReceive=&quot;false&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Permits untrusted policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre>
+
+<p><span style='font-family:Arial'>The client loads this configuration
+information, uses the <b>ServiceManager</b> to create a proxy that represents a
+service, and invokes the method on the proxy. Because this service method is an
+RPC-style or request-reply style method, the execution of the client stops
+until the call returns. </span></p>
+
+<p><span style='font-family:Arial'>It is important to realize that, although
+this client sends SOAP 1.2 messages to communicate with the service, you
+interact with this service in your client as though it were a local call and used
+no custom parameter types. To specify a user name and password at run time,
+populate the <b>TokenCacheProperty</b> per message and add it to the header
+collection.&nbsp; </span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;// Load the default service environment, called &quot;main&quot;.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>ServiceEnvironment se = ServiceEnvironment.Load();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Retrieve the ServiceManager from the default environment.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>ServiceManager manager = se[typeof(ServiceManager)] as ServiceManager;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>if (manager == null)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>throw new ApplicationException(&quot;The ServiceManager is not available in the service se.&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Start the service environment.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>se.Open();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>// Create a proxy channel that points to the service to call.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>Uri uri = new Uri(&quot;soap.tcp://localhost:46000/HelloService/&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>IHelloChannel channel = (IHelloChannel)manager.CreateChannel(typeof(IHelloChannel), uri);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>try </span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; HelloSalutation request;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; HelloResponse reply;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; TokenCacheProperty tokens;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; // Send anonymous request.</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; Console.WriteLine(&quot;Sending request as GallAnonim...&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; request = new HelloSalutation(&quot;GallAnonim&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; reply = channel.Greeting(request);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; Console.WriteLine(&quot;Server's response: {0}&quot;, reply.Response);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // send request as JohnDoe, the SilverMember</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Console.WriteLine(&quot;Sending request as JohnSmith..&quot;);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request = new HelloSalutation(&quot;JohnSmith&quot;);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tokens = new TokenCacheProperty(new SimpleTokenCache());</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tokens.TokenCache.AddToken(new UserNamePasswordPair(&quot;JohnSmith&quot;, &quot;htimSnhoJ&quot;));</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.Headers.Add(tokens);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reply = channel.Greeting(request);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Server's response: {0}&quot;, reply.Response);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // send request as JamesBond, the GoldMember</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Sending request as BlueKelly...&quot;);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request = new HelloSalutation(&quot;BlueKelly&quot;);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tokens = new TokenCacheProperty(new SimpleTokenCache());</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tokens.TokenCache.AddToken(new UserNamePasswordPair(&quot;BlueKelly&quot;, &quot;ylleKeulB&quot;));</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.Headers.Add(tokens);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reply = channel.Greeting(request);</span></pre><pre
+style='margin-right:.5in'><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=FR style='color:#202080'>Console.WriteLine(&quot;Server's response: {0}&quot;, reply.Response);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span lang=FR style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span lang=FR style='color:#202080'>catch(Exception Ex)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span lang=FR style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span lang=FR style='color:#202080'>&nbsp; Console.WriteLine(Ex);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>finally</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; se.Close();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre>
+
+<p><b><span style='font-family:Arial'>Securing the Service in Three Steps</span></b></p>
+
+<p><strong><span style='font-family:Arial;color:black'>1. Service</span></strong></p>
+
+<p><span style='font-family:Arial'>The service itself is marked with the <strong><span
+style='font-family:Arial'>DatagramPortTypeAttribute</span></strong> and the
+methods are marked with the <strong><span style='font-family:Arial'>ServiceMethodAttribute</span></strong>.
+In addition, a new <b>[ServiceSecurity()]</b> attribute is added to indicate
+that the method should be secured. This establishes a security scope such that
+all messages matching the scope will require the constraints established in the
+configuration file (step 2). The required roles for accessing the Greeting
+method are also specified&nbsp; as part of the <b>Role</b> parameter of the <b>ServiceSecurityAttribute</b>.
+In this case, GoldMember, SilverMember and BronzeMember are allowed access to
+this service method. The collection of roles in the <b>Role</b> parameter are
+the list of acceptable roles. &nbsp;</span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; using System; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;using System.MessageBus; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;using System.MessageBus.Services; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ServiceMethodAttribute]</span></pre><pre><b><span
+style='font-size:12.0pt;color:#202080'>&nbsp;&nbsp; </span></b><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span style='font-size:
+12.0pt;color:blue'>[ServiceSecurityAttribute(Confidentiality=false, Role=&quot;GoldMember, SilverMember, BronzeMember&quot;)]</span></b></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public HelloResponse Greeting(HelloSalutation senderGreeting)</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Called by a client with the name {0}&quot;, senderGreeting.Name);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The results of the authorization process are contained in the message's AuthorizationResultsProperty.</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageHeader[] headers = senderGreeting.Headers.FindMultiple(typeof(AuthorizationResultsProperty));</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string membershipLevel = null;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Find a RoleClaim for each AuthorizationResultsProperty. </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (AuthorizationResultsProperty authorizationResults in headers) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (RoleClaim role in authorizationResults.AuthorizedClaims) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Ascertain the membership level for each role.</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (&quot;GoldMember&quot;.Equals(role.Role.Name)) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; membershipLevel = &quot;GoldMember&quot;; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (&quot;SilverMember&quot;.Equals(role.Role.Name)) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; membershipLevel = &quot;SilverMember&quot;;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (&quot;BronzeMember&quot;.Equals(role.Role.Name)) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; membershipLevel = &quot;BronzeMember&quot;;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (membershipLevel != null) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (membershipLevel == null) </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ApplicationException(&quot;Unexpected application state&quot;);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot; The client has membership level of '{0}'.&quot;, membershipLevel);</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Formulate the response message containing the membership level. </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HelloResponse response = new HelloResponse(senderGreeting.Name);</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.Response = String.Format(&quot;Hello, {0}! Your membership level is '{1}'.&quot;, senderGreeting.Name, membershipLevel);</span></pre><pre><span
+style='color:#202080'>&nbsp;</span></pre><pre><span style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return response;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>2. Host</span></b><span style='font-family:
+Arial'><br>
+The host application configures "Indigo" to listen for incoming messages for
+the services listed in the <b>&lt;activatableServices&gt;</b> element. In
+addition, the host application specifies whether to use the userNamePassword
+profile or the anonymous profile for binding to the scope on the&nbsp; Greeting
+method.&nbsp; This configuration also demonstrates the construction of a custom
+profile. </span></p>
+
+<pre><span style='color:#202080'>&nbsp;</span></pre><pre><span
+style='color:#202080'>&lt;configuration&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceEnvironment name=&quot;main&quot;&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;identityRole&gt;soap.tcp://localhost:46000/HelloService/&lt;/identityRole&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/port&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;securityManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;receiverProfiles&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;upOrAnonymous&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Specifies that the authentication mode is either userName or anonymous. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;authentication mode=&quot;userName or anonymous&quot;&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;userName fileName=&quot;#.security&quot; sectionName=&quot;credentials&quot; idName=&quot;mainUsers&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;anonymous /&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/authentication&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;authorization mode=&quot;memoryMapping&quot;&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;memoryMapping fileName=&quot;#.security&quot; sectionName=&quot;authorizationData&quot; idName=&quot;mainAuthorizationData&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/authorization&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/upOrAnonymous&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/receiverProfiles&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;applicationSecurity&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;binding scope=&quot;Microsoft.MessageBus.QuickStarts.Hello.Greeting&quot; profile=&quot;upOrAnonymous&quot;/&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/applicationSecurity&gt; </span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/securityManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- WARNING: Policy is not secured to clarify demonstration. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Permits unsigned policy statements. Default requires signed policy statements. --&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;areUntrustedPolicyAttachmentsAccepted&gt;true&lt;/areUntrustedPolicyAttachmentsAccepted&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;isPolicyReturned&gt;true&lt;/isPolicyReturned&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/policyManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&lt;activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add type=&quot;Hello, HelloService&quot; /&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/activatableServices&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceManager&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironment&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp;&nbsp;&nbsp; &lt;/serviceEnvironments&gt;</span></pre><pre><span
+style='color:#202080'>&nbsp; &lt;/system.messagebus&gt;</span></pre><pre><span
+style='color:#202080'>&lt;/configuration&gt;</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp;</span></p>
+
+<p><b><span style='font-family:Arial'>3. Data file</span></b><span
+style='font-family:Arial'><br>
+Finally, you must store the authorization, user name, and password data. For
+this sample, the security data file (Host.exe.security) contains this
+information and is located in the same directory as the Host.exe file. The
+contents of this file are as follows.</span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New";color:#202080'>&lt;securityData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;credentials&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;userName
+id=&quot;mainUsers&quot; nonceLength=&quot;24&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;memoryPasswordResolver&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;add
+user=&quot;JohnSmith&quot; password=&quot;htimSnhoJ&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;add user=&quot;BlueKelly&quot; password=&quot;ylleKeulB&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/memoryPasswordResolver&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/userName&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/credentials&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;authorizationData&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;memoryMapping
+id=&quot;mainAuthorizationData&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;globalEntries&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;userNameRoleAssignment user=&quot;BlueKelly&quot;
+roles=&quot;GoldMember&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;userNameRoleAssignment user=&quot;JohnSmith&quot;
+roles=&quot;SilverMember&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;roleMapping xmlns:mbse=&quot;<a
+href="http://schemas.microsoft.com/mb/2003/01/security">http://schemas.microsoft.com/mb/2003/01/security</a>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+prerequisiteRoles=&quot;mbse:AnonymousUser&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+derivedRoles=&quot;BronzeMember&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/globalEntries&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/memoryMapping&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/authorizationData&gt;<br>
+&lt;/securityData&gt;</span></p>
+
+<p><span style='color:#202080'>&nbsp;</span></p>
+
+<h3><span style='font-size:12.0pt;font-family:Arial;font-weight:normal'>Typically
+the user name information would be encrypted. However, the current version of
+"Indigo" provides a simple memoryPasswordResolver for specifying user name
+data. Password resolvers provide an extensibility point for applications that
+have data in other stores. Additionally, different users are mapped to
+different roles. Anonymous users are mapped to the BronzeMember role, and other
+users are mapped to the GoldMember or SilverMember roles. </span></h3>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><a
+name="#Building"></a><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Open the <b>Longhorn Build Environment</b> console
+window (click <b>Start</b>, click <b>All Programs</b>, click&nbsp;<b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Navigate to the directory where this
+readme is located.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and press
+ENTER.</span></p>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><a name="#Running"></a><b><span style='font-family:Arial'>Running on a
+single machine:</span></b><span style='font-family:Arial'><br>
+To run the sample on a single machine, open a command prompt window in the Server
+directory and another one in the Client directory. At the server command
+prompt, type <strong><span style='font-family:Arial'>host</span></strong><strong><span
+style='font-family:Arial;font-weight:normal'> to start the server application</span></strong>.
+Then, at the client directory command prompt, type <b>client</b> to start the
+client application.</span></p>
+
+<p><b><span style='font-family:Arial'>Running on multiple machines:</span></b><span
+style='font-family:Arial'><br>
+To run the sample on multiple machines, perform the following steps:</span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>On the server machine,
+     edit the Host.exe.config file in the Server directory. Replace
+     &quot;localhost&quot; with the server machine name. Then run the server
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit the Client.cs file in the Client directory. In the URI that
+     represents the server location, replace &quot;localhost&quot; with the
+     server machine name. Recompile the client and rerun the client
+     application. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>On the client machine,
+     edit Client.exe.config.&nbsp; Replace &quot;localhost&quot; in the <b>&lt;identityRole&gt;
+     </b>element with the client machine name.</span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Note:</span></b></p>
+
+<p><span style='font-family:Arial'>If your computer is attached to a workgroup
+but is not attached to a Microsoft Windows domain, this sample will fail unless
+you modify your Machine.config file.&nbsp; For instructions, see</span> <span
+style='font-family:Arial'>&quot;Enabling 'Indigo' Security&nbsp;within a
+Workgroup&quot; in the Longhorn SDK readme</span>.</p>
+
+<p>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

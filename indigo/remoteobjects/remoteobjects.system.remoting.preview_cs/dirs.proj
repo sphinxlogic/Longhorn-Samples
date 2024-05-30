@@ -1,0 +1,17 @@
+<Project DefaultTargets="t1;t2;t3;t4">
+   <Target Name="T1">
+      <Task Name="MSBuild" Projects="System.Remoting\sources.proj" />
+   </Target>
+
+   <Target Name="T2">
+      <Task Name="MSBuild" Projects="RemLibrary\sources.proj" />
+   </Target>
+
+   <Target Name="T3">
+      <Task Name="MSBuild" Projects="RemServer\sources.proj" />
+   </Target>
+
+   <Target Name="T4">
+      <Task Name="MSBuild" Projects="RemClient\sources.proj" />
+   </Target>
+</Project>

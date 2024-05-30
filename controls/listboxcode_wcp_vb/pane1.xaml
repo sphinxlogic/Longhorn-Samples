@@ -1,0 +1,14 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ListBoxCode_wcp_vb.Pane1"
+    def:CodeBehind="Pane1.xaml.vb"
+    ID="root" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <Button Click="OnClick" DockPanel.Dock="Top">Add ListBox</Button>
+
+
+</DockPanel>

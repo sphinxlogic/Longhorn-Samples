@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="filterenginesample">
+   <Target Name="filterenginesample">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="filterenginesample.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="filterenginesample.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

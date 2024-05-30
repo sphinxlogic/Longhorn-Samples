@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animateproperty_markup", "animateproperty_markup.csproj", "{CAD5EA2E-62BD-43B2-B699-CF6312F38D2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAD5EA2E-62BD-43B2-B699-CF6312F38D2B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{CAD5EA2E-62BD-43B2-B699-CF6312F38D2B}.Debug|.NET.Build.0 = Debug|.NET
+		{CAD5EA2E-62BD-43B2-B699-CF6312F38D2B}.Release|.NET.ActiveCfg = Release|.NET
+		{CAD5EA2E-62BD-43B2-B699-CF6312F38D2B}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

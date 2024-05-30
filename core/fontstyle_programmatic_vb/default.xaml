@@ -1,0 +1,25 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+
+    Public Sub OnClick(sender As object, args As System.Windows.Controls.ClickEventArgs)
+      'Get the current value of the property
+      Dim fontStyle As System.Windows.FontStyle
+      fontStyle = btn1.FontStyle
+      'If the current value of the property is Normal then change it to a new value.
+      'Otherwise change it back to Normal.
+      If fontStyle = System.Windows.FontStyle.Normal Then
+        btn1.FontStyle = System.Windows.FontStyle.Italic
+      Else
+        btn1.FontFamily = System.Windows.FontStyle.Normal
+      End If
+   End Sub
+ ]]>
+  
+  </def:Code>
+<Button Click="OnClick" FontFamily="Arial" FontSize="16" ID="btn1">
+Click To See Change!!</Button>
+</FlowPanel>

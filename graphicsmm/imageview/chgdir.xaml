@@ -1,0 +1,44 @@
+﻿<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ImageView.ChgDir"
+    def:CodeBehind="ChgDir.xaml.cs"
+    Loaded="OnLoaded" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+
+    <!-- 
+    <Border ID="root" 
+		xmlns="http://schemas.microsoft.com/2003/xaml"
+		BorderThickness="2"
+		BorderBrush="black">
+		<DockPanel  DockPanel.Dock="Left">
+			<Frame SourceUri="Pane2.xaml" />
+		</DockPanel>
+	</Border>   
+    -->
+    <DockPanel Style="{ReverseHorGrad}"  DockPanel.Dock="Fill">
+        <DockPanel DockPanel.Dock="Left" Width="50"/>
+		<DockPanel DockPanel.Dock="Top" Height="100">
+			<Text Style="{DirForm}" DockPanel.Dock="Bottom">Select Your Image Folder</Text>	
+		</DockPanel>
+		<DockPanel DockPanel.Dock="Top">
+			<Text TextContent="Current Directory:" Width="110" DockPanel.Dock="Left"/>
+			<TextBox ID="txtCurrent" Style="{MyTextBox}" FontSize= "12"/>
+		</DockPanel>
+		<DockPanel DockPanel.Dock="Top">
+			<Text TextContent="New Directory:" DockPanel.Dock="Left"   Width="110" />
+			<TextBox ID="txtNew" Style="{MyTextBox}" Text="C:\" FontSize= "12" />
+		</DockPanel>
+		<DockPanel DockPanel.Dock="Top" Height="25"/>
+		<DockPanel DockPanel.Dock="Top" Width="400">
+			<Button ID="btnCancel" Style="{MyButton}" Content="Cancel" Click="CancelDir"></Button>
+			<Button ID="btnSave" Style="{MyButton}" Content="Save" Click="SetDir"></Button>
+		</DockPanel>
+		
+		<DockPanel DockPanel.Dock="Top" ID="FileDialog" />
+				    
+    </DockPanel>
+
+</DockPanel>

@@ -1,0 +1,63 @@
+<%@ Language=c# class=Microsoft.MessageBus.Samples.Hosting.Server %>
+
+//
+//  hello.msgx
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+
+namespace Microsoft.MessageBus.Samples.Hosting
+{
+	using System;
+	using System.MessageBus;
+
+	public class Server : SyncMessageHandler, IHostedMessageHandler
+	{
+		Port port;
+		MessageHandlerSite site;
+	
+        /// <summary>
+        /// IHostedMessageHandler.Site property
+        /// </summary>
+        /// <remarks>The setter is called from "Indigo" and
+        /// allows to the service to initialize itself from configuration.</remarks>
+        public MessageHandlerSite Site 
+        { 
+            get { return this.site; } 
+            set 
+            { 
+                this.site = value; 
+                this.port = (Port)(site.ServiceEnvironment[typeof(Port)]);
+            } 
+        }
+        
+        /// <summary>
+        /// Perform our "hello" functionality
+        /// </summary>
+        /// <param name="message">The message to process</param>
+        /// <returns>Returns a bool that indicates whether the message was processed 
+        /// fully or not</returns>
+		public override bool ProcessMessage(Message message) 
+		{
+			// Note that if an exception is thrown during the processing
+			// "Indigo" is going to turn it into a SOAP fault and return it
+			// to the caller so there is no need to try-catch anything.
+            
+            // We know that the client sends us a string if it is not a string then
+            // the cast will fail with an exception and the client process will get
+            // notified by a soap fault. Close the message content after you are done
+            string messageString = (string)message.Content.GetObject(typeof(string));
+            message.Content.Close();
+            
+            // Create the reply string and store it in the same object
+            messageString = "Server says: hello " + messageString;
+
+            // Create and send the reply to the client
+            Message reply = message.CreateReply(new Uri("http://www.tempuri.org/quickstarts/hosting/server"), messageString);
+            port.SendChannel.Send(reply);
+
+            // Indicate that the message is processed
+            return true;
+		}
+    }
+}

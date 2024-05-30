@@ -1,0 +1,32 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="WCSample" />
+    <Property TargetName="LaunchDialog" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{F83D8A2D-59CF-4581-A926-A309ACE8E250}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <Item Type="Pages" Include="*.xaml" />
+    <Item Type="Compile" Include="Default.xaml.cs" SubType="Code" />
+    <Item Type="Compile" Include="Dialog.xaml.cs" SubType="Code" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\app.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Default.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\Dialog.g.cs" />
+    <Item Type="GeneratedCodePersisted" Include="obj\Debug\LaunchDialog.Main.g.cs" />
+  </ItemGroup>
+</Project>

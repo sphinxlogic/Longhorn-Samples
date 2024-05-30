@@ -1,0 +1,85 @@
+<!-- This example demonstrates the use of an ImageBrush to fill text. -->
+<GridPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="UsingImageBrush.TextFillsExample"
+    def:CodeBehind="TextFillsExample.xaml.cs" 
+    Columns="3"
+    CellSpacing="5"
+    >
+    
+    <DockPanel GridPanel.ColumnSpan="3"
+		Background="HorizontalGradient LimeGreen Yellow" MinHeight="50"
+		Margin="0,0,0,20">
+		
+		<TextPanel DockPanel.Dock="Fill" MaxWidth="500">
+				An ImageBrush may be used to fill text. The following examples show
+				an image used to fill text with and without tiling.
+		</TextPanel>
+	</DockPanel>
+    
+    <Text>The Image</Text>
+     <Text>Applied to Text Without Tiling</Text>
+     <Text>Applied to Text With Tiling</Text>
+    
+    
+    <Image Source="data\purpleblock.jpg" />
+    <Text FontSize="70pt" FontWeight="Bold"  FontFamily="Verdana">
+		<Text.Foreground>
+			<ImageBrush 	
+				ImageSource="data\purpleblock.jpg"></ImageBrush>
+		</Text.Foreground>
+		Text
+    </Text>
+    <Text FontSize="70pt" FontWeight="Bold"  FontFamily="Verdana">
+		<Text.Foreground>
+			<ImageBrush
+				Stretch="None" 
+				TileMode="Tile"	
+				ImageSource="data\purpleblock.jpg"></ImageBrush>
+		</Text.Foreground>
+		Text
+    </Text>
+    
+    <Image Source="data\square.jpg" />
+    <Text FontSize="70pt" FontWeight="Bold"  FontFamily="Verdana">
+		<Text.Foreground>
+			<ImageBrush 	
+				ImageSource="data\square.jpg"></ImageBrush>
+		</Text.Foreground>
+		Text
+    </Text>
+    <Text FontSize="70pt" FontWeight="Bold"  FontFamily="Verdana">
+		<Text.Foreground>
+			<ImageBrush
+				Stretch="None" 
+				TileMode="Tile"
+				ImageSource="data\square.jpg"></ImageBrush>
+		</Text.Foreground>
+		Text
+    </Text>
+    
+    <Image Source="data\pinkcherries.jpg" />
+    <Text FontSize="70pt" FontWeight="Bold"  FontFamily="Verdana">
+		<Text.Foreground>
+			<ImageBrush 	
+				ImageSource="data\pinkcherries.jpg"></ImageBrush>
+		</Text.Foreground>
+		Text
+    </Text>
+    <Text FontSize="70pt" FontWeight="Bold"  FontFamily="Verdana">
+		<Text.Foreground>
+			<ImageBrush
+				ViewPort="0,0,25,25"
+				ViewPortUnits="Absolute"
+				TileMode="Tile"
+				ImageSource="data\pinkcherries.jpg"></ImageBrush>
+		</Text.Foreground>
+		Text
+    </Text>
+    
+   
+
+
+
+</GridPanel>

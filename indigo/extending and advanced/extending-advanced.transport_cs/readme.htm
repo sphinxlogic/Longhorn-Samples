@@ -1,0 +1,163 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The Custom Transport Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The CustomTransport Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><a name="#Overview"><span style='font-family:Arial'>Overview</span></a></h3>
+
+<p><span style='font-family:Arial'>The "Longhorn" communications subsystem is code-named "Indigo". The CustomTransport sample demonstrates how
+to create a custom <b>Transport</b> and hook it up to an "Indigo" <b>Port</b>.</span></p>
+
+<h3><a name="#KeyConcepts"><span style='font-family:Arial'>Key Concepts</span></a></h3>
+
+<p><span style='font-family:Arial'>To create a custom transport, you must
+inherit from the abstract <b>Transport </b>class. This sample sets TCP options
+and inherits from<b> TcpTransport</b>.&nbsp; The derived class overrides
+certain methods to obtain finer grain control over the underlying sockets. To
+add this transport to a <b>Port</b>, first remove the existing <b>TcpTransport</b>
+so there is no conflict:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp; Transport transport =
+port.Transports[customTransport.Scheme];</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:blue'>if</span>
+(transport != <span style='color:blue'>null</span>)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+port.Transports.Remove(transport);</span></p>
+
+<p><span style='font-family:Arial'>Then add the custom <b>TcpTransport</b>
+implementation: </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+port.Transports.Add(customTransport);</span></p>
+
+<p><span style='font-family:Arial'>Now the port is set up with the custom <b>Transport</b>
+and ready to send/receive messages.&nbsp; Simply open the port and start
+sending/receiving messages. </span></p>
+
+<h3><a name="#Building"><span style='font-family:Arial'>Building</span></a></h3>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>1.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Open the <b>Longhorn Build Environment</b>
+console window (click <b>Start</b>, click <b>All Programs</b>, click&nbsp;<b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Navigate to the directory where this
+readme is located.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and press
+ENTER.</span></p>
+
+<h3><a name="#Running"><span style='font-family:Arial'>Running</span></a></h3>
+
+<p><span style='font-family:Arial'>To see the output, run the executable
+(CustomTransportSample.exe) created in the source directory from the command
+prompt.</span></p>
+
+</div>
+
+</body>
+
+</html>

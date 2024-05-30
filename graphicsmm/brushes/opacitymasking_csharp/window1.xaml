@@ -1,0 +1,232 @@
+<!--	This XAML page is used to layout the elements 
+		to which the opacity masks are applied. The
+		opacity masks are actually defined and created
+		in code in the Window1.xaml.cs file.
+-->
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="OpacityMasking_csharp.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="OpacityMasking_csharp" Visible="True"
+    Loaded="WindowLoaded"
+    >
+   <Window.Resources>
+		<Style>
+			<Text FontSize="14pt" FontFamily="Verdana" Foreground="Black"></Text>
+		</Style>
+    </Window.Resources>
+    
+	<ScrollViewer>
+		<GridPanel DockPanel.Dock="Fill" Columns="3" CellSpacing="10">
+			<FlowPanel GridPanel.ColumnSpan="3"
+				Background="Black">
+				<Text  FontSize="16pt" Foreground="White">Opacity Masking</Text>
+			</FlowPanel>
+		
+		<Text>Without Opacity Mask</Text>
+		<Text>The Opacity Mask</Text>
+		<Text>With Opacity Mask</Text>
+		
+		<!-- Use an opacity mask on a panel containing multiple elements. -->
+		<!-- Before applying the opacity mask. -->
+		<TransformDecorator Transform="scale 0.5,0.5">
+			<Border BorderBrush="Black" 
+				BorderThickness="6" 
+				Width="312" Height="412">
+				<Canvas
+					Width="300" Height="400"
+					Background="HorizontalGradient LightGray DarkGray">
+					<Ellipse 
+						Height="35%" 
+						Width="40%"
+						Canvas.Left="50%"
+						Canvas.Top="50%"
+						Fill="MediumBlue"
+						Stroke="Purple"
+						StrokeThickness="10"/>
+					<Image
+						Width="40%" Height="40%" 
+						Canvas.Left="50%"
+						Canvas.Top="5%"
+						Source="data\Waterlilies.jpg">
+					</Image>		
+				
+					<TextPanel FontSize="12pt"  Canvas.Top="5%" Width="40%" Canvas.Left="5%">
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+						sed diam nonummy nibh euismod tincidunt 
+						ut laoreet dolore magna aliquam erat volutpat. 
+						Ut wisi enim ad minim veniam, quis nostrud exerci 
+						tation ullamcorper suscipit lobortis nisl ut aliquip ex
+					</TextPanel>
+				</Canvas>
+			</Border>
+		</TransformDecorator>
+		
+		<!-- Shows what the mask looks like. -->
+		<Canvas>
+			<!-- Produces a checkered background to show the transparent
+				 areas of the fill. -->
+			<Rectangle
+				Width="150"
+				Height="200">
+				<Rectangle.Fill>
+					<ImageBrush 
+						ImageSource="data\checkers.gif"
+						ViewPort="0,0,13,13" ViewPortUnits="Absolute" TileMode="Tile"></ImageBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+			<!-- Shows what the opacity mask looks like. -->
+			<Rectangle
+				Width="150"
+				Height="200"
+				Fill="RadialGradient #FF000000 #00000000"
+				Stroke="Black"
+				StrokeThickness="3"/>
+		</Canvas>
+		
+		
+			<TransformDecorator Transform="scale 0.5,0.5">
+				<Border BorderBrush="Black" BorderThickness="6" Width="312" Height="412">
+			
+				<!-- With the opacity mask (applied in Window1.xaml.cs): -->
+					<Canvas 
+						ID="myPanel"
+						Width="300" Height="400"
+						Background="HorizontalGradient LightGray DarkGray">
+						<Ellipse 
+							Height="35%" 
+							Width="40%"
+							Canvas.Left="50%"
+							Canvas.Top="50%"
+							Fill="MediumBlue"
+							Stroke="Purple"
+							StrokeThickness="10"/>
+						<Image
+							Width="40%" Height="40%" 
+							Canvas.Left="50%"
+							Canvas.Top="5%"
+							Source="data\Waterlilies.jpg">
+						</Image>
+
+						<TextPanel 
+							FontSize="12pt"  
+							Canvas.Top="5%" Width="40%" Canvas.Left="5%">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+							sed diam nonummy nibh euismod tincidunt 
+							ut laoreet dolore magna aliquam erat volutpat. 
+							Ut wisi enim ad minim veniam, quis nostrud exerci 
+							tation ullamcorper suscipit lobortis nisl ut aliquip ex
+						</TextPanel>
+					</Canvas>
+				</Border>
+			</TransformDecorator>
+		
+			<!-- Use an opacity mask to simulate complex gradients: -->
+			<!-- Before applying the opacity mask. -->
+			<Canvas>
+				<Rectangle
+					Width="100"
+					Height="30"
+					Fill="RadialGradient MediumBlue Purple" 
+					RadiusX="10"
+					RadiusY="10"/>
+			
+				<Rectangle
+					Canvas.Top="0"
+					Canvas.Left="0"
+					Width="100"
+					Height="30"
+					Fill="VerticalGradient DarkGray WhiteSmoke"
+					RadiusX="10"
+					RadiusY="10"/>	
+			</Canvas>
+		
+		<!-- Shows what the mask looks like. -->
+			<Canvas>
+				<!-- Produces a checkered background to show the transparent
+				 areas of the fill. -->
+				<Rectangle
+					Width="100"
+					Height="30"
+					RadiusX="10"
+					RadiusY="10">
+					<Rectangle.Fill>
+						<ImageBrush 
+							ImageSource="data\checkers.gif"
+							ViewPort="0,0,13,13" 
+							ViewPortUnits="Absolute" 
+							TileMode="Tile"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<!-- Use the same brush as the opacity mask to fill the rectangle. -->
+				<Rectangle
+					Width="100"
+					Height="30"
+					Fill="HorizontalGradient Black Transparent"
+					RadiusX="10"
+					RadiusY="10"/>
+			</Canvas>
+		
+			<!-- With the opacity mask (applied in Window1.xaml.cs): -->
+			<Canvas>
+				<Rectangle
+					Width="100"
+					Height="30"
+					Fill="RadialGradient MediumBlue BlueViolet" 
+					RadiusX="10"
+					RadiusY="10"/>
+			
+				<Rectangle
+					ID="myRectangle"
+					Width="100"
+					Height="30"
+					Fill="VerticalGradient DarkGray WhiteSmoke"
+					OpacityMask="HorizontalGradient Black Transparent"
+					RadiusX="10"
+					RadiusY="10"/>
+					
+			</Canvas>
+		
+			<!-- Use an opacity mask on an image. -->
+			<!-- Before applying the opacity mask. -->
+			<Image
+				Width="200" Height="150" 
+				Source="data\Waterlilies.jpg">
+			</Image>
+		
+			<!-- Shows what the opacity mask looks like. -->
+			<Canvas>
+				<!-- Produces a checkered background to show the transparent
+				 areas of the fill. -->
+				<Rectangle
+					Width="200"
+					Height="150">
+					<Rectangle.Fill>
+						<ImageBrush 
+							ImageSource="data\checkers.gif"
+							ViewPort="0,0,13,13" 
+							ViewPortUnits="Absolute" 
+							TileMode="Tile"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<!-- Uses the same brush as the opacity mask to fill the rectangle. -->
+				<Rectangle
+					Width="200" Height="150"
+					Fill="LinearGradient 0.1,0.1 0.75,0.75 Black Transparent"
+					Stroke="Black"
+					StrokeThickness="1">
+				</Rectangle>
+			</Canvas>
+		
+			<!-- With the opacity mask (applied in Window1.xaml.cs): -->
+			<Image	
+				ID="myImage"
+				Width="200" Height="150"	
+				OpacityMask="LinearGradient 0.1,0.1 0.75,0.75 Black Transparent" 
+				Source="data\Waterlilies.jpg">
+			</Image>
+		
+		</GridPanel>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,3 @@
+Title=A simple localizable Avalon application using ResourceLoader
+Message=Button was clicked!
+

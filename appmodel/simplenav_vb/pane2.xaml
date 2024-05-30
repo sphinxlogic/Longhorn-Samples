@@ -1,0 +1,18 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="SimpleNav_VB.Pane2"
+    def:CodeBehind="Pane2.xaml.vb" 
+    Background="LightBlue"
+    >
+    <Text DockPanel.Dock="Top"
+            Margin="10,10,10,10">Page 1</Text>
+    
+    <Button Click="btnGoTo1"
+            Height="30"
+            Width="150"
+            DockPanel.Dock="Top"
+            Content="Go To Start Page"
+            Margin="10,10,10,10"/>
+</DockPanel>

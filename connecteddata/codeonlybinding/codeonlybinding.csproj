@@ -1,0 +1,26 @@
+<!-- rid="wcpsamp_connected_codeonlybinding" -->
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Language="C#" />
+		
+    <Property DefaultClrNameSpace="WCSample" />
+
+    <Property TargetName="CodeOnlyBinding" />
+
+    <Property BuildSystem="MSBuild" />
+		
+    <Property HostInBrowser="False" />
+		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+		
+  <ItemGroup>
+    <Item Type="Compile" Include="binding.cs"/>
+  </ItemGroup>
+
+</Project>

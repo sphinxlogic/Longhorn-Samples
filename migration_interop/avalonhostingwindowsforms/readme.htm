@@ -1,0 +1,1318 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="ReadMe_files/filelist.xml">
+<title>Hosting a Windows Forms Control in an &quot;Avalon&quot; Application</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"Lucida Console";
+	panose-1:2 11 6 9 4 5 4 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-2147482993 6144 0 0 31 0;}
+@font-face
+	{font-family:Sabon;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+h3
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+p.para, li.para, div.para
+	{mso-style-name:para;
+	margin-top:5.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.head3, li.head3, div.head3
+	{mso-style-name:head3;
+	margin-top:9.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:14.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.head2, li.head2, div.head2
+	{mso-style-name:head2;
+	margin-top:9.0pt;
+	margin-right:0in;
+	margin-bottom:1.0pt;
+	margin-left:.5in;
+	line-height:16.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.noteend, li.noteend, div.noteend
+	{mso-style-name:noteend;
+	margin-top:0in;
+	margin-right:10.0pt;
+	margin-bottom:4.0pt;
+	margin-left:.5in;
+	line-height:6.0pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:white;}
+p.notepara, li.notepara, div.notepara
+	{mso-style-name:notepara;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.notestart, li.notestart, div.notestart
+	{mso-style-name:notestart;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:.5in;
+	line-height:6.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.head1, li.head1, div.head1
+	{mso-style-name:head1;
+	margin-top:17.0pt;
+	margin-right:0in;
+	margin-bottom:1.0pt;
+	margin-left:0in;
+	line-height:19.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:17.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.listbullet1, li.listbullet1, div.listbullet1
+	{mso-style-name:listbullet1;
+	margin-top:4.0pt;
+	margin-right:10.1pt;
+	margin-bottom:0in;
+	margin-left:.75in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listbullet2, li.listbullet2, div.listbullet2
+	{mso-style-name:listbullet2;
+	margin-top:4.0pt;
+	margin-right:10.1pt;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listbullet3, li.listbullet3, div.listbullet3
+	{mso-style-name:listbullet3;
+	margin-top:4.0pt;
+	margin-right:10.1pt;
+	margin-bottom:0in;
+	margin-left:1.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listend, li.listend, div.listend
+	{mso-style-name:listend;
+	margin-top:0in;
+	margin-right:10.0pt;
+	margin-bottom:0in;
+	margin-left:10.0pt;
+	margin-bottom:.0001pt;
+	text-align:right;
+	mso-line-height-alt:4.0pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listfigcap, li.listfigcap, div.listfigcap
+	{mso-style-name:listfigcap;
+	margin-top:0in;
+	margin-right:12.0pt;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:Sabon;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-style:italic;}
+p.listfignum, li.listfignum, div.listfignum
+	{mso-style-name:listfignum;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listnum1, li.listnum1, div.listnum1
+	{mso-style-name:listnum1;
+	margin-top:4.0pt;
+	margin-right:9.95pt;
+	margin-bottom:0in;
+	margin-left:.75in;
+	margin-bottom:.0001pt;
+	text-indent:-16.45pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listnum2, li.listnum2, div.listnum2
+	{mso-style-name:listnum2;
+	margin-top:4.0pt;
+	margin-right:9.95pt;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-16.8pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listnum3, li.listnum3, div.listnum3
+	{mso-style-name:listnum3;
+	margin-top:4.0pt;
+	margin-right:9.95pt;
+	margin-bottom:0in;
+	margin-left:1.25in;
+	margin-bottom:.0001pt;
+	text-indent:-16.45pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listpara1, li.listpara1, div.listpara1
+	{mso-style-name:listpara1;
+	margin-top:2.0pt;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:.75in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listpara2, li.listpara2, div.listpara2
+	{mso-style-name:listpara2;
+	margin-top:2.0pt;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:1.0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.listpara3, li.listpara3, div.listpara3
+	{mso-style-name:listpara3;
+	margin-top:2.0pt;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:1.25in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.noteend1, li.noteend1, div.noteend1
+	{mso-style-name:noteend1;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:54.7pt;
+	line-height:6.0pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:white;}
+p.noteend2, li.noteend2, div.noteend2
+	{mso-style-name:noteend2;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:1.0in;
+	line-height:6.0pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:white;}
+p.notepara1, li.notepara1, div.notepara1
+	{mso-style-name:notepara1;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:54.7pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.notepara2, li.notepara2, div.notepara2
+	{mso-style-name:notepara2;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:1.0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.notestart1, li.notestart1, div.notestart1
+	{mso-style-name:notestart1;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:54.7pt;
+	line-height:6.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.notestart2, li.notestart2, div.notestart2
+	{mso-style-name:notestart2;
+	margin-top:0in;
+	margin-right:10.1pt;
+	margin-bottom:4.0pt;
+	margin-left:1.0in;
+	line-height:6.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+span.msoins0
+	{mso-style-name:msoins;
+	text-decoration:underline;
+	text-underline:single;}
+span.msodel0
+	{mso-style-name:msodel;
+	color:red;
+	text-decoration:line-through;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:26491369;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-105725072 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:73.2pt;
+	mso-level-number-position:left;
+	margin-left:73.2pt;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:138811497;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1906342332 67698711 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level1
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:424346073;
+	mso-list-type:hybrid;
+	mso-list-template-ids:656826380 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:463473289;
+	mso-list-template-ids:1572243368;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l4
+	{mso-list-id:504395318;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-748259012 -1845992942 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:55.55pt;
+	mso-level-number-position:left;
+	margin-left:55.55pt;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:542258114;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-782709022 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:736320065;
+	mso-list-type:hybrid;
+	mso-list-template-ids:973891314 843986554 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6:level1
+	{mso-level-start-at:6;
+	mso-level-tab-stop:55.55pt;
+	mso-level-number-position:left;
+	margin-left:55.55pt;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1301300792;
+	mso-list-type:hybrid;
+	mso-list-template-ids:302911446 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l7:level1
+	{mso-level-tab-stop:91.2pt;
+	mso-level-number-position:left;
+	margin-left:91.2pt;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:1403530358;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-804613240 67698713 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l8:level1
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:1624578255;
+	mso-list-template-ids:-804613240;}
+@list l9:level1
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l9:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l9:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:right;
+	margin-left:1.75in;
+	text-indent:-9.0pt;}
+@list l9:level4
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l9:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l9:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:3.25in;
+	mso-level-number-position:right;
+	margin-left:3.25in;
+	text-indent:-9.0pt;}
+@list l9:level7
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l9:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l9:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:4.75in;
+	mso-level-number-position:right;
+	margin-left:4.75in;
+	text-indent:-9.0pt;}
+@list l10
+	{mso-list-id:1680740583;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1993152142 -289891094 67698703 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l10:level1
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:73.2pt;
+	mso-level-number-position:left;
+	margin-left:73.2pt;
+	text-indent:-.25in;}
+@list l10:level2
+	{mso-level-tab-stop:109.2pt;
+	mso-level-number-position:left;
+	margin-left:109.2pt;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:2057316005;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1654950342 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l11:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=head1><a name="_Toc43025867"></a><a name="_Toc43113752"></a><a
+name="_Toc43113615"></a><span style='mso-bookmark:_Toc43025867'>Hosting a</span>
+Windows Forms Control in an &quot;Avalon&quot; Application</p>
+
+<p class=para style='margin-left:0in'>One important interoperability scenario
+is hosting a Windows Forms control in an application written with
+&quot;Avalon&quot;. This example creates a simple Windows Forms control that
+launches a message box when the user clicks a button. The control is hosted in
+a simple application written with &quot;Avalon&quot;. It uses a <span
+class=SpellE><b>WindowsFormsHost</b></span> element to host the Windows Forms
+control and allow the user to interact with it. This general procedure can be
+extended to other Windows Forms controls. </p>
+
+<p class=head2 style='margin-left:0in'>Implement the Windows Forms Control</p>
+
+<p class=para style='margin-left:0in'>The Windows Forms control is a small form
+that contains a button. When the user clicks the button, it launches a message
+box whose default text is &quot;Hello World!&quot; </p>
+
+<p class=para style='margin-left:0in'>To start the project:</p>
+
+<p class=listnum1>1.&nbsp; Launch Visual Studio code-named &quot;Whidbey&quot;
+and open a new project.</p>
+
+<p class=listnum1>2.&nbsp; Select <b>C# Projects</b> and the <b>Windows Control
+Library</b> template.</p>
+
+<p class=listnum1>3.&nbsp; Name the new project <span class=SpellE><b>MyControlLibrary</b></span>
+and click <b>OK</b> to create the project. The default project contains a
+single control, named <b>UserControl1</b>.</p>
+
+<p class=listnum1>4.&nbsp; Edit the properties of <b>UserControl1</b> as
+follows:</p>
+
+<p class=listnum1>5.&nbsp; <b>(Name)</b> = <span class=SpellE><b>MyControl</b></span></p>
+
+<p class=listnum1>6.&nbsp; <b>Size</b> = 200, 40</p>
+
+<p class=listnum1>7.&nbsp; Ensure that you have references to the following
+DLLs:</p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; System</p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; <span class=SpellE>System.Data</span></p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; <span class=SpellE>System.Drawing</span></p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; <span class=SpellE>System.Windows.Forms</span></p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; <span class=SpellE>System.XML</span></p>
+
+<p class=listend>&nbsp; </p>
+
+<h3>Add a Button to <span class=SpellE>MyControl</span></h3>
+
+<p class=MsoNormal>The next step is to add a <b>Button</b> to <span
+class=SpellE><b>MyControl</b></span>. When clicked, this button launches a
+message box.</p>
+
+<p class=listnum1>1.&nbsp; Open the designer for <span class=SpellE><b>MyControl</b></span>.</p>
+
+<p class=listnum1>2.&nbsp; Double-click <b>Button</b> in the <b>Windows Forms
+Toolbox</b>. By default, it will be named <b>Button1</b>.</p>
+
+<p class=listnum1>3.&nbsp; Edit the button properties as follows:</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; <b>Dock</b> = Fill</p>
+
+<p class=listbullet2>&#9679;&nbsp;&nbsp;&nbsp; <b>Text</b> = Windows Forms
+Button</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=listnum1>4.&nbsp; Double-click the button to create a template for a <b>Click</b>
+event handler. This will automatically open the controls code view.</p>
+
+<p class=MsoNormal>When the user clicks the button, it launches a message box.
+The following code sample includes the key parts of the <span class=SpellE><b>MyControl</b></span>
+class. There are three basic components:</p>
+
+<p class=listbullet3 style='margin-left:.65in'>&#9679;&nbsp;&nbsp;&nbsp; <span
+class=GramE>A</span> constructor that specifies the default message box text.</p>
+
+<p class=listbullet3 style='margin-left:.65in'>&#9679;&nbsp;&nbsp;&nbsp; The <b>Click</b>
+event handler, that launches the message box.</p>
+
+<p class=listbullet3 style='margin-left:.65in'>&#9679;&nbsp;&nbsp;&nbsp; <span
+class=GramE>An</span> event that can be fired to notify the host that the
+message box is about to be launched. If the host subscribes to this event, they
+can modify the message text in their handler before the message box is launched.</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>private</span></span><span
+style='font-family:"Lucida Console"'> string _<span class=SpellE>messageText</span>;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>public</span></span><span
+style='font-family:"Lucida Console"'> <span class=SpellE>MyControl</span>()</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>{</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; // <span class=GramE>This</span>
+call is required by the <span class=SpellE>Windows.Forms</span> Form Designer.</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; <span class=SpellE><span
+class=GramE>InitializeComponent</span></span><span class=GramE>(</span>);</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; _<span class=SpellE>messageText</span>
+= &quot;Hello World!<span class=GramE>&quot;;</span></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>}</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>…</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>public</span></span><span
+style='font-family:"Lucida Console"'> string <span class=SpellE>MessageText</span></span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>{</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; <span class=GramE>get</span>
+{ return _<span class=SpellE>messageText</span>; }</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; <span class=GramE>set</span></span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=GramE>if</span> (_<span class=SpellE>messageText</span>
+!= value)</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_<span class=SpellE>messageText</span> = value;</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>}</span></p>
+
+<p class=para style='margin-left:.2in;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>public</span></span><span
+style='font-family:"Lucida Console"'> event <span class=SpellE>EventHandler</span>
+<span class=SpellE>BeforeMessageBox</span>;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>private</span></span><span
+style='font-family:"Lucida Console"'> void button1_Click(object sender, <span
+class=SpellE>System.EventArgs</span> e)</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>{</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; <span class=GramE>if</span>
+(<span class=SpellE>BeforeMessageBox</span> != null)</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class=SpellE><span class=GramE>BeforeMessageBox</span></span><span
+class=GramE>(</span>this, e);</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&nbsp;&nbsp;&nbsp; <span class=SpellE><span
+class=GramE>MessageBox.Show</span></span><span class=GramE>(</span>_<span
+class=SpellE>messageText</span>);</span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3>Give the Assembly a Strong Name and Build the Assembly</h3>
+
+<p class=MsoNormal>For this assembly to be referenced by <span class=GramE>a</span>
+&quot;Avalon&quot; application, it must have a strong name. You create a strong
+name by creating a key file with sn.exe and adding it to your <span
+class=SpellE><b>assemblyinfo</b></span> file.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=listnum1>1.&nbsp; Open a Visual Studio Command prompt. To do so, click
+the Start menu and then select All Programs/Microsoft Visual Studio
+Whidbey/Visual Studio Tools/Visual Studio Command Prompt. This launches a
+console window with customized environment variables.</p>
+
+<p class=listnum1>2.&nbsp; Change the folder to your project folder.</p>
+
+<p class=listnum1>3.&nbsp; Generate a key file by running the following
+command.</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=para style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:.5in;background:#E0E0E0'><span style='font-family:"Lucida Console"'>Sn.exe
+–k <span class=SpellE>MyControlLibrary.snk</span></span></p>
+
+<p class=listnum1>4.&nbsp; Include the key file in your build by opening your <span
+class=SpellE><b>AssemblyInfo.cs</b></span> file and modifying the <span
+class=SpellE><b>AssemblyKeyFile</b></span> attribute as follows.</p>
+
+<p class=para style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:.5in;background:#E0E0E0'><span style='font-family:"Lucida Console"'>[<span
+class=GramE>assembly</span>: <span class=SpellE>AssemblyKeyFile</span>(&quot;..\\..\\MyControlLibrary.snk&quot;)]</span></p>
+
+<p class=listnum1>5.&nbsp; Build the assembly. The build will produce a DLL
+named <b>MyControlLibrary.dll</b>.</p>
+
+<p class=head2 style='margin-left:0in'>Implement the Host Application with
+&quot;Avalon&quot;</p>
+
+<p class=para style='margin-left:0in'>The host application is implemented with
+&quot;Avalon&quot; and uses the <span class=SpellE><b>WindowsFormsHost</b></span>
+control to host <span class=SpellE><b>MyControl</b></span>. The application
+overrides the control’s <span class=SpellE><b>BeforeMessageBox</b></span> event
+and dynamically changes the <span class=SpellE><b>MessageText</b></span>
+property from “Hello World!” to “Hello Avalon!”</p>
+
+<p class=para style='margin-left:0in'>To start the project:</p>
+
+<p class=para style='text-indent:-.25in'>1.<span style='font-size:7.0pt;
+font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
+Visual Studio code-named &quot;Whidbey&quot; and select <span class=GramE><b>New</b></span><b>
+Project</b>.</p>
+
+<p class=para style='text-indent:-.25in'>2.<span style='font-size:7.0pt;
+font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Select
+<b>New C# Project</b>, with a <b>Longhorn Navigation Application</b> template.</p>
+
+<p class=para style='text-indent:-.25in'>3.<span style='font-size:7.0pt;
+font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Name
+the project <span class=SpellE><b>AvalonHost</b></span>, and click <b>OK</b> to
+open the project.</p>
+
+<p class=para style='margin-left:0in'>Your project should have references to
+the following system DLLs.</p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>PresentationCore</span></p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>PresentationFramework</span></p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System</p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>WinCorLib</span></p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>WindowsBase</span></p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>WindowsUIAutomation</span></p>
+
+<p class=para style='text-indent:-.25in'><span style='font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>WindowsFormsIntegration</span></p>
+
+<h3>Create an &quot;XAML&quot; Page to Specify the UI</h3>
+
+<p class=para style='margin-left:0in'>The UI of host application is specified
+in <b>Pane1.xaml</b>. This file contains &quot;XAML&quot; markup that defines
+the page layout and hosts the <b>Windows Forms</b> control.</p>
+
+<p class=listnum1>1.&nbsp; Map the <span class=SpellE><b>MSAvalon.Windows.Forms.Integration</b></span>
+namespace in <span class=SpellE><b>WindowsFormsIntegration</b></span> assembly.
+In the example, they are mapped to an Extensible Markup Language (XML)
+namespace named <span class=SpellE><b>wfi</b></span>. This mapping allows you
+to use <span class=SpellE><b>WindowsFormsHost</b></span> as an &quot;XAML&quot;
+element. </p>
+
+<p class=listnum1>2.&nbsp; Map your custom control's assembly and namespace. In
+this example, both the assembly and namespace are named <span class=SpellE><b>MyControlLibrary</b></span>.
+Mapping the namespace and assembly to an XML namespace, <span class=SpellE><b>mcl</b></span>,
+allows you to treat the <b>Windows Forms</b> control as a custom
+&quot;XAML&quot; element. </p>
+
+<p class=listnum1>3.&nbsp; Add a <b><a
+href="http://lhsdkpws/previewwebservice/docs/ref/ns/msavalon.windows.forms.integration/c/windowsformshost/windowsformshost."><span
+class=SpellE><span style='color:windowtext;text-decoration:none;text-underline:
+none'>WindowsFormsHost</span></span></a></b> element to your page, with
+appropriate settings. In general, custom tags take the form <b>&lt;XML <span
+class=SpellE>namespace<span class=GramE>:Object</span></span> Name&gt;</b> In
+the example, the tag is <b>&lt;<span class=SpellE>wfi:WindowFormsHost</span>
+...&gt;</b>. </p>
+
+<p class=listnum1>4.&nbsp; Add a <b><a
+href="http://lhsdkpws/previewwebservice/docs/ref/ns/msavalon.windows.forms.integration/c/windowsformshost/p/controls."><span
+style='color:windowtext;text-decoration:none;text-underline:none'>Controls</span></a></b>
+element as a child of <b><a
+href="http://lhsdkpws/previewwebservice/docs/ref/ns/msavalon.windows.forms.integration/c/windowsformshost/windowsformshost."><span
+class=SpellE><span style='color:windowtext;text-decoration:none;text-underline:
+none'>WindowsFormsHost</span></span></a></b>. </p>
+
+<p class=listnum1>5.&nbsp; Add your custom control as a child of the <b><a
+href="http://lhsdkpws/previewwebservice/docs/ref/ns/msavalon.windows.forms.integration/c/windowsformshost/p/controls."><span
+style='color:windowtext;text-decoration:none;text-underline:none'>Controls</span></a></b>
+element. In the example, the tag is <b>&lt;<span class=SpellE>mcl<span
+class=GramE>:MyControl</span></span>...&gt;</b>, where <span class=SpellE><b>MyControl</b></span>
+is the class that implements the control.</p>
+
+<p class=listnum1>6.&nbsp; Use <span class=SpellE><b>MyControl’s</b></span>
+attributes to define its dimensions and message text, and attach a handler to
+the <span class=SpellE><b>BeforeMessageBox</b></span> event.</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=para style='margin-left:0in'>&nbsp;</p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>&lt;?Mapping</span></span><span
+style='font-family:"Lucida Console"'> <span class=SpellE>XmlNamespace</span>=&quot;<span
+class=SpellE>wfi</span>&quot; <span class=SpellE>ClrNamespace</span>=&quot;<span
+class=SpellE>System.Windows.Forms.Integration</span>&quot; Assembly=&quot;<span
+class=SpellE>WindowsFormsIntegration</span>&quot;?&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>&lt;?Mapping</span></span><span
+style='font-family:"Lucida Console"'> <span class=SpellE>XmlNamespace</span>=&quot;<span
+class=SpellE>mcl</span>&quot; <span class=SpellE>ClrNamespace</span>=&quot;<span
+class=SpellE>MyControlLibrary</span>&quot; Assembly=&quot;<span class=SpellE>MyControlLibrary</span>&quot;?&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&lt;<span class=SpellE>DockPanel</span> <span
+class=SpellE>xmlns</span>=&quot;http://schemas.microsoft.com/2003/xaml&quot; <o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span><span class=SpellE><span class=GramE>xmlns:</span>def</span>=&quot;Definition&quot;
+<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span><span class=SpellE><span class=GramE>xmlns:</span>wfi</span>=&quot;<span
+class=SpellE>wfi</span>&quot;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span><span class=SpellE><span class=GramE>xmlns:</span>mcl</span>=&quot;<span
+class=SpellE>mcl</span>&quot;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span><span class=SpellE><span class=GramE>def:</span>Class</span>=&quot;AvalonHost.Pane1&quot;
+<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span><span class=SpellE><span class=GramE>def:</span>CodeBehind</span>=&quot;Pane1.xaml.cs&quot;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span>Width=&quot;100%&quot; Height=&quot;100%&quot; Background=&quot;<span
+class=SpellE>LightBlue</span>&quot;&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>   
+</span>&lt;<span class=SpellE>wfi<span class=GramE>:WindowsFormsHost</span></span>
+ID=&quot;<span class=SpellE>wfh</span>&quot;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:4'>                      </span>Width=&quot;200&quot;
+<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:4'>                      </span>Height=&quot;40&quot;
+<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:4'>                      </span><span
+class=SpellE>DockPanel.Dock</span>=&quot;Top&quot;&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span>&lt;<span class=SpellE><span class=GramE>wfi:</span>WindowsFormsHost.Controls</span>&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>           
+</span>&lt;<span class=SpellE>mcl<span class=GramE>:MyControl</span></span>
+Name=&quot;mc&quot; Width=&quot;200&quot; Height=&quot;40&quot; <o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span
+style='mso-spacerun:yes'>                    </span><span class=SpellE>MessageText</span>=&quot;Hello
+Windows Forms!&quot;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>   </span><span
+style='mso-spacerun:yes'>                 </span><span class=SpellE>BeforeMessageBox</span>=&quot;<span
+class=SpellE>BeforeMessageBox</span>&quot;/&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>       
+</span>&lt;/<span class=SpellE>wfi<span class=GramE>:WindowsFormsHost.Controls</span></span>&gt;<span
+style='mso-spacerun:yes'>         </span><o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-spacerun:yes'>   
+</span>&lt;/<span class=SpellE>wfi<span class=GramE>:WindowsFormsHost</span></span>&gt;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>&lt;/<span class=SpellE>DockPanel</span>&gt;<o:p></o:p></span></p>
+
+<h3>Implement the Code-Behind File</h3>
+
+<p class=para style='margin-left:0in'>The code-behind file, <b>Pane1.xaml.cs</b>,
+contains the procedural code needed by <b>Pane1.xaml</b>. In this case, it
+consists of a single method, the handler for the <span class=SpellE><b>BeforeMessageBox</b></span>
+event. When the event is received, the handler specifies the message box text
+by setting <span class=SpellE><b>MyControl’s</b></span> <span class=SpellE><b>MessageText</b></span>
+property to “Hello Avalon!”</p>
+
+<p class=para style='margin-left:0in'>&nbsp;</p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> System;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> <span class=SpellE>System.Windows.Forms</span>;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> <span class=SpellE>System.Windows</span>;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> <span class=SpellE>System.Windows.Controls</span>;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> <span class=SpellE>System.Windows.Forms.Integration</span>;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> <span class=SpellE>System.Windows.Media</span>;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>using</span></span><span style='font-family:
+"Lucida Console"'> <span class=SpellE>MyControlLibrary</span>;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span class=GramE><span
+style='font-family:"Lucida Console"'>namespace</span></span><span
+style='font-family:"Lucida Console"'> <span class=SpellE>AvalonHost</span><o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>{<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:1'>    </span><span
+class=GramE>public</span> partial class Pane1 : <span class=SpellE>DockPanel</span><o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:1'>    </span>{<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:2'>          </span><span
+class=GramE>private</span> void <span class=SpellE>BeforeMessageBox</span>(object
+sender, <span class=SpellE>EventArgs</span> <span class=SpellE>args</span>)<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:2'>          </span>{<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:3'>                </span>(<span
+class=SpellE><span class=GramE>wfh.Controls</span></span><span class=GramE>[</span>&quot;mc&quot;]
+as <span class=SpellE>MyControl</span>).<span class=SpellE>MessageText</span> =
+&quot;Hello Avalon!&quot;;<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:2'>          </span>}<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'><span style='mso-tab-count:1'>    </span>}<o:p></o:p></span></p>
+
+<p class=para style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.2in;margin-bottom:.0001pt;background:#E0E0E0'><span
+style='font-family:"Lucida Console"'>}<o:p></o:p></span></p>
+
+<h3>Build and Run the Application</h3>
+
+<p class=listnum1 style='text-indent:-.25in;mso-list:l5 level1 lfo6;tab-stops:
+list .75in'><![if !supportLists]><span style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Add a reference for <b>MyControlLibrary.dll</b>
+to your project. Go to <b>Solution Explorer</b> and:</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=listnum2 style='margin-left:73.2pt;text-indent:-.25in;mso-list:l10 level1 lfo4;
+tab-stops:list 73.2pt'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>On the <b>Project</b> menu, click <b>Add
+Reference</b>.</p>
+
+<p class=listnum2 style='margin-left:73.2pt;text-indent:-.25in;mso-list:l10 level1 lfo4;
+tab-stops:list 73.2pt'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Click the &quot;<b>Browse</b>...&quot; button.</p>
+
+<p class=listnum2 style='margin-left:73.2pt;text-indent:-.25in;mso-list:l10 level1 lfo4;
+tab-stops:list 73.2pt'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Browse to <span class=SpellE>MyControlLibrary</span>\bin\debug
+folder (or the release folder if you compiled the release version of the
+project).</p>
+
+<p class=listnum2 style='margin-left:73.2pt;text-indent:-.25in;mso-list:l10 level1 lfo4;
+tab-stops:list 73.2pt'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>d.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Select the file <b>MyControlLibrary.dll</b>.</p>
+
+<p class=listend>&nbsp; </p>
+
+<p class=listnum1 style='text-indent:-.25in;mso-list:l5 level1 lfo6;tab-stops:
+list .75in'><![if !supportLists]><span style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Press <b>F5</b> to have Visual Studio build and
+run the application.</p>
+
+<p class=listnum1 style='margin-left:.25in;text-indent:0in'>You can also build
+and run the project from the command line.</p>
+
+<p class=listnum1 style='text-indent:-.25in;mso-list:l2 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Go to Start/All Programs/Microsoft Longhorn
+SDK/Open Build <span class=SpellE>EnvironmentWindow</span>/ and open a Longhorn
+Build Environment console window. This window has its environment configured
+for building Longhorn applications.</p>
+
+<p class=listnum1 style='text-indent:-.25in;mso-list:l2 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Use the “<span class=SpellE>cd</span>” command
+to go to the <span class=SpellE>AvalonHost</span> project folder.</p>
+
+<p class=listnum1 style='text-indent:-.25in;mso-list:l2 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Run the following command.</p>
+
+<p class=para style='margin-top:6.0pt;background:#E0E0E0'><span class=SpellE><span
+style='font-family:"Lucida Console"'>Msbuild</span></span><span
+style='font-family:"Lucida Console"'> <span class=SpellE>AvalonHost.csproj</span><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

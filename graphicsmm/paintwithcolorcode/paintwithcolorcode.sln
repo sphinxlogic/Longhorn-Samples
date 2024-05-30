@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintWithColorCode", "PaintWithColorCode.csproj", "{4F9208E0-0EA2-4BE5-9726-87E500381EC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F9208E0-0EA2-4BE5-9726-87E500381EC0}.Debug|.NET.ActiveCfg = Debug|.NET
+		{4F9208E0-0EA2-4BE5-9726-87E500381EC0}.Debug|.NET.Build.0 = Debug|.NET
+		{4F9208E0-0EA2-4BE5-9726-87E500381EC0}.Release|.NET.ActiveCfg = Release|.NET
+		{4F9208E0-0EA2-4BE5-9726-87E500381EC0}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

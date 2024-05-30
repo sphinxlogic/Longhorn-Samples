@@ -1,0 +1,52 @@
+<Window ID="root" 
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition">
+<DockPanel>
+  <DockPanel.Resources>
+    <Style>
+      <Button Height="30" Width="80"/>
+    </Style>
+  </DockPanel.Resources>
+  <Video DockPanel.Dock="Top" ID="v1" Stretch="Uniform" Source="bee.wmv" Width="600" Height="300" Volume="300"/>
+  <DockPanel Dock="Left">
+  <Button Click="OnPlay">Play</Button>
+  <Button Click="OnPause">Pause/Restart</Button>
+  <Button Click="OnStop">Stop</Button>
+  <Button Click="OnMute">Mute</Button>
+  </DockPanel>
+</DockPanel>
+<def:Code>
+    <![CDATA[
+      void OnStop(object sender, System.Windows.Controls.ClickEventArgs e)
+      {
+        v1.EndIn(0);
+      }
+      void OnPause(object sender, System.Windows.Controls.ClickEventArgs e)
+      {
+	if(v1.MediaState == System.Windows.Media.MediaState.MediaStatePaused)
+        {   v1.Resume(); }
+        else if (v1.MediaState == System.Windows.Media.MediaState.MediaStatePlaying)
+        {   v1.Pause(); }
+        else
+        {
+            System.Windows.MessageBox.Show("The media cannot be paused or resumed.");
+        } 
+	
+      }
+      void OnPlay(object sender, System.Windows.Controls.ClickEventArgs e)
+      {
+        v1.BeginIn(0);
+      }
+
+      void OnMute(object sender, System.Windows.Controls.ClickEventArgs e)
+      {
+        if(v1.Mute == true)
+          v1.Mute = false;
+        else
+          v1.Mute = true;
+      }
+
+     
+    ]]>
+  </def:Code>
+</Window>

@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xamlprint_csharp", "xamlprint_csharp.csproj", "{752CE266-FF52-4031-BF84-90AFAB0DEC96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{752CE266-FF52-4031-BF84-90AFAB0DEC96}.Debug|.NET.ActiveCfg = Debug|.NET
+		{752CE266-FF52-4031-BF84-90AFAB0DEC96}.Debug|.NET.Build.0 = Debug|.NET
+		{752CE266-FF52-4031-BF84-90AFAB0DEC96}.Release|.NET.ActiveCfg = Release|.NET
+		{752CE266-FF52-4031-BF84-90AFAB0DEC96}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

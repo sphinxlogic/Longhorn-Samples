@@ -1,0 +1,117 @@
+<!-- If you change the root element of this file, be sure to change the class that is subclassed in MyApp.xaml.cs -->
+<Application
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ApplyMultipleAnimationsToSingleProperty_markup.MyApp"
+    def:CodeBehind="MyApp.xaml.cs"
+    StartingUp="AppStartingUp"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+       <Application.Resources>
+      
+		<SolidColorBrush def:Name="glowingHighlight" Color="Yellow" >
+            <SolidColorBrush.ColorAnimations>
+                <ColorAnimation From="Yellow" To="WhiteSmoke" Duration="1" 
+					RepeatDuration="Indefinite" AutoReverse="True" />
+            </SolidColorBrush.ColorAnimations>
+        </SolidColorBrush>
+        
+        <Style>
+            <Button UIElement.ClipToBounds="False" Margin="10"  />
+            
+            <Style.VisualTree>
+               
+                <Canvas
+					Width="100%"
+                    Height="100%">
+
+					<Rectangle def:StyleID="outlineRect"
+						Width="100%"
+						Height="100%"                       
+						RadiusX="10"
+						RadiusY="10"
+						StrokeThickness="5"
+						Stroke="*Alias(Target=Background)" />
+						
+					<Rectangle def:StyleID="sBackingRect"
+						Width="100%"
+						Height="100%"                       
+						StrokeThickness="20"
+						Stroke="Transparent"
+						Fill="*Alias(Target=Background)">
+                                             
+					</Rectangle>  
+ 
+                    <FlowPanel
+						
+						Width="60%"
+						
+						Canvas.Left="20%"
+						Canvas.Top="30%"
+						HorizontalAlignment="Center">
+						<ContentPresenter 
+								ContentControl.Content="*Alias(Target=Content)" />
+					</FlowPanel>
+      
+                    
+                    <!-- Simulates a glass surface. -->
+                    <Rectangle def:StyleID="glassCube"
+						Width="100%"
+                        Height="100%"               
+                        Stroke="VerticalGradient LightBlue Gray"
+						StrokeThickness="2"
+                        RadiusX="10"
+                        RadiusY="10"
+                        Opacity="0"
+                        OpacityMask="RadialGradient Transparent Black">
+  
+                     <Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="1">
+							<LinearGradientBrush.GradientStops>
+									<GradientStop Color="WhiteSmoke" Offset="0.2" />
+									<GradientStop Color="Transparent" Offset="0.4" />
+									<GradientStop Color="WhiteSmoke" Offset="0.5" />
+									<GradientStop Color="Transparent" Offset="0.75" />
+									<GradientStop Color="WhiteSmoke" Offset="0.9" />
+									<GradientStop Color="Transparent" Offset="1" />		
+							</LinearGradientBrush.GradientStops>
+										
+						</LinearGradientBrush>
+                                
+                     </Rectangle.Fill> 
+                                                 
+                 </Rectangle>
+                    
+            </Canvas>
+            </Style.VisualTree>
+            <Style.VisualTriggers>
+                <PropertyTrigger Property="IsMouseOver" Value="true">
+                   
+                    <Set PropertyPath="Rectangle.Opacity" 
+                        Value="1"
+                        Target="glassCube" />
+                            
+                     
+                </PropertyTrigger>
+                 <PropertyTrigger Property="IsPressed" Value="true">
+      
+                    
+                    <Set PropertyPath="Rectangle.Fill" 
+                        Value="{glowingHighlight}"
+                        Target="sBackingRect" />
+                    
+                    <Set PropertyPath="Rectangle.Stroke" 
+                        Value="{glowingHighlight}"
+                        Target="outlineRect" />
+                            
+                     
+                </PropertyTrigger>
+             
+          
+            </Style.VisualTriggers>
+       
+        </Style>
+       
+
+    </Application.Resources>
+</Application>

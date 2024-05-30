@@ -1,0 +1,60 @@
+<DockPanel ID="myDP"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Background="Snow"
+	   Loaded="onInit"
+	   Width="500"
+	   Height="500">
+  <def:Code>
+  <![CDATA[
+Private Sub onInit(ByVal sender as object, ByVal args as System.EventArgs)
+
+	' Add the first Rectangle to the DockPanel
+	Dim rect1 As new System.Windows.Shapes.Rectangle 
+	rect1.Stroke = Brushes.Black
+	rect1.Fill = Brushes.CadetBlue
+	rect1.Width = new System.Windows.Length(500)
+	rect1.Height = new System.Windows.Length(25)
+	SetDock(rect1, System.Windows.Controls.Dock.Top)
+	myDP.Children.Add(rect1)
+
+	' Add the second Rectangle to the DockPanel
+	Dim rect2 As new System.Windows.Shapes.Rectangle
+	rect2.Stroke = Brushes.Black
+	rect2.Fill = Brushes.LightSteelBlue
+	rect2.Width = new System.Windows.Length(500)
+	rect2.Height = new System.Windows.Length(25)
+	SetDock(rect2, System.Windows.Controls.Dock.Top)
+	myDP.Children.Add(rect2)
+
+
+	' Add the third Rectangle to the DockPanel
+	Dim rect3 As new System.Windows.Shapes.Rectangle
+	rect3.Stroke = Brushes.Black
+	rect3.Fill = Brushes.Teal
+	rect3.Width = new System.Windows.Length(500)
+	rect3.Height = new System.Windows.Length(50)
+	SetDock(rect3, System.Windows.Controls.Dock.Bottom)
+	myDP.Children.Add(rect3)
+
+	' Add the fourth Rectangle to the DockPanel
+	Dim rect4 As new System.Windows.Shapes.Rectangle
+	rect4.Stroke = Brushes.Black
+	rect4.Fill = Brushes.DarkSeaGreen
+	rect4.Width = new System.Windows.Length(200)
+	rect4.Height = new System.Windows.Length(400)
+	SetDock(rect4, System.Windows.Controls.Dock.Left)
+	myDP.Children.Add(rect4)
+
+	' Add the fourth Rectangle to the DockPanel
+	Dim rect5 As new System.Windows.Shapes.Rectangle
+	rect5.Stroke = Brushes.Black
+	rect5.Fill = Brushes.SlateGray
+	SetDock(rect5, System.Windows.Controls.Dock.Fill)
+	myDP.Children.Add(rect5)
+
+End Sub
+  ]]>
+  </def:Code>
+
+</DockPanel>

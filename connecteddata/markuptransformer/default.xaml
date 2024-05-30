@@ -1,0 +1,28 @@
+<Canvas
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition" def:Language="C#"
+  def:Class="WCPSample.MarkupTransformer"
+  def:CodeBehind="default.xaml.cs"
+  ID="root"
+  >
+    <Canvas.Resources>
+      <ObjectDataSource def:Name="myDataSource" TypeName="WCPSample.myData,MarkupTransformerSample" />
+      <TransformerSource def:Name="MyTransformerReference" TypeName="MyTransformer"/>
+    </Canvas.Resources>
+    <Canvas.DataContext>
+  	  <Bind DataSource="{myDataSource}" BindType="OneWay" />
+    </Canvas.DataContext>
+
+	<Text Canvas.Top="10px" Canvas.Left="5px" FontWeight="Bold" FontSize="18" TextContent="Untransformed data"/>
+    <Text Canvas.Top="30px"  Canvas.Left="35px" Width="300px" ID="mytext" TextContent="*Bind(Path=TheDate)"/>
+
+	<Text Canvas.Top="50px" Canvas.Left="5px" FontWeight="Bold" FontSize="18" TextContent="Transformed data"/>
+    <Text Canvas.Top="70px" Canvas.Left="35px" Width="300px" Height="30px"   ID="mytransformedtext">
+      <Text.TextContent>
+        <Bind Path="TheDate" Transformer="{MyTransformerReference}"/>
+      </Text.TextContent>
+      <Text.Foreground>
+        <Bind Path="TheDate" Transformer="{MyTransformerReference}"/>
+      </Text.Foreground>
+    </Text>
+</Canvas>

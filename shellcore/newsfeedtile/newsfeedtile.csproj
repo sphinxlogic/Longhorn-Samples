@@ -1,0 +1,33 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property TargetName="NewsFeed" />
+    <Property TargetType="Library" />
+    <Property BuildSystem="MSBuild" />
+    <Property HostInBrowser="False" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{A172172A-45AA-4715-BF65-9F5B4F6B1ED0}" />
+  </PropertyGroup>
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="compile" Include="NewsFeedTile.cs" SubType="Code" />
+    <Item Type="compile" Include="HeadlinePanel.cs" SubType="Code" />
+    <Item Type="compile" Include="Headlines.cs" SubType="Code" />
+    <Item Type="compile" Include="Stories.cs" SubType="Code" />
+    <Item Type="compile" Include="StoryPanel.cs" SubType="Code" />
+    <Item Type="compile" Include="RSSFeed.cs" SubType="Code" />
+    <Item Type="compile" Include="RSSStory.cs" SubType="Code" />
+    <Item Type="Components" Include="$(wcp)\Microsoft.Windows.WCPClient.dll" />
+    <Item Type="Components" Include="$(wcp)\System.Windows.Explorer.dll" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

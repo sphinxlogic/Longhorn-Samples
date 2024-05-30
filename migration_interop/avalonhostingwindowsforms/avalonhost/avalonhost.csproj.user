@@ -1,0 +1,8 @@
+<Project MSBuildVersion="1.2">
+  <PropertyGroup Condition="">
+    <Property LastOpenVersion="8.0.31113" />
+    <Property ProjectView="ShowAllFiles" />
+    <Property ProjectTrust="0" />
+    <Property ReferencePath="C:\Avalon_Samples\Migration_Interop\AvalonHostingWindowsForms\AvalonHost\;C:\Avalon_Samples\Migration_Interop\AvalonHostingWindowsForms\MyControlLibrary\bin\Debug\" />
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavAppEvents", "NavAppEvents.csproj", "{36C45B2E-A43D-4046-953F-AFD14919518D}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{36C45B2E-A43D-4046-953F-AFD14919518D}.Debug.ActiveCfg = Debug|.NET
+		{36C45B2E-A43D-4046-953F-AFD14919518D}.Debug.Build.0 = Debug|.NET
+		{36C45B2E-A43D-4046-953F-AFD14919518D}.Release.ActiveCfg = Release|.NET
+		{36C45B2E-A43D-4046-953F-AFD14919518D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

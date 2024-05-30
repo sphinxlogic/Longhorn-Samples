@@ -1,0 +1,211 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The Filter Engine Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>The FilterEngine Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The FilterEngine
+sample demonstrates how to use a key feature of the XPath filter
+engine, a component of the "Longhorn" communications subsystem (code-named "Indigo"). This sample creates three XPathFilters and adds them to an instance of
+the FilterTable class. It then creates three messages and matches each against
+the FilterTable.&nbsp; </span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>XPathFilter:</span></b><span
+style='font-family:Arial'><br>
+Create XPathFilter instances using an XPath statement string and an
+XmlNamespaceManager that defines the namespace prefixes used in the statement. </span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>XmlNamespaceManager namespaceManager = new XmlNamespaceManager(new NameTable());</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>namespaceManager.AddNamespace(&quot;env&quot;, &quot;http://www.w3.org/2001/12/soap-envelope&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>namespaceManager.AddNamespace(&quot;wsa&quot;, &quot;http://schemas.xmlsoap.org/ws/2002/12/addressing&quot;);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>XPathFilter greenFilter = new XPathFilter(&quot;/env:Envelope/env:Header/wsa:Action/wsa:Action='http://www.tempuri.org/quickstarts/green'&quot;,namespaceManager);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>XPathFilter redFilter = new XPathFilter(&quot;/env:Envelope/env:Header/wsa:Action/wsa:Action='http://www.tempuri.org/quickstarts/red'&quot;,namespaceManager);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>XPathFilter indigoFilter = new XPathFilter(&quot;/env:Envelope/env:Header/wsa:Action/wsa:Action='http://www.tempuri.org/quickstarts/indigo'&quot;,namespaceManager);</span></pre>
+
+<p><span style='font-family:Arial'>XPathFilter derives from the <b>Filter </b></span>class<span
+style='font-family:Arial'>. <b>Filter</b> contains a read/write <b>Tag </b>property
+that contains application data. This sample puts a Color on each XPathFilter.</span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>greenFilter.Tag = Color.Green;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>redFilter.Tag = Color.Red;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>indigoFilter.Tag = Color.Indigo;</span></pre>
+
+<p><b><span style='font-family:Arial'>FilterTable:</span></b><span
+style='font-family:Arial'><br>
+A FilterTable is a <b>FilterCollection</b> that exposes a <b>Match</b> method.
+This sample adds the three XPathFilters to a FilterTable and then matches three
+messages against the FilterTable. </span></p>
+
+<p><span style='font-family:Arial'>First, add the XPathFitlers to a
+FilterTable.</span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>FilterTable filterTable = new FilterTable();</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>filterTable.Add(greenFilter);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span lang=DA style='color:#202080'>filterTable.Add(redFilter);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span lang=DA style='color:#202080'>filterTable.Add(indigoFilter);</span></pre>
+
+<p><span style='font-family:Arial'>Next, create a <b>Message</b> specifying the
+action URI in the constructor. </span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>Message greenMessage = new Message(new Uri(&quot;http://www.tempuri.org/quickstarts/green&quot;));</span></pre>
+
+<p><span style='font-family:Arial'>Finally, match the message against the FilterTable,
+enumerate the results, cast the Filter.Tag to Color, and display its string
+representation. </span></p>
+
+<pre style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:
+.5in;margin-bottom:.0001pt'><span style='color:#202080'>&nbsp;</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>matchingFilters = filterTable.Match(greenMessage);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>foreach (Filter filter in matchingFilters)</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>{</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>&nbsp; Console.WriteLine(&quot;---&gt; Filter.Tag contains: {0}&quot;,(Color)filter.Tag);</span></pre><pre
+style='margin-top:0in;margin-right:.5in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='color:#202080'>}</span></pre>
+
+<p><span style='font-family:Arial'>&nbsp; </span></p>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><a
+name="#Building"></a><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Open the <b>Longhorn Build Environment</b> console
+window (click <b>Start</b>, click <b>All Programs</b>, click&nbsp;<b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Navigate to the directory where this
+readme is located.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and press
+ENTER.</span></p>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p><a name="#Running"></a><span style='font-family:Arial'>To see the output,
+run FilterEngineSample.exe in the cs directory from the command prompt.</span></p>
+
+</div>
+
+</body>
+
+</html>

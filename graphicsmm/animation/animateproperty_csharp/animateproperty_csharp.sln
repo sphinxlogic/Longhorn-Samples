@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animateproperty_csharp", "animateproperty_csharp.csproj", "{9DDB1AAC-567C-45D3-A4A7-352DC99E13C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DDB1AAC-567C-45D3-A4A7-352DC99E13C0}.Debug|.NET.ActiveCfg = Debug|.NET
+		{9DDB1AAC-567C-45D3-A4A7-352DC99E13C0}.Debug|.NET.Build.0 = Debug|.NET
+		{9DDB1AAC-567C-45D3-A4A7-352DC99E13C0}.Release|.NET.ActiveCfg = Release|.NET
+		{9DDB1AAC-567C-45D3-A4A7-352DC99E13C0}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

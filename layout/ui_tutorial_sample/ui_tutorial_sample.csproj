@@ -1,0 +1,48 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Language="C#" />
+		
+    <Property DefaultClrNameSpace="SDKSample" />
+
+    <Property TargetName="UI_Tutorial_Sample" />
+
+    <Property BuildSystem="MSBuild" />
+		
+    <Property HostInBrowser="False" />
+		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <Item Type="Resources" Include="Data\backbutton.gif" />
+  <Item Type="Resources" Include="Data\composebutton.gif" />
+  <Item Type="Resources" Include="Data\discussbutton.gif" />
+  <Item Type="Resources" Include="Data\favoritesbutton.gif" />
+  <Item Type="Resources" Include="Data\forwardbutton.gif" />
+  <Item Type="Resources" Include="Data\historybutton.gif" />
+  <Item Type="Resources" Include="Data\homebutton.gif" />
+  <Item Type="Resources" Include="Data\iemini.gif" />
+  <Item Type="Resources" Include="Data\ieminigrey.gif" />
+  <Item Type="Resources" Include="Data\ieminiwhite.gif" />
+  <Item Type="Resources" Include="Data\imbutton.gif" />
+  <Item Type="Resources" Include="Data\localintranet.gif" />
+  <Item Type="Resources" Include="Data\mailbutton.gif" />
+  <Item Type="Resources" Include="Data\mediabutton.gif" />
+  <Item Type="Resources" Include="Data\printbutton.gif" />
+  <Item Type="Resources" Include="Data\refreshbutton.gif" />
+  <Item Type="Resources" Include="Data\searchbutton.gif" />
+  <Item Type="Resources" Include="Data\stopbutton.gif" />
+  <Item Type="Resources" Include="Data\windowctrl.gif" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml"/>
+  </ItemGroup>
+
+</Project>

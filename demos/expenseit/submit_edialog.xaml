@@ -1,0 +1,37 @@
+<EmbeddedDialog
+  Text="Embedded Dialog Sample"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  def:Class="ExpenseItApp.SubmitDialog"
+  Height="100">
+
+<TransformDecorator DockPanel.Dock="Fill" Transform="scale 1 1">
+<DockPanel Background="White">
+  <FlowPanel Margin="5" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+  <Button Margin="5" Click="button1_Click">Yes</Button>
+  <Button Margin="5" Click="button2_Click">No</Button>
+  </FlowPanel>
+  <ScrollViewer DockPanel.Dock="Fill">
+    <TextPanel ID="_errorText" DockPanel.Dock="Fill" FontSize="14pt"> 
+	Do you really want to Submit this expense report at this time?
+    </TextPanel>
+  </ScrollViewer>
+</DockPanel>
+</TransformDecorator>
+
+
+<def:Code><![CDATA[
+
+void button1_Click(object sender, ClickEventArgs e)
+{
+   DialogResult = DialogResult.OK;    
+}
+
+void button2_Click(object sender, ClickEventArgs e)
+{
+   DialogResult = DialogResult.No;    
+}
+
+]]></def:Code>
+
+</EmbeddedDialog>

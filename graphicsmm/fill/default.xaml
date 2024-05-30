@@ -1,0 +1,10 @@
+<Canvas xmlns="http://schemas.microsoft.com/2003/xaml">
+
+<Ellipse
+Fill="Red"
+CenterX="80" 
+CenterY="80" 
+RadiusX="50"
+RadiusY="50" />
+
+</Canvas>

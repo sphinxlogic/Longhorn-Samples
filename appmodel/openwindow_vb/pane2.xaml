@@ -1,0 +1,15 @@
+<Window xmlns="http://schemas.microsoft.com/2003/xaml/"
+            xmlns:def="Definition"
+            def:Class="OpenWindow_VB.Pane2"
+            def:CodeBehind="Pane2.xaml.vb" 
+            ID="myWindow"
+		      	Visibility="Visible"
+            Text="Page 2">
+	
+    <Button Click="btnClose"
+            Margin="10,10,10,10"
+            Height="40"
+            Width="150"
+            DockPanel.Dock="Top"
+            Content="Close Window"/>
+</Window>            

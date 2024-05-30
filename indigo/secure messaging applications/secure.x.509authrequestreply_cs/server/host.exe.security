@@ -1,0 +1,44 @@
+<securityData>
+
+    <credentials>
+
+        <trustTestRoot id="mainX509TrustTestRoot">true</trustTestRoot>
+
+    </credentials>
+
+    <tokens>
+
+        <tokenCache id="mainTokenCache">
+
+            <x509Token>
+
+                <certificate>
+
+                   <store location="currentUser" name="My" />
+
+                   <criteria type="subjectString">MBTestCert</criteria>
+
+                </certificate>
+
+            </x509Token>
+
+        </tokenCache>
+
+    </tokens> 
+
+     <authorizationData>
+
+        <memoryMapping id="mainAuthorizationData">
+
+            <globalEntries>
+
+                <x509RoleAssignment subject="CN=MBTestCert" roles = "StandardUserRole"/>
+
+            </globalEntries>
+
+        </memoryMapping>
+
+    </authorizationData>
+
+</securityData>
+

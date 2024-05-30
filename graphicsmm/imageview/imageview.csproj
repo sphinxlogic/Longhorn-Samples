@@ -1,0 +1,56 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property AssemblyName="ImageView" />
+    <Property TargetName="$(AssemblyName)" />
+    <Property ApplicationIcon="App.ico" />
+    <Property ProductVersion="8.0.31010" />
+    <Property SchemaVersion="2.0" />
+    <Property RootNamespace="ImageView" />
+    <Property ProjectGuid="{C4A8BB41-9C63-41FF-8921-09AF25F651B2}" />
+    <Property SecurityManifest="SecRequest.xml" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <!-- The rest of the References are currently in one of the .target files. Eventually, post-PDC we'll put them all here -->
+  <Item Type="Reference" Include="$(windir)\microsoft.net\avalon\System.Windows.Explorer" Name="System.Windows.Explorer" HintPath="$(windir)\microsoft.net\avalon\System.Windows.Explorer.dll" />
+  <Item Type="Reference" Include="$(windir)\microsoft.net\avalon\System.Windows.Contacts" Name="System.Windows.Contacts" HintPath="$(windir)\microsoft.net\avalon\System.Windows.Contacts.dll" />
+  <Item Type="Reference" Include="$(lapi)\WindowsFormsIntegration" Name="WindowsFormsIntegration" HintPath="$(lapi)\WindowsFormsIntegration.dll" />
+  <Item Type="Reference" Include="System.Storage.WinFS" HintPath="..\..\..\..\..\..\WINDOWS\system32\WinFS\API\System.Storage.WinFS.dll" Name="System.Storage.WinFS" FusionName="System.Storage.WinFS, Version=6.0.4059.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+  <Item Type="Resources" Include="App.ico" />
+  <Item Type="Resources" Include="Images\*.*" />
+  <Item Type="Resources" Include="SecRequest.xml" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="MyApp.xaml" />
+    <Item Type="Pages" Include="ChgDir.xaml" />
+    <Item Type="Pages" Include="ViewImage.xaml" />
+    <Item Type="Pages" Include="Window1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="ChgDir.xaml.cs" SubType="Code" />
+    <Item Type="Compile" Include="ViewImage.xaml.cs" DependentUpon="ViewImage.xaml" SubType="Code" />
+    <Item Type="Compile" Include="Window1.xaml.cs" SubType="Code" />
+    <Item Type="Compile" Include="MyApp.xaml.cs" DependentUpon="MyApp.xaml" SubType="Code" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Content" Include="Readme.html" />
+  </ItemGroup>
+</Project>
+<!-- 
+    This project gets built by MSBuild on the commmand line.
+    Visual Studio "Whidbey" can also compile a project using only this data.
+
+    The build steps of a project are defined in the .target file referenced in the <Import>.
+    You can modify the steps involved in build.
+
+    You can also "execute" other targets besides the defaulttarget of build.
+    From a command prompt: msbuild myproj.csproj /t:TARGETNAME
+    Examples of TARGETNAME include: Build, Clean, CleanBuild, Run
+-->

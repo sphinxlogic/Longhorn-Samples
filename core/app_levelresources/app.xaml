@@ -1,0 +1,66 @@
+<Application xmlns="http://schemas.microsoft.com/2003/xaml" 
+    xmlns:def="Definition" >
+
+    <def:Code>
+       <![CDATA[
+
+            protected override void OnStartingUp(StartingUpCancelEventArgs e)
+            {
+                // Setup the application window.
+                NavigationWindow window = new NavigationWindow();
+
+                window.CanResize = false;                
+
+                window.Text = "WCP";
+
+                window.Width  = new Length(_width);
+                window.Height = new Length(_height);
+
+                // Show!
+                window.Show();
+
+                // Navigate to the startup page 
+                ((INavigator)window).Navigate(new Uri("Default.xaml", false, true));
+
+            }
+
+            private readonly int _width  = 500;
+            private readonly int _height = 300;
+   
+        ]]>
+    </def:Code>
+
+<Application.Resources>
+<Style def:Name="GelButton">
+    
+     <Button Width="200" Height="45"  />
+     
+     <Style.VisualTree>
+		<DockPanel Width="100%" Height="100%">
+			<Canvas DockPanel.Dock="Fill"  Margin="2.5,5,2.5,5">
+				<Rectangle def:StyleID="MainRect" 
+						RadiusX="10" RadiusY="10" 
+						Fill="RadialGradient LimeGreen Green" 
+						Width="100%" Height="100%" />
+						
+				<DockPanel Width="100%" Height="100%" >
+					<Rectangle  Height="8" Margin="4,1,4,0" DockPanel.Dock="Fill"  
+						RadiusX="10" RadiusY="10" 
+						Fill="VerticalGradient white transparent" 
+						Opacity="0.6"   /> 
+				</DockPanel>
+				<FlowPanel Width="100%" Height="100%" HorizontalAlignment="center" >
+				<ContentPresenter  ContentControl.Content="*Alias(Target = Content)" Margin="15,10,15,5"/>
+				</FlowPanel>
+			</Canvas>
+		</DockPanel>	
+     </Style.VisualTree>
+
+      <Style.VisualTriggers>
+        <PropertyTrigger Property="IsMouseOver" Value="true">
+           <Set PropertyPath="Rectangle.Fill"  Value="RadialGradient LightSkyBlue RoyalBlue" Target="MainRect"/>
+        </PropertyTrigger>
+     </Style.VisualTriggers> 
+</Style>
+</Application.Resources>
+</Application>

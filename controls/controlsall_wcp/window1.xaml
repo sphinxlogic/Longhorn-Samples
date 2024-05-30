@@ -1,0 +1,78 @@
+<!-- To show this window, do this: Window w=new Window1; w.Show(); -->
+<NavigationWindow  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ControlsAll.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="Controls" Visible="True"
+    Background = "LightGray"
+    
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <!-- Typically, the following element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+    <Canvas>
+    <Canvas.Background>
+		<ImageBrush 
+                Stretch="Fill"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                ImageSource="data/controlsall.png" />
+   </Canvas.Background>
+               
+        <Canvas ID="cvtitle" Width="550" Height="20" >
+             
+             <Text Canvas.Top="10" Canvas.Left="300" FontSize="24pt">Controls</Text>
+             
+        </Canvas>
+           <Canvas ID="cv1" Width="550" Height="80" Canvas.Top="60" Canvas.Left="30">
+             <Text Canvas.Top="30" Canvas.Left="10" FontSize="8pt" TextWrap="Wrap">This sample displays various controls. Right click the button below to see a list. Choose a control to see its appearance and function.</Text></Canvas>
+        <Canvas ID="cv2" Width="250" Height="500" Canvas.Top="150" Canvas.Left="30">
+        
+        <Button ID="Button1" Background="LightBlue">Right click here for a list of controls.
+        <Button.ContextMenu>
+        <ContextMenu>
+              <MenuItem Header="Button" Click="Button">
+              </MenuItem>    
+              <MenuItem Header="CheckBox" Click="CheckBox">
+              </MenuItem>
+              <MenuItem Header="ComboBox" Click="ComboBox">
+              </MenuItem>
+              <MenuItem Header="ContextMenu" Click="ContextMenu">
+              </MenuItem>
+              <MenuItem Header="HorizontalScrollBar" Click="HorizontalScrollBar">
+              </MenuItem>
+              <MenuItem Header="HorizontalSlider" Click="HorizontalSlider">
+              </MenuItem>
+              <MenuItem Header="HyperLink" Click="HyperLink">
+              </MenuItem>
+              <MenuItem Header="ListBox" Click="ListBox">
+              </MenuItem>
+              <MenuItem Header="Menu" Click="Menu">
+              </MenuItem>
+              <MenuItem Header="RadioButton" Click="RadioButton">
+              </MenuItem>
+              <MenuItem Header="RadioButtonList" Click="RadioButtonList">
+              </MenuItem>
+              <MenuItem Header="RepeatButton" Click="RepeatButton">
+              </MenuItem>
+              <MenuItem Header="ScrollViewer" Click="ScrollViewer">
+              </MenuItem>
+              <MenuItem Header="TextBox" Click="TextBox">
+              </MenuItem>
+              <MenuItem Header="Thumb" Click="Thumb">
+              </MenuItem>
+              <MenuItem Header="ToolTip" Click="ToolTip">
+              </MenuItem>
+              <MenuItem Header="VerticalScrollBar" Click="VerticalScrollBar">
+              </MenuItem>
+              <MenuItem Header="VerticalSlider" Click="VerticalSlider">
+              </MenuItem>
+        </ContextMenu>
+</Button.ContextMenu>
+</Button>
+</Canvas>
+<Canvas ID="cv3" Width="300" Height="500" Canvas.Top="150" Canvas.Left="300">
+</Canvas>
+</Canvas>
+</NavigationWindow>

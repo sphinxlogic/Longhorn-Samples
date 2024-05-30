@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animate_size_markup", "animate_size_markup.csproj", "{7A5ED766-DE7F-44AC-8C81-3F9F188D06BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A5ED766-DE7F-44AC-8C81-3F9F188D06BD}.Debug|.NET.ActiveCfg = Debug|.NET
+		{7A5ED766-DE7F-44AC-8C81-3F9F188D06BD}.Debug|.NET.Build.0 = Debug|.NET
+		{7A5ED766-DE7F-44AC-8C81-3F9F188D06BD}.Release|.NET.ActiveCfg = Release|.NET
+		{7A5ED766-DE7F-44AC-8C81-3F9F188D06BD}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

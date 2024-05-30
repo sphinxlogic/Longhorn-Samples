@@ -1,0 +1,10 @@
+<Project DefaultTargets="sts">
+   <Target Name="sts">
+      <Task Name="Csc"
+                 EmitDebugInformation="true"
+                 OutputAssembly="sts.exe"
+                 References="system.messagebus.dll;system.dll"
+                 Sources="sts.cs"
+                 TargetType="exe" />
+   </Target>
+</Project>

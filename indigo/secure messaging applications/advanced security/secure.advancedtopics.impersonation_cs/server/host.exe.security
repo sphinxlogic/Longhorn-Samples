@@ -1,0 +1,9 @@
+<securityData>
+    <credentials>
+    </credentials>
+    <authorizationData>
+        <memoryMapping id="mainAuthorizationData">
+            <globalEntries></globalEntries>
+        </memoryMapping>
+    </authorizationData>
+</securityData>

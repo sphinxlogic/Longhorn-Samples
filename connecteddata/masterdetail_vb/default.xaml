@@ -1,0 +1,43 @@
+
+<Border xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition"
+  Background="cornsilk">
+
+  <Border.Resources>
+    <ObjectDataSource def:Name="LeaguesDSO" TypeName="SDKSample.LeagueList,MasterDetail_VB" />
+
+    <Style def:Name="LeagueDataStyle">
+      <Style.VisualTree>
+        <Text TextContent="*Bind(Path=Name)"/>
+      </Style.VisualTree>
+    </Style>
+  </Border.Resources>
+
+  <DockPanel ID="panel" DataContext="*Bind(DataSource={LeaguesDSO})">
+
+    <DockPanel Dock="Left" Margin="10,0,10,0">
+      <Text DockPanel.Dock="Top">Major League Baseball</Text>
+      <ListBox ID="leagueLB" ItemStyle="{LeagueDataStyle}"
+        IsSelectionRequired="true" DockPanel.Dock="Top">
+        <CollectionContainer Collection="*Bind()"/>
+      </ListBox>
+    </DockPanel>
+
+    <DockPanel Dock="Left" Margin="10,0,10,0">
+      <Text ID="divisionCaption" TextContent="*Bind(Path=Name)" DockPanel.Dock="Top"/>
+      <ListBox ID="divisionLB" ItemStyle="{LeagueDataStyle}"
+        IsSelectionRequired="true" DockPanel.Dock="Top">
+        <CollectionContainer Collection="*Bind(Path=Divisions)"/>
+      </ListBox>
+    </DockPanel>
+
+    <DockPanel Dock="Left" Margin="10,0,10,0">
+      <Text ID="teamCaption" TextContent="*Bind(Path=Divisions/Name)" DockPanel.Dock="Top"/>
+      <ListBox ID="teamLB" ItemStyle="{LeagueDataStyle}"
+        IsSelectionRequired="true" DockPanel.Dock="Top">
+        <CollectionContainer Collection="*Bind(Path=Divisions/Teams)"/>
+      </ListBox>
+    </DockPanel>
+
+  </DockPanel>
+
+</Border>

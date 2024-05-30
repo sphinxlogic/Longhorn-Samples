@@ -1,0 +1,66 @@
+<Canvas ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+<!-- No transform -->
+    <Rectangle 
+    RectangleLeft="30" 
+    RectangleTop="30" 
+    RectangleWidth="80" 
+    RectangleHeight="50"
+    Stroke="Yellow"
+    StrokeThickness="5" />
+
+<!-- Skewed in X -->       
+<TransformDecorator AffectsLayout="false">
+<TransformDecorator.Transform>
+            <TransformCollection>
+				<SkewTransform AngleX="30" />
+				<TranslateTransform X="0" Y="100" /> 
+            </TransformCollection>
+</TransformDecorator.Transform>
+    <Rectangle
+    RectangleTop="30" 
+    RectangleLeft="30" 
+    RectangleWidth="80" 
+    RectangleHeight="50"
+    Stroke="Red"
+    StrokeThickness="5" />
+</TransformDecorator>
+
+<!-- Skewed in Y -->    
+<TransformDecorator AffectsLayout="false">
+<TransformDecorator.Transform>
+            <TransformCollection>
+				<SkewTransform AngleY="10" />
+				<TranslateTransform X="0" Y="200" /> 
+            </TransformCollection>
+</TransformDecorator.Transform>
+    <Rectangle 
+    RectangleTop="30" 
+    RectangleLeft="30" 
+    RectangleWidth="80" 
+    RectangleHeight="50"
+    Stroke="Blue"
+    StrokeThickness="5" >
+	</Rectangle>
+</TransformDecorator>
+
+<!-- Skewed in X and Y -->
+<TransformDecorator AffectsLayout="false">
+<TransformDecorator.Transform>
+            <TransformCollection>
+				<SkewTransform AngleX="10" AngleY="10" />
+				<TranslateTransform X="0" Y="300" /> 
+            </TransformCollection>
+</TransformDecorator.Transform>
+    <Rectangle 
+    RectangleTop="30" 
+    RectangleLeft="30" 
+    RectangleWidth="80" 
+    RectangleHeight="50"
+    Stroke="Green"
+    StrokeThickness="5" >
+	</Rectangle>
+</TransformDecorator>
+
+</Canvas>

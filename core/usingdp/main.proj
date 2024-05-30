@@ -1,0 +1,13 @@
+<Project DefaultTargets="DependencyPropertyDemo;UsingDP"> 
+
+    <Target Name="DependencyPropertyDemo"> 
+        <Task Name="MSBuild" Projects="customprops\DependencyPropertyDemo.csproj" /> 
+    </Target> 
+
+
+    <Target Name="UsingDP"> 
+        <Task Name="MSBuild" Projects="main\UsingDP.csproj" /> 
+    </Target> 
+
+</Project> 
+

@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePlayerCS", "ConsolePlayer\ConsolePlayerCS.csproj", "{CC0253A6-E8F7-4380-9384-43DBFA1E9154}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC0253A6-E8F7-4380-9384-43DBFA1E9154}.Debug|.NET.ActiveCfg = Debug|.NET
+		{CC0253A6-E8F7-4380-9384-43DBFA1E9154}.Debug|.NET.Build.0 = Debug|.NET
+		{CC0253A6-E8F7-4380-9384-43DBFA1E9154}.Release|.NET.ActiveCfg = Release|.NET
+		{CC0253A6-E8F7-4380-9384-43DBFA1E9154}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

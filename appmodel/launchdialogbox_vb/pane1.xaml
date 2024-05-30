@@ -1,0 +1,27 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<DockPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="LaunchDialog_VB.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    >
+	<Button ID="Launch_Dialog_Button"
+			Height="30"
+			Width="150"
+			Margin="30,30,0,0"
+			Click="Launch_Dialog"
+			DockPanel.Dock="Top"
+      Content="Launch Dialog Box"/>
+			
+	<Text ID="txtReturnValue"
+			DockPanel.Dock="Top"
+			FontSize="12"
+			FontWeight="Bold"
+			Margin="30,30,0,0">ShowDialog Return Value : </Text>
+			
+	<Text ID="txtUserData"
+			DockPanel.Dock="Top"
+			FontSize="12"
+			FontWeight="Bold"
+			Margin="30,10,0,0">User Data : </Text>
+</DockPanel>

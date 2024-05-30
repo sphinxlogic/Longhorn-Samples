@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBoxMethods", "TextBoxMethods.csproj", "{19114E4D-8D4A-4FF4-9BF4-A40CFAF06778}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19114E4D-8D4A-4FF4-9BF4-A40CFAF06778}.Debug|.NET.ActiveCfg = Debug|.NET
+		{19114E4D-8D4A-4FF4-9BF4-A40CFAF06778}.Debug|.NET.Build.0 = Debug|.NET
+		{19114E4D-8D4A-4FF4-9BF4-A40CFAF06778}.Release|.NET.ActiveCfg = Release|.NET
+		{19114E4D-8D4A-4FF4-9BF4-A40CFAF06778}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

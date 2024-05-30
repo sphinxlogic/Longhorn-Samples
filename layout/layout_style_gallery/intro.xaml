@@ -1,0 +1,223 @@
+<ScrollViewer xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition">
+	<TextPanel>
+		<TextPanel.Resources>
+			<Style>
+				<Paragraph FontFamily="Verdana" TextIndent="0" Margin="0, 5" FontSize="14" />
+			</Style>
+			<Style>
+				<Heading FontFamily="Verdana" />
+			</Style>
+			<Style def:Name="PanelLabel">
+				<HyperLink FontWeight="Bold" Margin="10, 10, 10, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" DockPanel.Dock="Top" />
+			</Style>
+			<Style def:Name="SamplePanelContainer">
+				<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" />
+			</Style>
+			<Style def:Name="SamplePanelHeading">
+				<HyperLink FontSize="14" FontWeight="Bold" />
+			</Style>
+		</TextPanel.Resources>
+		
+		<Heading>Introduction</Heading>
+
+		<Paragraph>Welcome to the Layout Sample Application. This sample serves as a primer for those looking to learn the basics of Avalon layout.</Paragraph>
+		<Paragraph>The following sections are available:</Paragraph>
+
+		<Table CellSpacing="10">
+			<Column Width="110" />
+			<Table.Resources>
+				<Style>
+					<Rectangle MinWidth="25" MinHeight="25" />
+				</Style>
+			</Table.Resources>
+			<Body>
+				<Row>
+					<Cell>
+						<HyperLink NavigateUri="Canvas.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<Canvas>
+									<Rectangle Fill="#EEEEAA" Canvas.Bottom="0" Canvas.Right="0" />
+									<Rectangle Fill="#EEAAEE" Canvas.Top="50%" Canvas.Left="50%" />
+									<Rectangle Fill="#AAEEEE" />
+									<Rectangle Fill="#EEAAAA" Canvas.Bottom="20" Canvas.Right="10" />
+									<Rectangle Fill="#AAAAEE" Canvas.Top="35" Canvas.Left="10" />
+									<Rectangle Fill="#AAEEAA" Canvas.Top="10" Canvas.Right="10"/>
+								</Canvas>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="Canvas.xaml">Canvas</HyperLink>
+							
+						<Paragraph>Canvas allows for manually specifying sizes and positions of child elements.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>	
+						<HyperLink NavigateUri="FlowPanel.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<Border.Resources>
+									<Style>
+										<Border Width="25" Height="25" Margin="3" />
+									</Style>
+								</Border.Resources>
+								
+								<FlowPanel>
+									<Rectangle Fill="#EEEEAA" />
+									<Rectangle Fill="#EEAAEE" />
+									<Rectangle Fill="#AAEEEE" />
+									<Rectangle Fill="#EEAAAA" />
+									<Rectangle Fill="#AAAAEE" />
+									<Rectangle Fill="#AAEEAA" />
+								</FlowPanel>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="FlowPanel.xaml">FlowPanel</HyperLink>
+						
+						<Paragraph>FlowPanel positions child elements sequentially, breaking to a new line when it there is not enough space.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>	
+						<HyperLink NavigateUri="GridPanel.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<GridPanel Columns="2">
+									<Rectangle Fill="#EEEEAA" />
+									<Rectangle Fill="#EEAAEE" />
+									<Rectangle Fill="#AAEEEE" />
+									<Rectangle Fill="#EEAAAA" />
+									<Rectangle Fill="#AAAAEE" />
+									<Rectangle Fill="#AAEEAA" />
+								</GridPanel>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="GridPanel.xaml">GridPanel</HyperLink>
+						
+						<Paragraph>GridPanel arranges child elements into rows and columns.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>	
+						<HyperLink NavigateUri="DockPanel.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<DockPanel>
+									<Rectangle Fill="#EEEEAA" DockPanel.Dock="Right" />
+									<Rectangle Fill="#EEAAEE" DockPanel.Dock="Bottom" />
+									<Rectangle Fill="#AAEEEE" />
+									<Rectangle Fill="#EEAAAA" DockPanel.Dock="Top" />
+									<Rectangle Fill="#AAAAEE" />
+									<Rectangle Fill="#AAEEAA" DockPanel.Dock="Fill" />
+								</DockPanel>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="DockPanel.xaml">DockPanel</HyperLink>
+						
+						<Paragraph>DockPanel positions child elements along its outer edges. It is well-suited for setting up a top-level paned UI.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>
+						<HyperLink NavigateUri="TextPanel.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<TextPanel ColumnCount="2" ColumnBalancing="True">
+									<TextPanel.Resources>
+										<Style>
+											<Paragraph FontSize="6" Margin="0" TextIndent="0"/>
+										</Style>
+									</TextPanel.Resources>
+									<Paragraph>
+										<Border Background="#EEEEAA" TextPanel.FlowBehavior="Figure" Margin="2"/>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, <Border Background="#EEAAEE" TextPanel.FlowBehavior="Floating" Margin="2"/> sed diam non ymmy nibh euismod tinc idunt ut laoreet dolore magna aliquam erat volutpat.
+									</Paragraph>
+								</TextPanel>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="TextPanel.xaml">TextPanel</HyperLink>
+						
+						<Paragraph>TextPanel supports sophisticated text layout with features such as Columns and Figures.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>
+						<HyperLink NavigateUri="Table.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<Table>
+									<Table.Resources>
+										<Style>
+											<Cell FontSize="6" />
+										</Style>
+									</Table.Resources>
+									
+									<Body>
+										<Row>
+											<Cell RowSpan="2" Background="#EEEEAA" FontSize="6">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+											</Cell>
+											<Cell Background="#EEAAEE" FontSize="6">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+											</Cell>
+										</Row>
+										<Row>
+											<Cell Background="#AAEEEE" FontSize="6">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+											</Cell>
+										</Row>
+										<Row>
+											<Cell Background="#AAAAEE" ColumnSpan="2" FontSize="6">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam non ymmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+											</Cell>
+										</Row>
+									</Body>
+								</Table>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="Table.xaml">Table</HyperLink>
+						
+						<Paragraph>Table provides rich tabular layout for text content.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>	
+						<HyperLink NavigateUri="Border.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<Border Margin="10" BorderThickness="10" BorderBrush="#666666" />
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="Border.xaml">Border</HyperLink>
+						
+						<Paragraph>Border draws a background and border around an element.</Paragraph>
+					</Cell>
+				</Row>
+				<Row>
+					<Cell>	
+						<HyperLink NavigateUri="TransformDecorator.xaml">
+							<Border Width="110" Height="110" BorderThickness="1" BorderBrush="#AAAAAA" >
+								<TransformDecorator Transform="scale 1.5 1.5 rotate 35">
+									<Rectangle Fill="#666666" DockPanel.Dock="Right" />
+								</TransformDecorator>
+							</Border>
+						</HyperLink>
+					</Cell>
+					<Cell>
+						<HyperLink Style="{SamplePanelHeading}" NavigateUri="TransformDecorator.xaml">TransformDecorator</HyperLink>
+						
+						<Paragraph>TransformDecorator applies a transform to an element.</Paragraph>
+					</Cell>
+				</Row>
+			</Body>
+		</Table>
+
+	</TextPanel>
+</ScrollViewer>

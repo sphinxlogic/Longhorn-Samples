@@ -1,0 +1,30 @@
+<DockPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    'Fires when Button gains focus, changing the color of the Button.
+   	Public Sub OnGotFocus(sender As object, args As System.Windows.Input.FocusChangedEventArgs)
+
+      		Dim tb As System.Windows.Controls.Button
+		tb = CType(sender, System.Windows.Controls.Button)
+      		tb.Background = System.Windows.Media.Brushes.Red
+    	End Sub
+    'Fires when Button loses focus, changing the color back to white
+    	Public Sub OnLostFocus(sender As object, args As System.Windows.Input.FocusChangedEventArgs)
+
+     		Dim tb As System.Windows.Controls.Button
+		tb = CType(sender, System.Windows.Controls.Button)
+      		tb.Background = System.Windows.Media.Brushes.White
+    	End Sub
+ ]]>
+  </def:Code>
+
+  <Button DockPanel.Dock="Top" Width="80" GotFocus="OnGotFocus"
+  LostFocus="OnLostFocus">Click Or Tab To Give Focus</Button>
+
+  <Button DockPanel.Dock="Top" Width="80" GotFocus="OnGotFocus"
+  LostFocus="OnLostFocus">Click Or Tab To Give Focus</Button>
+
+</DockPanel>

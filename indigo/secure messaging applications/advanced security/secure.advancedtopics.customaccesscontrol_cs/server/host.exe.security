@@ -1,0 +1,21 @@
+<securityData>
+    <credentials>
+        <userName id="mainUsers" nonceLength="24">
+            <memoryPasswordResolver>
+                <add user="JohnSmith" password="htimSnhoJ" />
+                <add user="BlueKelly" password="ylleKeulB" />
+            </memoryPasswordResolver>
+        </userName>
+    </credentials>
+    <authorizationData>
+        <memoryMapping id="mainAuthorizationData">
+            <globalEntries>                
+                <userNameRoleAssignment user="BlueKelly" roles="GoldMember" />
+                <userNameRoleAssignment user="JohnSmith" roles="SilverMember" />
+                <roleMapping xmlns:mbse="http://schemas.microsoft.com/mb/2003/01/security" 
+                    prerequisiteRoles="mbse:AnonymousUser" 
+                    derivedRoles="BronzeMember" />
+            </globalEntries>
+        </memoryMapping>
+    </authorizationData>
+</securityData>

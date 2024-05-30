@@ -1,0 +1,49 @@
+
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition">
+
+  <DockPanel.Resources>
+    <ObjectDataSource def:Name="NumberListDSO" TypeName="SDKSample.NumberList,ArrayListDataCollection_VB" />
+
+    <Style def:Name="NumberDataStyle">
+      <Style.VisualTree>
+        <Text TextContent="*Bind(Path=NLValue)"/>
+      </Style.VisualTree>
+    </Style>
+  </DockPanel.Resources>
+
+  <DockPanel ID="DPMain" Dock="Top" DataContext="*Bind(DataSource={NumberListDSO})">
+    <Text Foreground="Red" Width="250" DockPanel.Dock="Top">Click Odd or Even to Change List</Text>
+    <Button Click="btnOdd" Width="60" DockPanel.Dock="Left">Odd</Button>
+    <Button Click="btnEven" Width="60" DockPanel.Dock="Left">Even</Button>
+    <ListBox ItemStyle="{NumberDataStyle}" Width="40" DockPanel.Dock="Top">
+      <CollectionContainer Collection="*Bind()"/>
+    </ListBox>
+  </DockPanel>
+
+  <def:Code><![CDATA[
+    ' UI Event handler for btnOdd
+    Sub btnOdd(ByVal sender As object, ByVal e As System.Windows.Controls.ClickEventArgs)
+      Dim fe As FrameworkElement
+      Dim nl As NumberList
+
+      fe = sender
+      nl = fe.DataContext
+
+      ' Tell the NumberList to set itself to odd values.
+      nl.SetOdd()
+    End Sub
+
+    ' UI Event handler for btnEven
+    Sub btnEven(ByVal sender As object, ByVal e As System.Windows.Controls.ClickEventArgs)
+      Dim fe As FrameworkElement
+      Dim nl As NumberList
+
+      fe = sender
+      nl = fe.DataContext
+
+      ' Tell the NumberList to set itself to even values.
+      nl.SetEven()
+    End Sub
+  ]]></def:Code>
+
+</DockPanel>

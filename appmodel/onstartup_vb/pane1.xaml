@@ -1,0 +1,13 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="OnStartup_VB.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    Loaded="Init"
+    >
+  <Text Height="30"
+		     Margin="10,10,10,10"
+         DockPanel.Dock="Top"
+         ID="txtLabel"/>
+</FlowPanel>

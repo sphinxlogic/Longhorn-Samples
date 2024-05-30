@@ -1,0 +1,19 @@
+<FlowPanel xmlns="http://schemas.microsoft.com/2003/xaml"
+        xmlns:def="Definition">
+	<TextPanel>By clicking the button below, an attempt to discover the current directory is made.  Because full trust was requested in the security request and you chose to run this application, the operation is allowed to continue without an exception being raised.</TextPanel>
+	<Button Click="GetCurrentDirectory">Get the Current Directory</Button>
+	
+	<def:Code>
+	<![CDATA[
+
+        Private Sub GetCurrentDirectory(ByVal sender As Object, ByVal args As ClickEventArgs)
+            Try
+                ' This is not allowed without FileIOPermission
+                System.Windows.MessageBox.Show(System.Environment.CurrentDirectory)
+            Catch e As Exception
+			System.Windows.MessageBox.Show(e.ToString())
+            End Try
+        End Sub
+	]]>
+	</def:Code>
+</FlowPanel>

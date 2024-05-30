@@ -1,0 +1,9 @@
+<DockPanel   xmlns="http://schemas.microsoft.com/2003/xaml" Width="100%" Height="100%" Background="white"  >
+
+<!-- This is the ninegrid -->
+<Canvas Background="NineGrid data\image.png 10 10 10 10" Width="200" Height="200" Margin="10"/>
+
+<!-- View the app to see how this image is different than the ninegrid when it stretches -->
+<Canvas Background="Image data\image.png" Width="200" Height="200" Margin="10"/>
+
+</DockPanel>

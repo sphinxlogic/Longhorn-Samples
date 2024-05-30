@@ -1,0 +1,54 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{C393D596-8176-438B-B46B-934A2C4163BD}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="" />
+    <Property RootNamespace="LocationSampleApplication" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="LocationSampleApplication" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System.Location" HintPath="C:\WINDOWS\Microsoft.NET\Location\System.Location.dll" Name="System.Location" FusionName="System.Location, Version=6.0.4069.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="Root.cs" SubType="Code" />
+    <Item Type="Compile" Include="Query.cs" SubType="Code" />
+    <Item Type="Compile" Include="Monitor.cs" SubType="Code" />
+    <Item Type="Compile" Include="Context.cs" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

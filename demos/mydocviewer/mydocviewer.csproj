@@ -1,0 +1,34 @@
+<Project DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="MyDocViewerApp" />
+    <Property TargetName="MyDocViewer" />
+    <Property StrongNameKeyFile="target.snk" />
+    <Property ProductVersion="8.0.30703" />
+    <Property SchemaVersion="2.0" />
+    <Property SecurityManifest="Security.xml" />
+    <Property ProjectGuid="{1BA2F7C0-15C4-41CA-ACC7-03A6F8A4075B}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <!-- Aplication markup -->
+    <Item Type="ApplicationDefinition" Include="MyDocViewerapp.xaml" />
+    <Item Type="Compile" Include="MyDocViewerApp.xaml.cs" SubType="Code" />
+    <Item Type="Pages" Include="ListBoxUI.xaml" />
+    <Item Type="Compile" Include="ListBoxUI.xaml.cs" SubType="Code" />
+    <Item Type="Resources" Include="Sample4.xaml" FileStorage="Loose" />
+    <Item Type="Resources" Include="Sample5.xaml" FileStorage="Loose" />
+    <Item Type="Resources" Include="Sample6.xaml" FileStorage="Loose" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Resources" Include="Security.xml" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+<Project DefaultTargets="Build">
+  <!-- MSBUILD Project File -->
+	
+  <PropertyGroup>
+
+    <Property Language="C#" />
+		
+    <Property DefaultClrNameSpace="CuCu" />
+
+    <Property TargetName="DigSigUIDemoTest_wcp" />
+			
+    <Property HostInBrowser="True" />
+    <Property TargetType="Document" />
+    <Property Optimize="true" />
+    <Property Optimization="download" />		
+  </PropertyGroup>
+	
+  <!--Import the target file that contains all the common targets -->
+  <Import Project="$(LAPI)\WindowsDocument.target" />
+		
+  <ItemGroup>
+    <!-- Aplication Definition Markup File -->
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+
+    <!-- Compiled Xaml Files -->
+    <Item Type="Pages" Include="default.xaml" FileStorage="Linked" Sign="True" />
+  </ItemGroup>
+
+</Project>
+

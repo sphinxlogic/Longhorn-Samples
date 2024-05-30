@@ -1,0 +1,12 @@
+<NavigationApplication
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="WordGame1_vb.MyApp"
+    def:CodeBehind="MyApp.xaml.vb"
+    StartupUri="Pane1.xaml"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+    <NavigationApplication.Resources>
+
+    </NavigationApplication.Resources>
+</NavigationApplication>

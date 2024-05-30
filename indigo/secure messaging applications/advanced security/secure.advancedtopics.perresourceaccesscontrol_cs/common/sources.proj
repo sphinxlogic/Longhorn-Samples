@@ -1,0 +1,15 @@
+<Project DefaultTargets="common">
+   <Target Name="common">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="common.dll"
+                 References="system.dll;system.messagebus.dll;system.xml.dll"
+                 Sources="common.cs"
+                 TargetType="library" />
+      <Task Name="Exec"
+                 Command="copy common.dll ..\Client\" />
+      <Task Name="Exec"
+                 Command="copy common.dll ..\Server\" />
+
+   </Target>
+</Project>

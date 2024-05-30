@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="server">
+   <Target Name="server">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="server.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;..\common\common.dll"
+                 Sources="server.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

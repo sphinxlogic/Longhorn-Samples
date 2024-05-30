@@ -1,0 +1,7 @@
+<DockPanel xmlns="http://schemas.microsoft.com/2003/xaml">
+
+	<Text DockPanel.Dock="Left">Start Page    </Text>	
+	<HyperLink NavigateUri="Page2.xaml"
+				DockPanel.Dock="Left"
+                Margin="10,10,10,10">Go To Page 2</HyperLink>
+</DockPanel>

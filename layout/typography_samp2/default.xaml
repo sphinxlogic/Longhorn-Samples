@@ -1,0 +1,21 @@
+<Border ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  BorderBrush="#0055EA" 
+  BorderThickness="1,1,1,1"
+  Background="#FFF" 
+  Width="100%" 
+  Height="100%">
+
+<TextPanel  FontFamily="Palatino Linotype">
+    <Block FontSize="30" HorizontalAlignment="Center" Capitals="Titling">VISUAL C# .NET</Block>
+    <Block FontSize="30" HorizontalAlignment="Center">STEP BY STEP</Block>
+    <Block></Block>
+    <Block HorizontalAlignment="Center" Capitals="Titling">Sharp / Jagger</Block>
+    <Block></Block>
+    <Block HorizontalAlignment="Center" Capitals="Unicase">Microsoft Press</Block>
+    <Block HorizontalAlignment="Center" Capitals="Unicase">A Division of Microsoft Corporation</Block>
+    <Block HorizontalAlignment="Center" Capitals="AllSmallCaps">Redmond</Block>
+</TextPanel>
+
+</Border>

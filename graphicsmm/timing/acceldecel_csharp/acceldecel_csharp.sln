@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccelDecel_csharp", "AccelDecel_csharp.csproj", "{85841593-D84A-419C-9C2B-BACF0B8B6A48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85841593-D84A-419C-9C2B-BACF0B8B6A48}.Debug|.NET.ActiveCfg = Debug|.NET
+		{85841593-D84A-419C-9C2B-BACF0B8B6A48}.Debug|.NET.Build.0 = Debug|.NET
+		{85841593-D84A-419C-9C2B-BACF0B8B6A48}.Release|.NET.ActiveCfg = Release|.NET
+		{85841593-D84A-419C-9C2B-BACF0B8B6A48}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

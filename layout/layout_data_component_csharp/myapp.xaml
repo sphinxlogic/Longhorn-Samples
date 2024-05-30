@@ -1,0 +1,32 @@
+<NavigationApplication 
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  def:Class="ExpenseIt.MyApp"
+  StartupUri="Window1.xaml">
+  	<NavigationApplication.Resources>
+  <Style def:Name="BackgroundCanvasStyler">
+<Canvas DockPanel.Dock="Left" Width="230" Height="100" />
+  </Style>
+       <Style def:Name="BackgroundImageStyler">
+       	<Image Source="images/msn_watermark.png" />            
+  </Style>
+  <Style def:Name="BackgroundTextStyler">
+        <Text VerticalAlignment="Center"
+              FontFamily="Trebuchet MS"
+              FontWeight="Bold" 
+              FontSize="18pt" 
+              Foreground="#0066cc" />
+  </Style>
+  <Style def:Name="StandardGridStyler">
+        <GridPanel Columns="2" 
+                   DockPanel.Dock="Top" 
+                   Margin="0,5,40,5" 
+                   CellSpacing="10" />
+  </Style>  
+  <Style def:Name="LabelStyler">
+        <Text VerticalAlignment="Center" 
+              HorizontalAlignment="Right"/>
+  </Style>
+
+    </NavigationApplication.Resources>
+</NavigationApplication>

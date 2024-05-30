@@ -1,0 +1,34 @@
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition">
+
+    <def:Code>
+       <![CDATA[
+
+            protected override void OnStartingUp(StartingUpCancelEventArgs e)
+            {
+                // Setup the application window.
+                NavigationWindow window = new NavigationWindow();
+
+                window.CanResize = false;                
+
+                window.Text = "External Resources";
+
+                window.Width  = new Length(_width);
+                window.Height = new Length(_height);
+
+                // Show!
+                window.Show();
+
+                // Navigate to the startup page 
+                ((INavigator)window).Navigate(new Uri("Default.xaml", false, true));
+
+            }
+
+            private readonly int _width  = 500;
+            private readonly int _height = 300;
+   
+        ]]>
+    </def:Code>
+
+</NavigationApplication>
+

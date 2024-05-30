@@ -1,0 +1,22 @@
+<securityData>
+    <credentials>
+        <trustTestRoot id="stsX509TrustTestRoot">true</trustTestRoot>
+        <userName id="stsUsers" nonceLength="24">
+            <memoryPasswordResolver>
+                <add user="DeepPurple" password="rock" />
+            </memoryPasswordResolver>
+        </userName>
+    </credentials>
+    <authorizationData>
+        <memoryMapping id="requestSecurityTokenAuthorizationData">
+           <globalEntries>
+               <!-- Allow all authenticated users to send license requests -->
+               <roleMapping xmlns:mbse="http://schemas.microsoft.com/mb/2003/01/security"  prerequisiteRoles="mbse:AuthenticatedUser" derivedRoles="mbse:ValidLicenseRequestRole"/>
+           </globalEntries>
+           <resourceEntries name="soap.tcp://localhost:46000/HelloService/">
+               <userNameRoleAssignment user="DeepPurple"  roles="MBClient"/>
+               <x509RoleAssignment subject="CN=JoeIndigo" roles="MBClient"/>
+           </resourceEntries>               
+        </memoryMapping>
+    </authorizationData>
+</securityData>

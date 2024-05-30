@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<anc:Annotations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://schemas.microsoft.com/windows/annotations/2003/11/core"
+    xmlns:anc="http://schemas.microsoft.com/windows/annotations/2003/11/core"
+    xmlns:anb="http://schemas.microsoft.com/windows/annotations/2003/11/base">
+
+  <anc:Annotation Id="51d1db66-f23a-427b-99c3-2a75e9fd5cfa"
+      Created="2004-03-17T15:44:23.0566195-08:00"
+      Updated="2004-03-17T15:44:23.0566195-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>TextBox</anb:UniqueId>
+        <anb:CharacterRange Offset="133" Length="211" />
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Here's an annotation.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="0aacf936-67fc-4173-a1a1-ded808afbfd8"
+      Created="2004-03-17T15:44:28.9208127-08:00"
+      Updated="2004-03-17T15:44:28.9208127-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>TextBox</anb:UniqueId>
+        <anb:CharacterRange Offset="743" Length="220" />
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>Here's another annotation.</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+  <anc:Annotation Id="9ada9317-4ed5-4dd9-98b6-f4c5707d2830"
+      Created="2004-03-17T15:44:37.1881160-08:00"
+      Updated="2004-03-17T15:44:37.1881160-08:00"
+      Type="anc:MiniNote">
+    <anc:Anchor ResourceId="00000000-0000-0000-0000-000000000000">
+      <anc:Locator Id="00000000-0000-0000-0000-000000000000">
+        <anb:UniqueId>TextBox</anb:UniqueId>
+        <anb:CharacterRange Offset="1129" Length="219" />
+      </anc:Locator>
+    </anc:Anchor>
+    <anc:Cargo ResourceId="00000000-0000-0000-0000-000000000000">
+      <TextNote>and another annotation...</TextNote>
+    </anc:Cargo>
+  </anc:Annotation>
+
+</anc:Annotations>

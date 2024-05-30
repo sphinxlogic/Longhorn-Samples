@@ -1,0 +1,215 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The Core Messaging \ Datagram Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>Datagram Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem is code-named "Indigo". The Datagram sample
+demonstrates a very simple application that uses the core messaging infrastructure
+to communicate.&nbsp; This sample has two components: the DatagramClient and
+the DatagramService.&nbsp; The DatagramClient reads lines from user input and
+sends them to the DatagramService inside a SOAP message.&nbsp; The
+DatagramService processes incoming messages and writes the received lines to
+the console.</span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Configuring a
+SendChannel (DatagramClient):</span></b></p>
+
+<pre>        this.sendChannel = port.CreateSendChannel(serviceUri);</pre>
+
+<p><span style='font-family:Arial'>Construct a send channel that is targeted to
+the DatagramService's address.&nbsp; Messages sent on this send channel will be
+addressed to the DatagramService.</span></p>
+
+<p><b><span style='font-family:Arial'>Building a Message (DatagramClient):</span></b></p>
+
+<pre>        // Create a new message w/ the correct SOAP action and user-input.</pre><pre>        Uri datagramAction = new Uri(&quot;http://schemas.microsoft.com/MB/2003/06/Samples/CoreMessaging/Datagram&quot;);</pre><pre>        Message message = new Message(datagramAction, text);</pre>
+
+<p><span style='font-family:Arial'>A <b>Message</b> is composed of a set of
+SOAP headers and a body.&nbsp; The Action header describes how the message body
+should be interpreted.  Here, it states that this is a datagram message by
+setting the Action header to </span><span style='font-family:"Courier New"'>http://schemas.microsoft.com/MB/2003/06/Samples/CoreMessaging/Datagram</span><span
+style='font-family:Arial'>.&nbsp;&nbsp; The string text is inserted into the
+body of the SOAP message.</span></p>
+
+<p><b><span style='font-family:Arial'>Sending a Message (DatagramClient):</span></b></p>
+
+<pre>&nbsp;</pre><pre>        // Send the message.</pre><pre>        sendChannel.Send(message);</pre>
+
+<p><span style='font-family:Arial'>Here, the message is pushed into the send
+channel.&nbsp; At this point, the send channel takes care of sending the
+message to the DatagramService.&nbsp; Note that after calling Send, it is an
+error to inspect the <b>Message</b> object or to call <b>Message.Close</b>().</span></p>
+
+<p><b><span style='font-family:Arial'>Building a MessageHandler
+(DatagramService):</span></b></p>
+
+<pre>        private class DatagramMessageHandler : SyncMessageHandler</pre>
+
+<p><span style='font-family:Arial'>The message-processing model centers around
+the <b>IMessageHandler </b>interface.&nbsp; Classes that implement this
+interface are considered message handlers, and are required to expose the <b>ProcessMessage</b>
+method.&nbsp; Here a <b>DatagramMessageHandler</b> is built, which processes
+datagram messages.&nbsp; </span></p>
+
+<p><b><span style='font-family:Arial'>Configuring a ReceiveChannel
+(DatagramService):</span></b></p>
+
+<pre>        // Create and hook-up your MessageDispatcher</pre><pre>        this.dispatcher = new MessageDispatcher();</pre><pre>        port.ReceiveChannel.Handler = this.dispatcher;</pre><pre>&nbsp;</pre><pre>        // Construct the Filtering code necessary to switch based upon Message.Action.</pre><pre>        XmlNamespaceManager namespaceManager = new XmlNamespaceManager(new NameTable());</pre><pre>        namespaceManager.AddNamespace(&quot;env&quot;, &quot;http://www.w3.org/2001/12/soap-envelope&quot;);</pre><pre>        namespaceManager.AddNamespace(&quot;wsa&quot;, &quot;http://schemas.xmlsoap.org/ws/2002/12/addressing&quot;);</pre><pre>&nbsp;</pre><pre>        // Register your handlers with the MessageDispatcher </pre><pre>        XPathFilter datagramMessageFilter = new XPathFilter(&quot;/env:Envelope/env:Header/wsa:Action='&quot; + DatagramMessageHandler.Action + &quot;'&quot;, namespaceManager);</pre><pre>        this.dispatcher.Add(datagramMessageFilter, new DatagramMessageHandler(port));</pre>
+
+<p><span style='font-family:Arial'>A Message that arrives at a Port and is not
+consumed by a PortExtension will reach the ReceiveChannel's handler.&nbsp; One
+must ensure that one processes only those messages that one understands.&nbsp;
+This may be accomplished by using the <b>MessageDispatcher</b> class, which
+applies a set of filters against incoming messages and routes them to <b>IMessageHandlers</b>,
+as appropriate.&nbsp; In the above example, a filter is added that states:
+&quot;For all messages where the action is </span><span style='font-family:
+"Courier New"'>http://schemas.microsoft.com/MB/2003/06/Samples/CoreMessaging/Datagram</span><span
+style='font-family:Arial'> , call <b>DatagramMessageHandler</b>.&quot;</span></p>
+
+<pre><b><span style='font-size:12.0pt;font-family:Arial'>Processing the Message (DatagramService):</span></b></pre><pre>&nbsp;</pre><pre>        // Read the message body as a string.</pre><pre>        string text = (string) message.Content.GetObject(typeof(string));</pre><pre>&nbsp;</pre><pre><span
+style='font-size:12.0pt;font-family:Arial'>Inside DatagramMessageHandler, the ProcessMessage() implementation is relatively simple.  The body of the message is retrieved and stored in a string object. </span></pre>
+
+<h3><a name="#Building"></a><span style='font-family:Arial'>Building</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>Open the <b>Longhorn Build
+     Environment</b> console window (click <b>Start</b>, click <b>All Programs</b>,
+     click&nbsp;<b>Microsoft Longhorn SDK</b>, click <b>Open Build Environment
+     Window</b>, and click <b>Longhorn Build Environment</b>).</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Navigate to the directory
+     where this readme is located.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and
+     press ENTER.</span></li>
+</ol>
+
+<h3><a name="#Running"></a><span style='font-family:Arial'>Running</span></h3>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><span style='font-family:Arial'>Run DatagramService.exe in
+     one window.&nbsp; DatagramService will now be listening for messages on
+     the stated Uri.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Run DatagramClient.exe in
+     a separate window.</span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Once DatagramClient
+     prompts you to enter a message, input text to send it to the server. </span></li>
+ <li class=MsoNormal><span style='font-family:Arial'>Press ENTER to quit either
+     the client or the server.</span></li>
+</ol>
+
+<p><b><span style='font-family:Arial'>Note:</span></b></p>
+
+<p><span style='font-family:Arial'>If your computer is attached to a workgroup
+but is not attached to a Microsoft Windows domain, this sample will fail unless
+you modify your Machine.config file.&nbsp; For instructions, see</span> <span
+style='font-family:Arial'>&quot;Enabling "Indigo" Security&nbsp;within a
+Workgroup&quot; in the Longhorn SDK readme</span>.</p>
+
+<p><span style='font-family:Arial'>--</span></p>
+
+</div>
+
+</body>
+
+</html>

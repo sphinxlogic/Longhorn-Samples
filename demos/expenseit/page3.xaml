@@ -1,0 +1,31 @@
+<?Mapping XmlNamespace="app" ClrNamespace="ExpenseItApp" Assembly="ExpenseItUtilitiesDLL" ?>
+<!-- Temporary:  Width="100%" should not need to be specified in the root element; Window needs to change  -->
+<!--             from implicitly containing a DockPanel to explicitly containing one child for its content -->
+<DockPanel
+        xmlns="http://schemas.microsoft.com/2003/xaml"
+        xmlns:def="Definition"
+		Width="100%"
+        def:Class="ExpenseItApp.Page3"
+        def:CodeBehind="Page3.xaml.cs"
+		Style="{PageBackground}"
+		DataContext="{ExpenseData}"
+        >
+	<FlowPanel DockPanel.Dock="Top" Style="{TitleBarFlow}">
+		<HyperLink ID="NAV_BACK" Click="Navigate" Cursor="Hand"><Image Source="images\back_button.png"    /></HyperLink>
+		<HyperLink ID="NAV_FWD"  Click="Navigate" Cursor="Hand"><Image Source="images\forward_button.png" /></HyperLink>
+		<Text Style="{AppTitle}">ExpenseIt!</Text>
+	</FlowPanel>
+	<DockPanel DockPanel.Dock="Top">
+		<Canvas DockPanel.Dock="Left" Style="{WatermarkCanvas}">
+			<Image Style="{BackgroundImage}" />
+			<Image Style="{WatermarkImage}" />
+		</Canvas>
+		<Text DockPanel.Dock="Fill" Style="{TitleText}">Expense Chart</Text>
+	</DockPanel>
+	<Border DockPanel.Dock="Left" Style="{Page2Spacer}" />
+
+	<FlowPanel DockPanel.Dock="Fill">
+			<!-- Custom Chart Control -->
+			<Chart xmlns="app" ChartType="Bar"/>
+	</FlowPanel>
+</DockPanel>

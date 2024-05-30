@@ -1,0 +1,10 @@
+<NavigationApplication xmlns="http://schemas.microsoft.com/2003/xaml/"
+                        xmlns:def="Definition"
+                        def:CodeBehind="App.xaml.cs"
+                        def:Class="WCSample.AppEvents"
+						StartupUri="Default.xaml"
+						StartingUp="OnStartup"
+						ShuttingDown="OnShutdown"
+						Activate="OnActivate"
+						Deactivate="OnDeactivate"
+						SessionEnding="OnSessionEnd"/>

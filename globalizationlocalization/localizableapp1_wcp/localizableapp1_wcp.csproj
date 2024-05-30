@@ -1,0 +1,30 @@
+<Project DefaultTargets="Build">
+  <!--Imports the target which contains all the common targets-->
+  <PropertyGroup>
+    <Property Language="C#" />
+    <Property DefaultClrNameSpace="SimpleApp" />
+    <Property TargetName="SimpleLocalizableApp1_wcp" />
+    <Property Optimization="Download" />
+    <Property DefaultCulture="en-US" />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{458F0C26-CB17-4EBC-B717-04C640B02ADB}" />
+  </PropertyGroup>
+  <Import Project="$(LAPI)\WindowsApplication.target" />
+  <ItemGroup>
+    <Item Type="ApplicationDefinition" Include="app.xaml" />
+    <Item Type="Pages" Include="page1.xaml" />
+    <Item Type="Compile" Include="page1.xaml.cs" SubType="Code" />
+    <Item Type="Compile" Include="app.xaml.cs" SubType="Code" />
+    <Item Type="CLRResources" Include="data\stringtable.txt" />
+    <Item Type="Resources" Include="data\picture1.jpg" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

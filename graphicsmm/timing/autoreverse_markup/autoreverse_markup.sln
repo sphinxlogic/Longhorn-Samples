@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReverse_markup", "AutoReverse_markup.csproj", "{63B6D627-FAA6-44BA-B302-6407022104C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63B6D627-FAA6-44BA-B302-6407022104C3}.Debug|.NET.ActiveCfg = Debug|.NET
+		{63B6D627-FAA6-44BA-B302-6407022104C3}.Debug|.NET.Build.0 = Debug|.NET
+		{63B6D627-FAA6-44BA-B302-6407022104C3}.Release|.NET.ActiveCfg = Release|.NET
+		{63B6D627-FAA6-44BA-B302-6407022104C3}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

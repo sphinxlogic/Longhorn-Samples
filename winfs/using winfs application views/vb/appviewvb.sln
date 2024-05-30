@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AppView", "AppView\AppView.vbproj", "{C5F927C1-9C64-43FE-A3F2-F4EAE7A7F864}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5F927C1-9C64-43FE-A3F2-F4EAE7A7F864}.Debug|.NET.ActiveCfg = Debug|.NET
+		{C5F927C1-9C64-43FE-A3F2-F4EAE7A7F864}.Debug|.NET.Build.0 = Debug|.NET
+		{C5F927C1-9C64-43FE-A3F2-F4EAE7A7F864}.Release|.NET.ActiveCfg = Release|.NET
+		{C5F927C1-9C64-43FE-A3F2-F4EAE7A7F864}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

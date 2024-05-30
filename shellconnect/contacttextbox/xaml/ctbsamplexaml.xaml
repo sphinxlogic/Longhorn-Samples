@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  This file is part of the Microsoft .NET Framework SDK Code Samples.
+ 
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+ 
+This source code is intended only as a supplement to Microsoft
+Development Tools and/or on-line documentation.  See these other
+materials for detailed information regarding Microsoft code samples.
+ 
+THIS CODE AND INFORMATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+-->
+
+<?Mapping XmlNamespace="ContactControls" ClrNamespace="System.Windows.Controls" Assembly="System.Windows.Contacts,Version=6.0.3708.0,Culture=neutral,PublicKeyToken=a29c01bbd4e39ac5" ?>
+
+<DockPanel
+  xmlns="http://schemas.microsoft.com/2005/xaml"
+  xmlns:X="ContactControls"
+  xmlns:def="Definition"
+  def:Class="Microsoft.Samples.Communications.CTBSample">
+
+  <X:ContactTextBox
+    DockPanel.Dock="Top"
+    Height="50px"
+    Margin="5px" />
+
+  <TextBox
+    DockPanel.Dock="Bottom"
+    IsReadOnly="True"
+    Text="Click here and wait to activate Background resolution!"
+    Height="50px"
+    Margin="5px" />
+
+</DockPanel>
+

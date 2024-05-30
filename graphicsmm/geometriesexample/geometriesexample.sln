@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometriesExample", "GeometriesExample.csproj", "{93294243-B5BA-48A5-9E01-FE87732203EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{93294243-B5BA-48A5-9E01-FE87732203EA}.Debug.ActiveCfg = Debug|.NET
+		{93294243-B5BA-48A5-9E01-FE87732203EA}.Debug.Build.0 = Debug|.NET
+		{93294243-B5BA-48A5-9E01-FE87732203EA}.Release.ActiveCfg = Release|.NET
+		{93294243-B5BA-48A5-9E01-FE87732203EA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

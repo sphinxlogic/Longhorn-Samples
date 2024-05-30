@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slider_wcp", "Slider_wcp.csproj", "{83E4D754-D482-49B4-B4B7-3F30B39E923B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83E4D754-D482-49B4-B4B7-3F30B39E923B}.Debug|.NET.ActiveCfg = Debug|.NET
+		{83E4D754-D482-49B4-B4B7-3F30B39E923B}.Debug|.NET.Build.0 = Debug|.NET
+		{83E4D754-D482-49B4-B4B7-3F30B39E923B}.Release|.NET.ActiveCfg = Release|.NET
+		{83E4D754-D482-49B4-B4B7-3F30B39E923B}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

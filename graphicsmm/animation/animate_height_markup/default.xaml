@@ -1,0 +1,37 @@
+<!-- Description
+*
+*	This Sample shows a Rectangle Element with Gradient Fill and an Animated Height
+*
+-->
+ 
+
+<DockPanel ID="root" xmlns="http://schemas.microsoft.com/2003/xaml" xmlns:def="Definition">
+
+	<!-- Create a Rectangle -->
+	
+    <Rectangle Width="200" Height="200">
+
+		<!-- Set the Rectangle Fill Property with a LinearGradientBrush -->    
+		
+	  	<Rectangle.Fill>
+	        <LinearGradientBrush StartPoint="0,0" SpreadMethod="Pad" EndPoint="0,1" MappingMode="RelativeToBoundingBox">
+				<LinearGradientBrush.GradientStops>
+				    <GradientStopCollection>
+					    <GradientStop Offset="0" Color="red" />
+						<GradientStop Offset="0.5" Color="green" />
+						<GradientStop Offset="0.9074074" Color="blue" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+		</Rectangle.Fill>
+
+		<!-- Apply an animation to the RectangleHeight property. -->
+		
+		<Rectangle.Height>
+		  	<LengthAnimation From="0" To="100" AutoReverse="true" RepeatDuration="50" Begin="0.5" Duration="2"/>
+		</Rectangle.Height>
+		
+  </Rectangle>
+  
+</DockPanel>
+

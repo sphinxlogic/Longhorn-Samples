@@ -1,0 +1,17 @@
+<Application 
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="animateproperty_mcpp.MyAppBase"
+    def:SubClass="animateproperty_mcpp.MyApp"
+    def:CodeBehind="MyApp.xaml.h"
+    StartingUp="AppStartingUp"
+    >
+    <!-- Resources & Styles defined in this section will impact the entire application.  -->
+    <Application.Resources>
+        <!-- 
+        <Style>
+            <Button Foreground="Green" />
+        </Style>
+        -->
+    </Application.Resources>
+</Application>

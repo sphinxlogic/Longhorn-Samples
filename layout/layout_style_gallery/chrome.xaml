@@ -1,0 +1,83 @@
+<!-- Description
+*
+*	This Sample shows a Rectangle Element with Gradient Fill and an Animated Height
+*
+-->
+
+<?Mapping XmlNamespace="anim" ClrNamespace="System.Windows.Media.Animation" Assembly="PresentationFramework" ?>
+<?Mapping XmlNamespace="media" ClrNamespace="System.Windows.Media" Assembly="PresentationCore" ?>      
+
+<DockPanel ID="root" xmlns="http://schemas.microsoft.com/2003/xaml/" xmlns:def="Definition" Width="100%">
+	<!-- Width="100%" is WCP Task: 13866 -->
+	<DockPanel.Resources>
+		<Style def:Name="HeadingText">
+			<Text FontSize="24" HorizontalAlignment="Right" Margin="5" FontFamily="Verdana" FontWeight="Bold" />
+		</Style>
+		<Style def:Name="HeadingBorder">
+			<Border DockPanel.Dock="Top">
+				<Border.Background>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+						<LinearGradientBrush.GradientStops>
+							<GradientStop Color="#000099" Offset="0.1" />
+							<GradientStop Color="#9999FF" Offset="0.9" />
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+				</Border.Background>
+			</Border>
+		</Style>
+		<Style def:Name="NavBorder">
+			<Border DockPanel.Dock="Left" Background="LightYellow">
+				<Border.Background>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<LinearGradientBrush.GradientStops>
+							<GradientStop Color="#FFFFCC" Offset="0.1" />
+							<GradientStop Color="#EEEEBB" Offset="0.9" />
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+				</Border.Background>
+			</Border>
+		</Style>
+		<Style def:Name="NavGrid">
+			<GridPanel Columns="1" Margin="5" />
+		</Style>
+		<Style def:Name="ContentBorder">
+			<Border DockPanel.Dock="Fill">
+				<Border.Background>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<LinearGradientBrush.GradientStops>
+							<GradientStop Color="#FFFFFF" Offset="0.1" />
+							<GradientStop Color="#EEEEEE" Offset="0.9" />
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+				</Border.Background>
+			</Border>
+		</Style>
+		<Style def:Name="CFrame">
+			<Frame Margin="5" />
+		</Style>
+		<Style>
+			<HyperLink Cursor="Hand" Target="ContentFrame" FontFamily="Verdana" Margin="1,1,1,5" FontSize="14"/>
+		</Style>
+	</DockPanel.Resources>
+
+
+	<Border Style="{HeadingBorder}"><Text Style="{HeadingText}">Layout Samples</Text></Border>
+
+	<Border Style="{NavBorder}">
+		<GridPanel Style="{NavGrid}">
+			<HyperLink NavigateUri="intro.xaml">Introduction</HyperLink>
+			<HyperLink NavigateUri="Canvas.xaml">Canvas</HyperLink>
+			<HyperLink NavigateUri="FlowPanel.xaml">FlowPanel</HyperLink>
+			<HyperLink NavigateUri="GridPanel.xaml">GridPanel</HyperLink>
+			<HyperLink NavigateUri="DockPanel.xaml">DockPanel</HyperLink>
+			<HyperLink NavigateUri="TextPanel.xaml">TextPanel</HyperLink>
+			<HyperLink NavigateUri="Table.xaml">Table</HyperLink>
+			<HyperLink NavigateUri="Border.xaml">Border</HyperLink>
+			<HyperLink NavigateUri="TransformDecorator.xaml">TransformDecorator</HyperLink>
+		</GridPanel>
+	</Border>
+
+	<Border Style="{ContentBorder}">
+		<Frame ID="ContentFrame" Style="{CFrame}" Source="intro.xaml" />
+	</Border>
+</DockPanel>

@@ -1,0 +1,55 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{D46CC727-9FDD-409A-B3E9-242D43BBB35A}" />
+    <Property OutputType="Library" />
+    <Property StartupObject="" />
+    <Property RootNamespace="LocationSampleProvider" />
+    <Property NoStandardLibraries="false" />
+    <Property AssemblyName="LocationSampleProvider" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property Optimize="false" />
+    <Property OutputPath=".\bin\Debug\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="DEBUG;TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property Optimize="true" />
+    <Property OutputPath=".\bin\Release\" />
+    <Property EnableUnmanagedDebugging="false" />
+    <Property DefineConstants="TRACE" />
+    <Property WarningLevel="4" />
+    <Property IncrementalBuild="false" />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_FAE04EC0_301F_11D3_BF4B_00C04F79EFBC />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.dll" Name="System" FusionName="System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Data" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.Data.dll" Name="System.Data" FusionName="System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=x86" SpecificVersion="True" />
+    <Item Type="Reference" Include="System.Location" HintPath="C:\WINDOWS\Microsoft.NET\Location\System.Location.dll" Name="System.Location" FusionName="System.Location, Version=6.0.4069.0, Culture=neutral, PublicKeyToken=365143bb27e7ac8b, ProcessorArchitecture=MSIL" SpecificVersion="False" />
+    <Item Type="Reference" Include="System.XML" HintPath="C:\WINDOWS\Microsoft.NET\Framework\v2.0.31113\System.XML.dll" Name="System.XML" FusionName="System.Xml, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, ProcessorArchitecture=MSIL" SpecificVersion="True" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.cs" SubType="Code" />
+    <Item Type="Compile" Include="SampleProvider.cs" SubType="Code" />
+    <Item Type="Compile" Include="SimDevice.cs" SubType="Code" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+
+<Project DefaultTargets="echoclient;echoservice">
+   <Target Name="echoclient">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="echoclient.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="echoclient.cs"
+                 TargetType="exe" />
+
+   </Target>
+
+   <Target Name="echoservice">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="echoservice.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="echoservice.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

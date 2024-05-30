@@ -1,0 +1,19 @@
+<DockPanel ID="ParentElement"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <Button DockPanel.Dock="Top" Click="OnClick">1</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">2</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">3</Button>
+  <Button DockPanel.Dock="Top" Click="OnClick">4</Button>
+
+  <def:Code>
+  <![CDATA[
+    Public Sub OnClick(sender As object, e As System.Windows.Controls.ClickEventArgs)
+    
+      'Remove the first child (Button) of the DockPanel
+      ParentElement.Children.RemoveAt(0)
+    End Sub
+  ]]>
+  </def:Code>
+</DockPanel>

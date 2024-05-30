@@ -1,0 +1,20 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="Slider_wcp.Pane1"
+    def:CodeBehind="Pane1.xaml.cs" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+     
+    
+    <Text Canvas.Top="2" Canvas.Left="2">Horizontal Slider</Text>
+	<HorizontalSlider Width="150" Value="0" Canvas.Top="25"/>
+    <Text Canvas.Top="50" Canvas.Left="10">Vertical Slider</Text>
+	<VerticalSlider Height="150" Value="150" Canvas.Top="70"/>
+
+
+</FlowPanel>
+
+

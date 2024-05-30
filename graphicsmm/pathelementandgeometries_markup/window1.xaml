@@ -1,0 +1,181 @@
+<Window  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="PathElementAndGeometries_markup.Window1"
+    def:CodeBehind="Window1.xaml.cs" 
+    Text="PathElementAndGeometries_markup" Visible="True"
+    >
+    <Window.Resources>
+		<Style>
+			<Canvas Background="White"></Canvas>
+		</Style>
+		<Style>
+            <Text Foreground="Black" FontFamily="Verdana" FontSize="18"
+                HorizontalAlignment="Right" />
+        </Style>
+    </Window.Resources>
+   
+   <FlowPanel DockPanel.Dock="Fill">
+      <ScrollViewer Background="Blue" DockPanel.Dock="Fill" >
+        <GridPanel DockPanel.Dock="Fill" Background="LightGray" CellSpacing="10" Columns="2">
+            <Text>Line</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,50" />
+												<LineSegment Point="200,70"/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path>
+            </Canvas>
+        
+            <Text>Horizontal Line</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,50" />
+												<LineSegment Point="200,50"/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path> 
+            </Canvas>
+        
+            <Text>Vertical Line</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,50" />
+												<LineSegment Point="10,200"/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path>  
+            </Canvas>
+        
+            <Text>Cubic Bezier Curve</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,100" />
+												<BezierSegment Point1="100,0" Point2="200,200" Point3="300,100"/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path> 
+            </Canvas>
+        
+            <Text>Quadratic Bezier Curve</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,100" />
+												<QuadraticBezierSegment Point1="200,200" Point2="300,100"/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path>  
+            </Canvas>
+        
+            <Text>Elliptical Arc</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,100" />
+												<ArcSegment Size="100,50" XRotation="45" 
+													LargeArc="True" SweepFlag="False" 
+													Point="200,100"/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path>  
+                </Canvas>
+        
+            <Text>Close Path Command</Text>
+            <Canvas>
+                <Path Stroke="Black" StrokeThickness="1">
+					<Path.Data>
+						<PathGeometry>
+							<PathGeometry.Figures>
+								<PathFigureCollection>
+									<PathFigure>
+										<PathFigure.Segments>
+											<PathSegmentCollection>
+												<StartSegment Point="10,100" />
+												<LineSegment Point="100,100"/>
+												<LineSegment Point="100,50"/>
+												<CloseSegment/>
+											</PathSegmentCollection>
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathFigureCollection>
+							</PathGeometry.Figures>
+						</PathGeometry>
+					</Path.Data>
+                </Path>
+            </Canvas> 
+        </GridPanel>
+    </ScrollViewer>
+    </FlowPanel>
+</Window>

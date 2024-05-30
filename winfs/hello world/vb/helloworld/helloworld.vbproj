@@ -1,0 +1,62 @@
+<Project MSBuildVersion="1.0" DefaultTargets="Build">
+  <PropertyGroup>
+    <Property Configuration="Debug" Condition=" '$(Configuration)' == '' " />
+    <Property ProductVersion="8.0.31113" />
+    <Property SchemaVersion="2.0" />
+    <Property ProjectGuid="{6921DA41-F571-4144-8D11-91412AB2908B}" />
+    <Property OutputType="Exe" />
+    <Property StartupObject="Microsoft.Samples.WinFS.HelloWorld" />
+    <Property RootNamespace="Microsoft.Samples.WinFS" />
+    <Property AssemblyName="HelloWorld" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Property DebugSymbols="true" />
+    <Property DefineDebug="true" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="HelloWorld.xml" />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Property DebugSymbols="false" />
+    <Property DefineDebug="false" />
+    <Property DefineTrace="true" />
+    <Property IncrementalBuild="false" />
+    <Property Optimize="true" />
+    <Property OutputPath="bin\" />
+    <Property DocumentationFile="HelloWorld.xml" />
+  </PropertyGroup>
+  <ItemGroup>
+    <Item Type="Reference" Include="System" Name="System" />
+    <Item Type="Reference" Include="System.Data" Name="System.Data" />
+    <Item Type="Reference" Include="System.Xml" Name="System.XML" />
+    <Item Type="Reference" Include="System.Storage.WinFS" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.WinFS.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.WinFS" />
+    <Item Type="Reference" Include="System.Storage.Contacts" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Contacts.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Contacts" />
+    <Item Type="Reference" Include="WindowsBase" HintPath="C:\WINDOWS\Microsoft.NET\Windows\v6.0.4030\WindowsBase.dll" Name="WindowsBase" />
+    <Item Type="Reference" Include="System.Storage.Core" HintPath="C:\WINDOWS\system32\WinFS\API\System.Storage.Core.dll" AssemblyFolderKey="hklm\dn\winfsapiassemblies" Name="System.Storage.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Import" Include="Microsoft.VisualBasic" />
+    <Item Type="Import" Include="System" />
+    <Item Type="Import" Include="System.Collections" />
+    <Item Type="Import" Include="System.Data" />
+    <Item Type="Import" Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Item Type="Compile" Include="AssemblyInfo.vb" SubType="Code" />
+    <Item Type="Compile" Include="HelloWorldModule.vb" SubType="Code" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\VisualBasic.Targets" />
+  <PropertyGroup>
+    <Property PreBuildEvent="" />
+    <Property PostBuildEvent="" />
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <CommonProperties>
+        <FL_F184B08F_C81C_45F6_A57F_5ABD9991F28F />
+      </CommonProperties>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

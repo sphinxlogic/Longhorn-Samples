@@ -1,0 +1,23 @@
+<Project DefaultTargets="HelloService;Host">
+   <Target Name="HelloService">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="HelloService.dll"
+                 References="system.messagebus.dll;system.dll"
+                 Sources="HelloService.cs"
+                 TargetType="library" />
+
+      <Task Name="Exec"
+          Command="wsdlgen /nologo HelloService.dll" />
+
+   </Target>
+
+   <Target Name="Host">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="host.exe"
+                 References="system.messagebus.dll;system.dll;helloservice.dll"
+                 Sources="host.cs"
+                 TargetType="exe" />
+   </Target>
+</Project>

@@ -1,0 +1,55 @@
+<DockPanel ID="root"
+  xmlns="http://schemas.microsoft.com/2003/xaml">
+
+    <!-- Shape with no transformation -->
+    <Polyline ID="box1" 
+    Stroke="black" 
+    StrokeThickness="5" 
+    Points="0,0 10,10 10,50 50,50 50,10 10,10" />
+    
+    <!-- Translation only -->
+    <TransformDecorator AffectsLayout="false">
+	<TransformDecorator.Transform>
+		<TransformCollection >
+			<TranslateTransform X="100" Y="100" />
+		</TransformCollection>
+	</TransformDecorator.Transform>
+    <Polyline ID="box2" 
+    Stroke="red"
+    StrokeThickness="5" 
+    Points="0,0 10,10 10,50 50,50 50,10 10,10">
+	</Polyline>
+	</TransformDecorator>
+	
+    <!-- Rotate at origin, then translate -->
+	<TransformDecorator AffectsLayout="false">
+	<TransformDecorator.Transform>
+		<TransformCollection >
+			<RotateTransform Center="0 0" Angle="-30" />
+			<TranslateTransform X="100" Y="100" />
+		</TransformCollection>
+	</TransformDecorator.Transform>
+    <Polyline ID="box3" 
+    Stroke="blue" 
+    StrokeThickness="5" 
+    Points="0,0 10,10 10,50 50,50 50,10 10,10">
+	</Polyline>
+	</TransformDecorator>
+    
+    <!-- Translate, then rotate the new coordinate system (note the different
+    element position) -->
+	<TransformDecorator AffectsLayout="false">
+	<TransformDecorator.Transform>
+		<TransformCollection >
+			<TranslateTransform X="100" Y="100" />
+			<RotateTransform Center="0 0" Angle="-30" />
+		</TransformCollection>
+	</TransformDecorator.Transform>
+    <Polyline ID="box4" 
+    Stroke="orange" 
+    StrokeThickness="5" 
+    Points="0,0 10,10 10,50 50,50 50,10 10,10">
+	</Polyline>
+	</TransformDecorator>
+
+</DockPanel>

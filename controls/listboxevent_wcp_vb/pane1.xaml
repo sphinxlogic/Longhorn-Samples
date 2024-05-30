@@ -1,0 +1,20 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<FlowPanel  
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="ListBoxEvent_wcp_vb.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+    
+    <ListBox SelectionChanged="PrintText" Height="75">
+      <ListItem>Item 1</ListItem>
+      <ListItem>Item 2</ListItem>
+      <ListItem>Item 3</ListItem>
+      <ListItem>Item 4</ListItem>
+      <ListItem>Item 5</ListItem>
+   </ListBox>
+   <TextBox ID="tb" Width="140" Height="20"></TextBox>
+
+
+</FlowPanel>

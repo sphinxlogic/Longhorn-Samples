@@ -1,0 +1,42 @@
+<BoolWrapperPageFunction xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+           def:CodeBehind="Task2.xaml.cs"
+           def:Class="WCSample.Task2">
+
+	<DockPanel>
+    <Border Background="LightGray">
+	<DockPanel DockPanel.Dock="Left">
+		<Text FontSize="14"
+				FontWeight="Bold"
+				Margin="10,20,10,10">Some Explanatory Text</Text>
+	</DockPanel>
+	</Border>
+	
+	<DockPanel DockPanel.Dock="Left">
+		<Text DockPanel.Dock="Top"
+				ID="SomeText"
+				FontSize="14"
+				FontWeight="Bold"
+				Margin="10,20,10,10">Task 2: True or False?</Text>
+				
+    <RadioButtonList DockPanel.Dock="Top">
+      <RadioButton ID="rdbtnTrue">True</RadioButton>
+      <RadioButton ID="rdbtnFalse">False</RadioButton>
+    </RadioButtonList>	
+			
+		<Button DockPanel.Dock="Top"
+				Margin="10,20,10,10"
+				ID="done"
+				Click="NextTask"
+				Height="25"
+				Width="100">Done</Button>
+				
+		<Button DockPanel.Dock="Top"
+				Margin="10,20,10,10"
+				ID="back"
+				Click="NextTask"
+				Height="25"
+				Width="100">Back</Button>
+    </DockPanel>
+    </DockPanel>
+</BoolWrapperPageFunction>

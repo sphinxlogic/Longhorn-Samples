@@ -1,0 +1,14 @@
+<!-- Typically, the root element will be one of the Panels: Canvas, DockPanel, FlowPanel, GridPanel, Table, TextPanel -->
+<Canvas
+    xmlns="http://schemas.microsoft.com/2003/xaml"
+    xmlns:def="Definition"
+    def:Class="CheckBoxImage_wcp_vb.Pane1"
+    def:CodeBehind="Pane1.xaml.vb" 
+    >
+    <!--  The namespace + class name in the codebehind file and the def:Class attribute in the root of this document, must stay identical.  You can change them, but you must keep them in sync. -->
+        
+    <CheckBox ID="cb" Canvas.Top="2" Canvas.Left="2"  IsCheckedChanged="HandleChange"><Image Source="data\flower2.jpg"/></CheckBox>
+    <Button ID="btn" Canvas.Top="165" Canvas.Left="2" Width="200" Height="35">Click the checkbox</Button>
+
+
+</Canvas>

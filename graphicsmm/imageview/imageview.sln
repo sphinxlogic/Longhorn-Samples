@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageView", "ImageView.csproj", "{C4A8BB41-9C63-41FF-8921-09AF25F651B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4A8BB41-9C63-41FF-8921-09AF25F651B2}.Debug|.NET.ActiveCfg = Debug|.NET
+		{C4A8BB41-9C63-41FF-8921-09AF25F651B2}.Debug|.NET.Build.0 = Debug|.NET
+		{C4A8BB41-9C63-41FF-8921-09AF25F651B2}.Release|.NET.ActiveCfg = Release|.NET
+		{C4A8BB41-9C63-41FF-8921-09AF25F651B2}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

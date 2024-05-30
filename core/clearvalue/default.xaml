@@ -1,0 +1,19 @@
+<FlowPanel ID="root"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+  <def:Code>
+  <![CDATA[
+    void RestoreDefaultProperties(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      btn.ClearValue(System.Windows.FrameworkElement.HeightProperty);
+      btn.ClearValue(System.Windows.FrameworkElement.WidthProperty);
+    }
+ ]]>
+  
+  </def:Code>
+
+<Button ID="btn" DockPanel.Dock="Top" Height="200px" Width="400px" Click="RestoreDefaultProperties">
+Restore Default Height and Width</Button>
+
+</FlowPanel>

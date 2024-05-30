@@ -1,0 +1,27 @@
+<DockPanel ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml/"
+           xmlns:def="Definition"
+	   Loaded="onLoad">
+
+  <Text ID="Text1">Waiting for Click!</Text>
+
+
+  <def:Code>
+  <![CDATA[
+	Dim WithEvents b1 As System.Windows.Controls.Button
+    Public Sub onLoad(sender As object, args As System.EventArgs)
+	b1 = new System.Windows.Controls.Button
+	root.Children.Insert(0, b1)
+
+    End Sub
+
+    Public Sub OnClick(sender As object, args As System.Windows.Controls.ClickEventArgs) Handles b1.Click
+    
+	Text1.TextRange.Text = "Button was clicked!!"
+   End Sub
+
+  ]]>
+  </def:Code>
+
+</DockPanel>
+

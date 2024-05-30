@@ -1,0 +1,12 @@
+
+<Project DefaultTargets="Router">
+   <Target Name="Router">
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 OutputAssembly="Router.exe"
+                 References="system.dll;system.messagebus.dll;system.xml.dll;system.drawing.dll"
+                 Sources="router.cs"
+                 TargetType="exe" />
+
+   </Target>
+</Project>

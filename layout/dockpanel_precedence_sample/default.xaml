@@ -1,0 +1,16 @@
+<Border ID="root"
+           xmlns="http://schemas.microsoft.com/2003/xaml"
+	   Background="white"
+	   BorderThickness="2">
+	<DockPanel Width="400">
+		<Border Background="gray" BorderThickness="1" DockPanel.Dock="Top">
+			<Button>Button 1</Button>
+		</Border>
+		<Border Background="green" BorderThickness="1" DockPanel.Dock="Bottom">
+			<Button>Button 2</Button>
+		</Border>
+		<Border Background="red" BorderThickness="1" DockPanel.Dock="Fill">
+			<Text Foreground="Black">Hello World!</Text>
+		</Border>
+	</DockPanel>
+</Border>

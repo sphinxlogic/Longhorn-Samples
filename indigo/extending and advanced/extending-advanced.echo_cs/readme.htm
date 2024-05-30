@@ -1,0 +1,222 @@
+<html>
+	
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>The Core Messaging \ Echo Sample</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	color:red;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+span.msoins0
+	{text-decoration:underline;}
+span.msodel0
+	{color:red;
+	text-decoration:line-through;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+	
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<h2><span style='font-family:Arial'>Echo Sample</span></h2>
+
+<h3><span style='font-family:Arial'>"Indigo" - PDC Drop, October 2003</span></h3>
+
+<h3><span style='font-family:Arial'>Contents</span></h3>
+
+<p><span style='font-family:Arial'>This document contains the following
+sections:<br>
+&nbsp;&nbsp;&nbsp;<a href="#Overview">Overview</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#KeyConcepts">Key Concepts</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Building">Building</a><br>
+&nbsp;&nbsp;&nbsp;<a href="#Running">Running</a></span></p>
+
+<h3><span style='font-family:Arial'>Overview</span></h3>
+
+<p><a name="#Overview"></a><span style='font-family:Arial'>The "Longhorn" communications subsystem is code-named "Indigo". The Echo sample
+builds on top of the Datagram sample, specifically adding support for the
+Request-Reply manager.&nbsp; The sample has two components<span class=msoins0><span
+style='text-decoration:none'>,</span></span> EchoClient and EchoService.&nbsp;
+EchoClient reads a line from user<span class=msoins0><span style='text-decoration:
+none'> </span></span>input and sends it to the EchoService.&nbsp; The
+EchoService processes incoming messages, reads the message body, and responds
+to the&nbsp;message with the same body.&nbsp; The EchoClient receives replies
+from the EchoService and prints them to the console.</span></p>
+
+<h3><span style='font-family:Arial'>Key Concepts</span></h3>
+
+<p><a name="#KeyConcepts"></a><b><span style='font-family:Arial'>Configuring a
+SendRequestChannel (EchoClient):</span></b></p>
+
+<pre>&nbsp;</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Get a reference to our ServiceEnvironment's RequestReplyManager.</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RequestReplyManager requestReplyManager = (RequestReplyManager) environment[typeof(RequestReplyManager)];</pre><pre>&nbsp;</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create a SendRequestChannel to the EchoService.</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.sendRequestChannel = requestReplyManager.CreateSendRequestChannel(serviceUri);</pre>
+
+<p><span style='font-family:Arial'>Construct a SendRequestChannel targeted <span
+class=msoins0><span style='text-decoration:none'>to </span></span>the
+EchoService's address.&nbsp; Messages sent on this channel will be automatically
+addressed to the EchoService.&nbsp; This channel will also correlate requests
+with replies <span class=msoins0><span style='text-decoration:none'>by means of
+</span></span>the MessageIDHeader and RelatesToHeader.</span></p>
+
+<p><b><span style='font-family:Arial'>Sending a Message (EchoClient):</span></b></p>
+
+<pre>&nbsp;</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Message reply = this.sendRequestChannel.SendRequest(message);</pre>
+
+<p><span style='font-family:Arial'>Here<span class=msoins0><span
+style='text-decoration:none'>, </span></span>the message is pushed<span
+class=msoins0><span style='text-decoration:none'> </span></span>into the
+SendRequestChannel.&nbsp; At this point, the send channel takes care of sending
+the message to the EchoService.&nbsp;In this example, Send blocks until a reply
+to <span class=msoins0><span style='text-decoration:none'>the m</span></span>essage
+is received.&nbsp; When that <span class=msoins0><span style='text-decoration:
+none'>message </span></span>is received, Send will complete, returning the
+reply <span class=msoins0><span style='text-decoration:none'>m</span></span>essage.</span></p>
+
+<p><b><span style='font-family:Arial'>Replying to a Message (EchoService):</span></b></p>
+
+<pre>&nbsp;</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create a reply message.</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Uri echoReplyAction = new Uri(&quot;http://schemas.microsoft.com/MB/2003/06/Samples/CoreMessaging/Echo/Reply&quot;);</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Message reply = message.CreateReply(echoReplyAction, text);</pre><pre>&nbsp;</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // When we create a reply message (as above), it will add all of the necessary</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // addressing information to the message. As such, we do not need to create</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // a send channel back to the client. Instead, we want to send the message</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // on the Port's default send channel, which knows how to send pre-addressed</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // messages.</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.port.SendChannel.Send(reply);</pre>
+
+<p><span style='font-family:Arial'>Several things are important to note here.&nbsp;
+First, calling message.CreateReply()<span class=msoins0><span style='text-decoration:
+none'> </span></span>returns a new <b>Message</b> object<span class=msoins0><span
+style='text-decoration:none'>,</span></span> complete with appropriate
+addressing information (for example, <b>ToHeader</b>, <b>RelatesToHeader</b>, <b>ReplyInfoHeader</b>).&nbsp;
+Second, <span class=msoins0><span style='text-decoration:none'>the reply</span></span>
+<b>Message</b> <span class=msoins0><span style='text-decoration:none'>is sent
+using </span></span>the <span class=msoins0><span style='text-decoration:none'>port's
+</span></span>default <b>SendChannel</b><span class=msoins0><span
+style='text-decoration:none'>,</span></span> as opposed to an addressed send
+channel as in the DatagramClient case.&nbsp; The <span class=msoins0><span
+style='text-decoration:none'>port's </span></span><b>SendChannel</b> accepts
+only pre-addressed messages<span class=msoins0><span style='text-decoration:
+none'>; it </span></span>would throw an exception if an unaddressed <b>Message</b>
+were passed into the <b>SendChannel</b>.</span></p>
+
+<h3><span style='font-family:Arial'>Building</span></h3>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><a
+name="#Building"></a><span style='font-family:Arial'>1.</span><span
+style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Arial'>Open the <b>Longhorn Build Environment</b> console
+window (click <b>Start</b>, click <b>All Programs</b>, click&nbsp;<b>Microsoft
+Longhorn SDK</b>, click <b>Open Build Environment Window</b>, and click <b>Longhorn
+Build Environment</b>).</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Navigate to the directory where this
+readme is located.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Type <b>MSBuild</b>&nbsp;and press
+ENTER.</span></p>
+
+<h3><span style='font-family:Arial'>Running</span></h3>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><a name="#Running"></a><span
+style='font-family:Arial'>1.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Run EchoService.exe in one
+window.&nbsp;The executable will state that it is now listening on the
+specified Uri.</span><span class=msoins0><span style='font-size:8.0pt;
+font-family:Arial;display:none;text-decoration:none'> </span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>2.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Run EchoClient.exe<span class=msoins0><span
+style='text-decoration:none'>.</span></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>3.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Once EchoClient prompts you to enter a
+message, input text to send it to the server. </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in'><span
+style='font-family:Arial'>4.</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Arial'>Press ENTER to quit either the client or
+the server.</span></p>
+
+<p><span style='font-family:Arial'>--</span></p>
+
+</div>
+
+</body>
+
+</html>

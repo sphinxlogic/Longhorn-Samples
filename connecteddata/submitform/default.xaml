@@ -1,0 +1,56 @@
+<Canvas
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition" def:Language="C#"
+  def:Class="WCPSample.SubmitForm"
+  def:CodeBehind="default.xaml.cs"
+  ID="rootElem"
+  >
+    <Canvas.Resources>
+      <ObjectDataSource def:Name="myDataSource" TypeName="WCPSample.UserProfile,SubmitFormSample" />
+    </Canvas.Resources>
+    <Canvas.DataContext>
+      <Bind DataSource="{myDataSource}"/>
+    </Canvas.DataContext>
+
+    <Text Canvas.Left="10px" Canvas.Top="0" Width="300px" Height="20px">Fill in the form and click Submit to create an account.</Text>
+    <Text Canvas.Left="10px" Canvas.Top="30px">First Name</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="FirstName" Canvas.Top="28px"  Text="*Bind(Path=firstname;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="60px">Last Name</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="LastName" Canvas.Top="58px"  Text="*Bind(Path=lastname;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="90px">Address1</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="Address1" Canvas.Top="88px"  Text="*Bind(Path=address1;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="120px">Address2</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="Address2" Canvas.Top="118px"  Text="*Bind(Path=address2;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="150px">City</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="City" Canvas.Top="148px"  Text="*Bind(Path=city;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="180px">State</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="State" Canvas.Top="178px"  Text="*Bind(Path=state;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="210px">Zip Code</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="ZipCode" Canvas.Top="208px"  Text="*Bind(Path=zipcode;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="240px">Phone Number</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="PhoneNumber" Canvas.Top="238px"  Text="*Bind(Path=phonenumber;UpdateType=Explicit)"/>
+    <Text Canvas.Left="10px" Canvas.Top="270px">Email</Text>
+        <TextBox Canvas.Left="110px" Width="200px" Height="22px" ID="Email" Canvas.Top="268px"  Text="*Bind(Path=email;UpdateType=Explicit)"/>
+
+	<Button Click="OnSubmit" Canvas.Top="300" Canvas.Left="160px" >SUBMIT</Button>
+
+	<TextPanel ID="userdata" Opacity="0" Canvas.Top="330px" Canvas.Left="10" Width="600px" Height="300px">
+		<Paragraph>Verify the the following information is correct and click FINISH.</Paragraph>
+		<Paragraph>
+        <Text Width="100px" TextContent="*Bind(Path=firstname)"></Text>
+        <Text Width="100px" TextContent="*Bind(Path=lastname)"></Text><LineBreak/>
+        <Text Width="100px" TextContent="*Bind(Path=address1)"></Text><LineBreak/>
+        <Text Width="100px" TextContent="*Bind(Path=address2)"></Text><LineBreak/>
+        <Text Width="100px" TextContent="*Bind(Path=city)"></Text>
+        <Text>, </Text>
+        <Text Width="100px" TextContent="*Bind(Path=state)"></Text>
+        <Text Width="100px" TextContent="*Bind(Path=zipcode)"></Text><LineBreak/>
+        <Text Width="100px" TextContent="*Bind(Path=phonenumber)"></Text><LineBreak/>
+        <Text Width="100px" TextContent="*Bind(Path=email)"></Text>
+		</Paragraph>
+	</TextPanel>
+
+    <Button Click="OnFinish" ID="Finish" Canvas.Top="440" Canvas.Left="160px" Opacity="0">FINISH</Button>
+
+
+</Canvas>

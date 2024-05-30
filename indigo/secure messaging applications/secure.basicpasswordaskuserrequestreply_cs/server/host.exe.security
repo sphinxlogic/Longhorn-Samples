@@ -1,0 +1,18 @@
+<securityData>
+    <credentials>
+        <username id="mainUsers" nonceLength="24">
+            <memoryPasswordResolver>
+                <add user="user1" password="password1" />
+		<add user="user2" password="password2" />
+            </memoryPasswordResolver>
+        </username>
+    </credentials>
+     <authorizationData>
+        <memoryMapping id="mainAuthorizationData">
+            <globalEntries>
+                <userNameRoleAssignment user = "user1" roles = "StandardUserRole"/>
+		<userNameRoleAssignment user = "user2" roles = "StandardUserRole"/>
+            </globalEntries>
+        </memoryMapping>
+    </authorizationData>
+</securityData>

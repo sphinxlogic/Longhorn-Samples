@@ -1,0 +1,35 @@
+<Canvas xmlns="http://schemas.microsoft.com/2003/xaml">
+	    
+  <Rectangle 
+    Fill="VerticalGradient Blue Green"
+    RectangleLeft="20"
+    RectangleTop="20"
+    RectangleWidth="100"
+    RectangleHeight="100">
+  </Rectangle>
+
+  <Rectangle  
+    Fill="HorizontalGradient Blue Red"
+    RectangleLeft="120"
+    RectangleTop="120"
+    RectangleWidth="100"
+    RectangleHeight="100">
+  </Rectangle>
+
+  <Rectangle 
+    Fill="LinearGradient 0.1,0.1 0.5,0.5 Blue Green"
+    RectangleLeft="220"
+    RectangleTop="220"
+    RectangleWidth="100"
+    RectangleHeight="100">
+  </Rectangle>
+
+  <Rectangle  
+    Fill="RadialGradient Blue Red"
+    RectangleLeft="320"
+    RectangleTop="320"
+    RectangleWidth="100"
+    RectangleHeight="100">
+  </Rectangle>
+
+</Canvas>

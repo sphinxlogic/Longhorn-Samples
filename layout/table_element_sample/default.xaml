@@ -1,0 +1,93 @@
+<Table 
+  xmlns="http://schemas.microsoft.com/2003/xaml"
+  xmlns:def="Definition"
+  Width="100%"
+  CellSpacing="5">
+	
+	<Column Width="25%"/>
+	<Column Width="25%"/>
+	<Column Width="25%"/>
+	<Column Width="25%"/>
+
+   <Header>
+      <Row>
+         <Cell ColumnSpan="4"><Text FontSize="24pt" FontWeight="Bold">Planetary Information</Text></Cell>
+      </Row>
+      <Row>
+         <Cell><Text>Planet</Text></Cell>
+         <Cell><Text>Distance from Sun</Text></Cell>
+         <Cell><Text>Diameter</Text></Cell>
+         <Cell><Text>Mass</Text></Cell>
+      </Row>
+   </Header>
+
+   <Body>
+      <Row>
+         <Cell ColumnSpan="4"><Text FontSize="14pt" FontWeight="Bold">The Inner Planets</Text></Cell>
+      </Row>
+      <Row>
+         <Cell><Text>Mercury</Text></Cell>
+         <Cell><Text>57,910,000 km</Text></Cell>
+         <Cell><Text>4,880 km</Text></Cell>
+         <Cell><Text>3.30e23 kg</Text></Cell>
+      </Row>
+      <Row Background="lightgray">
+         <Cell><Text>Venus</Text></Cell>
+         <Cell><Text>108,200,000 km</Text></Cell>
+         <Cell><Text>12,103.6 km</Text></Cell>
+         <Cell><Text>4.869e24 kg</Text></Cell>
+      </Row>
+      <Row>
+         <Cell><Text>Earth</Text></Cell>
+         <Cell><Text>149,600,000 km</Text></Cell>
+         <Cell><Text>12,756.3 km</Text></Cell>
+         <Cell><Text>5.972e24 kg</Text></Cell>
+      </Row>
+      <Row Background="lightgray">
+         <Cell><Text>Mars</Text></Cell>
+         <Cell><Text>227,940,000 km</Text></Cell>
+         <Cell><Text>6,794 km</Text></Cell>
+         <Cell><Text>6.4219e23 kg</Text></Cell>
+      </Row>
+      <Row>
+         <Cell ColumnSpan="4"><Text FontSize="14pt" FontWeight="Bold">The Outer Planets</Text></Cell>
+      </Row>
+      <Row>
+         <Cell><Text>Jupiter</Text></Cell>
+         <Cell><Text>778,330,000 km</Text></Cell>
+         <Cell><Text>142,984 km</Text></Cell>
+         <Cell><Text>1.900e27 kg</Text></Cell>
+      </Row>
+      <Row Background="lightgray">
+         <Cell><Text>Saturn</Text></Cell>
+         <Cell><Text>1,429,400,000 km</Text></Cell>
+         <Cell><Text>120,536 km</Text></Cell>
+         <Cell><Text>5.68e26 kg</Text></Cell>
+      </Row>
+      <Row>
+         <Cell><Text>Uranus</Text></Cell>
+         <Cell><Text>2,870,990,000 km</Text></Cell>
+         <Cell><Text>51,118 km</Text></Cell>
+         <Cell><Text>8.683e25 kg</Text></Cell>
+      </Row>
+      <Row Background="lightgray">
+         <Cell><Text>Neptune</Text></Cell>
+         <Cell><Text>4,504,000,000 km</Text></Cell>
+         <Cell><Text>49,532 km</Text></Cell>
+         <Cell><Text>1.0247e26 kg</Text></Cell>
+      </Row>
+   </Body>
+
+   <Footer>
+      <Row>
+         <Cell ColumnSpan="4"><Text FontSize="10pt" FontStyle="Italic">Information from the <HyperLink 
+NavigateUri="http://encarta.msn.com/encnet/refpages/artcenter.aspx">Encarta</HyperLink> web site.</Text></Cell>
+      </Row>
+   </Footer>
+</Table>  
+
+ 
+
+
+
+

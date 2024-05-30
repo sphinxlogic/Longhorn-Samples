@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "freeze_markup", "freeze_markup.csproj", "{4791A13F-56E6-479D-B71B-8E42B3CEF0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4791A13F-56E6-479D-B71B-8E42B3CEF0C3}.Debug|.NET.ActiveCfg = Debug|.NET
+		{4791A13F-56E6-479D-B71B-8E42B3CEF0C3}.Debug|.NET.Build.0 = Debug|.NET
+		{4791A13F-56E6-479D-B71B-8E42B3CEF0C3}.Release|.NET.ActiveCfg = Release|.NET
+		{4791A13F-56E6-479D-B71B-8E42B3CEF0C3}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

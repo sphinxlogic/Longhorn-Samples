@@ -1,0 +1,32 @@
+<DockPanel ID="ParentElement"
+xmlns="http://schemas.microsoft.com/2003/xaml"
+xmlns:def="Definition">
+
+<Text DockPanel.Dock="Top" ID="TxtDisplay"></Text>
+
+<DockPanel Width="200px" Height="200px" ID="oParent">
+    <Button Click="ChangeParentBackground" DockPanel.Dock="Top">Remove me and my siblings</Button>
+    <Text DockPanel.Dock="Top">Sibling 1</Text>
+    <Text DockPanel.Dock="Top">Sibling 2</Text>
+</DockPanel>
+
+<def:Code>
+<![CDATA[
+    void ChangeParentBackground(object sender, System.Windows.Controls.ClickEventArgs e)
+    {
+      // Cast the source object as a ILogicalTreeNode interface so it can be used to walk
+      // the generic logical tree.
+      System.Windows.ILogicalTreeNode sourceNode = (System.Windows.ILogicalTreeNode)sender;
+      // Get the parent of the source.
+      System.Windows.ILogicalTreeNode parentNode = sourceNode.Parent;
+      // If the parent is a DockPanel then clear the children of the DockPanel.
+      if(parentNode is System.Windows.Controls.DockPanel)
+      {
+        System.Windows.Controls.DockPanel dp = (System.Windows.Controls.DockPanel)parentNode;
+        dp.Children.Clear();
+      }
+
+    }
+]]>
+</def:Code>
+</DockPanel>

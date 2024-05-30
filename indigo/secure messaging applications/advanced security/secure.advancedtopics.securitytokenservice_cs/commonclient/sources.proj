@@ -1,0 +1,24 @@
+<Project DefaultTargets="Client">
+   <Target Name="Client">
+
+      <Task Name="Exec"
+          Command="wsdlgen /nologo ..\server\www_tempuri_org.quickstarts.wsdl ..\server\schemas_microsoft_com.serialization.2003.02.DefaultDocumentElement.xsd ..\server\www_tempuri_org.quickstarts.xsd" />
+
+      <Task Name="Csc"               
+                 EmitDebugInformation="true"
+                 NoConfig="true"
+                 OutputAssembly="client.exe"
+                 References="system.messagebus.dll;system.dll"
+                 Sources="client.cs;www_tempuri_org.quickstarts.cs"
+                 TargetType="exe"
+                 WarningLevel="4" />
+
+      <Task Name="Exec"
+          Command="copy client.exe ..\UserNameClient\UserNameClient.exe" />
+
+      <Task Name="Exec"
+          Command="copy client.exe ..\X509Client\X509Client.exe" />
+
+   </Target>
+
+</Project>
